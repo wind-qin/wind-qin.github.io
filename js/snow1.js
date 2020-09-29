@@ -26,7 +26,7 @@
 	}).animate({
 		top: endPositionTop,
 		left: endPositionLeft,
-		opacity: 0.5
+		opacity: 0.1
 	},durationFall,'linear',function(){
 		$(this).remove()
 	});
