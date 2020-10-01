@@ -8,6 +8,7 @@
     position: relative;
     margin: 0 3px !important;
     padding: 0;
+	
 }
 .github-emoji:hover{
     animation: emoji-face 5s infinite ease-in-out;
