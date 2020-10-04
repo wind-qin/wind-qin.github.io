@@ -40,7 +40,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -460,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-29
+                    2020-10-04
                 </div>
                 
 
@@ -497,12 +498,15 @@
 <h3 id="java类的结构"><a href="#java类的结构" class="headerlink" title="java类的结构"></a>java类的结构</h3><p>​                1.编写源文件（后缀名    .java）</p>
 <p>​                2.编译            （后缀名    .class）</p>
 <p>​                3.运行</p>
-<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> 类名<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​    <code>注意：main方法是java程序的入口</code></p>
 <h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><p>​    输出语句</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.print(<span class="string">&quot;\n&quot;</span>);<span class="comment">//输出完之后不会换行</span></span><br><span class="line">System.out.println(<span class="string">&quot;\n&quot;</span>);<span class="comment">//输出完之后换行显示</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出完之后不会换行</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出完之后换行显示</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​    转义符：</p>
 <p>​    \n    换行，相当于输出完一句话按了回车键</p>
 <p>​    \t    大空格，相当于Tab键</p>
@@ -510,8 +514,7 @@
 <p>​    1.单行注释    //注释的内容</p>
 <p>​    2.多行注释    /* 注释内容 */</p>
 <p>​    变量：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">color=red; 内存中一块储存空间的表示</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-html"><code class="language-html">color=red; 内存中一块储存空间的表示<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="变量的数据类型："><a href="#变量的数据类型：" class="headerlink" title="变量的数据类型："></a>变量的数据类型：</h3><p>​    1.基本类型</p>
 <p>​        八种基本数据类型</p>
 <p>​        byte(1个字节) short(2个字节) int(4个字节) long(8个字节) </p>
@@ -544,16 +547,18 @@
 <p>​        2.)在程序中导入Scanner类  在类的外面写</p>
 <p>​        <code>import java.util.Scanner;</code></p>
 <p>​        3.)从键盘接收数据赋值给变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String name=input.next();<span class="comment">//接收String类型的值</span></span><br><span class="line"><span class="keyword">int</span> javaScore=input.nextInt();<span class="comment">//接收int类型的值</span></span><br><span class="line"><span class="keyword">double</span> height=input.nextDouble();<span class="comment">//接收double类型的值</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-java"><code class="language-java">    String name<span class="token operator">=</span>input<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//接收String类型的值</span>
+    <span class="token keyword">int</span> javaScore<span class="token operator">=</span>input<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//接收int类型的值</span>
+    <span class="token keyword">double</span> height<span class="token operator">=</span>input<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//接收double类型的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><h4 id="声明和使用步骤"><a href="#声明和使用步骤" class="headerlink" title="声明和使用步骤 :"></a>声明和使用步骤 :</h4><p>​            1.声明  2.分配空间  3.赋值  4.使用</p>
 <p>​            注意: </p>
 <p>​                声明同时分配空间: 数据类型[] 数组名=new 数据类型[数组长度];</p>
 <p>​                数组下标从0开始  数组元素最大下标值是 length-1</p>
 <p>​                声明的时候赋值:  数据类型[] 数组名=new 数据类型[]{值1,值2,值3,….} //注意,后面的括号中不能写长度</p>
 <p>​                          数据类型[] 数组名={值1,值2,值3,….}//不可拆分</p>
-<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;数组名.length;i++)&#123;</span><br><span class="line">			System.out.println(数组名[下标]);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><pre class="line-numbers language-java"><code class="language-java"> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>数组名<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>数组名<span class="token punctuation">[</span>下标<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="数组的应用"><a href="#数组的应用" class="headerlink" title="数组的应用"></a>数组的应用</h4><p>​            ①    数组排序</p>
 <p>​                            使用Arrays类sort方法排序，默认升序排列</p>
 <p>​                            步骤：</p>
@@ -565,8 +570,13 @@
 <p>​                        2）.循环数组元素依次与最大值比较</p>
 <p>​                关键代码：</p>
 <p>​                                ```</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max=数组[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;数组名.lenght;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(数组名[i]&gt;max)&#123;</span><br><span class="line">		max=数组名[i];</span><br><span class="line">	</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">int</span> max<span class="token operator">=</span>数组<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>数组名<span class="token punctuation">.</span>lenght<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>数组名<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>max<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        max<span class="token operator">=</span>数组名<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​            ③向数组中插入元素</p>
 <p>​            实现思路</p>
 <p>​            a)找到待插入元素的下标</p>
@@ -598,29 +608,42 @@
 <p>​                圆角矩形 —&gt;开始或者结束</p>
 <h4 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h4><p>1）简单的if选择结构</p>
 <p>​        语法结构：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">boolean</span>类型的值)&#123;</span><br><span class="line">       <span class="comment">//代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">boolean</span>类型的值<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//代码块</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>2）if–else选择结构——用于两种分支判断的情形</p>
 <p>​        语法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line">	<span class="comment">//代码块1</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="comment">//代码块2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//代码块1</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//代码块2</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3）多重if语句：用于区间连续情形</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>()&#123;</span><br><span class="line">		</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5)switch选择结构—用于判断价值</p>
 <ol>
-<li><pre><code class="java">switch(变量)&#123;
-    case    常量1：
-        //代码块
-        break;
-    case    常量2：
-        //代码块
-        break;
-        ...
-    default:
-            //代码块    
-        break;
-&#125;</code></pre>
+<li><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">switch</span><span class="token punctuation">(</span>变量<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span>    常量<span class="token number">1</span>：
+        <span class="token comment" spellcheck="true">//代码块</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span>    常量<span class="token number">2</span>：
+        <span class="token comment" spellcheck="true">//代码块</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+            <span class="token comment" spellcheck="true">//代码块    </span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 
@@ -1721,7 +1744,7 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":false,"hitokoto":false},"search":{"path":"search.xml","field":"post"}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":false,"hitokoto":false}});</script></body>
 	<script src="/js/snow1.js"></script>
 	
 	<script type="text/javascript">
