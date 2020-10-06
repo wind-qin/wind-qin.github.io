@@ -1,4 +1,13 @@
 /*全局基础样式*/
+
+/*不蒜子保持显示*/
+
+#busuanzi_container_site_pv,
+#busuanzi_value_site_pv,
+#busuanzi_container_site_uv {
+    display: inline !important;
+}
+
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
     .container {
