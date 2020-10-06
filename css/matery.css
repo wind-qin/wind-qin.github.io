@@ -280,12 +280,12 @@ mark {
 }
 
 .progress-bar {
-    height: 4px;
+/*    height: 4px;
     position: fixed;
     bottom: 0;
     z-index: 300;
     background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
-    opacity: 0.8;
+    opacity: 0.8; */
 }
 
 .sidenav-overlay {
