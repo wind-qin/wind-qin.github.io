@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>博客</title>
+      <link href="2020/10/05/hello-world/"/>
+      <url>2020/10/05/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>简单写一些关于优化hexo博客的内容，后续陆续补充.</p><h3 id="一-添加动态标题"><a href="#一-添加动态标题" class="headerlink" title="一.添加动态标题"></a>一.添加动态标题</h3><p>在matery/layout/layout.ejs下添加如下内容.</p><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;            var OriginTitile=document.title,st;             document.addEventListener(&quot;visibilitychange&quot;,function()&#123;                 document.hidden?(document.title=&quot;ヽ(●-`Д´-)ノ你要玩捉迷藏嘛&quot;,clearTimeout(st)):(document.title=&quot;(Ő∀Ő3)ノ好哦！&quot;,st=setTimeout(function()&#123;document.title=OriginTitile&#125;,3e3))                 &#125;)&lt;/script&gt;</code></pre><h3 id="二-配置音乐播放器"><a href="#二-配置音乐播放器" class="headerlink" title="二.配置音乐播放器"></a>二.配置音乐播放器</h3><p> 要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可： </p><pre><code># 是否在首页显示音乐music:  enable: true  title:             # 非吸底模式有效    enable: true    show: 听听音乐  server: netease   # require music platform: netease, tencent, kugou, xiami, baidu  type: playlist    # require song, playlist, album, search, artist  id: 503838841     # require song id / playlist id / album id / search keyword  fixed: false      # 开启吸底模式  autoplay: false   # 是否自动播放  theme: &#39;#42b983&#39;  loop: &#39;all&#39;       # 音频循环播放, 可选值: &#39;all&#39;, &#39;one&#39;, &#39;none&#39;  order: &#39;random&#39;   # 音频循环顺序, 可选值: &#39;list&#39;, &#39;random&#39;  preload: &#39;auto&#39;   # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效  listFolded: true  # 列表默认折叠</code></pre><blockquote><p><code>server</code>可选<code>netease</code>（网易云音乐），<code>tencent</code>（QQ音乐），<code>kugou</code>（酷狗音乐），<code>xiami</code>（虾米音乐），</p><p><code>baidu</code>（百度音乐）。</p><p><code>type</code>可选<code>song</code>（歌曲），<code>playlist</code>（歌单），<code>album</code>（专辑），<code>search</code>（搜索关键字），<code>artist</code>（歌手）</p><p>id获取方法示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，浏览器地址栏后面会有一串数字，<code>playlist</code>的<code>id</code></p><p>即为这串数字。</p></blockquote><h3 id="三-简单内部配置"><a href="#三-简单内部配置" class="headerlink" title="三.简单内部配置"></a>三.简单内部配置</h3><h4 id="1-切换主题"><a href="#1-切换主题" class="headerlink" title="1.切换主题"></a>1.切换主题</h4><p> 修改 Hexo 根目录下的 <code>_config.yml</code> 的  <code>theme</code> 的值：<code>theme: hexo-theme-matery</code> </p><h4 id="2-config-yml-文件的其它修改建议"><a href="#2-config-yml-文件的其它修改建议" class="headerlink" title="2._config.yml 文件的其它修改建议:"></a>2.<code>_config.yml</code> 文件的其它修改建议:</h4><ul><li>请修改 <code>_config.yml</code> 的 <code>url</code> 的值为你的网站主 <code>URL</code>（如：<code>http://xxx.github.io</code>）。</li><li>建议修改两个 <code>per_page</code> 的分页条数值为 <code>6</code> 的倍数，如：<code>12</code>、<code>18</code> 等，这样文章列表在各个屏幕下都能较好的显示。</li><li>如果你是中文用户，则建议修改 <code>language</code> 的值为 <code>zh-CN</code>。</li></ul><h4 id="3-新建分类-categories-页"><a href="#3-新建分类-categories-页" class="headerlink" title="3.新建分类 categories 页"></a>3.新建分类 categories 页</h4><p> <code>categories</code> 页是用来展示所有分类的页面，如果在你的博客 <code>source</code> 目录下还没有 <code>categories/index.md</code> 文件，那么你就需要新建一个，命令如下： </p><pre><code>hexo new page &quot;categories&quot;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客</title>
+      <link href="2020/10/05/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/"/>
+      <url>2020/10/05/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<p>简单写一些关于优化hexo博客的内容，后续陆续补充.</p><h3 id="一-添加动态标题"><a href="#一-添加动态标题" class="headerlink" title="一.添加动态标题"></a>一.添加动态标题</h3><p>在matery/layout/layout.ejs下添加如下内容.</p><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;            var OriginTitile=document.title,st;             document.addEventListener(&quot;visibilitychange&quot;,function()&#123;                 document.hidden?(document.title=&quot;ヽ(●-`Д´-)ノ你要玩捉迷藏嘛&quot;,clearTimeout(st)):(document.title=&quot;(Ő∀Ő3)ノ好哦！&quot;,st=setTimeout(function()&#123;document.title=OriginTitile&#125;,3e3))                 &#125;)&lt;/script&gt;</code></pre><h3 id="二-配置音乐播放器"><a href="#二-配置音乐播放器" class="headerlink" title="二.配置音乐播放器"></a>二.配置音乐播放器</h3><p> 要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可： </p><pre><code># 是否在首页显示音乐music:  enable: true  title:             # 非吸底模式有效    enable: true    show: 听听音乐  server: netease   # require music platform: netease, tencent, kugou, xiami, baidu  type: playlist    # require song, playlist, album, search, artist  id: 503838841     # require song id / playlist id / album id / search keyword  fixed: false      # 开启吸底模式  autoplay: false   # 是否自动播放  theme: &#39;#42b983&#39;  loop: &#39;all&#39;       # 音频循环播放, 可选值: &#39;all&#39;, &#39;one&#39;, &#39;none&#39;  order: &#39;random&#39;   # 音频循环顺序, 可选值: &#39;list&#39;, &#39;random&#39;  preload: &#39;auto&#39;   # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效  listFolded: true  # 列表默认折叠</code></pre><blockquote><p><code>server</code>可选<code>netease</code>（网易云音乐），<code>tencent</code>（QQ音乐），<code>kugou</code>（酷狗音乐），<code>xiami</code>（虾米音乐），</p><p><code>baidu</code>（百度音乐）。</p><p><code>type</code>可选<code>song</code>（歌曲），<code>playlist</code>（歌单），<code>album</code>（专辑），<code>search</code>（搜索关键字），<code>artist</code>（歌手）</p><p>id获取方法示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，浏览器地址栏后面会有一串数字，<code>playlist</code>的<code>id</code></p><p>即为这串数字。</p></blockquote><h3 id="三-简单内部配置"><a href="#三-简单内部配置" class="headerlink" title="三.简单内部配置"></a>三.简单内部配置</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客</title>
+      <link href="2020/10/05/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+      <url>2020/10/05/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java基础</title>
       <link href="2020/10/05/java%E5%9F%BA%E7%A1%80/"/>
       <url>2020/10/05/java%E5%9F%BA%E7%A1%80/</url>
@@ -21,31 +96,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>博客</title>
-      <link href="2020/10/05/hello-world/"/>
-      <url>2020/10/05/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 博客 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 博客 </tag>
             
         </tags>
       
