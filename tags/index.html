@@ -308,19 +308,19 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
+                <a href="/tags/Java/" title="Java: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="博客" style="background-color: #F9EBEA;">博客
+                            data-tagname="Java" style="background-color: #F9EBEA;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Java/" title="Java: 1">
+                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Java" style="background-color: #F5EEF8;">Java
+                            data-tagname="博客" style="background-color: #F5EEF8;">博客
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -349,7 +349,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"博客","weight":1,"link":"/tags/博客/"},{"text":"Java","weight":1,"link":"/tags/Java/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"Java","weight":1,"link":"/tags/Java/"},{"text":"博客","weight":1,"link":"/tags/博客/"}], {
         autoResize: true
     });
 </script>
@@ -616,7 +616,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":false,"hitokoto":false}});</script></body>
 	<script src="/js/snow1.js"></script>
 	
@@ -625,4 +624,10 @@ $(function () {
 	if (windowWidth > 768) { 
 		document.write('<script type="text/javascript" src="/js/sakura.js">
 		<\/script>'); } </script>
+	<script type="text/javascript">
+		var OriginTitile=document.title,st; 
+		document.addEventListener("visibilitychange",function(){ 
+			document.hidden?(document.title="咦，你去哪了！",clearTimeout(st)):(document.title="我回来喽！",st=setTimeout(function(){document.title=OriginTitile},3e3)) 
+			})</script>
+	
 </html>
