@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-10
+                    2020-10-13
                 </div>
 				<div class="info-break-policy">
 					 
@@ -438,7 +438,7 @@
             <div id="articleContent">
                 <h3 id="电商管理系统"><a href="#电商管理系统" class="headerlink" title="电商管理系统"></a>电商管理系统</h3><p>第一步：先创建四大类，分别为 商品类（Article）、商品集合类（ArticleSet）、商品管理类（ArticleManage）、商品测试类（Demo）. </p>
 <p>代码如下：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+<h4 id="商品类"><a href="#商品类" class="headerlink" title="商品类"></a>商品类</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
  * 商品类
  *
  */</span>
@@ -451,7 +451,7 @@
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>index<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>price<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>amount<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+<h4 id="商品集合类"><a href="#商品集合类" class="headerlink" title="商品集合类"></a>商品集合类</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
  * 商品集合类
  *
  */</span>
@@ -459,7 +459,7 @@
     Article<span class="token punctuation">[</span><span class="token punctuation">]</span> articles<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Article</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
+<h4 id="商品管理类"><a href="#商品管理类" class="headerlink" title="商品管理类"></a>商品管理类</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">/**
  * 商品管理类
@@ -678,7 +678,7 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>    
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+<h4 id="商品测试类"><a href="#商品测试类" class="headerlink" title="商品测试类"></a>商品测试类</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
  *商品测试类
  */</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
