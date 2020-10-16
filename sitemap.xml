@@ -102,14 +102,14 @@
 
   
   <url>
-    <loc>http://example.com/tags/Typora/</loc>
+    <loc>http://example.com/tags/Java/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Java/</loc>
+    <loc>http://example.com/tags/Typora/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -139,14 +139,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/Typora/</loc>
+    <loc>http://example.com/categories/Java/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/Java/</loc>
+    <loc>http://example.com/categories/Typora/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
