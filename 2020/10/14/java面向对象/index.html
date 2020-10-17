@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    16 分
                 </div>
                 
 
@@ -795,6 +795,193 @@ class：
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"玩"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="类和对象-1"><a href="#类和对象-1" class="headerlink" title="类和对象"></a>类和对象</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a><font color='red'>对象的创建</font></h3><p>参考Scanner的创建，依葫芦画瓢</p>
+<pre class="line-numbers language-java"><code class="language-java">Scanner sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 格式：</span>
+    类名 对象名 <span class="token operator">=</span> <span class="token keyword">new</span> 类名<span class="token punctuation">(</span><span class="token punctuation">[</span>参数<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java">Person person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a><font color='red'>对象的使用</font></h3><p>参考数组和 Scanner 的使用，依葫芦画瓢</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+array<span class="token punctuation">.</span>length
+    <span class="token comment" spellcheck="true">// 注意：这里没有 ()，说明这不是方法，那它是什么？我们用它来表示数组的长度，数组的长度是数组的一个属性</span>
+
+Scanner sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+sc<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java">格式：
+    使用成员变量：
+        对象名<span class="token punctuation">.</span>成员变量
+
+    使用成员方法：
+        对象名<span class="token punctuation">.</span>成员方法<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 通过Person类对象person操作name、sex、age属性</span>
+<span class="token comment" spellcheck="true">// 进行赋值操作</span>
+person<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 通过person进行取值操作</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>sex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+person<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>. 的含义是 “的”</p>
+<p>person.name：person的name</p>
+<p>person.age：person的年龄</p>
+<p>person.sex：person的性别</p>
+</blockquote>
+<blockquote>
+<p>扩展：</p>
+<p>如果直接打印对象名，会得到一个对象的【地址】，这个地址包含两部分：1、完整的包名；2、当前对象存储在堆区内存中的空间首地址</p>
+</blockquote>
+<h3 id="对象内存分析图"><a href="#对象内存分析图" class="headerlink" title="对象内存分析图"></a>对象内存分析图</h3><table>
+<thead>
+<tr>
+<th align="center">对象内存分析图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="http://qinjunxiang.gitee.io/Pictures/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A101.png"></td>
+</tr>
+</tbody></table>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>没听懂没关系，多敲代码，读着代码就懂了</p>
+<p>生活中的类和对象</p>
+<ul>
+<li>类是事物的统称，是一个抽象的概念</li>
+<li>对象是事物的表现，是具体的，独一无二的</li>
+</ul>
+<p>Java中的类和对象</p>
+<ul>
+<li>类是对象的抽象，具有公共的特征和行为，对象是类的具体实现，具有唯一的特征和行为</li>
+</ul>
+<p>基础数据类型与类和对象</p>
+<ul>
+<li>类就是一种自定义的数据类型，由类名，属性和方法构成</li>
+<li>对象就是一种数据类型的数据，由对象名，属性和方法构成</li>
+</ul>
+<p>类和对象的定义和使用</p>
+<ul>
+<li>格式和规范，一定要按照标准</li>
+</ul>
+<p><strong>注意</strong></p>
+<pre class="line-numbers language-shell"><code class="language-shell">大写开头的都是类
+小写开头的都是变量
+带()的都是方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><h3 id="引言-1"><a href="#引言-1" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>构造方法很重要，但是比较鸡肋</p>
+</blockquote>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>构造方法（<code>Constructor</code>）的名称和类名相同，没有返回值类型。</p>
+<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>类中的特殊方法，用于<font color='red'>创建对象</font>，在创建对象的时候会执行一些初始化操作，如给成员属性赋初值</p>
+<h3 id="格式-1"><a href="#格式-1" class="headerlink" title="格式"></a>格式</h3><pre class="line-numbers language-java"><code class="language-java">格式：
+    类名<span class="token punctuation">(</span><span class="token punctuation">[</span>参数<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><font color='red'>注意</font>：格式问题</p>
+<blockquote>
+<p>1、构造方法的方法名与类名完全相同</p>
+<p>2、构造方法没有返回值类型</p>
+<p>3、创建对象时，触发构造方法的调用，不可手动调用</p>
+<p>4、如果没有声明构造方法，编译器默认生成无参构造方法</p>
+<p>5、如果定义了有参构造方法，编译器就不会创建无参构造方法</p>
+<p>【<font color='red'>强制要求</font>】</p>
+<pre class="line-numbers language-shell"><code class="language-shell">无论什么时候，都要加上一个无参构造方法！！！<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h3 id="构造方法的使用"><a href="#构造方法的使用" class="headerlink" title="构造方法的使用"></a>构造方法的使用</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 自定义有参构造方法，并给name属性赋值</span>
+<span class="token function">Dog</span><span class="token punctuation">(</span>String n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    name <span class="token operator">=</span> n<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 自定义无参构造方法</span>
+<span class="token function">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="构造方法的重载"><a href="#构造方法的重载" class="headerlink" title="构造方法的重载"></a>构造方法的重载</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">Dog</span><span class="token punctuation">(</span>String n<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    name <span class="token operator">=</span> n<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token function">Dog</span><span class="token punctuation">(</span>String n<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    name <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    age <span class="token operator">=</span> i<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<ol>
+<li><p>构造方法是用来创建对象，在创建对象的过程中会进行初始化操作（为对象赋值）</p>
+</li>
+<li><p>构造方法也是方法，除了没有返回值，其他的都跟方法一样</p>
+</li>
+</ol>
+<p>按照方法参数列表的类型、个数、顺序去匹配，如果没有找到对应的就会报错</p>
+<ol start="3">
+<li>无论什么时候，都一定要给一个无参构造方法</li>
+</ol>
+</blockquote>
+<h3 id="扩展：反编译"><a href="#扩展：反编译" class="headerlink" title="扩展：反编译"></a>扩展：反编译</h3><pre class="line-numbers language-shell"><code class="language-shell">javap -c -l -private 类名.class<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="扩展：对象的创建过程"><a href="#扩展：对象的创建过程" class="headerlink" title="扩展：对象的创建过程"></a>扩展：对象的创建过程</h3><pre class="line-numbers language-shell"><code class="language-shell">1、类加载
+2、内存中开辟对象空间
+3、为各个属性赋予初始值
+4、执行构造方法中的代码
+5、将对象的地址赋值给变量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>this代表所在类的对象引用，即当前对象</p>
+<blockquote>
+<p>new 创建出来的对象</p>
+<p>调用方法的对象</p>
+</blockquote>
+<h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><p>1、<font color='red'>调用本类中的属性和方法（区别成员变量和局部变量）</font></p>
+<p>2、调用本类中的其他构造方法：this()</p>
+<pre class="line-numbers language-shell"><code class="language-shell">格式：
+    this([参数...]);
+
+会根据参数列表调用对应的构造方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">Rabbit</span><span class="token punctuation">(</span>String color<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 调用本来中的属性</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token function">Rabbit</span><span class="token punctuation">(</span>String color<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">,</span> <span class="token keyword">double</span> weight<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 调用本类中的其他构造方法</span>
+    <span class="token keyword">this</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> weight<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-shell"><code class="language-shell">1、this()只能在构造方法中使用
+2、this()只能在第一行
+3、构造方法中不能同时出现两个this()，因为2
+4、不能自己调用自己，不能相互调用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="规范化this"><a href="#规范化this" class="headerlink" title="规范化this()"></a>规范化this()</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    String name<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> salary<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Son</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Son</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 调用Son(String name, int age, float salary)</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.0F</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Son</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 调用Son(String name, int age, float salary)</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> <span class="token number">0.0F</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Son</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">,</span> <span class="token keyword">float</span> salary<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>salary <span class="token operator">=</span> salary<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<ul>
+<li>this表示的是当前对象</li>
+<li>this可以调用本类中的属性和方法，最常用与区分成员变量和局部变量</li>
+<li>this还可以调用本类中的构造方法，但是要注意有坑</li>
+</ul>
+</blockquote>
 
             </div>
             <hr/>
