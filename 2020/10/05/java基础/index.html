@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-06
+                    2020-10-19
                 </div>
 				<div class="info-break-policy">
 					 
@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    17 分
                 </div>
                 
 
@@ -668,8 +668,159 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <h4 id="四-面向对象的好处"><a href="#四-面向对象的好处" class="headerlink" title="四.面向对象的好处"></a>四.面向对象的好处</h4><p>​    1.与人类的思维习惯一致`</p>
 <p>​    2.提高了程序的可重用性 </p>
 <p>​    3.信息隐藏，提高了程序的可维护性和安全性  </p>
-<p>​                    </p>
-
+<h3 id="五、类的无参方法"><a href="#五、类的无参方法" class="headerlink" title="五、类的无参方法"></a>五、类的无参方法</h3><p>​    定义格式</p>
+<p>​        public  返回值类型  方法名(){</p>
+<p>​            //方法主体</p>
+<p>​        }</p>
+<h4 id="返回值类型的两种情况"><a href="#返回值类型的两种情况" class="headerlink" title="返回值类型的两种情况"></a>返回值类型的两种情况</h4><p>​        1.有具体的返回值类型    方法体最后一句话要添加return语句,返回相应类型的值</p>
+<p>​        2.没有具体返回值类型 void  方法体中,可以不加return语句</p>
+<p>​    注意：1.所有的数据类型,都可以作为方法的返回值类型</p>
+<p>​    </p>
+<p>​    2.调用带有返回值的方法的时候,一定要读返回值有所处理，要定一个相应类型的变量来接收方法的返回值</p>
+<p>​    \3. return 的作用//1.跳出方法(方法执行到return语句就结束了)  2.返回结果</p>
+<p>​    4.方法不能返回多个值</p>
+<p>​    5.多个方法不能嵌套定义</p>
+<p>​    6.方法外面不能写逻辑代码</p>
+<h4 id="方法调用的两种情况"><a href="#方法调用的两种情况" class="headerlink" title="方法调用的两种情况"></a>方法调用的两种情况</h4><p>​    1.同类之间的方法调用  直接通过  方法名()  来调用</p>
+<p>​    2.不同类的方法   先创建对象  通过  对象名.方法名()  来调用</p>
+<p>方法返回值:</p>
+<p>​    有些方法在执行完成之后,要给调用方法的对象返回一个值</p>
+<h3 id="六、变量的分类"><a href="#六、变量的分类" class="headerlink" title="六、变量的分类"></a>六、变量的分类</h3><h4 id="1-成员变量-："><a href="#1-成员变量-：" class="headerlink" title="1.成员变量 ："></a>1.成员变量 ：</h4><p>定义在类中的，属性的位置</p>
+<p>​           本类，其他类都可以访问（现阶段来说）</p>
+<h4 id="2-局部变量："><a href="#2-局部变量：" class="headerlink" title="2.局部变量："></a>2.局部变量：</h4><p>定义在方法中的</p>
+<p>​           只能在  定义的变量的方法  中使用</p>
+<p>​    变量只能在定义它的大括号的范围内使用</p>
+<p>​    区别：</p>
+<h4 id="1-作用范围"><a href="#1-作用范围" class="headerlink" title="1.作用范围"></a>1.作用范围</h4><h4 id="2-初始值："><a href="#2-初始值：" class="headerlink" title="2.初始值："></a>2.初始值：</h4><p>​              成员变量在没有初始值的情况下，java会给默认的初始值</p>
+<p>​              局部变量不会</p>
+<p>​    注意：同一个方法中不能有同名的局部变量，同一个类中也不能有重复的成员变量</p>
+<p>​       不同的方法中可以存在同名的局部变量</p>
+<p>​       成员变量和局部变量能否定义相同的名字，可以的</p>
+<p>​       局部变量和成员变量可以重名，但是局部变量具有更高的优先级</p>
+<h4 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释  /**  */"></a>文档注释  /**  */</h4><p>​    注释：类，属性，方法</p>
+<p>​    可以把注释的内容抽取出来，显示成文档，方便开发人员使用</p>
+<p>​    @version  版本  </p>
+<p>​    @author  作者</p>
+<p>​    @return  返回值</p>
+<p>​    @param  参数</p>
+<p>​    @exception  异常情况</p>
+<h3 id="七、带参方法"><a href="#七、带参方法" class="headerlink" title="七、带参方法"></a><strong>七、带参方法</strong></h3><p>定义</p>
+<p>​        访问修饰符（public）  返回值类型   方法名（数据类型  变量名,数据类型 变量名….）{</p>
+<p>​            </p>
+<p>​        }</p>
+<p>​        注意:方法定义时的参数列表为形参列表,说明了方法调用的时候需要几个,什么类型的参数，逗号分隔</p>
+<p>调用：</p>
+<h4 id="有返回值"><a href="#有返回值" class="headerlink" title="有返回值"></a>有返回值</h4><p>​            数据类型 变量=对象名.方法名（变量1,变量2,变量3,…..）；</p>
+<p>​        无返回值</p>
+<p>​            对象名.方法名(参数1,参数2,….);</p>
+<p>​        注意:实参是调用方法时小括号里传递的,要和形参列表一一对应</p>
+<p>一个方法可以有无数个参数,一个返回值</p>
+<h4 id="数组当参数的方法"><a href="#数组当参数的方法" class="headerlink" title="数组当参数的方法"></a>数组当参数的方法</h4><p>​    定义:</p>
+<p>​        public  返回值  方法名(数据类型[] 数组名){</p>
+<p>​            return  值;</p>
+<p>​        }</p>
+<h4 id="调用"><a href="#调用" class="headerlink" title="调用:"></a>调用:</h4><p>​        数据类型[] 实参数组名=new 数据类型[长度];</p>
+<p>​        //数组元素的赋值</p>
+<p>​        数据类型  变量= 对象名.方法名(实参数组名);</p>
+<h4 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组:"></a>对象数组:</h4><p>​    定义:</p>
+<p>​        类名[] 数组名=new  类名[数组长度];  如:Student[] stus=new Student[6];</p>
+<p>​    赋值:  1.数组名[下标]=new 类名();      如:stus[0]=new Student();    </p>
+<p>​        数组名[下标].属性</p>
+<p>​        数组名[下标].方法();</p>
+<h4 id="对象作为参数"><a href="#对象作为参数" class="headerlink" title="对象作为参数"></a>对象作为参数</h4><p>​    public  返回值类型  方法名(类名  对象名){</p>
+<p>​    }</p>
+<p>调用:</p>
+<p>​    //创建方法所在类的对象</p>
+<p>​    类名  方法所在类的对象名=new 类名();</p>
+<p>​    </p>
+<p>​    //创建传递参数的对象</p>
+<p>​    类名 对象名=new  类名();</p>
+<p> 方法所在类的对象名.方法名(对象名);</p>
+<h4 id="package-包声明语句"><a href="#package-包声明语句" class="headerlink" title="package 包声明语句"></a>package 包声明语句</h4><p>​    本类所在包的路径,以点号分割</p>
+<p>​    必须是除了注释之外的第一条语句</p>
+<p>import  包导入语句</p>
+<p>​    指明要导入的类的路径,也是以点号分割</p>
+<p>​    包名完整路径.类名 导入某一个类</p>
+<p>​    包名完整路径.*   导入某一个包下面所有的类</p>
+<h4 id="java中包名命名规则"><a href="#java中包名命名规则" class="headerlink" title="java中包名命名规则:"></a>java中包名命名规则:</h4><p>全小写,不能以点号开始或者结束,</p>
+<p>​         有时前面会加上域名和项目组织名称</p>
+<h3 id="八、字符串-String-StringBuffer"><a href="#八、字符串-String-StringBuffer" class="headerlink" title="八、字符串:  String,StringBuffer"></a>八、字符串:  String,StringBuffer</h3><p>调用字符串方法的时候要注意以下几点:</p>
+<p> <strong>1.方法的作用  2.方法的参数  3.方法的返回值</strong></p>
+<p>注意:java jdk 开发工具包中字符串类的定义有final 关键字,final含义是最终的意思,所以字符串对象一经创建,就不能更改</p>
+<p>​        比如:  String s1=”hello”;  s1+=”,world”;  //s1=hello ,world</p>
+<p>​        由于字符串的内容是不能修改的,所以这个例子里面实际上是创建了两个String对象 既:只要对字符串的内容修改一次,就会重新创建一个字符串类的对象</p>
+<h4 id="1-创建字符串对象"><a href="#1-创建字符串对象" class="headerlink" title="1.创建字符串对象"></a><strong>1.创建字符串对象</strong></h4><p>​        String s=””;</p>
+<p>​        String s=new String();</p>
+<p>​        String s=new String(“hello world”);</p>
+<h4 id="2-String类的方法"><a href="#2-String类的方法" class="headerlink" title="2.String类的方法"></a><strong>2.String类的方法</strong></h4><p>​        <strong>调用字符串类的的方法的时候,要注意,方法是否有参数,以及返回值类型</strong></p>
+<p><strong>Ø</strong> 获取字符串长度  返回int类型</p>
+<p>​        </p>
+<p><strong>Ø</strong> <strong><em>equals()</em></strong>:比较字符串内容相等</p>
+<p><strong>注意:如果用”==” 比较字符串的值,实际比较的是两个字符串的地址是否相同</strong></p>
+<p><strong>Ø</strong> <strong><em>equalsIgnoreCase()</em></strong>比较相等时忽略大小写,用法和equals相同</p>
+<p>​        字符串大小写转换</p>
+<p><strong>Ø</strong> <strong><em>toLowerCase()</em></strong> 将字符串全部转化为小写</p>
+<p><strong>Ø</strong> <strong><em>toUpperCase()</em></strong> 将字符串转换成大写</p>
+<p><strong>注意:原来的字符串不会改变,转换之后的会作为返回值返回</strong></p>
+<p>​            <strong>如:</strong></p>
+<p>​            <strong>String name=”tom”;</strong></p>
+<p>​            <strong>String s=name.toUpperCase();</strong></p>
+<p>​            <strong>System.out.println(“name=”+name);// tom</strong></p>
+<p>​            <strong>System.out.println(“s=”+s);//TOM</strong></p>
+<p><strong>Ø</strong> <strong><em>字符串连接的方法</em></strong></p>
+<p><strong></strong> <strong><em>使用”+”拼接字符串</em></strong></p>
+<p><strong>‚</strong> <strong><em>字符串.concat(“”);</em></strong>原来的字符串不会改变,转换之后的会作为返回值返回</p>
+<p>比如:String s=”123”;  String s1= s.concat(“111”);</p>
+<p>​                   输出s的值为  123—-&gt;s还是为原来的值,并没有改变</p>
+<p>​                 输出s1的值  123111—–&gt;拼接的结果是作为返回值,接收输出返回值就是拼接之后的值</p>
+<p><strong>Ø</strong> <strong><em>字符串的提取</em></strong></p>
+<p><strong></strong> <strong><em>字符串.indexOf()</em></strong> </p>
+<p>参数:int或者String </p>
+<p>​                返回值:int  代表要查找字符第一次出现的下标位置</p>
+<p><strong>注意:字符串字符下标从0开始</strong></p>
+<p>​                          <strong>如果没有找到,返回值-1</strong></p>
+<p><strong>‚</strong> <strong><em>字符串.lastIndexOf();</em></strong> </p>
+<p>参数:int或者String </p>
+<p>​                最后一次出现的下标</p>
+<p><strong>ƒ</strong> <strong><em>\</em>字符串.indexOf(int/String , int fromIndex);**</strong> </p>
+<p>从fromindex位置开始的第一次出现的下标位置</p>
+<p><strong>„</strong> <strong><em>\</em>字符串.charAt(int index)**</strong> </p>
+<p> 返回值类型:char  </p>
+<p>​               查找返回  对应下标的字符</p>
+<p>截取字符串:</p>
+<p>​            1.substring(开始的下标)  //截取从下标位置开始到字符串结束  部分的内容</p>
+<p>​             例如:</p>
+<p>​                String s=”郑州职业技术学院”;</p>
+<p>​                String s1=s.substring(2);</p>
+<p>​                System.out.println(“截取出来的字符串是:”+s1);//职业技术学院</p>
+<p>​            2.substring(开始的下标,结束下标)  返回值:String  截取之后的</p>
+<p>​                注意:开始下标从0 计算  结束下标从1开始计算</p>
+<p>去前后空格  :trim()  返回值类型:String   注意:原来的字符串不改变,去掉空格的字符串以返回值的形式返回</p>
+<p>​            String str=”  abc  “;</p>
+<p>​            String str_new=str.trim();  或者  str=str.trim();</p>
+<p>​            str还是带有空格的, str_new 去掉前后空格的</p>
+<p>​        分割字符串:</p>
+<p>​            1.split(String regx); 参数:分隔符  返回值类型:String[] 数组</p>
+<p>​            以分隔符为界限,将字符串分割</p>
+<p>​            2.split(String regx,int limit); 参数:分隔符,分割之后返回的数组元素的个数   返回值类型:String[] 数组</p>
+<p>​            以分隔符为界限,将字符串分割成limit份</p>
+<p>StringBuffer  :String类的增强版</p>
+<p>​        优势:频繁对字符串的内容进行修改的时候要使用这个类</p>
+<p>​        原因是:String对象一经创建,不能更改,如果修改了String对象的内容,系统会新创建一个对象来存放修改之后的内容</p>
+<p>​            但是StringBuffer 存储的字符串的内容可以更改</p>
+<p>​        方法:</p>
+<p>​            1. toString();将StringBuffer的对象转换成String类型</p>
+<p>​                //StringBuffer 和  String 类型相互转化</p>
+<p>​                StringBuffer sb=new StringBuffer(“123”);</p>
+<p>​                String s=sb.toString();</p>
+<p>​        //String —&gt;StringBuffer</p>
+<p>​                String str=”123”;</p>
+<p>​                StringBuffer sb1=new StringBuffer(str);</p>
+<p>​            2. append(); 在字符串后面追加内容</p>
+<p>​            3. StringBuffer对象.insert(int index,要插入的内容); 下标从0开始</p>
+<p>​                将str的内容插入 对象中下标是index位置</p>
+<p>​            4.length()  返回字符串对象的长度</p>
+<h6 id="java虚拟机：是一个可以执行java字节码文件的虚拟的进程，java源文件被编译成能被java虚拟机执行的字节码文件"><a href="#java虚拟机：是一个可以执行java字节码文件的虚拟的进程，java源文件被编译成能被java虚拟机执行的字节码文件" class="headerlink" title="java虚拟机：是一个可以执行java字节码文件的虚拟的进程，java源文件被编译成能被java虚拟机执行的字节码文件"></a>java虚拟机：是一个可以执行java字节码文件的虚拟的进程，java源文件被编译成能被java虚拟机执行的字节码文件</h6>
             </div>
             <hr/>
 
@@ -1168,23 +1319,23 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/07/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/">
+                <a href="/2020/10/05/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="博客的优化">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客">
                         
-                        <span class="card-title">博客的优化</span>
+                        <span class="card-title">博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客优化
+                            博客的创建
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
                         </span>
                         <span class="publish-author">
                             
@@ -1213,21 +1364,21 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/05/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2020/10/05/java%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客">
+                        <img src="/medias/featureimages/0.jpeg" class="responsive-img" alt="Java基础">
                         
-                        <span class="card-title">博客</span>
+                        <span class="card-title">Java基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客的创建
+                            Java基础
                         
                     </div>
                     <div class="publish-info">
@@ -1238,19 +1389,20 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
