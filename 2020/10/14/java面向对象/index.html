@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-22
+                    2020-10-24
                 </div>
 				<div class="info-break-policy">
 					 
@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    32 分
                 </div>
                 
 
@@ -1383,6 +1383,171 @@ Son's Constrator be performed<span aria-hidden="true" class="line-numbers-rows">
 <p>2、super() 和this() 代码不能共存(都必须在首行)，但是实际效果其实是可以的，如果不写 super() 也会自动调用</p>
 <p>3、父类的属性要交给父类的构造方法去操作，没什么事就不要去使用 super() 来调用父类的构造方法了</p>
 </blockquote>
+<h2 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h2><h3 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h3><p>final表示最终的，用来修饰变量，方法和类</p>
+<pre class="line-numbers language-shell"><code class="language-shell">1、final 修饰的局部变量只能被赋值一次
+2、final 修饰的成员变量只能被赋值一次，并且必须在声明时就赋值
+3、final 修饰的基本类型变量是一个常量(只能被赋值一次)，引用类型变量不可修改地址，如对象
+4、final 修饰的方法不能被重写
+5、final 修饰的类不能被继承<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>fc<span class="token punctuation">.</span>j<span class="token punctuation">.</span>_final<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+ * final修饰的局部变量
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FinalDemo1</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 测试final修饰的修饰的变量</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+
+        num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/*
+         * 被final修饰的变量只能赋值一次
+         * 
+         * The final local variable num may already have been assigned
+         * 
+         * 被final修饰的局部变量num可能已经被赋值
+         */</span>
+        <span class="token comment" spellcheck="true">// num = 20;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// final修饰的类不能被继承，断子绝孙</span>
+<span class="token keyword">class</span> <span class="token class-name">Father</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/*
+     * final 修饰的成员变量必须在声明时就赋值
+     * 
+     * The blank final field age may not have been initialized
+     * 空白的final成员变量可能未被初始化
+     */</span>
+     <span class="token comment" spellcheck="true">// final int age;</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"下棋"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Father</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/*
+     *  Cannot override the final method from Father
+     *  无法重写被final修饰的方法
+     */</span>
+<span class="token comment" spellcheck="true">//    @Override</span>
+<span class="token comment" spellcheck="true">//    public final void play() &amp;#123;</span>
+<span class="token comment" spellcheck="true">//        </span>
+<span class="token comment" spellcheck="true">//    &amp;#125;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><p>final修饰可以保证安全性，比如数组的长度属性，String类，这些都是final修饰的，保证不可变</p>
+<h3 id="总结-11"><a href="#总结-11" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>1、final表示最终的，可以修饰变量，属性和方法</p>
+<p>2、final修饰的基本数据类型的成员变量只能被赋值一次</p>
+<p>3、final修饰的引用数据类型的成员变量地址不可变，但不影响地址所指向的对象的操作</p>
+<p>4、final修饰的方法不能被重写</p>
+<p>5、final修饰的类不能被继承</p>
+</blockquote>
+<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="概述-5"><a href="#概述-5" class="headerlink" title="概述"></a>概述</h3><p>static 关键字方便在<strong>没有创建对象的情况下来进行调用方法和变量</strong>(优先级高于对象)，可以用来修饰类的成员方法、类的成员变量，另外可以编写static代码块来优化程序性能</p>
+<h3 id="static变量"><a href="#static变量" class="headerlink" title="static变量"></a>static变量</h3><p>static变量也称作静态变量，静态变量和非静态变量的区别是：静态变量被所有的对象所共享，在内存中只有一个副本，它当且仅当在类初次加载时会被初始化。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PersonDemo</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        Person person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Person person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Person person3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"王五"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Person person4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"赵六"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/*
+         * The static field Person.address should be accessed in a static way
+         * 静态成员变量应该通过静态的方式访问（注意这里是应该，不是必须）
+         * 
+         * Change access to static using 'Person' (declaring type)
+         * 使用Person声明类型来更改对静态的访问
+         * 通过类名来操作成员变量：Person.address
+         */</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"姓名："</span> <span class="token operator">+</span> person1<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">" 年龄："</span> <span class="token operator">+</span> person1<span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">" 地址："</span> <span class="token operator">+</span> Person<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"姓名："</span> <span class="token operator">+</span> person2<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">" 年龄："</span> <span class="token operator">+</span> person2<span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">" 地址："</span> <span class="token operator">+</span> Person<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"姓名："</span> <span class="token operator">+</span> person3<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">" 年龄："</span> <span class="token operator">+</span> person3<span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">" 地址："</span> <span class="token operator">+</span> Person<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"姓名："</span> <span class="token operator">+</span> person4<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">" 年龄："</span> <span class="token operator">+</span> person4<span class="token punctuation">.</span>age <span class="token operator">+</span> <span class="token string">" 地址："</span> <span class="token operator">+</span> Person<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 通过类名直接调用static修饰的成员变量，此时是没有对象的</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"没有对象："</span> <span class="token operator">+</span> Person<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/*
+         *  Cannot make a static reference to the non-static field Person.name
+         *  
+         *  将name添加static后没有报错
+         */</span>
+<span class="token comment" spellcheck="true">//        System.out.println("没有对象：" + Person.name);</span>
+
+        <span class="token comment" spellcheck="true">/*
+         * 通过对象调用statice修饰的成员方法
+         * 
+         * The static method test() from the type Person should be accessed in a static way
+         */</span>
+        <span class="token comment" spellcheck="true">// person1.testStatic();</span>
+
+        <span class="token comment" spellcheck="true">// 通过类名直接调用静态方法</span>
+        Person<span class="token punctuation">.</span><span class="token function">testStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-12"><a href="#总结-12" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-shell"><code class="language-shell">1、通过类名调用静态成员变量，因为静态变量与对象无关
+2、静态变量被所有对象共享，一处更改处处更改<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="static方法"><a href="#static方法" class="headerlink" title="static方法"></a>static方法</h3><p>static方法一般称作静态方法，由于静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有this的，因为它不依附于任何对象，既然都没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> String name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String address <span class="token operator">=</span> <span class="token string">"郑州"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Person</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 自定义static修饰的成员方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*
+         * 静态方法不能调用非静态方法
+         * Cannot make a static reference to the non-static method test() from the type Person
+         */</span>
+        <span class="token comment" spellcheck="true">// test();</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"static mothed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/*
+         * 不能再静态方法中使用this关键字
+         * 
+         * Cannot use this in a static context
+         */</span>
+        <span class="token comment" spellcheck="true">// this.name;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-13"><a href="#总结-13" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-shell"><code class="language-shell">1、static修饰的方法不能访问本类中的非静态变量和方法，不能使用this
+2、通过类名来调用静态成员方法，工具类的应用很广泛<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="总结-14"><a href="#总结-14" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>1、static修饰的成员变量和方法都是对象所共享的资源，对其进行的操作回作用于所有对象。</p>
+<p>2、static修饰的成员变量和方法依赖于类不依赖于对象，即没有对象</p>
+<p>3、static修饰的成员变量和成员方法都可以通过类名调用，没有对象</p>
+<p>4、静态不能调用费静态，不能使用this关键字，没有对象</p>
+<p>5、静态变量常和final关键字搭配作为常量使用，静态方法常用于工具类</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">static成员变量内存分析图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="http://qinjunxiang.gitee.io/Pictures/static%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90%E5%9B%BE.jpg" alt="static成员变量内存分析图"></td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
