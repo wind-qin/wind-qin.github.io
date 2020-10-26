@@ -8,12 +8,12 @@
       <link href="2020/10/26/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"/>
       <url>2020/10/26/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
       
-        <content type="html"><![CDATA[<p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p><h2 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h2><p><a href="https://share.weiyun.com/mSUFa7MN">传送门</a></p><h2 id="2-Github图床设置项"><a href="#2-Github图床设置项" class="headerlink" title="2 Github图床设置项"></a><strong>2 Github图床设置项</strong></h2><p> 必须填写的有三项，仓库名、分支名、Token。其中分支名一般填写master，仓库名的格式为你的github的“用户名/仓库名”，Token是新建仓库后自动生成的。（下一步会讲到）</p>]]></content>
+        <content type="html"><![CDATA[<p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p><h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a href="https://share.weiyun.com/mSUFa7MN">传送门</a></p><h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a><strong>2 安装软件，打开软件，图床设置</strong></h3><p> 图床设置有很多种方法，这里使用的是Github图床</p><p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A%5Cimg20201026145854.png" alt="在这里插入图片描述"></p><h3 id="3-Github图床设置项"><a href="#3-Github图床设置项" class="headerlink" title="3 Github图床设置项"></a><strong>3 Github图床设置项</strong></h3><p> 必须填写的有三项，仓库名、分支名、Token。其中分支名一般填写master，仓库名的格式为你的github的“用户名/仓库名”，Token是新建仓库后自动生成的。（下一步会讲到）</p><p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A/img20201026145854.png"></p><p><strong>4 创建自己的GitHub图床</strong></p><p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A%5Cimg20201026150207.png" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
           
-          <category> 为博客写文章能够快速上传图片 </category>
+          <category> github图床搭建 </category>
           
       </categories>
       
