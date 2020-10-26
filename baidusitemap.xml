@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2020/10/14/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
+    <lastmod>2020-10-26</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2020/10/26/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2020-10-26</lastmod>
   </url>
   <url>
     <loc>http://example.com/2020/10/05/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-10-26</lastmod>
-  </url>
-  <url>
-    <loc>http://example.com/2020/10/14/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
-    <lastmod>2020-10-24</lastmod>
   </url>
   <url>
     <loc>http://example.com/2020/10/15/Typora%E7%9A%84%E5%86%99%E6%B3%95/</loc>
