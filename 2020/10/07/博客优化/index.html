@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    442
+                    454
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -439,21 +439,21 @@
                 <p>简单写一些关于优化hexo博客的内容，后续陆续补充.</p>
 <hr>
 <h3 id="一-添加动态标题"><a href="#一-添加动态标题" class="headerlink" title="一.添加动态标题"></a>一.添加动态标题</h3><p>在matery/layout/layout.ejs下添加如下内容.</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-            var OriginTitile=document.title,st; 
-            document.addEventListener(&quot;visibilitychange&quot;,function()&#123; 
-                document.hidden?(document.title=&quot;ヽ(●-`Д´-)ノ你要玩捉迷藏嘛&quot;,clearTimeout(st)):(document.title=&quot;(Ő∀Ő3)ノ好哦！&quot;,st=setTimeout(function()&#123;document.title=OriginTitile&#125;,3e3)) 
-                &#125;)&lt;/script&gt;
-</code></pre><h3 id="二-配置音乐播放器"><a href="#二-配置音乐播放器" class="headerlink" title="二.配置音乐播放器"></a>二.配置音乐播放器</h3><p> 要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可： </p>
-<pre><code># 是否在首页显示音乐
+<pre class="line-numbers language-none"><code class="language-none">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;
+			var OriginTitile&#x3D;document.title,st; 
+			document.addEventListener(&quot;visibilitychange&quot;,function()&#123; 
+				document.hidden?(document.title&#x3D;&quot;ヽ(●-&#96;Д´-)ノ你要玩捉迷藏嘛&quot;,clearTimeout(st)):(document.title&#x3D;&quot;(Ő∀Ő3)ノ好哦！&quot;,st&#x3D;setTimeout(function()&#123;document.title&#x3D;OriginTitile&#125;,3e3)) 
+				&#125;)&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二-配置音乐播放器"><a href="#二-配置音乐播放器" class="headerlink" title="二.配置音乐播放器"></a>二.配置音乐播放器</h3><p> 要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可： </p>
+<pre class="line-numbers language-none"><code class="language-none"># 是否在首页显示音乐
 music:
   enable: true
-  title:             # 非吸底模式有效
+  title:     	    # 非吸底模式有效
     enable: true
     show: 听听音乐
   server: netease   # require music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    # require song, playlist, album, search, artist
-  id: 503838841     # require song id / playlist id / album id / search keyword
+  id: 503838841     # require song id &#x2F; playlist id &#x2F; album id &#x2F; search keyword
   fixed: false      # 开启吸底模式
   autoplay: false   # 是否自动播放
   theme: &#39;#42b983&#39;
@@ -461,8 +461,8 @@ music:
   order: &#39;random&#39;   # 音频循环顺序, 可选值: &#39;list&#39;, &#39;random&#39;
   preload: &#39;auto&#39;   # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
-  listFolded: true  # 列表默认折叠
-</code></pre><blockquote>
+  listFolded: true  # 列表默认折叠<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
 <p><code>server</code>可选<code>netease</code>（网易云音乐），<code>tencent</code>（QQ音乐），<code>kugou</code>（酷狗音乐），<code>xiami</code>（虾米音乐），</p>
 <p><code>baidu</code>（百度音乐）。</p>
 <p><code>type</code>可选<code>song</code>（歌曲），<code>playlist</code>（歌单），<code>album</code>（专辑），<code>search</code>（搜索关键字），<code>artist</code>（歌手）</p>

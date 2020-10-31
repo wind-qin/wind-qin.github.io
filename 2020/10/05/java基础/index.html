@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -444,17 +444,15 @@
 <h3 id="java类的结构"><a href="#java类的结构" class="headerlink" title="java类的结构"></a>java类的结构</h3><p>​                1.编写源文件（后缀名    .java）</p>
 <p>​                2.编译            （后缀名    .class）</p>
 <p>​                3.运行</p>
-<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class 类名&#123;
+<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class 类名&#123;
     public static void main(String[] args)&#123;
-
+        
     &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​    <code>注意：main方法是java程序的入口</code></p>
 <h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><p>​    输出语句</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">System.out.print("\n");//输出完之后不会换行
-System.out.println("\n");//输出完之后换行显示
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">System.out.print(&quot;\n&quot;);&#x2F;&#x2F;输出完之后不会换行
+System.out.println(&quot;\n&quot;);&#x2F;&#x2F;输出完之后换行显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​    转义符：</p>
 <p>​    \n    换行，相当于输出完一句话按了回车键</p>
 <p>​    \t    大空格，相当于Tab键</p>
@@ -462,8 +460,7 @@ System.out.println("\n");//输出完之后换行显示
 <p>​    1.单行注释    //注释的内容</p>
 <p>​    2.多行注释    /<em> 注释内容 </em>/</p>
 <p>​    变量：</p>
-<pre class="line-numbers language-lang-html"><code class="language-lang-html">color=red; 内存中一块储存空间的表示
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">color=red; 内存中一块储存空间的表示<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="变量的数据类型："><a href="#变量的数据类型：" class="headerlink" title="变量的数据类型："></a>变量的数据类型：</h3><p>​    1.基本类型</p>
 <p>​        八种基本数据类型</p>
 <p>​        byte(1个字节) short(2个字节) int(4个字节) long(8个字节) </p>
@@ -495,20 +492,18 @@ System.out.println("\n");//输出完之后换行显示
 <p>​        2.)在程序中导入Scanner类  在类的外面写</p>
 <p>​        <code>import java.util.Scanner;</code></p>
 <p>​        3.)从键盘接收数据赋值给变量</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">    String name=input.next();//接收String类型的值
-    int javaScore=input.nextInt();//接收int类型的值
-    double height=input.nextDouble();//接收double类型的值
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">String name&#x3D;input.next();&#x2F;&#x2F;接收String类型的值
+int javaScore&#x3D;input.nextInt();&#x2F;&#x2F;接收int类型的值
+double height&#x3D;input.nextDouble();&#x2F;&#x2F;接收double类型的值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><h4 id="声明和使用步骤"><a href="#声明和使用步骤" class="headerlink" title="声明和使用步骤 :"></a>声明和使用步骤 :</h4><p>​            1.声明  2.分配空间  3.赋值  4.使用</p>
 <p>​            注意: </p>
 <p>​                声明同时分配空间: 数据类型[] 数组名=new 数据类型[数组长度];</p>
 <p>​                数组下标从0开始  数组元素最大下标值是 length-1</p>
 <p>​                声明的时候赋值:  数据类型[] 数组名=new 数据类型[]{值1,值2,值3,….} //注意,后面的括号中不能写长度</p>
 <p>​                          数据类型[] 数组名={值1,值2,值3,….}//不可拆分</p>
-<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java"> for(int i=0;i<数组名.length;i++)&#123;
-                System.out.println(数组名[下标]);
-            &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">for(int i&#x3D;0;i&lt;数组名.length;i++)&#123;
+			System.out.println(数组名[下标]);
+		&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="数组的应用"><a href="#数组的应用" class="headerlink" title="数组的应用"></a>数组的应用</h4><p>​            ①    数组排序</p>
 <p>​                            使用Arrays类sort方法排序，默认升序排列</p>
 <p>​                            步骤：</p>
@@ -520,14 +515,13 @@ System.out.println("\n");//输出完之后换行显示
 <p>​                        2）.循环数组元素依次与最大值比较</p>
 <p>​                关键代码：</p>
 <p>​                                ```</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">int max=数组[0];
-for(int i=0;i<数组名.lenght;i++)&#123;
-    if(数组名[i]>max)&#123;
-        max=数组名[i];
-
-      &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">int max&#x3D;数组[0];
+for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
+	if(数组名[i]&gt;max)&#123;
+		max&#x3D;数组名[i];
+	
+  	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​            ③向数组中插入元素</p>
 <p>​            实现思路</p>
 <p>​            a)找到待插入元素的下标</p>
@@ -558,33 +552,30 @@ for(int i=0;i<数组名.lenght;i++)&#123;
 <p>​                圆角矩形 —-&gt;开始或者结束</p>
 <h4 id="1-选择结构"><a href="#1-选择结构" class="headerlink" title="1. 选择结构"></a>1. 选择结构</h4><p>1）简单的if选择结构</p>
 <p>​        语法结构：</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">if(boolean类型的值)&#123;
-       //代码块
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">if(boolean类型的值)&#123;
+       &#x2F;&#x2F;代码块
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>2）if—else选择结构———用于两种分支判断的情形</p>
 <p>​        语法：</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">if()&#123;
-    //代码块1
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">if()&#123;
+	&#x2F;&#x2F;代码块1
 &#125;else&#123;
-    //代码块2
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	&#x2F;&#x2F;代码块2
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3）多重if语句：用于区间连续情形</p>
 <p>5)switch选择结构—-用于判断价值</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">switch(变量)&#123;
-    case    常量1：
-        //代码块
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">switch(变量)&#123;
+	case	常量1：
+		&#x2F;&#x2F;代码块
+		break;
+	case	常量2：
+		&#x2F;&#x2F;代码块
+		break;
+		...
+	default:
+			&#x2F;&#x2F;代码块	
         break;
-    case    常量2：
-        //代码块
-        break;
-        ...
-    default:
-            //代码块    
-        break;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ol>
 <li>switch小括号里的变量  —-&gt;整型和字符型,jdk版本1.7以上 支持String</li>
 <li><p>2.break可以省略,但是省略之后case之间会贯穿执行,直到遇到break才结束</p>

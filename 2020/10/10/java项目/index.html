@@ -419,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    748
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -438,256 +438,255 @@
             <div id="articleContent">
                 <h3 id="电商管理系统"><a href="#电商管理系统" class="headerlink" title="电商管理系统"></a>电商管理系统</h3><p>第一步：先创建四大类，分别为 商品类（Article）、商品集合类（ArticleSet）、商品管理类（ArticleManage）、商品测试类（Demo）. </p>
 <p>代码如下：</p>
-<h4 id="商品类"><a href="#商品类" class="headerlink" title="商品类"></a>商品类</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+<h4 id="商品类"><a href="#商品类" class="headerlink" title="商品类"></a>商品类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
  * 商品类
  *
- */
+ *&#x2F;
 public class Article &#123;
-    public String name;
-    public int amount;
-    public double price;
-    public int number;
-    public void print(int index)&#123;
-        System.out.println(index+"\t"+name+"\t"+price+"\t"+amount+"\t"+number);
-    &#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品集合类"><a href="#商品集合类" class="headerlink" title="商品集合类"></a>商品集合类</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+	public String name;
+	public int amount;
+	public double price;
+	public int number;
+	public void print(int index)&#123;
+		System.out.println(index+&quot;\t&quot;+name+&quot;\t&quot;+price+&quot;\t&quot;+amount+&quot;\t&quot;+number);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="商品集合类"><a href="#商品集合类" class="headerlink" title="商品集合类"></a>商品集合类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
  * 商品集合类
  *
- */
+ *&#x2F;
 public class ArticleSet &#123;
-    Article[] articles=new Article[50];
+	Article[] articles&#x3D;new Article[50];
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品管理类"><a href="#商品管理类" class="headerlink" title="商品管理类"></a>商品管理类</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">import java.util.Scanner;
+<h4 id="商品管理类"><a href="#商品管理类" class="headerlink" title="商品管理类"></a>商品管理类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
 
-/**
+&#x2F;**
  * 商品管理类
  *
- */
+ *&#x2F;
 public class ArticleManage &#123;
 
-    ArticleSet articleSet=new ArticleSet();
-    Scanner input=new Scanner(System.in);
+	ArticleSet articleSet&#x3D;new ArticleSet();
+	Scanner input&#x3D;new Scanner(System.in);
+	
+	&#x2F;**
+	 * 初始化商品
+	 *&#x2F;
+	public void initial()&#123;
+		Article xiaoMi9&#x3D;new Article();
+		xiaoMi9.name&#x3D;&quot;小米9&quot;;
+		xiaoMi9.price&#x3D;2799;
+		xiaoMi9.amount&#x3D;60;
+		xiaoMi9.number&#x3D;0;
+		
+		Article xiaoMiMIX3&#x3D;new Article();
+		xiaoMiMIX3.name&#x3D;&quot;小米8&quot;;
+		xiaoMiMIX3.price&#x3D;2049;
+		xiaoMiMIX3.amount&#x3D;40;
+		xiaoMiMIX3.number&#x3D;0;
+		
+		Article redMiNote7Pro&#x3D;new Article();
+		redMiNote7Pro.name&#x3D;&quot;Redmi7&quot;;
+		redMiNote7Pro.price&#x3D;699;
+		redMiNote7Pro.amount&#x3D;80;
+		redMiNote7Pro.number&#x3D;0;
+		
+		Article xiaoMiPlay&#x3D;new Article();
+		xiaoMiPlay.name&#x3D;&quot;小米6x&quot;;
+		xiaoMiPlay.price&#x3D;749;
+		xiaoMiPlay.amount&#x3D;100;
+		xiaoMiPlay.number&#x3D;0;
+		
+		articleSet.articles[0]&#x3D;xiaoMi9;
+		articleSet.articles[1]&#x3D;xiaoMiMIX3;
+		articleSet.articles[2]&#x3D;redMiNote7Pro;
+		articleSet.articles[3]&#x3D;xiaoMiPlay;
+		
+	
+	&#125;
+	public void startMenu()&#123;
+		boolean flag&#x3D;true;
+		do &#123;System.out.println(&quot;欢迎使用前程商城后台管理系统&quot;);
+		System.out.println(&quot;*****************************************&quot;);
+		System.out.println(&quot;1.查看商品信息&quot;);
+		System.out.println(&quot;2.新增商品信息&quot;);
+		System.out.println(&quot;3.删除商品信息&quot;);
+		System.out.println(&quot;4.卖出商品信息&quot;);
+		System.out.println(&quot;5.商品销售排行榜&quot;);
+		System.out.println(&quot;6.退出&quot;);
+		System.out.println(&quot;*****************************************&quot;);
+		Scanner sc&#x3D;new Scanner(System.in);
+		System.out.println(&quot;请选择要执行的操作：&quot;);
+		int choice&#x3D;sc.nextInt();
+		switch (choice) &#123;
+		case 1:
+			System.out.println(&quot;查看商品信息&quot;);
+			search();
+			break;
+		case 2:
+			System.out.println(&quot;新增商品信息&quot;);
+			add();
+			break;
+		case 3:
+			System.out.println(&quot;删除商品信息&quot;);
+			delete();
+			break;
+		case 4:
+			System.out.println(&quot;卖出商品信息&quot;);
+			sell();
+			break;
+		case 5:
+			System.out.println(&quot;商品销售排行榜&quot;);
+			leaderboard();
+			break;
+		case 6:
+			System.out.println(&quot;谢谢使用！&quot;);
+			flag&#x3D;false;
+			break;
+		default:
+			System.out.println(&quot;输入不符合请重新输入：&quot;);
+			break;
+		&#125;
+			
+		&#125; while (flag);
+	&#125;
+	&#x2F;**
+	 * 查看商品
+	 *&#x2F;
+	public void search()&#123;
+		System.out.println(&quot;编号\t名称\t价格\t库存\t售出&quot;);
+		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
+			if (articleSet.articles[i]!&#x3D;null) &#123;
+				articleSet.articles[i].print(i+1);
+			&#125;
+		&#125;
+	&#125;
+	
+	&#x2F;**
+	 * 新增商品
+	 *&#x2F;
+	public void add()&#123;
+		System.out.println(&quot;请输入商品名称：&quot;);
+		String name&#x3D;input.next();
+		System.out.println(&quot;请输入价格：&quot;);
+		int price&#x3D;input.nextInt();
+		System.out.println(&quot;请输入库存：&quot;);
+		int amount&#x3D;input.nextInt();
+		Article article&#x3D;new Article();
+		article.name&#x3D;name;
+		article.price&#x3D;price;
+		article.amount&#x3D;amount;
+		article.number&#x3D;0;
+		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
+			if (articleSet.articles[i]&#x3D;&#x3D;null) &#123;
+				articleSet.articles[i]&#x3D;article;
+				break;
+			&#125;
+		&#125;
+	&#125;
+	
+	&#x2F;**
+	 * 删除商品
+	 *&#x2F;
+	public void delete()&#123;
+		System.out.println(&quot;请输入商品编号：&quot;);
+		boolean flag&#x3D;true;
+		int card&#x3D;input.nextInt();
+		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
+			if (articleSet.articles[i]!&#x3D;null&amp;&amp;(i+1)&#x3D;&#x3D;card) &#123;
+				int j&#x3D;i;
+				while (articleSet.articles[j+1]!&#x3D;null) &#123;
+					articleSet.articles[j]&#x3D;articleSet.articles[j+1];
+					j++;
+				&#125;
+				articleSet.articles[j]&#x3D;null;
+				flag&#x3D;true;
+				break;
+			&#125; 
+		&#125;
+		if (flag) &#123;
+			System.out.println(&quot;删除成功！&quot;);
+		&#125;else &#123;
+			System.out.println(&quot;删除失败，请重新操作！&quot;);
+		&#125;
+	&#125;
+	
+	
+	&#x2F;**
+	 * 销售业务
+	 *&#x2F;
+	public void sell()&#123;
+		System.out.println(&quot;请输入你要卖出的商品名称：&quot;);
+		String name&#x3D;input.next();
+		boolean flag&#x3D;true;
+		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
+			if (articleSet.articles[i]!&#x3D;null&amp;&amp;articleSet.articles[i].name.equals(name)) &#123;
+				System.out.println(&quot;请输入你要卖出的数量&quot;);
+				int number&#x3D;input.nextInt();
+				if (number&lt;&#x3D;articleSet.articles[i].amount) &#123;
+					articleSet.articles[i].number&#x3D;articleSet.articles[i].number+number;
+					articleSet.articles[i].amount&#x3D;articleSet.articles[i].amount-number;
+					flag&#x3D;true;
+				&#125; else &#123;
+					System.out.println(&quot;商品数量不够，请抓紧进货！&quot;);
+					flag&#x3D;false;
+				&#125;
+				break;
+			&#125;else&#123;
+				flag&#x3D;false;
+			&#125;
+		&#125;
+		if (flag) &#123;
+			System.out.println(&quot;卖出商品成功！&quot;);
+		&#125; else &#123;
+			System.out.println(&quot;卖出商品失败！&quot;);
+		&#125;
+	&#125;
+	
+	&#x2F;**
+	 * 商品销售排行榜
+	 *&#x2F;
+	public void leaderboard() &#123;
+		Article[] articles &#x3D; new Article[50];
+		for (int i &#x3D; 0; i &lt; articles.length; i++) &#123;
+			if (articleSet.articles[i]!&#x3D;null) &#123;
+				articles[i]&#x3D;articleSet.articles[i];
+			&#125;
+		&#125;
+		
+		for (int i &#x3D; 0; i &lt; articles.length-1; i++) &#123;
+			for (int j &#x3D; 0; j &lt; articles.length-i-1; j++) &#123;
+				if (articles[j+1] !&#x3D; null) &#123;
+					if (articles[j].number &lt; articles[j+1].number) &#123;
+						Article tempArticle &#x3D; articles[j];
+						articles[j]&#x3D;articles[j+1];
+						articles[j+1]&#x3D;tempArticle;
 
-    /**
-     * 初始化商品
-     */
-    public void initial()&#123;
-        Article xiaoMi9=new Article();
-        xiaoMi9.name="小米9";
-        xiaoMi9.price=2799;
-        xiaoMi9.amount=60;
-        xiaoMi9.number=0;
+					&#125;
+				&#125;
+			&#125;
 
-        Article xiaoMiMIX3=new Article();
-        xiaoMiMIX3.name="小米8";
-        xiaoMiMIX3.price=2049;
-        xiaoMiMIX3.amount=40;
-        xiaoMiMIX3.number=0;
-
-        Article redMiNote7Pro=new Article();
-        redMiNote7Pro.name="Redmi7";
-        redMiNote7Pro.price=699;
-        redMiNote7Pro.amount=80;
-        redMiNote7Pro.number=0;
-
-        Article xiaoMiPlay=new Article();
-        xiaoMiPlay.name="小米6x";
-        xiaoMiPlay.price=749;
-        xiaoMiPlay.amount=100;
-        xiaoMiPlay.number=0;
-
-        articleSet.articles[0]=xiaoMi9;
-        articleSet.articles[1]=xiaoMiMIX3;
-        articleSet.articles[2]=redMiNote7Pro;
-        articleSet.articles[3]=xiaoMiPlay;
-
-
-    &#125;
-    public void startMenu()&#123;
-        boolean flag=true;
-        do &#123;System.out.println("欢迎使用前程商城后台管理系统");
-        System.out.println("*****************************************");
-        System.out.println("1.查看商品信息");
-        System.out.println("2.新增商品信息");
-        System.out.println("3.删除商品信息");
-        System.out.println("4.卖出商品信息");
-        System.out.println("5.商品销售排行榜");
-        System.out.println("6.退出");
-        System.out.println("*****************************************");
-        Scanner sc=new Scanner(System.in);
-        System.out.println("请选择要执行的操作：");
-        int choice=sc.nextInt();
-        switch (choice) &#123;
-        case 1:
-            System.out.println("查看商品信息");
-            search();
-            break;
-        case 2:
-            System.out.println("新增商品信息");
-            add();
-            break;
-        case 3:
-            System.out.println("删除商品信息");
-            delete();
-            break;
-        case 4:
-            System.out.println("卖出商品信息");
-            sell();
-            break;
-        case 5:
-            System.out.println("商品销售排行榜");
-            leaderboard();
-            break;
-        case 6:
-            System.out.println("谢谢使用！");
-            flag=false;
-            break;
-        default:
-            System.out.println("输入不符合请重新输入：");
-            break;
-        &#125;
-
-        &#125; while (flag);
-    &#125;
-    /**
-     * 查看商品
-     */
-    public void search()&#123;
-        System.out.println("编号\t名称\t价格\t库存\t售出");
-        for (int i = 0; i < articleSet.articles.length; i++) &#123;
-            if (articleSet.articles[i]!=null) &#123;
-                articleSet.articles[i].print(i+1);
-            &#125;
-        &#125;
-    &#125;
-
-    /**
-     * 新增商品
-     */
-    public void add()&#123;
-        System.out.println("请输入商品名称：");
-        String name=input.next();
-        System.out.println("请输入价格：");
-        int price=input.nextInt();
-        System.out.println("请输入库存：");
-        int amount=input.nextInt();
-        Article article=new Article();
-        article.name=name;
-        article.price=price;
-        article.amount=amount;
-        article.number=0;
-        for (int i = 0; i < articleSet.articles.length; i++) &#123;
-            if (articleSet.articles[i]==null) &#123;
-                articleSet.articles[i]=article;
-                break;
-            &#125;
-        &#125;
-    &#125;
-
-    /**
-     * 删除商品
-     */
-    public void delete()&#123;
-        System.out.println("请输入商品编号：");
-        boolean flag=true;
-        int card=input.nextInt();
-        for (int i = 0; i < articleSet.articles.length; i++) &#123;
-            if (articleSet.articles[i]!=null&&(i+1)==card) &#123;
-                int j=i;
-                while (articleSet.articles[j+1]!=null) &#123;
-                    articleSet.articles[j]=articleSet.articles[j+1];
-                    j++;
-                &#125;
-                articleSet.articles[j]=null;
-                flag=true;
-                break;
-            &#125; 
-        &#125;
-        if (flag) &#123;
-            System.out.println("删除成功！");
-        &#125;else &#123;
-            System.out.println("删除失败，请重新操作！");
-        &#125;
-    &#125;
-
-
-    /**
-     * 销售业务
-     */
-    public void sell()&#123;
-        System.out.println("请输入你要卖出的商品名称：");
-        String name=input.next();
-        boolean flag=true;
-        for (int i = 0; i < articleSet.articles.length; i++) &#123;
-            if (articleSet.articles[i]!=null&&articleSet.articles[i].name.equals(name)) &#123;
-                System.out.println("请输入你要卖出的数量");
-                int number=input.nextInt();
-                if (number<=articleSet.articles[i].amount) &#123;
-                    articleSet.articles[i].number=articleSet.articles[i].number+number;
-                    articleSet.articles[i].amount=articleSet.articles[i].amount-number;
-                    flag=true;
-                &#125; else &#123;
-                    System.out.println("商品数量不够，请抓紧进货！");
-                    flag=false;
-                &#125;
-                break;
-            &#125;else&#123;
-                flag=false;
-            &#125;
-        &#125;
-        if (flag) &#123;
-            System.out.println("卖出商品成功！");
-        &#125; else &#123;
-            System.out.println("卖出商品失败！");
-        &#125;
-    &#125;
-
-    /**
-     * 商品销售排行榜
-     */
-    public void leaderboard() &#123;
-        Article[] articles = new Article[50];
-        for (int i = 0; i < articles.length; i++) &#123;
-            if (articleSet.articles[i]!=null) &#123;
-                articles[i]=articleSet.articles[i];
-            &#125;
-        &#125;
-
-        for (int i = 0; i < articles.length-1; i++) &#123;
-            for (int j = 0; j < articles.length-i-1; j++) &#123;
-                if (articles[j+1] != null) &#123;
-                    if (articles[j].number < articles[j+1].number) &#123;
-                        Article tempArticle = articles[j];
-                        articles[j]=articles[j+1];
-                        articles[j+1]=tempArticle;
-
-                    &#125;
-                &#125;
-            &#125;
-
-        &#125;
-        System.out.println("*************************************");
-        System.out.println("名次\t销售数量\t商品名称");
-        for (int i = 0; i < articles.length; i++) &#123;
-            if (articles[i]!=null) &#123;
-                System.out.println(i+1+"\t"+articles[i].number+"\t"+articles[i].name);
-            &#125;
-        &#125;
-    &#125;    
+		&#125;
+		System.out.println(&quot;*************************************&quot;);
+		System.out.println(&quot;名次\t销售数量\t商品名称&quot;);
+		for (int i &#x3D; 0; i &lt; articles.length; i++) &#123;
+			if (articles[i]!&#x3D;null) &#123;
+				System.out.println(i+1+&quot;\t&quot;+articles[i].number+&quot;\t&quot;+articles[i].name);
+			&#125;
+		&#125;
+	&#125;	
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品测试类"><a href="#商品测试类" class="headerlink" title="商品测试类"></a>商品测试类</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+<h4 id="商品测试类"><a href="#商品测试类" class="headerlink" title="商品测试类"></a>商品测试类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
  *商品测试类
- */
+ *&#x2F;
 public class Demo &#123;
-    public static void main(String[] args) &#123;
-        ArticleManage articleManage=new ArticleManage();
-        articleManage.initial();
-        articleManage.startMenu();
-    &#125;
+	public static void main(String[] args) &#123;
+		ArticleManage articleManage&#x3D;new ArticleManage();
+		articleManage.initial();
+		articleManage.startMenu();
+	&#125;
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
