@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-26
+                    2020-10-31
                 </div>
 				<div class="info-break-policy">
 					 
@@ -419,7 +419,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    216
+                    459
                 </div>
                 
 
@@ -438,12 +438,28 @@
             <div id="articleContent">
                 <p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p>
 <h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a target="_blank" rel="noopener" href="https://share.weiyun.com/mSUFa7MN">传送门</a></p>
-<h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a><strong>2 安装软件，打开软件，图床设置</strong></h3><p> 图床设置有很多种方法，这里使用的是Github图床</p>
-<p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A%5Cimg20201026145854.png" alt="在这里插入图片描述"></p>
-<h3 id="3-Github图床设置项"><a href="#3-Github图床设置项" class="headerlink" title="3 Github图床设置项"></a><strong>3 Github图床设置项</strong></h3><p> 必须填写的有三项，仓库名、分支名、Token。其中分支名一般填写master，仓库名的格式为你的github的“用户名/仓库名”，Token是新建仓库后自动生成的。（下一步会讲到）</p>
-<p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A/img20201026145854.png"></p>
-<p><strong>4 创建自己的GitHub图床</strong></p>
-<p><img src="https://raw.githubusercontent.com/wind-qin/MyPicture/master/D%3A%5Cimg20201026150207.png" alt="在这里插入图片描述"></p>
+<h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a><strong>2 安装软件，打开软件，图床设置</strong></h3><pre class="line-numbers language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token property">"repo"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> // 仓库名，格式是username/reponame
+  <span class="token property">"token"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> // github token
+  <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> // 自定义存储路径，比如img/
+  <span class="token property">"customUrl"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> // 自定义域名，注意要加http<span class="token operator">:</span>//或者https<span class="token operator">:</span>//
+  <span class="token property">"branch"</span><span class="token operator">:</span> <span class="token string">""</span> // 分支名，默认是master
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。</p>
+<p><strong>2.</strong> 新建一个仓库</p>
+<p>记下你取的仓库名。</p>
+<p>如我的：</p>
+<p><img src="https://raw.githubusercontent.com/wind-qin/picture/master/D%3A/img20201031113801.png"></p>
+<p><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</p>
+<p>访问：<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<p>然后点击<code>Generate new token</code>。</p>
+<p>把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h3><p>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p>
+<p><strong>4.</strong> 配置PicGo</p>
+<p><strong>注意：</strong>仓库名的格式是<code>用户名/仓库</code>，比如我创建了一个叫做<code>test</code>的仓库，在PicGo里我要设定的仓库名就是<code>Molunerfinn/test</code>。一般我们选择<code>master</code>分支即可。然后记得点击确定以生效，然后可以点击<code>设为默认图床</code>来确保上传的图床是GitHub。</p>
+<p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p>
+<p>如想了解其他图床的安装请前往：</p>
+<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></p>
 
             </div>
             <hr/>
