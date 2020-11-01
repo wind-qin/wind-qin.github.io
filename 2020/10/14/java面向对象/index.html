@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-30
+                    2020-11-01
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.3k
+                    11.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    42 分
+                    48 分
                 </div>
                 
 
@@ -1968,6 +1968,259 @@ public class TestInterface2 &#123;
 3、接口的实现类必须重写所有方法，或者是个抽象类
 4、接口可以多实现
 5、接口可以单继承，也可以多继承<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p><strong>二者具有直接或间接的继承关系时，父类引用指向子类对象，从而产生多种形态；接口的引用指向实现接口的类对象也是多态</strong></p>
+<h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>多态场景下，父类引用调用方法，如果被子类重写过，优先执行子类重写过后的方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestCar &#123;
+	public static void main(String[] args) &#123;
+        &#x2F;&#x2F; 父类引用指向子类对象
+		Vehicle vehicle &#x3D; new Car();
+        
+        &#x2F;&#x2F; 优先执行子类重写过的方法
+		vehicle.run();	&#x2F;&#x2F; Car run！！！
+	&#125;
+&#125;
+
+class Vehicle &#123;
+	public void run() &#123;
+		System.out.println(&quot;Vehicle run！！！&quot;);
+	&#125;
+&#125;
+
+class Car extends Vehicle &#123;
+	@Override
+	public void run() &#123;
+		System.out.println(&quot;Car run！！！&quot;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="应用场景一"><a href="#应用场景一" class="headerlink" title="应用场景一"></a>应用场景一</h3><p>使用父类作为方法形参实现多态，使方法参数的类型更为宽泛</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestCar &#123;
+	public static void main(String[] args) &#123;        
+        Vehicle vehicle &#x3D; new Car();
+        vehicle.type &#x3D; &quot;小汽车&quot;;
+        
+		Bike bike &#x3D; new Bike();
+		bike.type &#x3D; &quot;自行车&quot;;
+		
+		Bus bus &#x3D; new Bus();
+		bus.type &#x3D; &quot;公交车&quot;;
+		
+		Employee employee &#x3D; new Employee(&quot;你的迪丽热巴&quot;);
+		employee.goHome(vehicle);
+		employee.goHome(bus);
+	&#125;
+&#125;
+
+class Employee &#123;
+	String name;
+
+	public Employee() &#123;
+	&#125;
+	
+	public Employee(String name) &#123;
+		this.name &#x3D; name;
+	&#125;
+
+	public void goHome(Vehicle vehicle) &#123;
+		System.out.println(this.name + &quot;乘坐&quot; + vehicle.type + &quot;交通工具回家&quot;);
+	&#125;
+&#125;
+
+class Vehicle &#123;
+	String type;
+
+	public void run() &#123;
+		System.out.println(&quot;Vehicle run！！！&quot;);
+	&#125;
+&#125;
+
+class Bus extends Vehicle &#123;
+	@Override
+	public void run() &#123;
+		System.out.println(&quot;Bus run！！！&quot;);
+	&#125;
+&#125;
+
+class Car extends Vehicle &#123;
+	@Override
+	public void run() &#123;
+		System.out.println(&quot;Car run！！！&quot;);
+	&#125;
+&#125;
+
+class Bike extends Vehicle &#123;
+	@Override
+	public void run() &#123;
+		System.out.println(&quot;Bike run！！！&quot;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">你的迪丽热巴乘坐小汽车回家
+Car run！！！
+你的迪丽热巴乘坐公交车回家
+Bus run！！！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="应用场景二"><a href="#应用场景二" class="headerlink" title="应用场景二"></a>应用场景二</h3><p>使用父类作为方法返回值实现多态，使方法可以返回不同子类对象</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public Vehicle buyVehicle(int money) &#123;
+		Vehicle vehicle &#x3D; null;
+
+		if (money &gt;&#x3D; 100) &#123;
+			Bus bus &#x3D; new Bus();
+			bus.speed &#x3D; 60;
+			bus.price &#x3D; 1230000.0;
+			bus.seatNum &#x3D; 16;
+			bus.type &#x3D; &quot;公交车&quot;;
+			vehicle &#x3D; bus;
+
+		&#125; else if (money &gt;&#x3D; 30) &#123;
+			Car car &#x3D; new Car();
+			car.price &#x3D; 310000.0;
+			car.speed &#x3D; 90;
+			car.type &#x3D; &quot;小汽车&quot;;
+			car.brand &#x3D; &quot;BMW&quot;;
+			vehicle &#x3D; car;
+
+		&#125; else if (money &gt;&#x3D; 1) &#123;
+			Bike bike &#x3D; new Bike();
+			bike.type &#x3D; &quot;捷安特自行车&quot;;
+			bike.speed &#x3D; 40;
+			bike.price &#x3D; 2000.0;
+			bike.color &#x3D; &quot;红色&quot;;
+			vehicle &#x3D; bike;
+		&#125;
+
+		return vehicle;
+	&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="向上装箱与向下拆箱"><a href="#向上装箱与向下拆箱" class="headerlink" title="向上装箱与向下拆箱"></a>向上装箱与向下拆箱</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">class Animal&#123;&#125;
+
+class Cat extends Animal&#123;&#125;
+
+class Dog extends Animal&#123;&#125;
+
+class Fish extends Animal &#123;&#125;
+
+public class Test &#123;
+	public static void main(String[] args) &#123;
+		showAnimal(new Animal());	&#x2F;&#x2F; code.polymorphic.animal.Animal@7852e922
+		&#x2F;&#x2F; 向上转型
+		showAnimal(new Cat());	&#x2F;&#x2F; code.polymorphic.animal.Cat@4e25154f
+		&#x2F;&#x2F; 向上转型
+		showAnimal(new Dog());	&#x2F;&#x2F; code.polymorphic.animal.Dog@70dea4e
+		&#x2F;&#x2F; 向上转型
+		showAnimal(new Fish());	&#x2F;&#x2F; code.polymorphic.animal.Fish@5c647e05
+		
+		System.out.println(&quot;----------------------&quot;);
+		
+		Animal animal &#x3D; getAnimal();
+		&#x2F;&#x2F; 向下转型
+		Cat cat &#x3D; (Cat) getCat();
+		&#x2F;&#x2F; 向下转型
+		Dog dog &#x3D; (Dog) getDog();
+		&#x2F;&#x2F; 向下转型
+		Fish fish &#x3D; (Fish) getFish();
+		
+		System.out.println(animal);	&#x2F;&#x2F; code.polymorphic.animal.Animal@33909752
+		System.out.println(cat);	&#x2F;&#x2F; code.polymorphic.animal.Cat@55f96302
+		System.out.println(dog);	&#x2F;&#x2F; code.polymorphic.animal.Dog@3d4eac69
+		System.out.println(fish);	&#x2F;&#x2F; code.polymorphic.animal.Fish@42a57993
+	&#125;
+	
+	&#x2F;**
+	 * 展示动物
+	 * @param animal
+	 *&#x2F;
+	public static void showAnimal(Animal animal) &#123;
+		System.out.println(animal);
+	&#125;
+	
+	&#x2F;**
+	 * 得到动物
+	 * @return 返回一个Animal对象
+	 *&#x2F;
+	public static Animal getAnimal() &#123;
+		return new Animal();
+	&#125;
+	
+	&#x2F;**
+	 * 得到猫
+	 * @return 返回一个Cat对象
+	 *&#x2F;
+	public static Animal getCat() &#123;
+		return new Cat();
+	&#125;
+	
+	&#x2F;**
+	 * 得到狗
+	 * @return 返回一个Dog对象
+	 *&#x2F;
+	public static Animal getDog() &#123;
+		return new Dog();
+	&#125;
+	
+	&#x2F;**
+	 * 得到鱼
+	 * @return 返回一个Fish对象
+	 *&#x2F;
+	public static Animal getFish() &#123;
+		return new Fish();
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="instanceof-关键字"><a href="#instanceof-关键字" class="headerlink" title="instanceof 关键字"></a>instanceof 关键字</h3><p>用于判断当前对象是否是某个类，或者其子类、实现类的实例。如果是返回true，否则返回false。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+ * 动物类
+ *&#x2F;
+class Animal &#123;
+&#125;
+
+&#x2F;**
+ * 老虎类
+ *&#x2F;
+class Tiger extends Animal &#123;
+	
+&#125;
+
+&#x2F;**
+ * 熊猫类
+ *&#x2F;
+class Panda extends Animal &#123;
+	
+&#125;
+
+&#x2F;**
+ * 猴子类
+ *&#x2F;
+class Monkey extends Animal &#123;
+	
+&#125;
+
+public class AnimalDemo &#123;
+	public static void main(String[] args) &#123;
+		Animal ani &#x3D; getAnimal();
+		
+		if (ani instanceof Panda) &#123;
+			&#x2F;&#x2F; ani一定是panda对象或子类对象
+			Panda panda2 &#x3D; (Panda) ani;
+			System.out.println(&quot;这是熊猫：&quot; + panda2);
+			showPanda(panda2);
+		&#125; else &#123;
+			System.out.println(&quot;这是动物：&quot; + ani);
+		&#125;
+	&#125;
+    
+    &#x2F;&#x2F; 获取动物，返回一个Panda对象
+	public static Animal getAnimal() &#123;
+		return new Panda();
+	&#125;
+    
+    &#x2F;&#x2F; 展示熊猫对象
+    public static void showPanda(Panda panda) &#123;
+		System.out.println(panda);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】<strong>使用 instanceof 关键字做判断时， instanceof 操作符的左操作数必须和右操作数存在继承或实现关系</strong></p>
+<h3 id="总结-16"><a href="#总结-16" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>1、父类引用指向子类对象，接口引用指向实现类对象</p>
+<p>2、instanceof用以比较对象是否是类或父类的实例，接口的实现类</p>
+</blockquote>
+
             </div>
             <hr/>
 
