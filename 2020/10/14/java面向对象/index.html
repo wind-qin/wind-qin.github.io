@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-01
+                    2020-11-04
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.5k
+                    14.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    48 分
+                    60 分
                 </div>
                 
 
@@ -2219,6 +2219,313 @@ public class AnimalDemo &#123;
 <h3 id="总结-16"><a href="#总结-16" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>1、父类引用指向子类对象，接口引用指向实现类对象</p>
 <p>2、instanceof用以比较对象是否是类或父类的实例，接口的实现类</p>
+</blockquote>
+<h2 id="API概述"><a href="#API概述" class="headerlink" title="API概述"></a>API概述</h2><blockquote>
+<p>API(Application Programming Interface) 应用程序编程接口</p>
+</blockquote>
+<p>编写一个机器人程序去控制机器人踢足球，程序就需要向机器人发出向前跑、向后跑、射门、抢球等各种命令，没有编过程序的人很难想象这样的程序如何编写。但是对于有经验的开发人员来说，知道机器人厂商一定会提供一些用于控制机器人的Java类，这些类中定义好了操作机器人各种动作的方法。其实，这些Java类就是机器人厂商提供给应用程序编程的接口，大家把这些类称为Xxx Robot API。本章涉及的Java API指的就是JDK中提供的各种功能的Java类。</p>
+<h2 id="学习汉语和学习编程的异同点"><a href="#学习汉语和学习编程的异同点" class="headerlink" title="学习汉语和学习编程的异同点"></a>学习汉语和学习编程的异同点</h2><p>相同点</p>
+<ul>
+<li>基本语法</li>
+<li>大量成语</li>
+<li>写文章的手法和技巧</li>
+</ul>
+<p>不同点</p>
+<ul>
+<li>学习汉语 必须先学后用</li>
+<li>学习编程 可以现用现学</li>
+</ul>
+<h2 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h2><p>Object类是类层次结构的根类，所有类都直接或者间接的继承自该类</p>
+<h3 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public Object()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>【注意】Object 只有一个无参构造方法</p>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>用来返回对象的字符串表示形式</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public String toString()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>返回值为：包名.类名@当前对象在内存空间中的首地址</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">getClass().getName() + &#39;@&#39; + Integer.toHexString(hashCode())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="重写toString"><a href="#重写toString" class="headerlink" title="重写toString()"></a>重写toString()</h4><p>由于默认情况下的数据对我们来说没有意义，一般会重写该方法用以展示对象的字段信息</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student &#123;
+	String name;
+	int age;
+    
+    &#x2F;&#x2F; 重写 toString 方法
+    @Override
+	public String toString() &#123;
+		return &quot;Student [name&#x3D;&quot; + name + &quot;, age&#x3D;&quot; + age + &quot;]&quot;;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestStudent &#123;
+	public static void main(String[] args) &#123;
+		Student student &#x3D; new Student(&quot;Buffer&quot;,23);		
+		System.out.println(student);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Student [name&#x3D;Buffer, age&#x3D;23]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="总结-17"><a href="#总结-17" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>toString方法用来展示一些对象的基本信息：完整的包名.类名@堆内存地址，通常我们用快捷键来重写这个方法来获取我们需要的数据信息</p>
+</blockquote>
+<h2 id="Object-类-1"><a href="#Object-类-1" class="headerlink" title="Object 类"></a>Object 类</h2><h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h3><h4 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h4><p>用来比较两个对象的地址是否相同</p>
+<pre class="line-numbers language-none"><code class="language-none">public boolean equals(Object obj) &#123;
+        return (this &#x3D;&#x3D; obj);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>如果调用此方法的对象与 obj 的地址相同(即为同一个对象)，返回true，否则返回false</p>
+<h4 id="重写equals-思路"><a href="#重写equals-思路" class="headerlink" title="重写equals()思路"></a>重写equals()思路</h4><p>一般需要重写 equals() 方法用以判断两个对象的字段是否相同</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">1、判断两个对象的地址是否相同
+2、判断两个对象的类型是否一致
+3、判断两个对象所存储的数据是否相同<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="重写equals"><a href="#重写equals" class="headerlink" title="重写equals()"></a>重写equals()</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student &#123;
+	String name;
+	int age;
+    
+    &#x2F;&#x2F; 重写 equals 方法
+    @Override
+	public boolean equals(Object obj) &#123;
+
+        &#x2F;&#x2F; 判断是否是同一个对象(地址相同)，如果是返回 true
+		if (this &#x3D;&#x3D; obj) &#123;
+			return true;
+		&#125;
+
+        &#x2F;&#x2F; 判断数据类型是否一致，如果不一致返回 false
+		if (!(obj instanceof Student)) &#123;
+			return false;
+		&#125;
+
+        &#x2F;&#x2F; 强制类型转换为当前类对象
+		Student student &#x3D; (Student) obj;
+
+        &#x2F;&#x2F; 所有字段全部满足时返回 true ，否则返回false
+		return this.name.equals(student.name) &amp;&amp; this.age &#x3D;&#x3D; student.age;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestStudent &#123;
+	public static void main(String[] args) &#123;
+		Student student1 &#x3D; new Student(&quot;Buffer&quot;,23);
+		Student student2 &#x3D; new Student(&quot;Banlance&quot;,22);
+		Student student3 &#x3D; new Student(&quot;Buffer&quot;,23);
+		
+		System.out.println(student1.equals(student2));
+		System.out.println(student1.equals(student3));
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">false
+true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>【注意】基本数据类型不能使用 equals() 方法</p>
+<h4 id="总结-18"><a href="#总结-18" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、equals方法用来判断两个对象是否相同，默认比较的是两个对象的内存首地址。我们可以通过重写equals方法实现对两个对象的比较</p>
+<p>2、注意equals方法的调用者，不同的调用者调用方法是不一样的</p>
+</blockquote>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h3><h4 id="作用-4"><a href="#作用-4" class="headerlink" title="作用"></a>作用</h4><p>返回对象的哈希码值，<strong>具有唯一指向性</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public int hashCode()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="重写hashCode"><a href="#重写hashCode" class="headerlink" title="重写hashCode()"></a>重写hashCode()</h4><p>hashCode方法要求必须和 equals() 方法的结果是对应的，如果两个对象的 equals 的结果为 true ，那这两个对象的 hashCode 的值一定相同，所以<strong>只要重写了 equals 方法，就必须重写 hashCode 方法</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Student &#123;
+	String name;
+	int age;
+    
+    &#x2F;&#x2F; 重写 equals 方法
+    @Override
+	public boolean equals(Object obj) &#123;
+		if (this &#x3D;&#x3D; obj) &#123;
+			return true;
+		&#125;
+
+		if (!(obj instanceof Student)) &#123;
+			return false;
+		&#125;
+
+		Student student &#x3D; (Student) obj;
+
+		return this.name.equals(student.name) &amp;&amp; this.age &#x3D;&#x3D; student.age;
+	&#125;
+    
+    &#x2F;&#x2F; 重写 hashCode 方法
+    @Override
+	public int hashCode() &#123;
+        &#x2F;&#x2F; 调用 Objects 工具类的 hash 方法，根据传入的参数生成一个指定的 hashCode 值
+		return Objects.hash(name, age);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class TestStudent &#123;
+	public static void main(String[] args) &#123;
+		Student student1 &#x3D; new Student(&quot;Buffer&quot;,23);
+		Student student2 &#x3D; new Student(&quot;Banlance&quot;,22);
+		Student student3 &#x3D; new Student(&quot;Buffer&quot;,23);
+		
+		System.out.println(student1.equals(student2));
+		System.out.println(student1.equals(student3));
+
+		System.out.println(student1.hashCode());
+		System.out.println(student2.hashCode());
+		System.out.println(student3.hashCode());	
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">false
+true
+1892650872
+247063595
+1892650872<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>student1 和 student3 的 equals 方法返回值是 true ，所以他们的 hashCode 值相同</p>
+<h4 id="总结-19"><a href="#总结-19" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、hashCode()用来获取当前对象的哈希值，表示对象的唯一标识。如果重写equals()则必须重写hashCode()方法</p>
+<p>2、equals相同hashCode一定相同，hashCode相同equals不一定相同</p>
+</blockquote>
+<h3 id="getClass"><a href="#getClass" class="headerlink" title="getClass()"></a>getClass()</h3><p>获取当前对象的 Class 对象（字节码对象），直接打印会显示包含完整的包名,类名的信息</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public final native Class&lt;?&gt; getClass();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Cat &#123;&#125;
+
+public class GetClassDemo &#123;
+	public static void main(String[] args) &#123;
+		Cat cat &#x3D; new Cat();
+		System.out.println(cat.getClass());
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">protected void finalize()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</p>
+<h3 id="总结-20"><a href="#总结-20" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>Object类是所有类的基类，提供了一个无参的构造方法和一些公共方法</p>
+<p>通过重写toString方法来获取对象中的数据</p>
+<p>通过重写equals方法和hashCode方法来判断两个对象是否相同，这两个方法必须同时重写</p>
+<p>getClass用来获取Class对象</p>
+<p>finalize方法用于垃圾回收，不可控</p>
+</blockquote>
+<h2 id="System-类"><a href="#System-类" class="headerlink" title="System 类"></a>System 类</h2><p><code>System</code> 类包含一些有用的类字段和方法。它不能被实例化。 </p>
+<p>在 <code>System</code>  类提供的设施中，有标准输入、标准输出和错误输出流；对外部定义的属性和环境变量的访问；加载文件和库的方法；还有快速复制数组的一部分的实用方法。</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 标准输入流，常用于键盘录入
+public final static InputStream in &#x3D; null
+    
+&#x2F;&#x2F; 标准输出流，常用于打印信息
+public final static PrintStream out &#x3D; null;
+
+&#x2F;&#x2F; 标准错误输出流，常用于打印错误信息
+public final static PrintStream err &#x3D; null;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class SystemFieldDemo &#123;
+	public static void main(String[] args) &#123;
+		&#x2F;&#x2F; 通过Scanner测试标准输入
+		Scanner sc &#x3D; new Scanner(System.in);
+		
+		String next &#x3D; sc.next();
+		
+		&#x2F;&#x2F; 通过System.out.print测试标准输出流
+		System.out.println(next);
+		
+		sc.close();
+		
+		&#x2F;&#x2F; 通过System.err.print测试标准输出流
+		System.err.println(&quot;打印错误报告&quot;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="构造方法-2"><a href="#构造方法-2" class="headerlink" title="构造方法"></a>构造方法</h3><p>构造方法私有化，无法创建对象</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;** Don&#39;t let anyone instantiate this class *&#x2F;
+private System() &#123;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="arraycopy"><a href="#arraycopy" class="headerlink" title="arraycopy()"></a>arraycopy()</h3><p>这个方法表示复制数组，从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static native void arraycopy(Object src,  int  srcPos,
+                                        Object dest, int destPos,
+                                        int length);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>参数解释</p>
+<blockquote>
+<p>src - 源数组。<br>srcPos - 源数组中的起始位置。<br>dest - 目标数组。<br>destPos - 目标数据中的起始位置。<br>length - 要复制的数组元素的数量。</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ArraycopyDemo &#123;
+	public static void main(String[] args) &#123;
+		&#x2F;&#x2F; 创建一个长度为5的int类型数组arr
+		int[] arr &#x3D; new int[5];
+		
+		&#x2F;&#x2F; 为数组arr赋值
+		for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;
+			arr[i] &#x3D; i;
+		&#125;
+
+		&#x2F;&#x2F; 遍历数组arr
+		for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;
+			System.out.println(arr[i]);
+		&#125;
+		
+		System.out.println(&quot;------------------&quot;);
+		
+		&#x2F;&#x2F; 创建一个新的长度为5的int类型数组newArr
+		int[] newArr &#x3D; new int[5];
+		
+		&#x2F;&#x2F; 调用System的arraycopy方法，分别传入对应的参数
+		System.arraycopy(arr, 0, newArr, 0, 5);
+		
+		&#x2F;&#x2F; 遍历newArr数组
+		for (int i &#x3D; 0; i &lt; newArr.length; i++) &#123;
+			System.out.println(newArr[i]);
+		&#125;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="currentTimeMillis"><a href="#currentTimeMillis" class="headerlink" title="currentTimeMillis()"></a>currentTimeMillis()</h3><p>返回以毫秒为单位的当前时间。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static native long currentTimeMillis();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>【注意】</p>
+<blockquote>
+<p>1、这个方法的返回值是long类型</p>
+<p>2、当前时间与协调世界时 1970 年 1 月 1 日午夜之间的时间差（以毫秒为单位测量）</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class CurrentTimeMillsDemo &#123;
+	public static void main(String[] args) &#123;
+		
+		long currentTimeMillis &#x3D; System.currentTimeMillis();
+		
+		System.out.println(&quot;毫秒：&quot; + currentTimeMillis);
+		System.out.println(&quot;年：&quot; + currentTimeMillis&#x2F;1000&#x2F;60&#x2F;60&#x2F;24&#x2F;365);	
+		
+		SimpleDateFormat sdf &#x3D; new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+		
+		String date &#x3D; sdf.format(currentTimeMillis);
+		
+		System.out.println(date); &#x2F;&#x2F; 2020-10-06 17:53:02
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="gc"><a href="#gc" class="headerlink" title="gc()"></a>gc()</h3><p>运行垃圾回收器。在此之前会调用Object的finalize()</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void gc()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>System.gc()可用于垃圾回收。当使用System.gc()回收某个对象所占用的内存之前，通过要求程序调用适当的方法来清理资源。在没有明确指定资源清理的情况下，Java提高了默认机制来清理该对象的资源，就是调用Object类的finalize()方法。finalize()方法的作用是释放一个对象占用的内存空间时，会被JVM调用。而子类重写该方法，就可以清理对象占用的资源，该方法有没有链式调用，所以必须手动实现。</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Person &#123;
+	private String name;
+	private int age;
+
+	&#x2F;&#x2F; 构造方法，getter、setter方法、toString方法
+
+    &#x2F;*
+	 * 通过重写finalize方法验证调用gc会执行此方法
+	 *&#x2F;
+	@Override
+	protected void finalize() throws Throwable &#123;
+		System.out.println(&quot;执行finalize方法回收垃圾：&quot; + this);
+		super.finalize();
+	&#125;
+&#125;
+
+public class GcDemo &#123;
+	public static void main(String[] args) &#123;
+		System.out.println(new Person(&quot;张三&quot;, 16));
+		System.gc();
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>从程序的运行结果可以发现，执行System.gc()前，系统会自动调用finalize()方法清除对象占有的资源，通过super.finalize()方式可以实现从下到上的finalize()方法的调用，即先释放自己的资源，再去释放父类的资源。</p>
+<p>但是，不要在程序中频繁的调用垃圾回收，因为每一次执行垃圾回收，jvm都会强制启动垃圾回收器运行，这会耗费更多的系统资源，会与正常的Java程序运行争抢资源，只有在执行大量的对象的释放，才调用垃圾回收最好</p>
+</blockquote>
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h3><p>终止当前正在运行的 Java 虚拟机。参数用作状态码；根据惯例，非 0 的状态码表示异常终止。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void exit(int status)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ExitDemo &#123;
+	public static void main(String[] args) &#123;
+		System.out.println(&quot;程序执行开始&quot;);
+		&#x2F;&#x2F; 执行此方法后关闭虚拟机，程序不会再向下执行
+		System.exit(0);
+		System.out.println(&quot;程序执行结束&quot;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="总结-21"><a href="#总结-21" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>System类提供了一些和系统相关的类字段和方法，便于我们和底层进行交互。</p>
+<p>比较常用的就是arraycopy()和currentTimeMills()，其他不需要关注</p>
 </blockquote>
 
             </div>
