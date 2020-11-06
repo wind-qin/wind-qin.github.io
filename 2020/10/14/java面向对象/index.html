@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.2k
+                    15.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    60 分
+                    65 分
                 </div>
                 
 
@@ -2525,6 +2525,152 @@ public class GcDemo &#123;
 <h3 id="总结-21"><a href="#总结-21" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>System类提供了一些和系统相关的类字段和方法，便于我们和底层进行交互。</p>
 <p>比较常用的就是arraycopy()和currentTimeMills()，其他不需要关注</p>
+</blockquote>
+<h2 id="Scanner-类"><a href="#Scanner-类" class="headerlink" title="Scanner 类"></a>Scanner 类</h2><p>一个可以使用正则表达式来解析基本类型和字符串的简单文本扫描器。 </p>
+<h3 id="类声明"><a href="#类声明" class="headerlink" title="类声明"></a>类声明</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public final class Scanner implements Iterator&lt;String&gt;, Closeable &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这里我们需要关注三个点：</p>
+<p>1、final修饰，不能被继承</p>
+<p>2、实现了 Iterator 接口(迭代器接口)，主要使用其中的 hasNext 方法和 next 方法</p>
+<p>3、实现了 Closeable 接口，主要使用其中的 close 方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&gt;&#x2F;&#x2F; 用来判断是否还有下一个元素录入
+&gt;public boolean hasNext()
+
+&gt;&#x2F;&#x2F; 用来接收录入的数据
+&gt;public String next()
+
+&gt;&#x2F;&#x2F; 用来关闭资源(输入流)
+&gt;public void close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="构造方法-3"><a href="#构造方法-3" class="headerlink" title="构造方法"></a>构造方法</h3><p>从指定的扫描输入流构造一个 Scanner</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public Scanner(InputStream source)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 &#123;
+	public static void main(String[] args) &#123;
+		&#x2F;&#x2F; java.util.Scanner.Scanner(InputStream source)
+        &#x2F;&#x2F; 使用构造方法，传入一个标准输入流，创建一个Scanner对象
+		Scanner sc &#x3D; new Scanner(System.in);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 此方法用于接收从键盘录入的字符串
+public String next()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+        
+        &#x2F;&#x2F; 从键盘录入一个字符串
+        String str &#x3D; sc.next();
+        
+		System.out.println(str);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="nextInt"><a href="#nextInt" class="headerlink" title="nextInt()"></a>nextInt()</h3><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 此方法用于从键盘获取一个int类型的数据
+public int nextInt()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo1 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+        
+        &#x2F;&#x2F; 从键盘录入一个字符串
+        int num &#x3D; sc.nextInt();
+        
+		System.out.println(num);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="方法的重载：nextInt-int-radix"><a href="#方法的重载：nextInt-int-radix" class="headerlink" title="方法的重载：nextInt(int radix)"></a>方法的重载：nextInt(int radix)</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 指定进制数从键盘录入一个int类型的数据
+public int nextInt(int radix)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>int radix参数表示一个进制数，如果从键盘录入的数据超过了指定的进制数就会报错，默认是10</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo5 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+		
+		&#x2F;*
+		 * 8表示接收8进制内的数，及0~7
+		 * 
+		 * 从键盘录入的数据中不能出现8及其以上的数字，如果有会报错：
+		 * InputMismatchException 输入类型不匹配异常
+		 *&#x2F;
+		int num &#x3D; sc.nextInt(8);
+		
+		System.out.println(num);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="相关方法：用法类似，要求触类旁通"><a href="#相关方法：用法类似，要求触类旁通" class="headerlink" title="相关方法：用法类似，要求触类旁通"></a>相关方法：用法类似，要求触类旁通</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public String nextLine()
+public byte nextByte()
+public byte nextByte(int radix)
+public short nextShort()
+public long nextLong()
+public float nextFloat()
+public double nextDouble()
+public BigInteger nextBigInteger()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="hasNextInt"><a href="#hasNextInt" class="headerlink" title="hasNextInt()"></a>hasNextInt()</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 如果此扫描器的输入中有另一个标记，则返回 true。在等待要扫描的输入时，此方法可能阻塞。扫描器将不执行任何输入。
+public boolean hasNext()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>此方法可用于合法性判断</p>
+</blockquote>
+<p>案例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo2 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+        
+		if (sc.hasNextInt()) &#123;
+			System.out.println(sc.nextInt());
+		&#125; else &#123;
+			System.out.println(&quot;输入的数据类型有误&quot;);
+		&#125;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其他相关方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public boolean hasNext()
+public boolean hasNextLine()
+public boolean hasNextBoolean()
+public boolean hasNextByte()
+public boolean hasNextShort()
+public boolean hasNextLong()
+public boolean hasNextFloat()
+public boolean hasNextDouble()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="扩展：回车换行问题"><a href="#扩展：回车换行问题" class="headerlink" title="扩展：回车换行问题"></a>扩展：回车换行问题</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo3 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+        
+		int num &#x3D; sc.nextInt();
+		String str &#x3D; sc.nextLine();
+		
+		System.out.println(&quot;str:&quot; + str + &quot;，num:&quot; + num);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>当从键盘录入第一个数字后，敲下的回车键实际是两个字符：\r\n，所以键盘实际是录入了这两个字符并且结束，显示的效果和没有录入字符串相同</p>
+<p>补充：</p>
+<p>\r：回车，回到行首</p>
+<p>\n：换行</p>
+<p>电脑上的回车键(Enter键)实际上是回车式换行，会先执行回车，后执行换行</p>
+</blockquote>
+<p>扩展：多行录入</p>
+<p>可以通过hasNext的重载方法来实现多行录入</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 如果从键盘录入指定的pattern标记，则返回true，否则返回false
+public boolean hasNext(String pattern)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo4 &#123;
+	public static void main(String[] args) &#123;
+		Scanner sc &#x3D; new Scanner(System.in);
+
+		StringBuffer sb &#x3D; new StringBuffer();
+
+        &#x2F;&#x2F; 将#作为结束的标记，当遇到#时结束循环
+		while (!sc.hasNext(&quot;#&quot;)) &#123;
+			sb.append(sc.next());
+		&#125;
+        
+		System.out.println(sb);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="总结-22"><a href="#总结-22" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>Scanner 通过标准输入流来从键盘输入，后期不会用到，目前常用的方法为nextXxx()和hasNextXxx()</p>
 </blockquote>
 
             </div>
