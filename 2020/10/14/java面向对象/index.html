@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java面向对象, 个人博客，秦俊祥，Q先生">
-    <meta name="description" content="记录生活，学习内容记录">
+    <meta name="description" content="记录生活，学习内容记录，Q先生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>Java面向对象 | 白月光</title>
+    <title>Java面向对象 | 白月光 | 秦俊祥</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -55,7 +55,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">白月光</span>
+                    <span class="logo-span">白月光 | 秦俊祥</span>
                 </a>
             </div>
             
@@ -154,10 +154,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">白月光</div>
+        <div class="logo-name">白月光 | 秦俊祥</div>
         <div class="logo-desc">
             
-            记录生活，学习内容记录
+            记录生活，学习内容记录，Q先生
             
         </div>
     </div>
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.3k
+                    15.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    65 分
+                    68 分
                 </div>
                 
 
@@ -2672,6 +2672,105 @@ public boolean hasNext(String pattern)<span aria-hidden="true" class="line-numbe
 <h3 id="总结-22"><a href="#总结-22" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>Scanner 通过标准输入流来从键盘输入，后期不会用到，目前常用的方法为nextXxx()和hasNextXxx()</p>
 </blockquote>
+<h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。</p>
+<h3 id="成员变量-1"><a href="#成员变量-1" class="headerlink" title="成员变量"></a>成员变量</h3><blockquote>
+<p>静态常量，全大写，通过类名调用</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 比任何其他值都更接近 e（即自然对数的底数）的 double 值
+public static final double E &#x3D; 2.7182818284590452354;
+
+&#x2F;&#x2F; 比任何其他值都更接近 pi（即圆的周长与直径之比）的 double 值
+public static final double PI &#x3D; 3.14159265358979323846;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="构造方法-4"><a href="#构造方法-4" class="headerlink" title="构造方法"></a>构造方法</h3><blockquote>
+<p>构造方法私有化，不能创建对象</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">private Math() &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h3><blockquote>
+<p>所有方法全部都被 static 修饰，可以通过类名直接调用</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取绝对值
+public static int abs(int a)
+
+&#x2F;&#x2F; 对数据进行向上取整
+public static double ceil(double a)
+
+&#x2F;&#x2F; 对数据进行向下取整
+public static double floor(double a)
+
+&#x2F;&#x2F; 获取最大值
+public static int max(int a,int b) 
+    
+&#x2F;&#x2F; 获取最小值
+public static int min(int a, int b)
+
+&#x2F;&#x2F; 获取a的b次幂
+public static double pow(double a,double b)
+
+&#x2F;&#x2F; 随机数，范围：[0.0, 1.0)，注意左闭右开，包含左边不包含右边，
+public static double random()
+
+&#x2F;&#x2F; 四舍五入
+public static int round(float a)
+
+&#x2F;&#x2F; 获取正平方根
+public static double sqrt(double a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package com.fc.r.math;
+
+public class MathDemo1 &#123;
+	public static void main(String[] args) &#123;
+		&#x2F;&#x2F; 自然对数的底
+		System.out.println(&quot;Math.E:&quot; + Math.E);
+		&#x2F;&#x2F; π
+		System.out.println(&quot;Math.PI:&quot; + Math.PI);
+
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 绝对值
+		System.out.println(&quot;abs:&quot; + Math.abs(-1));
+		System.out.println(&quot;abs:&quot; + Math.abs(1));
+
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 向上取整
+		System.out.println(&quot;ceil:&quot; + Math.ceil(12.34));
+		System.out.println(&quot;ceil:&quot; + Math.ceil(12.56));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 向下取整
+		System.out.println(&quot;floor:&quot; + Math.floor(12.34));
+		System.out.println(&quot;floor:&quot; + Math.floor(12.56));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 最大最小值
+		System.out.println(&quot;max:&quot; + Math.max(12.34, 56.78));
+		System.out.println(&quot;max:&quot; + Math.max(12.34, Math.max(56.78, 100)));
+		System.out.println(&quot;min:&quot; + Math.min(12.34, 56.78));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; a的b次方
+		System.out.println(&quot;pow:&quot; + Math.pow(2, 10));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 随机数1~10
+		System.out.println(&quot;random:&quot; + (int) (Math.random() * 10 + 1));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 四舍五入
+		System.out.println(&quot;round:&quot; + Math.round(12.34));
+		System.out.println(&quot;round:&quot; + Math.round(12.56));
+		
+		System.out.println(&quot;-----------------&quot;);
+
+		&#x2F;&#x2F; 获取正平方根
+		System.out.println(&quot;sqrt:&quot; + Math.sqrt(16));
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -3294,7 +3393,7 @@ public boolean hasNext(String pattern)<span aria-hidden="true" class="line-numbe
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: 白月光<br />'
+            + '来源: 白月光 | 秦俊祥<br />'
             + '文章作者: 白月光<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
@@ -3694,7 +3793,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":false,"hitokoto":false}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script></body>
 	<script src="/js/snow1.js"></script>
 	
 	<script type="text/javascript">
