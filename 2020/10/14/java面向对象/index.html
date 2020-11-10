@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-06
+                    2020-11-10
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.9k
+                    16.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    72 分
                 </div>
                 
 
@@ -974,7 +974,7 @@ this代表所在类的对象引用，即当前对象
 
 会根据参数列表调用对应的构造方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public Rabbit(String color) &#123;
-	&#x2F;&#x2F; 调用本来中的属性
+	&#x2F;&#x2F; 调用本类中的属性
 	this.color &#x3D; color;
 &#125;
 
@@ -2771,7 +2771,105 @@ public class MathDemo1 &#123;
 		System.out.println(&quot;sqrt:&quot; + Math.sqrt(16));
 	&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="概述-5"><a href="#概述-5" class="headerlink" title="概述"></a>概述</h3><p>Java泛型是JavaSE1.5中引入的一个新特性，其本质是参数化类型，也就是说所操作的数据类型被指定为一个参数（type parameter）这种参数类型在定义的时候是宽泛的，而在使用的时候是确定的。可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。</p>
+<h3 id="泛型的优点"><a href="#泛型的优点" class="headerlink" title="泛型的优点"></a>泛型的优点</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">1、提高了程序的安全性(类型安全)
+2、提高了程序的可扩展性、可重用性
+3、将运行期遇到的问题转移到了编译期
+4、省去了类型强转的麻烦(Object类对象)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="泛型格式"><a href="#泛型格式" class="headerlink" title="泛型格式"></a>泛型格式</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">泛型标识符：&lt;自定义无意义英文大写单字母占位符&gt;
+    常用格式：		
+		&lt;T&gt; Type 
+		&lt;E&gt; Element
+		&lt;K&gt; Key
+		&lt;V&gt; Value
 
+泛型类：把泛型定义在类上
+	格式:class 类名&lt;泛型类型1,…&gt;
+    	【注意】泛型类型必须是引用类型
+        
+泛型方法：把泛型定义在方法上
+	格式:public &lt;泛型类型&gt; 返回类型 方法名(泛型类型 .)
+        
+泛型接口：把泛型定义在接口上
+	格式:public  interface 接口名&lt;泛型类型1…&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>案例代码1</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericityMethodDemo &#123;
+	public static void main(String[] args) &#123;
+		System.out.println(getData(100));
+		System.out.println(getData(&quot;Java&quot;));
+		System.out.println(getData(&#39;A&#39;));
+		System.out.println(getData(false));
+	&#125;
+
+	&#x2F;**
+	 * 泛型方法
+	 * 格式：
+	 * 		泛型限定符 返回值类型 方法名(泛型类型 参数名) &#123;&#125;
+	 * 
+	 * @param &lt;T&gt; 泛型限定符
+	 * @param t 任意类型的参数
+	 * @return 返回任意类型参数
+	 *&#x2F;
+	public static &lt;T&gt; T getData(T t) &#123;
+		return t;
+	&#125; 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码2</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericityMethodDemo2 &#123;
+	public static void main(String[] args) &#123;
+		Integer[] intArr &#x3D; &#123;1, 2, 3&#125;;
+		String[] stringArr &#x3D; &#123;&quot;4&quot;, &quot;5&quot;, &quot;6&quot;&#125;;
+		
+        &#x2F;&#x2F; 自定义学生类，其中包含name和age两个成员变量
+        Student[] students &#x3D; &#123;new Student(&quot;张三&quot;, 1), new Student(&quot;李四&quot;, 2), new Student(&quot;王五&quot;, 3)&#125;;
+		
+		printArray(intArr);
+		printArray(stringArr);
+		printArray(students);
+	&#125;
+	
+	&#x2F;**
+	 * 遍历任意类型的数组
+	 * 
+	 * @param &lt;T&gt; 泛型限定符
+	 * @param t 任意类型的数组
+	 *&#x2F;
+	public static &lt;T&gt; void printArray(T[] t) &#123;
+		for (int i &#x3D; 0; i &lt; t.length; i++) &#123;
+			System.out.println(t[i]);
+		&#125;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">1、要求形式参数列表中必须有一个参数是当前自定义泛型，因为需要通过参数来约束当前方法运行过程中泛型对应的具体数据类型是哪一个
+		
+2、返回值类型可以使用自定义泛型，而且是被形式参数列表中传入的泛型对应具体的数据类型控制
+		
+3、方法体内也可以使用自定义泛型，同时也是被参数当中泛型对应具体数据类型约束监控<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class GenericityClassDemo &#123;
+	public static void main(String[] args) &#123;
+		Number&lt;Integer&gt; num1 &#x3D; new Number&lt;Integer&gt;(100);
+		Number&lt;String&gt; num2 &#x3D; new Number&lt;String&gt;(&quot;100&quot;);
+		System.out.println(num1.getT());
+		System.out.println(num2.getT());
+	&#125;
+&#125;
+
+&#x2F;**
+ * 泛型类，把泛型定义到类上，整个类内都可以使用。是对泛型方法的封装
+ * @param &lt;T&gt; 泛型标识符
+ *&#x2F;
+class Number&lt;T&gt; &#123;
+	private T t;
+
+	&#x2F;&#x2F; Constrator、setters、getters
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">1、类内可以直接使用对应的类名声明泛型
+2、类内使用的泛型具体数据类型是在创建当前类对象时约束
+3、在创建当前类对象时没有约束泛型对应的具体数据类型，那么所有使用到泛型的位置都是Object类型，有悖于泛型使用原则
+4、如果类声明过了泛型，那么类中所有使用此泛型的方法都同时被声明，即无法使用其他类型
+5、泛型类中定义的静态方法不能直接使用类声明的泛型，因为泛型需要在创建对象时声明，而静态方法在类加载时就加载完成，此时泛型还没有声明。如果静态方法想要使用泛型，只能自己声明自己使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
