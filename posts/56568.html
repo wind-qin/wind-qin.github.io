@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="电商管理系统, 个人博客，秦俊祥，Q先生">
+    <meta name="keywords" content="博客, 个人博客，秦俊祥，Q先生">
     <meta name="description" content="记录生活，学习内容记录，Q先生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>电商管理系统 | 白月光 | 秦俊祥</title>
+    <title>博客 | 白月光 | 秦俊祥</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">电商管理系统</h1>
+                    <h1 class="description center-align post-title">博客</h1>
                 </div>
             </div>
         </div>
@@ -382,8 +382,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java%E9%A1%B9%E7%9B%AE/">
-                                <span class="chip bg-color">java项目</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
                             </a>
                         
                     </div>
@@ -394,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                java项目
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                博客
                             </a>
                         
                     </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-13
+                    2020-10-26
                 </div>
 				<div class="info-break-policy">
 					 
@@ -421,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    60
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
 
@@ -438,259 +438,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="电商管理系统"><a href="#电商管理系统" class="headerlink" title="电商管理系统"></a>电商管理系统</h3><p>第一步：先创建四大类，分别为 商品类（Article）、商品集合类（ArticleSet）、商品管理类（ArticleManage）、商品测试类（Demo）. </p>
-<p>代码如下：</p>
-<h4 id="商品类"><a href="#商品类" class="headerlink" title="商品类"></a>商品类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * 商品类
- *
- *&#x2F;
-public class Article &#123;
-	public String name;
-	public int amount;
-	public double price;
-	public int number;
-	public void print(int index)&#123;
-		System.out.println(index+&quot;\t&quot;+name+&quot;\t&quot;+price+&quot;\t&quot;+amount+&quot;\t&quot;+number);
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品集合类"><a href="#商品集合类" class="headerlink" title="商品集合类"></a>商品集合类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * 商品集合类
- *
- *&#x2F;
-public class ArticleSet &#123;
-	Article[] articles&#x3D;new Article[50];
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品管理类"><a href="#商品管理类" class="headerlink" title="商品管理类"></a>商品管理类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
-
-&#x2F;**
- * 商品管理类
- *
- *&#x2F;
-public class ArticleManage &#123;
-
-	ArticleSet articleSet&#x3D;new ArticleSet();
-	Scanner input&#x3D;new Scanner(System.in);
-	
-	&#x2F;**
-	 * 初始化商品
-	 *&#x2F;
-	public void initial()&#123;
-		Article xiaoMi9&#x3D;new Article();
-		xiaoMi9.name&#x3D;&quot;小米9&quot;;
-		xiaoMi9.price&#x3D;2799;
-		xiaoMi9.amount&#x3D;60;
-		xiaoMi9.number&#x3D;0;
-		
-		Article xiaoMiMIX3&#x3D;new Article();
-		xiaoMiMIX3.name&#x3D;&quot;小米8&quot;;
-		xiaoMiMIX3.price&#x3D;2049;
-		xiaoMiMIX3.amount&#x3D;40;
-		xiaoMiMIX3.number&#x3D;0;
-		
-		Article redMiNote7Pro&#x3D;new Article();
-		redMiNote7Pro.name&#x3D;&quot;Redmi7&quot;;
-		redMiNote7Pro.price&#x3D;699;
-		redMiNote7Pro.amount&#x3D;80;
-		redMiNote7Pro.number&#x3D;0;
-		
-		Article xiaoMiPlay&#x3D;new Article();
-		xiaoMiPlay.name&#x3D;&quot;小米6x&quot;;
-		xiaoMiPlay.price&#x3D;749;
-		xiaoMiPlay.amount&#x3D;100;
-		xiaoMiPlay.number&#x3D;0;
-		
-		articleSet.articles[0]&#x3D;xiaoMi9;
-		articleSet.articles[1]&#x3D;xiaoMiMIX3;
-		articleSet.articles[2]&#x3D;redMiNote7Pro;
-		articleSet.articles[3]&#x3D;xiaoMiPlay;
-		
-	
-	&#125;
-	public void startMenu()&#123;
-		boolean flag&#x3D;true;
-		do &#123;System.out.println(&quot;欢迎使用前程商城后台管理系统&quot;);
-		System.out.println(&quot;*****************************************&quot;);
-		System.out.println(&quot;1.查看商品信息&quot;);
-		System.out.println(&quot;2.新增商品信息&quot;);
-		System.out.println(&quot;3.删除商品信息&quot;);
-		System.out.println(&quot;4.卖出商品信息&quot;);
-		System.out.println(&quot;5.商品销售排行榜&quot;);
-		System.out.println(&quot;6.退出&quot;);
-		System.out.println(&quot;*****************************************&quot;);
-		Scanner sc&#x3D;new Scanner(System.in);
-		System.out.println(&quot;请选择要执行的操作：&quot;);
-		int choice&#x3D;sc.nextInt();
-		switch (choice) &#123;
-		case 1:
-			System.out.println(&quot;查看商品信息&quot;);
-			search();
-			break;
-		case 2:
-			System.out.println(&quot;新增商品信息&quot;);
-			add();
-			break;
-		case 3:
-			System.out.println(&quot;删除商品信息&quot;);
-			delete();
-			break;
-		case 4:
-			System.out.println(&quot;卖出商品信息&quot;);
-			sell();
-			break;
-		case 5:
-			System.out.println(&quot;商品销售排行榜&quot;);
-			leaderboard();
-			break;
-		case 6:
-			System.out.println(&quot;谢谢使用！&quot;);
-			flag&#x3D;false;
-			break;
-		default:
-			System.out.println(&quot;输入不符合请重新输入：&quot;);
-			break;
-		&#125;
-			
-		&#125; while (flag);
-	&#125;
-	&#x2F;**
-	 * 查看商品
-	 *&#x2F;
-	public void search()&#123;
-		System.out.println(&quot;编号\t名称\t价格\t库存\t售出&quot;);
-		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
-			if (articleSet.articles[i]!&#x3D;null) &#123;
-				articleSet.articles[i].print(i+1);
-			&#125;
-		&#125;
-	&#125;
-	
-	&#x2F;**
-	 * 新增商品
-	 *&#x2F;
-	public void add()&#123;
-		System.out.println(&quot;请输入商品名称：&quot;);
-		String name&#x3D;input.next();
-		System.out.println(&quot;请输入价格：&quot;);
-		int price&#x3D;input.nextInt();
-		System.out.println(&quot;请输入库存：&quot;);
-		int amount&#x3D;input.nextInt();
-		Article article&#x3D;new Article();
-		article.name&#x3D;name;
-		article.price&#x3D;price;
-		article.amount&#x3D;amount;
-		article.number&#x3D;0;
-		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
-			if (articleSet.articles[i]&#x3D;&#x3D;null) &#123;
-				articleSet.articles[i]&#x3D;article;
-				break;
-			&#125;
-		&#125;
-	&#125;
-	
-	&#x2F;**
-	 * 删除商品
-	 *&#x2F;
-	public void delete()&#123;
-		System.out.println(&quot;请输入商品编号：&quot;);
-		boolean flag&#x3D;true;
-		int card&#x3D;input.nextInt();
-		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
-			if (articleSet.articles[i]!&#x3D;null&amp;&amp;(i+1)&#x3D;&#x3D;card) &#123;
-				int j&#x3D;i;
-				while (articleSet.articles[j+1]!&#x3D;null) &#123;
-					articleSet.articles[j]&#x3D;articleSet.articles[j+1];
-					j++;
-				&#125;
-				articleSet.articles[j]&#x3D;null;
-				flag&#x3D;true;
-				break;
-			&#125; 
-		&#125;
-		if (flag) &#123;
-			System.out.println(&quot;删除成功！&quot;);
-		&#125;else &#123;
-			System.out.println(&quot;删除失败，请重新操作！&quot;);
-		&#125;
-	&#125;
-	
-	
-	&#x2F;**
-	 * 销售业务
-	 *&#x2F;
-	public void sell()&#123;
-		System.out.println(&quot;请输入你要卖出的商品名称：&quot;);
-		String name&#x3D;input.next();
-		boolean flag&#x3D;true;
-		for (int i &#x3D; 0; i &lt; articleSet.articles.length; i++) &#123;
-			if (articleSet.articles[i]!&#x3D;null&amp;&amp;articleSet.articles[i].name.equals(name)) &#123;
-				System.out.println(&quot;请输入你要卖出的数量&quot;);
-				int number&#x3D;input.nextInt();
-				if (number&lt;&#x3D;articleSet.articles[i].amount) &#123;
-					articleSet.articles[i].number&#x3D;articleSet.articles[i].number+number;
-					articleSet.articles[i].amount&#x3D;articleSet.articles[i].amount-number;
-					flag&#x3D;true;
-				&#125; else &#123;
-					System.out.println(&quot;商品数量不够，请抓紧进货！&quot;);
-					flag&#x3D;false;
-				&#125;
-				break;
-			&#125;else&#123;
-				flag&#x3D;false;
-			&#125;
-		&#125;
-		if (flag) &#123;
-			System.out.println(&quot;卖出商品成功！&quot;);
-		&#125; else &#123;
-			System.out.println(&quot;卖出商品失败！&quot;);
-		&#125;
-	&#125;
-	
-	&#x2F;**
-	 * 商品销售排行榜
-	 *&#x2F;
-	public void leaderboard() &#123;
-		Article[] articles &#x3D; new Article[50];
-		for (int i &#x3D; 0; i &lt; articles.length; i++) &#123;
-			if (articleSet.articles[i]!&#x3D;null) &#123;
-				articles[i]&#x3D;articleSet.articles[i];
-			&#125;
-		&#125;
-		
-		for (int i &#x3D; 0; i &lt; articles.length-1; i++) &#123;
-			for (int j &#x3D; 0; j &lt; articles.length-i-1; j++) &#123;
-				if (articles[j+1] !&#x3D; null) &#123;
-					if (articles[j].number &lt; articles[j+1].number) &#123;
-						Article tempArticle &#x3D; articles[j];
-						articles[j]&#x3D;articles[j+1];
-						articles[j+1]&#x3D;tempArticle;
-
-					&#125;
-				&#125;
-			&#125;
-
-		&#125;
-		System.out.println(&quot;*************************************&quot;);
-		System.out.println(&quot;名次\t销售数量\t商品名称&quot;);
-		for (int i &#x3D; 0; i &lt; articles.length; i++) &#123;
-			if (articles[i]!&#x3D;null) &#123;
-				System.out.println(i+1+&quot;\t&quot;+articles[i].number+&quot;\t&quot;+articles[i].name);
-			&#125;
-		&#125;
-	&#125;	
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="商品测试类"><a href="#商品测试类" class="headerlink" title="商品测试类"></a>商品测试类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- *商品测试类
- *&#x2F;
-public class Demo &#123;
-	public static void main(String[] args) &#123;
-		ArticleManage articleManage&#x3D;new ArticleManage();
-		articleManage.initial();
-		articleManage.startMenu();
-	&#125;
-&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p>此人比较懒惰。未填写内容</p>
+<p>如想详细创建博客请移步另博客，链接如下：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242</a></p>
+<p>如想优化博客：</p>
+<p><a href="https://ialoe.top/">https://ialoe.top/</a></p>
 
             </div>
             <hr/>
@@ -716,7 +468,7 @@ public class Demo &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/10/10/java%E9%A1%B9%E7%9B%AE/">http://example.com/2020/10/10/java%E9%A1%B9%E7%9B%AE/</a>
+                    <a href="https://ialoe.top/posts/56568.html">https://ialoe.top/posts/56568.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -754,8 +506,8 @@ public class Demo &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java%E9%A1%B9%E7%9B%AE/">
-                                    <span class="chip bg-color">java项目</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
                                 </a>
                             
                         </div>
@@ -1190,55 +942,7 @@ public class Demo &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/11/%E7%94%AB%E5%AD%90%E5%AF%B8%E8%AF%97%E9%9B%86%E8%8A%82%E9%80%89/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="甫子寸诗集">
-                        
-                        <span class="card-title">甫子寸诗集</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            世间有些许荒唐，不如与我兴风作浪。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-11
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AF%97%E9%9B%86/" class="post-category">
-                                    诗集
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%94%AB%E5%AD%90%E5%AF%B8%E8%AF%97%E9%9B%86%E8%8A%82%E9%80%89/">
-                        <span class="chip bg-color">甫子寸诗集节选</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/10/07/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/">
+                <a href="/posts/9296.html">
                     <div class="card-image">
                         
                         <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="博客的优化">
@@ -1253,9 +957,9 @@ public class Demo &#123;
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1273,6 +977,54 @@ public class Demo &#123;
                     
                     <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                         <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/38943.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/0.jpeg" class="responsive-img" alt="Java基础">
+                        
+                        <span class="card-title">Java基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java基础
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
