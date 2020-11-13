@@ -42,9 +42,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -421,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    676
+                    608
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -476,33 +475,33 @@
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201105110906.png" alt="image-20201105110904752"></p>
 <p>运行结果如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201105111129.png" alt="image-20201105111128007"></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#创建数据库
-create database company charset&#x3D;utf8;
+<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">#创建数据库
+create database company charset=utf8;
 use company;
 create table emp(
-	eid int primary key,
-	ename varchar(20),
-	eage int,
-	esex varchar(5),
+    eid int primary key,
+    ename varchar(20),
+    eage int,
+    esex varchar(5),
   joindate date
-) charset&#x3D;utf8;
+) charset=utf8;
 #添加数据
 insert into emp(eid,ename,eage,esex,joindate) 
-	value(1,&#39;张三&#39;,18,&#39;男&#39;,&#39;2019-09-05&#39;);
+    value(1,'张三',18,'男','2019-09-05');
 insert into emp(eid,ename,eage,esex,joindate) 
-	value(2,&#39;李四&#39;,19,&#39;男&#39;,&#39;2018-09-05&#39;);
+    value(2,'李四',19,'男','2018-09-05');
 insert into emp(eid,ename,eage,esex,joindate) 
-	value(3,&#39;王五&#39;,17,&#39;女&#39;,&#39;2017-09-05&#39;);
+    value(3,'王五',17,'女','2017-09-05');
 insert into emp(eid,ename,eage,esex,joindate) 
-	value(4,&#39;赵六&#39;,20,&#39;男&#39;,&#39;2020-09-05&#39;);
+    value(4,'赵六',20,'男','2020-09-05');
 #查询emp表
 select eid,ename,eage,esex,joindate from emp;
 select eid,ename,eage from emp;
 select * from emp;
 #把eid等于4的记录的ename的值改为赵若男
-update emp set ename&#x3D;&#39;赵若男&#39;,esex&#x3D;&#39;女&#39; where eid&#x3D;4;
+update emp set ename='赵若男',esex='女' where eid=4;
 #删除eid等于3的数据
-delete from emp where eid&#x3D;3;
+delete from emp where eid=3;
 #更改表结构
 #把表名改为employ
 alter table emp rename employ;
@@ -518,19 +517,21 @@ drop table employ;
 drop table emp;
 use company;
 create table emp(
-	eid int primary key,
-	ename varchar(20) not null,
-	esex  enum(&#39;男&#39;,&#39;女&#39;) default &#39;男&#39;,
-	etel varchar(17)  not null unique
+    eid int primary key,
+    ename varchar(20) not null,
+    esex  enum('男','女') default '男',
+    etel varchar(17)  not null unique
 )
-insert into emp(eid,ename,esex,etel) value(1,&#39;张三&#39;,&#39;男&#39;,&#39;18530900286&#39;);
-insert into emp(eid,ename,esex,etel) value(2,&#39;张三&#39;,&#39;女&#39;,&#39;18530900287&#39;);
-insert into emp(eid,ename,etel) value(3,&#39;赵四&#39;,&#39;18530900288&#39;);
-insert into emp(eid,ename,etel) value(4,&#39;赵三&#39;,&#39;18530900289&#39;);
-insert into emp(eid,ename,etel) value(5,&#39;赵五&#39;,&#39;18530900290&#39;);
-insert into emp(eid,ename,etel) value(6,&#39;赵六&#39;,&#39;18530900277&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 删除某表
-delete from 表名;# truncate table 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+insert into emp(eid,ename,esex,etel) value(1,'张三','男','18530900286');
+insert into emp(eid,ename,esex,etel) value(2,'张三','女','18530900287');
+insert into emp(eid,ename,etel) value(3,'赵四','18530900288');
+insert into emp(eid,ename,etel) value(4,'赵三','18530900289');
+insert into emp(eid,ename,etel) value(5,'赵五','18530900290');
+insert into emp(eid,ename,etel) value(6,'赵六','18530900277');
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h2><pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql"># 删除某表
+delete from 表名;# truncate table 表名;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>

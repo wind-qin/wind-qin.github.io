@@ -42,9 +42,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -421,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    16 分
                 </div>
                 
 
@@ -446,15 +445,17 @@
 <h3 id="java类的结构"><a href="#java类的结构" class="headerlink" title="java类的结构"></a>java类的结构</h3><p>​                1.编写源文件（后缀名    .java）</p>
 <p>​                2.编译            （后缀名    .class）</p>
 <p>​                3.运行</p>
-<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class 类名&#123;
-    public static void main(String[] args)&#123;
-        
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="java类的结构-1"><a href="#java类的结构-1" class="headerlink" title="java类的结构"></a>java类的结构</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class 类名{
+    public static void main(String[] args){
+
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​    <code>注意：main方法是java程序的入口</code></p>
 <h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><p>​    输出语句</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">System.out.print(&quot;\n&quot;);&#x2F;&#x2F;输出完之后不会换行
-System.out.println(&quot;\n&quot;);&#x2F;&#x2F;输出完之后换行显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">System.out.print("\n");//输出完之后不会换行
+System.out.println("\n");//输出完之后换行显示
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​    转义符：</p>
 <p>​    \n    换行，相当于输出完一句话按了回车键</p>
 <p>​    \t    大空格，相当于Tab键</p>
@@ -462,7 +463,8 @@ System.out.println(&quot;\n&quot;);&#x2F;&#x2F;输出完之后换行显示<span 
 <p>​    1.单行注释    //注释的内容</p>
 <p>​    2.多行注释    /<em> 注释内容 </em>/</p>
 <p>​    变量：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">color=red; 内存中一块储存空间的表示<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-html"><code class="language-lang-html">color=red; 内存中一块储存空间的表示
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="变量的数据类型："><a href="#变量的数据类型：" class="headerlink" title="变量的数据类型："></a>变量的数据类型：</h3><p>​    1.基本类型</p>
 <p>​        八种基本数据类型</p>
 <p>​        byte(1个字节) short(2个字节) int(4个字节) long(8个字节) </p>
@@ -494,18 +496,20 @@ System.out.println(&quot;\n&quot;);&#x2F;&#x2F;输出完之后换行显示<span 
 <p>​        2.)在程序中导入Scanner类  在类的外面写</p>
 <p>​        <code>import java.util.Scanner;</code></p>
 <p>​        3.)从键盘接收数据赋值给变量</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">String name&#x3D;input.next();&#x2F;&#x2F;接收String类型的值
-int javaScore&#x3D;input.nextInt();&#x2F;&#x2F;接收int类型的值
-double height&#x3D;input.nextDouble();&#x2F;&#x2F;接收double类型的值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">    String name=input.next();//接收String类型的值
+    int javaScore=input.nextInt();//接收int类型的值
+    double height=input.nextDouble();//接收double类型的值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h3><h4 id="声明和使用步骤"><a href="#声明和使用步骤" class="headerlink" title="声明和使用步骤 :"></a>声明和使用步骤 :</h4><p>​            1.声明  2.分配空间  3.赋值  4.使用</p>
 <p>​            注意: </p>
 <p>​                声明同时分配空间: 数据类型[] 数组名=new 数据类型[数组长度];</p>
 <p>​                数组下标从0开始  数组元素最大下标值是 length-1</p>
 <p>​                声明的时候赋值:  数据类型[] 数组名=new 数据类型[]{值1,值2,值3,….} //注意,后面的括号中不能写长度</p>
 <p>​                          数据类型[] 数组名={值1,值2,值3,….}//不可拆分</p>
-<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">for(int i&#x3D;0;i&lt;数组名.length;i++)&#123;
-			System.out.println(数组名[下标]);
-		&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="遍历数组元素"><a href="#遍历数组元素" class="headerlink" title="遍历数组元素"></a>遍历数组元素</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java"> for(int i=0;i<数组名.length;i++){
+                System.out.println(数组名[下标]);
+            }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="数组的应用"><a href="#数组的应用" class="headerlink" title="数组的应用"></a>数组的应用</h4><p>​            ①    数组排序</p>
 <p>​                            使用Arrays类sort方法排序，默认升序排列</p>
 <p>​                            步骤：</p>
@@ -517,13 +521,14 @@ double height&#x3D;input.nextDouble();&#x2F;&#x2F;接收double类型的值<span 
 <p>​                        2）.循环数组元素依次与最大值比较</p>
 <p>​                关键代码：</p>
 <p>​                                ```</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">int max&#x3D;数组[0];
-for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
-	if(数组名[i]&gt;max)&#123;
-		max&#x3D;数组名[i];
-	
-  	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">int max=数组[0];
+for(int i=0;i<数组名.lenght;i++){
+    if(数组名[i]>max){
+        max=数组名[i];
+
+      }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​            ③向数组中插入元素</p>
 <p>​            实现思路</p>
 <p>​            a)找到待插入元素的下标</p>
@@ -554,30 +559,33 @@ for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
 <p>​                圆角矩形 —-&gt;开始或者结束</p>
 <h4 id="1-选择结构"><a href="#1-选择结构" class="headerlink" title="1. 选择结构"></a>1. 选择结构</h4><p>1）简单的if选择结构</p>
 <p>​        语法结构：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">if(boolean类型的值)&#123;
-       &#x2F;&#x2F;代码块
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">if(boolean类型的值){
+       //代码块
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>2）if—else选择结构———用于两种分支判断的情形</p>
 <p>​        语法：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">if()&#123;
-	&#x2F;&#x2F;代码块1
-&#125;else&#123;
-	&#x2F;&#x2F;代码块2
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">if(){
+    //代码块1
+}else{
+    //代码块2
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3）多重if语句：用于区间连续情形</p>
 <p>5)switch选择结构—-用于判断价值</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">switch(变量)&#123;
-	case	常量1：
-		&#x2F;&#x2F;代码块
-		break;
-	case	常量2：
-		&#x2F;&#x2F;代码块
-		break;
-		...
-	default:
-			&#x2F;&#x2F;代码块	
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">switch(变量){
+    case    常量1：
+        //代码块
         break;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    case    常量2：
+        //代码块
+        break;
+        ...
+    default:
+            //代码块    
+        break;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ol>
 <li>switch小括号里的变量  —-&gt;整型和字符型,jdk版本1.7以上 支持String</li>
 <li><p>2.break可以省略,但是省略之后case之间会贯穿执行,直到遇到break才结束</p>
@@ -626,7 +634,7 @@ for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
 <p>​     *    1.调试代码之前,要先分析可能出错的位置    </p>
 <p>​     *    2.在可能出错的地方  打断点—-代码执行到断点处会暂停   行号前双击</p>
 <p>​     *    3.以debug模式启动程序  debug as—-java application</p>
-<pre><code> *    4.单步执行,查找错误(F6) &#123;程序运行到断点处才会启动调试模式&#125;
+<pre><code> *    4.单步执行,查找错误(F6) {程序运行到断点处才会启动调试模式}
 </code></pre><p>​     *    5.找到错误,修改代码</p>
 <h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="一-什么叫面向对象"><a href="#一-什么叫面向对象" class="headerlink" title="一.什么叫面向对象"></a>一.什么叫面向对象</h4><p>相对于面向过程</p>
 <p>​    在完成某件事情的时候,找到一个能完成该功能的对象,而不关心内部细节</p>
@@ -1320,23 +1328,23 @@ for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/56568.html">
+                <a href="/posts/9296.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="博客的优化">
                         
-                        <span class="card-title">博客</span>
+                        <span class="card-title">博客的优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客的创建
+                            博客优化
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
                         </span>
                         <span class="publish-author">
                             
@@ -1365,21 +1373,21 @@ for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/38943.html">
+                <a href="/posts/56568.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpeg" class="responsive-img" alt="Java基础">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客">
                         
-                        <span class="card-title">Java基础</span>
+                        <span class="card-title">博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java基础
+                            博客的创建
                         
                     </div>
                     <div class="publish-info">
@@ -1390,20 +1398,19 @@ for(int i&#x3D;0;i&lt;数组名.lenght;i++)&#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>

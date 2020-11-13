@@ -42,9 +42,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -421,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    542
+                    504
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -439,18 +438,19 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p>
-<h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a target="_blank" rel="noopener" href="https://share.weiyun.com/mSUFa7MN">传送门</a></p>
-<h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a><strong>2 安装软件，打开软件，图床设置</strong></h3><pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
-  &quot;repo&quot;: &quot;&quot;, &#x2F;&#x2F; 仓库名，格式是username&#x2F;reponame
-  &quot;token&quot;: &quot;&quot;, &#x2F;&#x2F; github token
-  &quot;path&quot;: &quot;&quot;, &#x2F;&#x2F; 自定义存储路径，比如img&#x2F;
-  &quot;customUrl&quot;: &quot;&quot;, &#x2F;&#x2F; 自定义域名，注意要加http:&#x2F;&#x2F;或者https:&#x2F;&#x2F;
-  &quot;branch&quot;: &quot;&quot; &#x2F;&#x2F; 分支名，默认是master
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a href="https://share.weiyun.com/mSUFa7MN" target="_blank" rel="noopener">传送门</a></p>
+<h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a><strong>2 安装软件，打开软件，图床设置</strong></h3><pre class="line-numbers language-lang-json"><code class="language-lang-json">{
+  "repo": "", // 仓库名，格式是username/reponame
+  "token": "", // github token
+  "path": "", // 自定义存储路径，比如img/
+  "customUrl": "", // 自定义域名，注意要加http://或者https://
+  "branch": "" // 分支名，默认是master
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-首先你得有一个GitHub账号。注册GitHub就不用我多言。"><a href="#1-首先你得有一个GitHub账号。注册GitHub就不用我多言。" class="headerlink" title="1. 首先你得有一个GitHub账号。注册GitHub就不用我多言。"></a><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。</h4><h4 id="2-新建一个仓库"><a href="#2-新建一个仓库" class="headerlink" title="2. 新建一个仓库"></a><strong>2.</strong> 新建一个仓库</h4><p>记下你取的仓库名。</p>
 <p>如我的：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201031123905.png" alt="1"></p>
-<h4 id="3-生成一个token用于PicGo操作你的仓库："><a href="#3-生成一个token用于PicGo操作你的仓库：" class="headerlink" title="3. 生成一个token用于PicGo操作你的仓库："></a><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</h4><p>访问：<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<h4 id="3-生成一个token用于PicGo操作你的仓库："><a href="#3-生成一个token用于PicGo操作你的仓库：" class="headerlink" title="3. 生成一个token用于PicGo操作你的仓库："></a><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</h4><p>访问：<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a></p>
 <p>然后点击<code>Generate new token</code>。</p>
 <p>把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token。</p>
 <h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h4><p>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p>
@@ -463,7 +463,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201106120714.png" alt="image-20201106120711559"></p>
 <p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p>
 <p>如想了解其他图床的安装请前往：</p>
-<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></p>
+<p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></p>
 
             </div>
             <hr/>

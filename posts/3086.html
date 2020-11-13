@@ -42,9 +42,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -428,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    12 分
                 </div>
                 
 
@@ -442,82 +441,107 @@
 <p><strong>SUM</strong>函数将为值求和。 可以将单个值、单元格引用或是区域相加，或者将三者的组合相加。</p>
 </blockquote>
 <p>1、指定数值求和</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(10,20,30)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(10,20,30)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、指定单元格求和：输入=sum()，在括号中间按住ctrl连续点击即可选择需要求和的数据</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(C5,C9,C3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(C5,C9,C3)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3、也可以将指定单元格直接相加</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(C2 + C4)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(C2 + C4)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>4、区域求和，输入=sum()，在括号中间按住ctrl选中所需要求和的数据</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>5、多个区域求和，输入=sum()，在括号中间分别按住ctrl选中所需要的多个区域的数据</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(C2:C4,C6:C10)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(C2:C4,C6:C10)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>6、配合固定值进行求和，中间使用英文的逗号分隔</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUM(C2:C11,100)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUM(C2:C11,100)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2、条件求和函数SUMIF"><a href="#2、条件求和函数SUMIF" class="headerlink" title="2、条件求和函数SUMIF()"></a>2、条件求和函数SUMIF()</h3><blockquote>
 <p>按条件求和</p>
 </blockquote>
 <p>sumif函数的语法格式</p>
 <blockquote>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&gt;&#x3D;sumif(range，criteria，sum_range)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=sumif(range，criteria，sum_range)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Sumif（条件区域，求和条件，实际求和区域），第二个求和条件参数在第一个条件区域里。</p>
 </blockquote>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;SUMIF(D2:D11,D4,C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=SUMIF(D2:D11,D4,C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>求和所有性别中性别为女的年龄</p>
 <h3 id="3、求平均值函数AVERAGE"><a href="#3、求平均值函数AVERAGE" class="headerlink" title="3、求平均值函数AVERAGE()"></a>3、求平均值函数AVERAGE()</h3><blockquote>
 <p>获取平均值</p>
 </blockquote>
 <p>1、指定数值求平均值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;AVERAGE(10,20)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=AVERAGE(10,20)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、指定单元格求平均值:括号内按ctrl选择需要求平均值的单元格</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;AVERAGE(C2,C8)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=AVERAGE(C2,C8)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3、范围单元格求平均值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;AVERAGE(C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=AVERAGE(C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="4、求最大值函数MAX"><a href="#4、求最大值函数MAX" class="headerlink" title="4、求最大值函数MAX()"></a>4、求最大值函数MAX()</h3><blockquote>
 <p>获取最大值</p>
 </blockquote>
 <p>1、指定数值求最大值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MAX(30,40)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MAX(30,40)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、指定单元格求最大值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MAX(C5,C11,C7)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MAX(C5,C11,C7)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3、指定范围单元格求最大值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MAX(C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MAX(C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>4、指定多个范围单元格求最大值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MAX(C3:C4,C7,C10)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MAX(C3:C4,C7,C10)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="5、求最小值函数MIN"><a href="#5、求最小值函数MIN" class="headerlink" title="5、求最小值函数MIN()"></a>5、求最小值函数MIN()</h3><blockquote>
 <p>获取最小值</p>
 </blockquote>
 <p>1、指定数值求最小值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MIN(30,40)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MIN(30,40)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、指定单元格求最小值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MIN(C5,C11,C7)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MIN(C5,C11,C7)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3、指定范围单元格求最小值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MIN(C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MIN(C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>4、指定多个范围单元格求最小值</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;MIN(C3:C4,C7,C10)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=MIN(C3:C4,C7,C10)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="6、计数函数COUNT"><a href="#6、计数函数COUNT" class="headerlink" title="6、计数函数COUNT()"></a>6、计数函数COUNT()</h3><blockquote>
 <p>获取指定单元格非空数据数值类型的个数，对于空单元格、逻辑值或者文本数据将被忽略。可以用来判断是否有空白单元格</p>
 </blockquote>
 <p>1、指定数值获取非空数值的个数</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;COUNT(1,2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=COUNT(1,2)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、获取指定单元格中非空数值的个数</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;COUNT(C10,F10)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=COUNT(C10,F10)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3、指定范围获取非空数值的个数</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;COUNT(C10:C12)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=COUNT(C10:C12)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>4、指定多个范围单元格获取非空数值的个数</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;COUNT(C8,C10,C12,F4:F12)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=COUNT(C8,C10,C12,F4:F12)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="7、非空计数函数COUNTA"><a href="#7、非空计数函数COUNTA" class="headerlink" title="7、非空计数函数COUNTA()"></a>7、非空计数函数COUNTA()</h3><blockquote>
 <p>统计区域内包含文本和逻辑值的单元格个数。</p>
 <p>注意counta函数与count函数的区别。</p>
 <p>Count函数只统计区域内包含数字的单元格个数。</p>
 </blockquote>
 <p>1、指定多个范围单元格获取非空数据的个数</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;COUNTA(E4:E7,C2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=COUNTA(E4:E7,C2)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="8、四舍五入函数ROUND"><a href="#8、四舍五入函数ROUND" class="headerlink" title="8、四舍五入函数ROUND()"></a>8、四舍五入函数ROUND()</h3><blockquote>
 <p>对数值进行四舍五入</p>
 </blockquote>
 <p>ROUND函数语法格式：</p>
 <blockquote>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&gt;ROUND(number, num_digits)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">ROUND(number, num_digits)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中</p>
 <p>number表示需要进行四舍五入的数值或单元格内容。</p>
 <p>num_digits表示需要取多少位的参数。</p>
@@ -526,7 +550,8 @@
 <p>num_digits&lt; 0时，表示对小数点左侧前几位进行四舍五入。</p>
 </blockquote>
 <p>1、对指定单元格进行四舍五入</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;ROUND(E7,0)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=ROUND(E7,0)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="9、排名次函数RANK"><a href="#9、排名次函数RANK" class="headerlink" title="9、排名次函数RANK()"></a>9、排名次函数RANK()</h3><blockquote>
 <p>返回一列数字的数字排位。 数字的排位是相对于列表中的其他值的大小。</p>
 </blockquote>
@@ -545,7 +570,8 @@
 </ul>
 </blockquote>
 <p>1、获取指定单元格在范围内进行排名</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;RANK(C3,C2:C11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=RANK(C3,C2:C11)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="9、排名次函数RANK-EQ"><a href="#9、排名次函数RANK-EQ" class="headerlink" title="9、排名次函数RANK.EQ()"></a>9、排名次函数RANK.EQ()</h3><p><code>与RANK函数用法一致</code></p>
 <blockquote>
 <p>返回一列数字的数字排位。 其大小与列表中其他值相关；如果多个值具有相同的排位，则返回该组值的最高排位。</p>
@@ -567,20 +593,24 @@
 </ul>
 </blockquote>
 <p>1、升序排名</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;RANK.EQ(C3,C2:C11,1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=RANK.EQ(C3,C2:C11,1)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、降序排名(0可以省略)</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;RANK.EQ(C3,C2:C11,0)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=RANK.EQ(C3,C2:C11,0)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="10、取整函数INT"><a href="#10、取整函数INT" class="headerlink" title="10、取整函数INT()"></a>10、取整函数INT()</h3><blockquote>
 <p>将数字向下舍入到最接近的整数。</p>
 </blockquote>
 <p>1、对指定单元格进行取整，忽略小数位</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;INT(E3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=INT(E3)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="11、求字符串长度函数LEN"><a href="#11、求字符串长度函数LEN" class="headerlink" title="11、求字符串长度函数LEN()"></a>11、求字符串长度函数LEN()</h3><blockquote>
 <p>返回文本字符串中的字符个数</p>
 <p>【注意】数字，字符，汉字都属于一个字符，包括小数点</p>
 </blockquote>
 <p>1、对指定单元格获取长度</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;LEN(E3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=LEN(E3)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="12、左取字符串函数LEFT"><a href="#12、左取字符串函数LEFT" class="headerlink" title="12、左取字符串函数LEFT()"></a>12、左取字符串函数LEFT()</h3><blockquote>
 <p>从文本字符串的第一个字符开始返回指定个数的字符</p>
 </blockquote>
@@ -599,9 +629,11 @@
 </ul>
 </blockquote>
 <p>1、获取指定单元格从左开始的第一个字符</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;LEFT(F2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=LEFT(F2)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、获取指定单元格从左开始的指定长度个数的字符</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;LEFT(F2,3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=LEFT(F2,3)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="13、右取字符串函数RIGHT"><a href="#13、右取字符串函数RIGHT" class="headerlink" title="13、右取字符串函数RIGHT()"></a>13、右取字符串函数RIGHT()</h3><blockquote>
 <p>根据所指定的字符数返回文本字符串中最后一个或多个字符</p>
 </blockquote>
@@ -618,9 +650,11 @@
 </ul>
 </blockquote>
 <p>1、获取指定单元格从右开始的第一个字符</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;RIGHT(F2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=RIGHT(F2)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>2、获取指定单元格从左开始的指定长度个数的字符</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;RIGHT(F2,3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=RIGHT(F2,3)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="14、日函数DAY"><a href="#14、日函数DAY" class="headerlink" title="14、日函数DAY()"></a>14、日函数DAY()</h3><blockquote>
 <p>返回以序列数表示的某日期的天数。 天数是介于 1 到 31 之间的整数。</p>
 </blockquote>
@@ -629,7 +663,7 @@
 <p>DAY(serial_number)</p>
 <p>DAY 函数语法具有下列参数：</p>
 <ul>
-<li><strong>Serial_number</strong>  必需。 尝试查找的日期应使用 DATE 函数输入日期，或者将日期作为其他公式或函数的结果输入。 例如，使用函数 DATE(2008,5,23) 输入 2008 年 5 月 23 日。 如果<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/更改日期系统、格式或两位数年份表示方式-aaa2159b-4ae8-4651-8bce-d4707bc9fb9f">日期以文本形式输入</a>，则会出现问题。</li>
+<li><strong>Serial_number</strong>  必需。 尝试查找的日期应使用 DATE 函数输入日期，或者将日期作为其他公式或函数的结果输入。 例如，使用函数 DATE(2008,5,23) 输入 2008 年 5 月 23 日。 如果<a href="https://support.microsoft.com/zh-cn/office/更改日期系统、格式或两位数年份表示方式-aaa2159b-4ae8-4651-8bce-d4707bc9fb9f" target="_blank" rel="noopener">日期以文本形式输入</a>，则会出现问题。</li>
 </ul>
 </blockquote>
 <p>用法</p>
@@ -669,7 +703,7 @@
 <p>MONTH(serial_number)</p>
 <p>MONTH 函数语法具有下列参数：</p>
 <ul>
-<li><strong>Serial_number</strong>  必需。 尝试查找的月份的日期应使用 DATE 函数输入日期，或者将日期作为其他公式或函数的结果输入。 例如，使用函数 DATE(2008,5,23) 输入 2008 年 5 月 23 日。 如果<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/更改日期系统、格式或两位数年份表示方式-aaa2159b-4ae8-4651-8bce-d4707bc9fb9f">日期以文本形式输入</a>，则会出现问题。</li>
+<li><strong>Serial_number</strong>  必需。 尝试查找的月份的日期应使用 DATE 函数输入日期，或者将日期作为其他公式或函数的结果输入。 例如，使用函数 DATE(2008,5,23) 输入 2008 年 5 月 23 日。 如果<a href="https://support.microsoft.com/zh-cn/office/更改日期系统、格式或两位数年份表示方式-aaa2159b-4ae8-4651-8bce-d4707bc9fb9f" target="_blank" rel="noopener">日期以文本形式输入</a>，则会出现问题。</li>
 </ul>
 </blockquote>
 <p>用法</p>
@@ -894,7 +928,8 @@
 </blockquote>
 <p>用法</p>
 <p><strong>=DATE(C2,A2,B2)</strong> 将单元格 C2 中的年、单元格 A2 中的月以及单元格 B2 中的日合并在一起，并将它们放入一个单元格内作为日期。</p>
-<pre class="line-numbers language-excel" data-language="excel"><code class="language-excel">&#x3D;DATE(C2,A2,B2)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-excel"><code class="language-lang-excel">=DATE(C2,A2,B2)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>

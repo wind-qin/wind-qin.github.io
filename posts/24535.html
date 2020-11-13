@@ -42,9 +42,8 @@
 
     <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -421,7 +420,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    554
+                    506
                 </div>
                 
 
@@ -440,77 +439,78 @@
             <div id="articleContent">
                 <p>此内容必须会！！！</p>
 <p>用老师的话说，如果在上班的时候你不会这些，去搜索被领导看到，就可以领盒饭了</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;获取字符串的长度
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">//获取字符串的长度
 int length();
 
-&#x2F;&#x2F;获取指定下标位置的字符
+//获取指定下标位置的字符
 char charAt(int index);
 
-&#x2F;&#x2F;获取指定字符在字符串中首此出现的下标位置
+//获取指定字符在字符串中首此出现的下标位置
 int indexOf(int ch);
 
-&#x2F;&#x2F;获取指定字符串在字符串中首此出现的下标位置
+//获取指定字符串在字符串中首此出现的下标位置
 int indexOf(String str);
 
-&#x2F;&#x2F;获取指定字符在字符串中最后一次出现的下标位置
+//获取指定字符在字符串中最后一次出现的下标位置
 int lastIndexOf(char ch);
 
-&#x2F;&#x2F;获取指定字符串在字符串中最后一次出现的下标位置
+//获取指定字符串在字符串中最后一次出现的下标位置
 int lastIndexOf(String str);
 
-&#x2F;&#x2F;从指定下标位置开始，到字符串结尾截取字符串
+//从指定下标位置开始，到字符串结尾截取字符串
 String substring(int beginIndex);
 
-&#x2F;&#x2F;从指定beginIndex开始，到endIndex结束，截取字符串【注意】要头不要尾
+//从指定beginIndex开始，到endIndex结束，截取字符串【注意】要头不要尾
 String substring(int beginIndex,int endIndex);
 
-&#x2F;&#x2F;去除字符串两端空格
+//去除字符串两端空格
 String trim();
 
-&#x2F;&#x2F;使用指定字符串对当前字符串进行切割，获取一个字符串数组
+//使用指定字符串对当前字符串进行切割，获取一个字符串数组
 String[] split(String regex);
 
-&#x2F;&#x2F;判断是否以指定字符串作为前缀结束
+//判断是否以指定字符串作为前缀结束
 boolean startsWith(String prefix);
 
-&#x2F;&#x2F;判断是否以指定字符串作为后缀结束
+//判断是否以指定字符串作为后缀结束
 boolean endsWith(String suffix);
 
-&#x2F;&#x2F;判断字符串是否为空
+//判断字符串是否为空
 boolean isEmpty();
 
-&#x2F;&#x2F;与指定对象比较，判断是否相等
+//与指定对象比较，判断是否相等
 boolean equals(Object anObject);
 
-&#x2F;&#x2F;忽略大小写判断是否与指定字符串相等
+//忽略大小写判断是否与指定字符串相等
 boolean equalslgnoreCase(String anotherString);
 
-&#x2F;&#x2F;判断是否包含指定序列（搜索）
+//判断是否包含指定序列（搜索）
 boolean contains(String str);
 
-&#x2F;&#x2F;字符数组转字符串
+//字符数组转字符串
 String(char [] value);
 
-&#x2F;&#x2F;从字符串数组的指定位置开始，截取指定个数的字符转为字符串
+//从字符串数组的指定位置开始，截取指定个数的字符转为字符串
 String (char[] value,int offset,int count);
 
-&#x2F;&#x2F;同理String（char[]value）
+//同理String（char[]value）
 static String valueOf(char[] data);
 
-&#x2F;&#x2F;同理String(char[] value,int offset,int count);
+//同理String(char[] value,int offset,int count);
 static String valueOf(char[] data,int offset,int count);
 
-&#x2F;&#x2F;使用新字符替换字符串中的旧字符
+//使用新字符替换字符串中的旧字符
 String replace(char oldChar,char newChar);
 
-&#x2F;&#x2F;将字符串转换为字符数组
+//将字符串转换为字符数组
 char[] toCharArray();
 
-&#x2F;&#x2F;将字符串中所有的英文字母转大写
+//将字符串中所有的英文字母转大写
 String toUpperCase();
 
-&#x2F;&#x2F;将字符串中所有的英文字母转小写
-String toLowerCase();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+//将字符串中所有的英文字母转小写
+String toLowerCase();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201113093848.jpg" alt="String"></p>
 
             </div>
