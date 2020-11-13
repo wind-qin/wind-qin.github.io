@@ -1,0 +1,4213 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面向对象, 个人博客，秦同学">
+    <meta name="description" content="记录生活，秦同学">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="google-site-verification" content="YsNIhmtAieKemmjl6UAClXRrtBP397J1JuGfJXP-I-0" />
+	<meta name="baidu-site-verification" content="code-6jg8O9mf80" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>面向对象 | 白月光 | 秦同学</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">白月光 | 秦同学</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">白月光 | 秦同学</div>
+        <div class="logo-desc">
+            
+            记录生活，秦同学
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面向对象</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-13
+                </div>
+				<div class="info-break-policy">
+					 
+						<i class="fa fa-pencil"></i> 作者: 秦同学 
+							 
+				</div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    14.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    59 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>方法中的返回值有两种情况，即有返回值和无返回值，如果定义方法时有返回值类型，就需要返回相对应的数据类型</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">基本数据类型
+    值传递，不改变自身
+引用数据类型
+    引用传递，改变自身
+void
+    无返回值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、一个方法只能有一个返回值
+2、分支结构的每一个分支都需要正确的返回值
+3、返回值可以接收也可以不接收
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="return-关键字"><a href="#return-关键字" class="headerlink" title="return 关键字"></a>return 关键字</h4><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>结束当前方法，返回至调用方法处，如果定义了返回值类型就返回对应类型的数据</p>
+<p>【注意】<a href="">数据类型一致化</a></p>
+<h4 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">return 需要返回的数据;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、单一职能原则，一个方法只做一件事
+2、注意形参和实参数据类型一致化
+3、返回值类型和参数没有关系
+4、方法名要符合小驼峰命名规则
+5、return的下一行代码不会执行
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="有返回值方法调用"><a href="#有返回值方法调用" class="headerlink" title="有返回值方法调用"></a>有返回值方法调用</h3><h4 id="无参有返回值的方法：give-me-five"><a href="#无参有返回值的方法：give-me-five" class="headerlink" title="无参有返回值的方法：give me five"></a>无参有返回值的方法：give me five</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">class TestMethod1 {
+    public static void main(String[] args) {
+        System.out.println(giveMeFive());
+    }
+
+    /**
+    * 返回一个整数 5
+    *
+    * @return 5 int类型
+    */
+    public static int giveMeFive() {
+        return 5;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="有参有返回值的方法：两个数求和"><a href="#有参有返回值的方法：两个数求和" class="headerlink" title="有参有返回值的方法：两个数求和"></a>有参有返回值的方法：两个数求和</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class MethodDemo6 {
+    public static void main(String[] args) {
+        /*
+         * 调用自定义getSumOfTwoNumber方法，需要两个int类型的参数，并得到一个int类型的返回值
+         * 
+         * 参数列表一定要和方法声明上的参数类型完全一致
+         */ 
+        int total = getSumOfTwoNumber(1, 2);
+
+        System.out.println(total);
+    }
+
+    /**
+     * 两个整数进行求和
+     * 
+     * @param num1 求和的第一个数
+     * @param num2 求和的第二个数
+     * @return 返回两个参数的和，int类型
+     */
+    public static int getSumOfTwoNumber(int num1, int num2){
+        return num1 + num2;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】调用带有多参数的方法，要求传入的参数数据类型，个数和顺序还有数据类型必须和方法声明一致</p>
+<h4 id="规范化return"><a href="#规范化return" class="headerlink" title="规范化return"></a>规范化return</h4><p>在一个方法中，return出现的次数要尽可能得少，为了提高阅读性和逻辑性</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class TestMethod4 {
+    public static void main(String[] args) {
+        System.out.println(getCompare(3,2));
+    }
+
+    /**
+    * 比较大小，返回较大的那个数
+    *
+    * @param num1 int类型
+    * @param num2 int类型
+    * @return int类型的结果
+    */
+    public static int getCompare(int num1, int num2) {
+        return num1 > num2 ? num1 : num2;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、break 是退出当前循环结构，return 是退出当前方法
+
+2、如果返回值类型是 void ，可以返回 null 或者不返回或者 return;
+
+3、一个方法可以有多个 return，但只能有一个返回值
+
+4、返回值可以接收也可以不接收，由调用者决定如何调用
+
+5、分支结构里的每一个分支都需要有正确的返回值
+
+6、对返回值的处理方式因情况而定，可以打印、参与运算或者当做其他方法的实参
+
+7、调用带有多参数的方法，要求传入的参数数据类型，个数和顺序和类型必须和方法声明一致
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】方法具有单一职能原则，一个函数只做一件事</p>
+<h3 id="方法重载【Overload】"><a href="#方法重载【Overload】" class="headerlink" title="方法重载【Overload】"></a>方法重载【Overload】</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>一个类或者接口中定义多个相同名称的方法</p>
+<h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、必须在同一个类中
+2、方法名必须一致
+3、参数必须不一致(个数，顺序，类型)    
+4、与访问修饰符、返回值类型无关
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class MethodDemo9 {
+    public static void main(String[] args) {
+        // 调用同名方法，传入不同的参数列表，即可实现方法的重载
+        play();
+        play("英雄联盟");
+        play("红色警戒", 2);
+        play(1, "DNF");
+    }
+
+    public static void play() {
+        System.out.println("玩王者荣耀");
+    }
+
+    public static void play(String gameName) {
+        System.out.println("玩" + gameName);
+    }
+
+    public static void play(String gameName, int time) {
+        System.out.println("玩" + gameName + time + "小时");
+    }
+
+    public static void play(int time, String gameName) {
+        System.out.println("玩" + gameName + time + "小时");
+    }
+
+    /* 
+     * Duplicate method play(String, int) in type MethodDemo9
+     * 
+     * 跟返回值类型无关，只关注方法名和参数类型
+     */
+//    public static String play(String gameName, int time) {
+//        return "玩" + gameName + time + "小时";
+//    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>满足需求多样化，屏蔽使用差异，灵活、方便</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>方法的重载我们只关注方法名和参数类型，要求方法名必须一致，参数列表必须不一致（个数，顺序，类型）</p>
+</blockquote>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>在方法内部或者形参列表上定义的变量（包括mian方法）</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>从定义局部变量的那一行到所在的代码块结束</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">for (int i = 1; i <= 10; i++) {
+
+}
+
+for (int i = 1; i <= 10; i++) {
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】两个for循环中，i 循环变量分别属于不同的大括号以内，不同的作用域空间，并不冲突</p>
+<h4 id="生存期"><a href="#生存期" class="headerlink" title="生存期"></a>生存期</h4><p>从方法被调用的时刻算起到函数返回调用处的时刻结束</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">for (int i = 1; i <= 10; i++) {
+
+}
+
+System.out.println(i); // 报错，找不到符号
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】for 循环结束时局部变量 i 的生存期结束，在 for 循环外无法使用 i</p>
+<h4 id="单一性，不能重名"><a href="#单一性，不能重名" class="headerlink" title="单一性，不能重名"></a>单一性，不能重名</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 报错！
+for (int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; i++) {
+
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】在一个方法内局部变量不能多次定义</p>
+<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">class Test {
+    public static void main(String[] args) {
+        int num = 5;
+        test(num);
+
+        System.out.println(num);    // 5
+    }
+
+    public static void test(int num) {
+        num = 10;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】基本数据类型作为参数传递给局部变量时，传递的是值，局部变量的更改不影响实参本身</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值传递分析图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://qinjunxiang.gitee.io/Pictures\值传递.jpg" alt="值传递"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class MethodDemoC {
+    public static void main(String[] args) {
+        int[] arr = new int[5];
+
+        System.out.println("调用方法前：" + arr[0]);
+
+        test(arr);
+
+        System.out.println("调用方法后：" + arr[0]);
+    }
+
+    public static void test(int[] arr) {
+        arr[0] = 1;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】引用数据类型传递时传递的是地址，局部变量直接作用于实参本身</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">引用传递分析图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://qinjunxiang.gitee.io/Pictures\引用传递.jpg" alt="引用传递"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">局部变量声明在函数中，从定义的那一行开始到函数结束时被销毁
+局部变量必须先赋值再使用
+局部变量不能重复定义
+值传递：基本数据类型的传递不改变实参
+引用传递：引用数据类型的传递会改变实参
+Java中只有值传递，引用传递传递的是地址值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="学习要求"><a href="#学习要求" class="headerlink" title="学习要求"></a>学习要求</h4><blockquote>
+<p>1、听不懂没关系，不影响写代码，读着代码就会写了。</p>
+<p>2、先会用，在用的过程中逐渐加深对面向对象的理解。</p>
+<p>3、利用不断地练习，形成<code>肌肉记忆</code>(代码格式)和<code>意识记忆</code>(要啥给啥)。（<font color='red'>开发中重要的思想而不是语法</font>）</p>
+</blockquote>
+<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><blockquote>
+<p>面向过程编程（POP —&gt; <strong>Process-Oriented Programming</strong>）代表：C语言</p>
+<p>面向对象编程（OOP —&gt; <strong>Object-Oriented Programming</strong>）代表：C++、Java</p>
+<p>面向切面编程（AOP —&gt; <strong>Aspect-Oriented Programming</strong>）代表：Java</p>
+</blockquote>
+<h4 id="面向对象的定义"><a href="#面向对象的定义" class="headerlink" title="面向对象的定义"></a>面向对象的定义</h4><p>面向对象的思想是把一个项目、一件事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。</p>
+<p><a href="">找合适的人做合适的事</a></p>
+<h4 id="生活中的面向对象和面向过程"><a href="#生活中的面向对象和面向过程" class="headerlink" title="生活中的面向对象和面向过程"></a>生活中的面向对象和面向过程</h4><p>举例：<strong>想吃烤羊排</strong></p>
+<blockquote>
+<p>面向对象：找个店铺吃</p>
+<p>​    1、去羊排店</p>
+<p>​    2、点一斤羊排</p>
+<p>​    3、等25分钟</p>
+<p>​    4、吃</p>
+<p>​    5、付款走人</p>
+<p>面向过程：自己做着吃</p>
+<p>​    1、自己做羊排</p>
+<p>​        1.准备材料（羊、辅料、调料）</p>
+<p>​        2.备料</p>
+<p>​        3.烤箱预热，开烤</p>
+<p>​        4.15分钟翻面一次</p>
+<p>​        5.取出</p>
+<p>​    2、吃</p>
+<p>​    3、洗锅刷碗，打扫卫生</p>
+</blockquote>
+<h4 id="面向对象思想"><a href="#面向对象思想" class="headerlink" title="面向对象思想"></a>面向对象思想</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、面向对象是基于面向过程的编程思想
+
+2、万物皆对象
+
+3、对象具有唯一性
+
+4、任何对象都具有一定的特征和行为；特征是事物的基本描述，行为是事物的功能
+
+5、类是一组相关的属性和方法的集合，是一个抽象的概念
+
+6、对象是类的具体存在
+
+7、在一组相同或相似的对象中，抽取出共性的特征和行为，保留所关注的部分就是类的抽取
+
+8、类是模板、图纸，通过类创造的对象就是实体
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="面向对象的优点"><a href="#面向对象的优点" class="headerlink" title="面向对象的优点"></a>面向对象的优点</h4><ul>
+<li>直观，高效，与人类的思维习惯一致</li>
+<li>信息隐藏，提高了程序的可维护性和安全性</li>
+<li>提高了程序的可重用性</li>
+</ul>
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>面向过程：亲力亲为，自力更生，所有过程都要经历（诸葛亮是怎么死的，累死的）</p>
+<p>面向对象：找合适的人做合适的事，直观高效（烤羊排）</p>
+</blockquote>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><h4 id="生活中的类和对象"><a href="#生活中的类和对象" class="headerlink" title="生活中的类和对象"></a>生活中的类和对象</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类</th>
+<th style="text-align:center">对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">人类</td>
+<td style="text-align:center">马云爸爸，麻花藤（<font color='red'>隔壁老王、女朋友</font>）</td>
+</tr>
+<tr>
+<td style="text-align:center">狗类</td>
+<td style="text-align:center">史努比，忠犬八公，高飞，斯派克，小白，王可可（<font color='red'>单身狗、旺财、金毛、哈士奇</font>）</td>
+</tr>
+<tr>
+<td style="text-align:center">英雄类</td>
+<td style="text-align:center">Faker的劫，The Shy的卢锡安，霸哥的石头人，马老师的螳螂（<font color='red'>盖伦、锤石、EZ</font>）</td>
+</tr>
+<tr>
+<td style="text-align:center">化妆品类</td>
+<td style="text-align:center">我的洗面奶（<font color='red'>阿玛尼405唇釉，chill小辣椒口红，黛珂水乳，雅诗兰黛粉底液，nars腮红</font>）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这些对象有什么特点？</p>
+<blockquote>
+<p>人类：</p>
+<ul>
+<li>马云爸爸，麻花藤</li>
+</ul>
+<p>​    都是特立独行的个体，我们一提起这个个体脑海中就能浮现出他的形象，</p>
+<ul>
+<li>隔壁老王、女朋友</li>
+</ul>
+<p>​    这些都不是对象，因为每个人都会有自己的隔壁老王，都有自己的女朋友，你脑海中的隔壁老王和你同桌脑海中的隔壁老王是同一个人吗？除非你们是同一个邻居还姓王那就不说了。但你们的女朋友总不会也是同一个吧？所以说，女朋友，隔壁老王都不是对象，你的隔壁老王，你的女朋友才是个对象！！！</p>
+<p>狗类：</p>
+<ul>
+<li>史努比，忠犬八公，高飞，斯派克，小白，王可可</li>
+</ul>
+<p>​    这些都是独一无二的</p>
+<ul>
+<li>单身狗、旺财、金毛、哈士奇</li>
+</ul>
+<p>​    这些全都是类</p>
+</blockquote>
+<h4 id="Java中的类和对象"><a href="#Java中的类和对象" class="headerlink" title="Java中的类和对象"></a><font color='red'>Java中的类和对象</font></h4><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>类是对某一类事物的描述，是抽象的、概念上的定义。<strong>类是模板，包含了一类事物所共有的特征(属性)和行为(方法)</strong></p>
+<p>以人类为例：</p>
+<blockquote>
+<p>属性描述：学号、姓名、性别、年龄、身高、体重、地址、电话、微信、QQ…</p>
+<p>行为描述：吃饭、睡觉、上班、学习、娱乐…</p>
+</blockquote>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p><strong>对象是类的具体体现（<a href="">属性和方法</a>），是具体的、独一无二的个体。</strong></p>
+<p>以班长为例：</p>
+<blockquote>
+<p>属性描述：班长的学号、班长的姓名、班长的身高…</p>
+<p>行为描述：班长吃饭、班长睡觉、班长学习…</p>
+</blockquote>
+<h4 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h4><p>类是对象的抽象，对象是类的具体实现</p>
+<h4 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a><font color='red'>类的定义</font></h4><p>类是一种自定义的数据类型</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">格式：
+    class 类名 {
+        成员变量;// Field
+        成员方法;// Method
+    }
+
+class：
+    定义类的关键字
+
+类名：
+    大驼峰命名，首字母大写，见名知意
+    类名就是一种数据类型（自定义引用的数据类型），就是模板的名字
+
+成员变量（属性/特征描述）：
+    定义在类中，方法外的变量，用来描述类的特征
+
+成员方法（行为描述）：
+    定义在类中，用来描述类的功能
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Student {
+    // 成员变量【Field】
+    String name;
+    int age;
+    char sex;
+
+    // 成员方法【Method】
+    public void eat() {
+        System.out.println("吃");
+    }
+
+    public void sleep() {
+        System.out.println("睡");
+    }
+
+    public void play() {
+        System.out.println("玩");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="类和对象-1"><a href="#类和对象-1" class="headerlink" title="类和对象"></a>类和对象</h3><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a><font color='red'>对象的创建</font></h4><p>参考Scanner的创建，依葫芦画瓢</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">Scanner sc = new Scanner(System.in);
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 格式：
+    类名 对象名 = new 类名([参数...]);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">Person person = new Person();
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a><font color='red'>对象的使用</font></h4><p>参考数组和 Scanner 的使用，依葫芦画瓢</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">int[] array = new int[10];
+array.length
+    // 注意：这里没有 ()，说明这不是方法，那它是什么？我们用它来表示数组的长度，数组的长度是数组的一个属性
+
+Scanner sc = new Scanner(System.in);
+sc.nextInt();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    使用成员变量：
+        对象名.成员变量
+
+    使用成员方法：
+        对象名.成员方法()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 通过Person类对象person操作name、sex、age属性
+// 进行赋值操作
+person.name = "张三";
+person.age = 25;
+person.sex = '男';
+
+// 通过person进行取值操作
+System.out.println(person.name);
+System.out.println(person.age);
+System.out.println(person.sex);
+
+person.eat();
+person.sleep();
+person.play();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>. 的含义是 “的”</p>
+<p>person.name：person的name</p>
+<p>person.age：person的年龄</p>
+<p>person.sex：person的性别</p>
+<p>扩展：</p>
+<p>如果直接打印对象名，会得到一个对象的【地址】，这个地址包含两部分：1、完整的包名；2、当前对象存储在堆区内存中的空间首地址</p>
+</blockquote>
+<h4 id="对象内存分析图"><a href="#对象内存分析图" class="headerlink" title="对象内存分析图"></a>对象内存分析图</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">对象内存分析图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://qinjunxiang.gitee.io/Pictures\java面向对象01.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>没听懂没关系，多敲代码，读着代码就懂了</p>
+<p>生活中的类和对象</p>
+<ul>
+<li>类是事物的统称，是一个抽象的概念</li>
+<li>对象是事物的表现，是具体的，独一无二的</li>
+</ul>
+<p>Java中的类和对象</p>
+<ul>
+<li>类是对象的抽象，具有公共的特征和行为，对象是类的具体实现，具有唯一的特征和行为</li>
+</ul>
+<p>基础数据类型与类和对象</p>
+<ul>
+<li>类就是一种自定义的数据类型，由类名，属性和方法构成</li>
+<li>对象就是一种数据类型的数据，由对象名，属性和方法构成</li>
+</ul>
+<p>类和对象的定义和使用</p>
+<ul>
+<li>格式和规范，一定要按照标准</li>
+</ul>
+<p><strong>注意</strong></p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">大写开头的都是类
+小写开头的都是变量
+带()的都是方法
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><h4 id="引言-1"><a href="#引言-1" class="headerlink" title="引言"></a>引言</h4><blockquote>
+<p>构造方法很重要，但是比较鸡肋</p>
+</blockquote>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>构造方法（<code>Constructor</code>）的名称和类名相同，没有返回值类型。</p>
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>类中的特殊方法，用于<font color='red'>创建对象</font>，在创建对象的时候会执行一些初始化操作，如给成员属性赋初值</p>
+<h4 id="格式-1"><a href="#格式-1" class="headerlink" title="格式"></a>格式</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    类名([参数...]){}
+    Student(){}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<font color='red'>注意</font>：格式问题
+
+>1、构造方法的方法名与类名完全相同
+>
+>2、构造方法没有返回值类型
+>
+>3、创建对象时，触发构造方法的调用，不可手动调用
+>
+>4、如果没有声明构造方法，编译器默认生成无参构造方法
+>
+>5、如果定义了有参构造方法，编译器就不会创建无参构造方法
+>
+>【<font color='red'>强制要求</font>】
+>
+>```shell
+>无论什么时候，都要加上一个无参构造方法！！！
+>```
+
+#### 构造方法的使用
+
+```java
+// 自定义有参构造方法，并给name属性赋值
+Dog(String n) {
+    name = n;
+}
+
+// 自定义无参构造方法
+Dog(){}
+```
+
+### 构造方法的重载
+
+```java
+public Dog(String n){
+    name = n;
+}
+
+public Dog(String n, int i){
+    name = n;
+    age = i;
+}
+```
+
+#### 总结
+
+>1. 构造方法是用来创建对象，在创建对象的过程中会进行初始化操作（为对象赋值）
+>
+>2. 构造方法也是方法，除了没有返回值，其他的都跟方法一样
+>
+>按照方法参数列表的类型、个数、顺序去匹配，如果没有找到对应的就会报错
+>
+>3. 无论什么时候，都一定要给一个无参构造方法
+
+#### 扩展：反编译
+
+```shell
+javap -c -l -private 类名.class
+```
+
+#### 扩展：对象的创建过程
+
+```shell
+1、类加载
+2、内存中开辟对象空间
+3、为各个属性赋予初始值
+4、执行构造方法中的代码
+5、将对象的地址赋值给变量
+```
+
+### this关键字
+
+#### 概述
+
+this代表所在类的对象引用，即当前对象
+
+>new 创建出来的对象
+>
+>调用方法的对象
+
+#### 作用
+
+1、<font color='red'>调用本类中的属性和方法（区别成员变量和局部变量）</font>
+
+<p>2、调用本类中的其他构造方法：this()</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">格式：
+    this([参数...]);
+
+会根据参数列表调用对应的构造方法
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public Rabbit(String color) {
+    // 调用本类中的属性
+    this.color = color;
+}
+
+public Rabbit(String color, int age, double weight) {
+    // 调用本类中的其他构造方法
+    this(color);
+
+    this.age = age;
+    this.weight = weight;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、this()只能在构造方法中使用
+2、this()只能在第一行
+3、构造方法中不能同时出现两个this()，因为2
+4、不能自己调用自己，不能相互调用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="规范化this"><a href="#规范化this" class="headerlink" title="规范化this()"></a>规范化this()</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">class Son {
+    String name;
+    int age;
+    float salary;
+
+    public Son() {
+    }
+
+    public Son(String name) {
+        // 调用Son(String name, int age, float salary)
+        this(name, 0, 0.0F);
+    }
+
+    public Son(String name, int age) {
+        // 调用Son(String name, int age, float salary)
+        this(name, age, 0.0F);
+    }
+
+    public Son(String name, int age, float salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<ul>
+<li>this表示的是当前对象</li>
+<li>this可以调用本类中的属性和方法，最常用与区分成员变量和局部变量</li>
+<li>this还可以调用本类中的构造方法，但是要注意有坑</li>
+</ul>
+</blockquote>
+<h3 id="访问-权限-修饰符"><a href="#访问-权限-修饰符" class="headerlink" title="访问(权限)修饰符"></a>访问(权限)修饰符</h3><h4 id="private-私有-关键字"><a href="#private-私有-关键字" class="headerlink" title="private(私有)关键字"></a>private(私有)关键字</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">1、可以修饰成员变量和成员方法
+
+2、被private修饰的变量和方法仅本类中可用
+
+3、被private修饰的变量需要提供get、set方法供类外调用使用    
+
+4、boolean类型的 get 方法比较特殊：
+
+    public boolean isName(String name){
+        return name;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Dog {
+    private String name;
+    int age;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private void function() {
+        System.out.println("method be execute!");
+    }
+
+    public void executeFunction() {
+        this.function();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Java中的访问修饰符"><a href="#Java中的访问修饰符" class="headerlink" title="Java中的访问修饰符"></a>Java中的访问修饰符</h4><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">类内部</th>
+<th style="text-align:center">同包下</th>
+<th style="text-align:center">子类中</th>
+<th style="text-align:center">非同包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">protected</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center">默认不写</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center">private</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、一般我们最常用的就是private和public，建议任何情况下都使用访问修饰符对变量和方法进行限制</p>
+<p>2、public权限最高，整个项目中都可以访问（同一个项目），private权限最小，只能在本类中使用</p>
+<p>3、被private修饰的变量和方法可以通过提供公共的方法对其进行访问</p>
+</blockquote>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h4 id="面向对象三大特征"><a href="#面向对象三大特征" class="headerlink" title="面向对象三大特征"></a>面向对象三大特征</h4><blockquote>
+<p>封装</p>
+<p>继承</p>
+<p>多态</p>
+</blockquote>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>是指隐藏对象的属性和实现细节，仅对外提供公共访问方式。核心是<font color='red'>归纳总结</font></p>
+<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><p>提高代码的复用度、安全性，不必关心具体细节，便于开发</p>
+<h4 id="JavaBean-规范化封装"><a href="#JavaBean-规范化封装" class="headerlink" title="JavaBean 规范化封装"></a>JavaBean 规范化封装</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1. 要求Java中的所有实体类成员变量全部私有化，最少提供一个无参数构造方法，对应成员变量实现setter和getter方法
+2. JavaBean规范，是为了后期开发汇总更好的代码适配度，提高代码运行的统一性，能够满足框架的使用
+3. JavaBean规范只是一个规范，而且是作为一个基础规范，操作都是可以使用快捷键来完成的！！！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Person {
+    private String name;
+    private int age;
+    private char sex;
+    private boolean alive;
+
+    public Person() {}
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public char getSex() {
+        return this.sex;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>没有名字的对象，是对象的一种简化表示形式</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>一次性，每次使用都是一个新的对象</p>
+<h4 id="使用情景"><a href="#使用情景" class="headerlink" title="使用情景"></a>使用情景</h4><blockquote>
+<p>1、对象调用方法仅使用一次，然后等待销毁</p>
+<p>2、作为实际参数传递</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestDog{
+    public static void main(String[] args) {
+        // 对象调用方法仅使用一次
+        new Dog().sleep();
+
+        // 作为实际参数传递
+        useDog(new Dog());
+    }
+
+    public static void useDog(Dog dog) {
+        dog.sleep();
+    }
+}
+
+class Dog {
+    String name;
+    int age;
+
+    public void sleep() {
+        System.out.println("小狗睡觉.....");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><p>提高开发效率，简化代码结构</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h4><p>把多个类中相同的成员给提取出来定义到一个独立的类中。然后让这多个类和该独立的类产生一个关系，这多个类就具备了这些内容。这个关系叫继承。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">关键字：extends
+
+格式:
+    class Son extends Father {
+
+    }
+
+一个孩子只能有一个父亲
+一个父亲可以有多个孩子
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、Java为单继承，一个类只能有一个直接父类，但可以多级继承，属性和方法逐级叠加
+2、构造方法只可服务于本类，不可继承，子类执行构造方法前会默认调用父类的无参构造方法。可以通过super()去访问父类的构造方法
+3、private 修饰的属性和方法不能被继承
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo {
+    public static void main(String[] args) {
+        // 创建一个父类对象
+        Father father = new Father();
+
+        // 父类调用父类的属性和方法
+        father.name = "父";
+        System.out.println(father.name);
+        father.game();
+
+        System.out.println("-------------");
+
+        // 创建一歌子类对象
+        Son son = new Son();
+
+        // 子类调用子类的属性和方法
+        son.age = 16;
+        System.out.println(son.age);
+        son.study();
+
+        // 子类调用父类的属性和方法(public修饰)
+        son.name = "子";
+        System.out.println(son.name);
+        son.game();
+
+
+        /*
+         * 子类调用父类private修饰的属性和方法
+         * 
+         * 报错
+         * The field Father.suffer is not visible
+         * The method cook() from the type Father is not visible
+         * 
+         * 由此可知子类不能调用父类私有化的属性和方法
+         */
+//        son.suffer = 10;
+//        son.cook();
+    }
+}
+
+public class Father {
+    public String name;
+
+    private int suffer;
+
+    public void game() {
+        System.out.println("下棋");
+    }
+
+    private void cook() {
+        System.out.println("做饭");
+    }
+}
+
+public class Son extends Father{
+    public int age;
+
+    public void study() {
+        System.out.println("子类 -- 学习");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="子类构造方法执行前默认先执行父类的无参构造方法"><a href="#子类构造方法执行前默认先执行父类的无参构造方法" class="headerlink" title="子类构造方法执行前默认先执行父类的无参构造方法"></a>子类构造方法执行前默认先执行父类的无参构造方法</h5><pre class="line-numbers language-lang-java"><code class="language-lang-java">class Father {
+    String name;
+
+    public Father() {
+        System.out.println("Father's Constrator be performed");
+    }
+}
+
+class Son extends Father {
+    int age;
+
+    public Son() {
+        System.out.println("Son's Constrator be performed");
+    }
+}
+
+public class TestSon {
+    public static void main(String[] args) {
+        Son son = new Son();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">Father's Constrator be performed
+Son's Constrator be performed
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>【注意】Son 的构造方法中编译器默认生成 super(); 用来调用父类的构造方法，目的是为了初始化父类字段，因为子类可能会用到</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">继承内存分析图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://qinjunxiang.gitee.io/Pictures\继承内存分析图.jpg" alt="继承内存分析图"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、提高了代码的复用性
+2、提高了代码的维护性
+3、让类与类之间产生了一个关系，是多态的前提
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、让类的耦合性增强。这样某个类的改变，就会影响到其他和该类相关的类
+2、打破了封装性
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="总结-7"><a href="#总结-7" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>Java中只有单继承</p>
+<p>子类可以继承父类的非私有属性和方法（非private修饰的）</p>
+<p>执行子类的构造方法前会默认执行父类的无参构造方法</p>
+</blockquote>
+<h3 id="方法重写【Override】"><a href="#方法重写【Override】" class="headerlink" title="方法重写【Override】"></a>方法重写【Override】</h3><h4 id="引言-2"><a href="#引言-2" class="headerlink" title="引言"></a>引言</h4><p>开发中父类的方法不一定适用于子类，因为父类方法不能更改，在子类中新增方法会造成代码的冗余，而且不符合逻辑</p>
+<h4 id="要求-1"><a href="#要求-1" class="headerlink" title="要求"></a>要求</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、应用于继承和实现接口
+2、方法的返回值类型，方法名，形参列表与父类一致
+3、使用@Override注解来标识
+4、重写方法的访问修饰符权限不能低于父类
+    private < 默认(什么都不写) < protected < public
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Son extends Father{
+    public int age;
+
+    @Override
+    public void game() {
+        System.out.println("玩红色警戒");
+    }
+
+    public void study() {
+        System.out.println("子类 -- 学习");
+    }
+}
+
+public class Father {
+    public String name;
+
+    private int suffer;
+
+    public void game() {
+        System.out.println("下棋");
+    }
+
+    private void cook() {
+        System.out.println("做饭");
+    }
+}
+
+public class Demo1 {
+    public static void main(String[] args) {
+        Son son = new Son();
+        son.game();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h4><p>既沿袭了父类的方法名，又实现了子类的扩展</p>
+<h4 id="总结-8"><a href="#总结-8" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、方法的重写能够在不新增方法的情况下实现子类的扩展</p>
+<p>2、方法重写要求方法声明格式和父类完全一致（访问修饰符不能小于父类）</p>
+<p>3、@Overrid关键字用来开启格式检测，如果不一致就会报错</p>
+</blockquote>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><h4 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>super指父类对象，用来区分父类和子类，用于调用父类的属性和方法</p>
+<p>用法和this非常类似：this指当前对象，super指父类对象</p>
+</blockquote>
+<h4 id="调用父类的属性和方法"><a href="#调用父类的属性和方法" class="headerlink" title="调用父类的属性和方法"></a>调用父类的属性和方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Father {
+    public int age = 60;
+
+    public void play() {
+        System.out.println("下象棋");
+    }
+}
+
+public class Son extends Father {
+    public int age = 16;
+
+    @Override
+    public void play() {
+        System.out.println("玩游戏");
+    }
+
+    public void showAge() {
+        int age = 20;
+        System.out.println("局部变量：" + age);
+        System.out.println("当前对象成员变量：" + this.age);
+        System.out.println("父类对象成员变量：" + super.age);
+    }
+
+    public void callPlay() {
+        // 调用当前对象的方法
+        this.play();
+        // 调用父类对象的方法
+        super.play();
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Son son = new Son();
+
+        son.showAge();
+
+        son.callPlay();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="调用父类的构造方法"><a href="#调用父类的构造方法" class="headerlink" title="调用父类的构造方法"></a>调用父类的构造方法</h4><p>默认调用父类的无参构造，且必须在代码的第一行</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Father {
+    private String name;
+
+    public Father() {
+        System.out.println("Father's Constrator be performed");
+    }
+
+    public Father(String name) {
+        System.out.println("Father's Constrator be performed with name");
+    }
+}
+
+class Son extends Father {
+    private int age;
+
+    public Son() {
+        super();
+        System.out.println("Son's Constrator be performed");
+    }
+
+    public Son(String name, int age) {
+        super(name);
+        this.age = age;
+        System.out.println("Son's Constrator be performed with name and age");
+    }
+}
+
+public class TestSon {
+    public static void main(String[] args) {
+        Son son = new Son();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】super() 和this() 代码不能共存(都必须在首行)，但是实际效果其实是可以的，如果不写 super() 也会自动调用</p>
+<h4 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、super指父类对象，对比this关键字，使用方法都一样</p>
+<p>2、super() 和this() 代码不能共存(都必须在首行)，但是实际效果其实是可以的，如果不写 super() 也会自动调用</p>
+<p>3、父类的属性要交给父类的构造方法去操作，没什么事就不要去使用 super() 来调用父类的构造方法了</p>
+</blockquote>
+<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><h4 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h4><p>final表示最终的，用来修饰变量，方法和类</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、final 修饰的局部变量只能被赋值一次
+2、final 修饰的成员变量只能被赋值一次，并且必须在声明时就赋值
+3、final 修饰的基本类型变量是一个常量(只能被赋值一次)，引用类型变量不可修改地址，如对象
+4、final 修饰的方法不能被重写
+5、final 修饰的类不能被继承
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">package com.fc.j._final;
+/*
+ * final修饰的局部变量
+ */
+public class FinalDemo1 {
+    public static void main(String[] args) {
+        // 测试final修饰的修饰的变量
+        final int num;
+
+        num = 10;
+
+        System.out.println(num);
+
+        /*
+         * 被final修饰的变量只能赋值一次
+         * 
+         * The final local variable num may already have been assigned
+         * 
+         * 被final修饰的局部变量num可能已经被赋值
+         */
+        // num = 20;
+    }
+}
+
+// final修饰的类不能被继承，断子绝孙
+class Father {
+    /*
+     * final 修饰的成员变量必须在声明时就赋值
+     * 
+     * The blank final field age may not have been initialized
+     * 空白的final成员变量可能未被初始化
+     */
+     // final int age;
+    final int age = 16;
+
+    public final void play() {
+        System.out.println("下棋");
+    }
+}
+
+class Son extends Father {
+    /*
+     *  Cannot override the final method from Father
+     *  无法重写被final修饰的方法
+     */
+//    @Override
+//    public final void play() {
+//        
+//    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><p>final修饰可以保证安全性，比如数组的长度属性，String类，这些都是final修饰的，保证不可变</p>
+<h4 id="总结-10"><a href="#总结-10" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、final表示最终的，可以修饰变量，属性和方法</p>
+<p>2、final修饰的基本数据类型的成员变量只能被赋值一次</p>
+<p>3、final修饰的引用数据类型的成员变量地址不可变，但不影响地址所指向的对象的操作</p>
+<p>4、final修饰的方法不能被重写</p>
+<p>5、final修饰的类不能被继承</p>
+</blockquote>
+<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><h4 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h4><p>static 关键字方便在<strong>没有创建对象的情况下来进行调用方法和变量</strong>(优先级高于对象)，可以用来修饰类的成员方法、类的成员变量，另外可以编写static代码块来优化程序性能</p>
+<h4 id="static变量"><a href="#static变量" class="headerlink" title="static变量"></a>static变量</h4><p>static变量也称作静态变量，静态变量和非静态变量的区别是：静态变量被所有的对象所共享，在内存中只有一个副本，它当且仅当在类初次加载时会被初始化。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class PersonDemo {
+    public static void main(String[] args) {
+        Person person1 = new Person("张三", 16);
+        Person person2 = new Person("李四", 17);
+        Person person3 = new Person("王五", 18);
+        Person person4 = new Person("赵六", 19);
+
+        /*
+         * The static field Person.address should be accessed in a static way
+         * 静态成员变量应该通过静态的方式访问（注意这里是应该，不是必须）
+         * 
+         * Change access to static using 'Person' (declaring type)
+         * 使用Person声明类型来更改对静态的访问
+         * 通过类名来操作成员变量：Person.address
+         */
+        System.out.println("姓名：" + person1.name + " 年龄：" + person1.age + " 地址：" + Person.address);
+        System.out.println("姓名：" + person2.name + " 年龄：" + person2.age + " 地址：" + Person.address);
+        System.out.println("姓名：" + person3.name + " 年龄：" + person3.age + " 地址：" + Person.address);
+        System.out.println("姓名：" + person4.name + " 年龄：" + person4.age + " 地址：" + Person.address);
+
+        // 通过类名直接调用static修饰的成员变量，此时是没有对象的
+        System.out.println("没有对象：" + Person.address);
+
+        /*
+         *  Cannot make a static reference to the non-static field Person.name
+         *  
+         *  将name添加static后没有报错
+         */
+//        System.out.println("没有对象：" + Person.name);
+
+        /*
+         * 通过对象调用statice修饰的成员方法
+         * 
+         * The static method test() from the type Person should be accessed in a static way
+         */
+        // person1.testStatic();
+
+        // 通过类名直接调用静态方法
+        Person.testStatic();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-11"><a href="#总结-11" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、通过类名调用静态成员变量，因为静态变量与对象无关
+2、静态变量被所有对象共享，一处更改处处更改
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="static方法"><a href="#static方法" class="headerlink" title="static方法"></a>static方法</h4><p>static方法一般称作静态方法，由于静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有this的，因为它不依附于任何对象，既然都没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法/变量都是必须依赖具体的对象才能够被调用。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Person {
+    public String name = "张三";
+    public int age;
+    public static String address = "郑州";
+
+    public Person() {
+        super();
+    }
+
+    public Person(String name, int age) {
+        super();
+        this.name = name;
+        this.age = age;
+    }
+
+    // 自定义static修饰的成员方法
+    public static void testStatic() {
+        /*
+         * 静态方法不能调用非静态方法
+         * Cannot make a static reference to the non-static method test() from the type Person
+         */
+        // test();
+        System.out.println("static mothed");
+
+        /*
+         * 不能再静态方法中使用this关键字
+         * 
+         * Cannot use this in a static context
+         */
+        // this.name;
+    }
+
+    public void test() {
+        System.out.println("method");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-12"><a href="#总结-12" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、static修饰的方法不能访问本类中的非静态变量和方法，不能使用this
+2、通过类名来调用静态成员方法，工具类的应用很广泛
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="总结-13"><a href="#总结-13" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、static修饰的成员变量和方法都是对象所共享的资源，对其进行的操作回作用于所有对象。</p>
+<p>2、static修饰的成员变量和方法依赖于类不依赖于对象，即没有对象</p>
+<p>3、static修饰的成员变量和成员方法都可以通过类名调用，没有对象</p>
+<p>4、静态不能调用费静态，不能使用this关键字，没有对象</p>
+<p>5、静态变量常和final关键字搭配作为常量使用，静态方法常用于工具类</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">static成员变量内存分析图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://qinjunxiang.gitee.io/Pictures\static成员变量内存分析图.jpg" alt="static成员变量内存分析图"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>在 Java 中，使用{}括起来的代码被称为代码块，根据其位置和声明的不同，可以分为局部代码块，构造代码块，静态代码块，同步代码块(多线程)</p>
+<h4 id="构造代码块"><a href="#构造代码块" class="headerlink" title="构造代码块"></a>构造代码块</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    {
+
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、用于给对象初始化，多个构造方法中相同的代码存放到一起，每次调用构造方法都会执行，并且在构造方法前执行
+2、只有创建对象时调用，类不能调用
+3、构造代码块可以有多个，建议只写一个
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Person {
+    {
+        System.out.println("Person构造代码块执行");
+    }
+
+    public Person() {
+        System.out.println("Person构造方法执行");
+    }
+}
+
+public class TestPerson {
+    public static void main(String[] args) {
+        System.out.println("main方法");
+        new Person();
+        new Person();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    static {
+
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="注意-2"><a href="#注意-2" class="headerlink" title="注意"></a>注意</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、用于给类进行初始化，在加载的时候就执行，并且只执行一次
+2、优先级高于主函数
+3、静态代码块可以有多个，顺序执行，建议只写一个
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Person {
+    static {
+        System.out.println("Person静态代码块执行");
+    }
+
+    public Person() {
+        System.out.println("Person构造方法执行");
+    }
+}
+
+public class TestPerson {
+    static {
+        System.out.println("静态代码块1执行");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("main方法");
+        new Person();
+        new Person();
+    }
+
+    static {
+        System.out.println("静态代码块2执行");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">静态代码块1执行
+静态代码块2执行
+main方法
+Person静态代码块执行
+Person构造方法执行
+Person构造方法执行
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="代码块相关执行顺序"><a href="#代码块相关执行顺序" class="headerlink" title="代码块相关执行顺序"></a>代码块相关执行顺序</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Father {
+    public Father() {
+        System.out.println("父类构造方法执行~~~");
+    }
+
+    {
+        System.out.println("父类构造代码块执行~~~");
+    }
+
+    static {
+        System.out.println("父类静态代码块执行~~~");
+    }
+
+    public static void function() {
+        System.out.println("父类静态成员方法执行~~~");
+    }
+}
+
+public class Son extends Father{
+    public Son() {
+        System.out.println("子类构造方法执行~~~");
+    }
+
+    {
+        System.out.println("子类构造代码块执行~~~");
+    }
+
+    static {
+        System.out.println("子类静态代码块执行~~~");
+    }
+
+    public static void function() {
+        System.out.println("子类静态成员方法执行~~~");
+    }
+
+    public static void main(String[] args) {        
+        System.out.println("main方法执行~~~");
+        new Son();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">父类静态代码块执行~~~
+子类静态代码块执行~~~
+main方法执行~~~
+父类构造代码块执行~~~
+父类构造方法执行~~~
+子类构造代码块执行~~~
+子类构造方法执行~~~
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><p>执行顺序</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    static Test test1 = new Test();
+    static Test test2 = new Test();
+
+    static {
+        System.out.println("静态代码块");
+    }
+
+    {
+        System.out.println("构造代码块");
+    }
+
+    public Test() {
+        System.out.println("构造方法");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("main方法");
+        new Test();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">构造代码块
+构造方法
+构造代码块
+构造方法
+静态代码块
+main方法
+构造代码块
+构造方法
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-14"><a href="#总结-14" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、构造代码块用于给对象初始化，每次创建对象都会调用构造代码块，并且执行顺序在构造方法之前</p>
+<p>2、静态代码块用于给类初始化，当类被加载的时候就会调用静态代码块（只执行一次），执行顺序在main方法之前</p>
+</blockquote>
+<h3 id="abstract关键字【抽象类】"><a href="#abstract关键字【抽象类】" class="headerlink" title="abstract关键字【抽象类】"></a>abstract关键字【抽象类】</h3><p>不能实例化的类就是抽象类，用 abstract 修饰</p>
+<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">abstract class 类名 {
+    成员变量
+    构造方法
+    成员方法
+        非抽象方法
+        抽象方法
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="要求-2"><a href="#要求-2" class="headerlink" title="要求"></a>要求</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、抽象类和抽象方法必须用关键字 abstract 修饰
+2、抽象类中不一定有抽象方法，但是有抽象方法的类一定是抽象类
+3、abstract 修饰的方法没有方法体，且子类必须重写
+4、抽象类不能实例化，因为 abstract 类中有 abstract 方法
+5、抽象类的子类
+        也可以是一个抽象类，可以重写也可以不重写父类的抽象方法。
+        可以是一个具体类。这个类必须重写抽象类中的所有抽象方法。(可以实例化)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestSon {
+    public static void main(String[] args) {
+        Son son = new Son();
+        son.play();
+    }
+}
+
+// 抽象类
+abstract class Father {
+    String name;
+    int age;
+
+    public Father() {
+    }
+
+    public void eat() {
+        System.out.println("吃饭");
+    }
+
+    // 抽象方法
+    abstract public void play();
+}
+
+class Son extends Father {
+    // 抽象方法的重写
+    @Override
+    public void play() {
+        System.out.println("玩游戏");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h4 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h4><p>接口是一系列方法的声明，是一些方法特征的集合，<strong>一个接口只有方法的特征没有方法的实现，因此这些方法可以在不同的地方被不同的类实现，而这些实现可以具有不同的行为（功能）</strong>。</p>
+<h4 id="格式-2"><a href="#格式-2" class="headerlink" title="格式"></a>格式</h4><p>interface ：用来声明接口的关键字</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">声明格式：
+    interface 接口名 {
+        静态常量;
+        抽象方法;
+    }
+
+实现格式：
+    class 类名 implements 接口名 {
+
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">1、接口中的成员变量只能是静态常量，定义时必须初始化。默认修饰符：public static final
+2、接口中没有构造方法，因为接口不能实例化对象
+3、接口中的成员方法只能是抽象方法，没有方法体。默认修饰符：public abstract
+4、接口的实现类必须重写接口中方法，或者是一个抽象类(可以重写也可以不重写接口中的方法)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="接口的声明和实现"><a href="#接口的声明和实现" class="headerlink" title="接口的声明和实现"></a>接口的声明和实现</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface play{
+    // 常量，缺省修饰符：public static final
+    int time = 10;
+
+    // 抽象方法，缺省修饰符：public abstract
+    void geme();
+}
+
+public class TestInterface3 implements play{
+
+    // 重写接口中的方法
+    @Override
+    public void geme() {
+        System.out.println("玩游戏");
+    }
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】接口的实现类必须重写接口中的方法</p>
+<h4 id="抽象类实现接口"><a href="#抽象类实现接口" class="headerlink" title="抽象类实现接口"></a>抽象类实现接口</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface servlet {
+    void init();
+
+    void service();
+}
+
+abstract class BaseServlet implements servlet {
+    // 重写init()方法
+    @Override
+    public void init() {
+        System.out.println("初始化");
+    }
+}
+
+class MyServlet extends BaseServlet {
+
+    @Override
+    public void service() {
+        System.out.println("服务方法");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new MyServlet().init();
+        new MyServlet().service();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】抽象类实现接口，可以选择性重写也可以不重写接口中的方法</p>
+<h4 id="类的接口多实现"><a href="#类的接口多实现" class="headerlink" title="类的接口多实现"></a>类的接口多实现</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface Play {
+    void geme();
+}
+
+interface Eat {
+    void noodles();
+}
+
+public class TestInterface3 implements Play, Eat {
+
+    // 重写Play类中的方法
+    @Override
+    public void geme() {
+        System.out.println("玩游戏");
+    }
+
+    // 重写Eat类中的方法
+    @Override
+    public void noodles() {
+        System.out.println("吃面条");
+    }
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】接口的实现类必须重写所有接口中的方法</p>
+<h4 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface Eat {
+    void noodles();
+}
+
+interface Play {
+    void happy();
+}
+
+// 单继承
+interface Person extends Play {
+
+}
+
+// 多继承
+interface Animal extends Play, Eat {
+
+}
+
+// 实体类实现Animal接口，重写所有方法
+class Biology implements Animal {
+
+    @Override
+    public void happy() {
+        System.out.println("玩得开心");
+    }
+
+    @Override
+    public void noodles() {
+        System.out.println("面条好吃");
+    }
+
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Biology biology = new Biology();
+        biology.happy();    // 玩得开心
+        biology.noodles();    // 面条好吃
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】接口之间可以单继承，也可以多继承</p>
+<h3 id="jdk1-8新特性：default接口"><a href="#jdk1-8新特性：default接口" class="headerlink" title="jdk1.8新特性：default接口"></a>jdk1.8新特性：default接口</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface Function {
+    void test();
+
+    default void testDefault() {
+        System.out.println("default修饰的接口可以有方法体");
+    }
+}
+
+// default 修饰的接口可以不被重写
+class Base implements Function {
+
+    @Override
+    public void test() {
+        System.out.println("Base类重写Function接口中的方法");
+    }
+}
+
+// default 修饰的接口也可以重写
+class Boost implements Function {
+
+    @Override
+    public void test() {
+        System.out.println("Boost类重写Function接口中的方法");
+    }
+
+    @Override
+    public void testDefault() {
+        System.out.println("Boost类重写Function接口中的default方法");
+    }
+}
+
+public class TestInterface2 {
+    public static void main(String[] args) {
+        Base base = new Base();
+        Boost boost = new Boost();
+
+        base.test();        // Base类重写Function接口中的方法
+        base.testDefault();    // default修饰的接口可以有方法体
+        boost.test();        // Boost类重写Function接口中的方法
+        boost.testDefault();// Boost类重写Function接口中的default方法
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】default修饰的接口可以不被重写</p>
+<h4 id="总结-15"><a href="#总结-15" class="headerlink" title="总结"></a>总结</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、接口是对类的扩展，通过接口可以让类拥有更多更强的功能
+2、接口中只有全局常量和抽象方法，所以不能实例化
+3、接口的实现类必须重写所有方法，或者是个抽象类
+4、接口可以多实现
+5、接口可以单继承，也可以多继承
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><strong>二者具有直接或间接的继承关系时，父类引用指向子类对象，从而产生多种形态；接口的引用指向实现接口的类对象也是多态</strong></p>
+<h4 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h4><p>多态场景下，父类引用调用方法，如果被子类重写过，优先执行子类重写过后的方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestCar {
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Vehicle vehicle = new Car();
+
+        // 优先执行子类重写过的方法
+        vehicle.run();    // Car run！！！
+    }
+}
+
+class Vehicle {
+    public void run() {
+        System.out.println("Vehicle run！！！");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    public void run() {
+        System.out.println("Car run！！！");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="应用场景一"><a href="#应用场景一" class="headerlink" title="应用场景一"></a>应用场景一</h4><p>使用父类作为方法形参实现多态，使方法参数的类型更为宽泛</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestCar {
+    public static void main(String[] args) {        
+        Vehicle vehicle = new Car();
+        vehicle.type = "小汽车";
+
+        Bike bike = new Bike();
+        bike.type = "自行车";
+
+        Bus bus = new Bus();
+        bus.type = "公交车";
+
+        Employee employee = new Employee("你的迪丽热巴");
+        employee.goHome(vehicle);
+        employee.goHome(bus);
+    }
+}
+
+class Employee {
+    String name;
+
+    public Employee() {
+    }
+
+    public Employee(String name) {
+        this.name = name;
+    }
+
+    public void goHome(Vehicle vehicle) {
+        System.out.println(this.name + "乘坐" + vehicle.type + "交通工具回家");
+    }
+}
+
+class Vehicle {
+    String type;
+
+    public void run() {
+        System.out.println("Vehicle run！！！");
+    }
+}
+
+class Bus extends Vehicle {
+    @Override
+    public void run() {
+        System.out.println("Bus run！！！");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    public void run() {
+        System.out.println("Car run！！！");
+    }
+}
+
+class Bike extends Vehicle {
+    @Override
+    public void run() {
+        System.out.println("Bike run！！！");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">你的迪丽热巴乘坐小汽车回家
+Car run！！！
+你的迪丽热巴乘坐公交车回家
+Bus run！！！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="应用场景二"><a href="#应用场景二" class="headerlink" title="应用场景二"></a>应用场景二</h4><p>使用父类作为方法返回值实现多态，使方法可以返回不同子类对象</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public Vehicle buyVehicle(int money) {
+        Vehicle vehicle = null;
+
+        if (money >= 100) {
+            Bus bus = new Bus();
+            bus.speed = 60;
+            bus.price = 1230000.0;
+            bus.seatNum = 16;
+            bus.type = "公交车";
+            vehicle = bus;
+
+        } else if (money >= 30) {
+            Car car = new Car();
+            car.price = 310000.0;
+            car.speed = 90;
+            car.type = "小汽车";
+            car.brand = "BMW";
+            vehicle = car;
+
+        } else if (money >= 1) {
+            Bike bike = new Bike();
+            bike.type = "捷安特自行车";
+            bike.speed = 40;
+            bike.price = 2000.0;
+            bike.color = "红色";
+            vehicle = bike;
+        }
+
+        return vehicle;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="向上装箱与向下拆箱"><a href="#向上装箱与向下拆箱" class="headerlink" title="向上装箱与向下拆箱"></a>向上装箱与向下拆箱</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">class Animal{}
+
+class Cat extends Animal{}
+
+class Dog extends Animal{}
+
+class Fish extends Animal {}
+
+public class Test {
+    public static void main(String[] args) {
+        showAnimal(new Animal());    // code.polymorphic.animal.Animal@7852e922
+        // 向上转型
+        showAnimal(new Cat());    // code.polymorphic.animal.Cat@4e25154f
+        // 向上转型
+        showAnimal(new Dog());    // code.polymorphic.animal.Dog@70dea4e
+        // 向上转型
+        showAnimal(new Fish());    // code.polymorphic.animal.Fish@5c647e05
+
+        System.out.println("----------------------");
+
+        Animal animal = getAnimal();
+        // 向下转型
+        Cat cat = (Cat) getCat();
+        // 向下转型
+        Dog dog = (Dog) getDog();
+        // 向下转型
+        Fish fish = (Fish) getFish();
+
+        System.out.println(animal);    // code.polymorphic.animal.Animal@33909752
+        System.out.println(cat);    // code.polymorphic.animal.Cat@55f96302
+        System.out.println(dog);    // code.polymorphic.animal.Dog@3d4eac69
+        System.out.println(fish);    // code.polymorphic.animal.Fish@42a57993
+    }
+
+    /**
+     * 展示动物
+     * @param animal
+     */
+    public static void showAnimal(Animal animal) {
+        System.out.println(animal);
+    }
+
+    /**
+     * 得到动物
+     * @return 返回一个Animal对象
+     */
+    public static Animal getAnimal() {
+        return new Animal();
+    }
+
+    /**
+     * 得到猫
+     * @return 返回一个Cat对象
+     */
+    public static Animal getCat() {
+        return new Cat();
+    }
+
+    /**
+     * 得到狗
+     * @return 返回一个Dog对象
+     */
+    public static Animal getDog() {
+        return new Dog();
+    }
+
+    /**
+     * 得到鱼
+     * @return 返回一个Fish对象
+     */
+    public static Animal getFish() {
+        return new Fish();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="instanceof-关键字"><a href="#instanceof-关键字" class="headerlink" title="instanceof 关键字"></a>instanceof 关键字</h4><p>用于判断当前对象是否是某个类，或者其子类、实现类的实例。如果是返回true，否则返回false。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 动物类
+ */
+class Animal {
+}
+
+/**
+ * 老虎类
+ */
+class Tiger extends Animal {
+
+}
+
+/**
+ * 熊猫类
+ */
+class Panda extends Animal {
+
+}
+
+/**
+ * 猴子类
+ */
+class Monkey extends Animal {
+
+}
+
+public class AnimalDemo {
+    public static void main(String[] args) {
+        Animal ani = getAnimal();
+
+        if (ani instanceof Panda) {
+            // ani一定是panda对象或子类对象
+            Panda panda2 = (Panda) ani;
+            System.out.println("这是熊猫：" + panda2);
+            showPanda(panda2);
+        } else {
+            System.out.println("这是动物：" + ani);
+        }
+    }
+
+    // 获取动物，返回一个Panda对象
+    public static Animal getAnimal() {
+        return new Panda();
+    }
+
+    // 展示熊猫对象
+    public static void showPanda(Panda panda) {
+        System.out.println(panda);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】<strong>使用 instanceof 关键字做判断时， instanceof 操作符的左操作数必须和右操作数存在继承或实现关系</strong></p>
+<h4 id="总结-16"><a href="#总结-16" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、父类引用指向子类对象，接口引用指向实现类对象</p>
+<p>2、instanceof用以比较对象是否是类或父类的实例，接口的实现类</p>
+</blockquote>
+<h3 id="API概述"><a href="#API概述" class="headerlink" title="API概述"></a>API概述</h3><blockquote>
+<p>API(Application Programming Interface) 应用程序编程接口</p>
+</blockquote>
+<p>编写一个机器人程序去控制机器人踢足球，程序就需要向机器人发出向前跑、向后跑、射门、抢球等各种命令，没有编过程序的人很难想象这样的程序如何编写。但是对于有经验的开发人员来说，知道机器人厂商一定会提供一些用于控制机器人的Java类，这些类中定义好了操作机器人各种动作的方法。其实，这些Java类就是机器人厂商提供给应用程序编程的接口，大家把这些类称为Xxx Robot API。本章涉及的Java API指的就是JDK中提供的各种功能的Java类。</p>
+<h4 id="学习汉语和学习编程的异同点"><a href="#学习汉语和学习编程的异同点" class="headerlink" title="学习汉语和学习编程的异同点"></a>学习汉语和学习编程的异同点</h4><p>相同点</p>
+<ul>
+<li>基本语法</li>
+<li>大量成语</li>
+<li>写文章的手法和技巧</li>
+</ul>
+<p>不同点</p>
+<ul>
+<li>学习汉语 必须先学后用</li>
+<li>学习编程 可以现用现学</li>
+</ul>
+<h3 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h3><p>Object类是类层次结构的根类，所有类都直接或者间接的继承自该类</p>
+<h4 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public Object()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>【注意】Object 只有一个无参构造方法</p>
+<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h4><h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>用来返回对象的字符串表示形式</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public String toString()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>返回值为：包名.类名@当前对象在内存空间中的首地址</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">getClass().getName() + '@' + Integer.toHexString(hashCode())
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="重写toString"><a href="#重写toString" class="headerlink" title="重写toString()"></a>重写toString()</h4><p>由于默认情况下的数据对我们来说没有意义，一般会重写该方法用以展示对象的字段信息</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Student {
+    String name;
+    int age;
+
+    // 重写 toString 方法
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestStudent {
+    public static void main(String[] args) {
+        Student student = new Student("Buffer",23);        
+        System.out.println(student);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">Student [name=Buffer, age=23]
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="总结-17"><a href="#总结-17" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>toString方法用来展示一些对象的基本信息：完整的包名.类名@堆内存地址，通常我们用快捷键来重写这个方法来获取我们需要的数据信息</p>
+</blockquote>
+<h3 id="Object-类-1"><a href="#Object-类-1" class="headerlink" title="Object 类"></a>Object 类</h3><h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h4><h4 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h4><p>用来比较两个对象的地址是否相同</p>
+<pre><code>public boolean equals(Object obj) {
+        return (this == obj);
+}
+</code></pre><p>如果调用此方法的对象与 obj 的地址相同(即为同一个对象)，返回true，否则返回false</p>
+<h4 id="重写equals-思路"><a href="#重写equals-思路" class="headerlink" title="重写equals()思路"></a>重写equals()思路</h4><p>一般需要重写 equals() 方法用以判断两个对象的字段是否相同</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、判断两个对象的地址是否相同
+2、判断两个对象的类型是否一致
+3、判断两个对象所存储的数据是否相同
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="重写equals"><a href="#重写equals" class="headerlink" title="重写equals()"></a>重写equals()</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Student {
+    String name;
+    int age;
+
+    // 重写 equals 方法
+    @Override
+    public boolean equals(Object obj) {
+
+        // 判断是否是同一个对象(地址相同)，如果是返回 true
+        if (this == obj) {
+            return true;
+        }
+
+        // 判断数据类型是否一致，如果不一致返回 false
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+
+        // 强制类型转换为当前类对象
+        Student student = (Student) obj;
+
+        // 所有字段全部满足时返回 true ，否则返回false
+        return this.name.equals(student.name) && this.age == student.age;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestStudent {
+    public static void main(String[] args) {
+        Student student1 = new Student("Buffer",23);
+        Student student2 = new Student("Banlance",22);
+        Student student3 = new Student("Buffer",23);
+
+        System.out.println(student1.equals(student2));
+        System.out.println(student1.equals(student3));
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">false
+true
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>【注意】基本数据类型不能使用 equals() 方法</p>
+<h4 id="总结-18"><a href="#总结-18" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、equals方法用来判断两个对象是否相同，默认比较的是两个对象的内存首地址。我们可以通过重写equals方法实现对两个对象的比较</p>
+<p>2、注意equals方法的调用者，不同的调用者调用方法是不一样的</p>
+</blockquote>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h3><h4 id="作用-4"><a href="#作用-4" class="headerlink" title="作用"></a>作用</h4><p>返回对象的哈希码值，<strong>具有唯一指向性</strong></p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public int hashCode()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="重写hashCode"><a href="#重写hashCode" class="headerlink" title="重写hashCode()"></a>重写hashCode()</h4><p>hashCode方法要求必须和 equals() 方法的结果是对应的，如果两个对象的 equals 的结果为 true ，那这两个对象的 hashCode 的值一定相同，所以<strong>只要重写了 equals 方法，就必须重写 hashCode 方法</strong></p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Student {
+    String name;
+    int age;
+
+    // 重写 equals 方法
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+
+        Student student = (Student) obj;
+
+        return this.name.equals(student.name) && this.age == student.age;
+    }
+
+    // 重写 hashCode 方法
+    @Override
+    public int hashCode() {
+        // 调用 Objects 工具类的 hash 方法，根据传入的参数生成一个指定的 hashCode 值
+        return Objects.hash(name, age);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestStudent {
+    public static void main(String[] args) {
+        Student student1 = new Student("Buffer",23);
+        Student student2 = new Student("Banlance",22);
+        Student student3 = new Student("Buffer",23);
+
+        System.out.println(student1.equals(student2));
+        System.out.println(student1.equals(student3));
+
+        System.out.println(student1.hashCode());
+        System.out.println(student2.hashCode());
+        System.out.println(student3.hashCode());    
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">false
+true
+1892650872
+247063595
+1892650872
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>student1 和 student3 的 equals 方法返回值是 true ，所以他们的 hashCode 值相同</p>
+<h4 id="总结-19"><a href="#总结-19" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>1、hashCode()用来获取当前对象的哈希值，表示对象的唯一标识。如果重写equals()则必须重写hashCode()方法</p>
+<p>2、equals相同hashCode一定相同，hashCode相同equals不一定相同</p>
+</blockquote>
+<h3 id="getClass"><a href="#getClass" class="headerlink" title="getClass()"></a>getClass()</h3><p>获取当前对象的 Class 对象（字节码对象），直接打印会显示包含完整的包名,类名的信息</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public final native Class<?> getClass();
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Cat {}
+
+public class GetClassDemo {
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        System.out.println(cat.getClass());
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">protected void finalize()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</p>
+<h4 id="总结-20"><a href="#总结-20" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>Object类是所有类的基类，提供了一个无参的构造方法和一些公共方法</p>
+<p>通过重写toString方法来获取对象中的数据</p>
+<p>通过重写equals方法和hashCode方法来判断两个对象是否相同，这两个方法必须同时重写</p>
+<p>getClass用来获取Class对象</p>
+<p>finalize方法用于垃圾回收，不可控</p>
+</blockquote>
+<h3 id="System-类"><a href="#System-类" class="headerlink" title="System 类"></a>System 类</h3><p><code>System</code> 类包含一些有用的类字段和方法。它不能被实例化。 </p>
+<p>在 <code>System</code>  类提供的设施中，有标准输入、标准输出和错误输出流；对外部定义的属性和环境变量的访问；加载文件和库的方法；还有快速复制数组的一部分的实用方法。</p>
+<h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 标准输入流，常用于键盘录入
+public final static InputStream in = null
+
+// 标准输出流，常用于打印信息
+public final static PrintStream out = null;
+
+// 标准错误输出流，常用于打印错误信息
+public final static PrintStream err = null;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class SystemFieldDemo {
+    public static void main(String[] args) {
+        // 通过Scanner测试标准输入
+        Scanner sc = new Scanner(System.in);
+
+        String next = sc.next();
+
+        // 通过System.out.print测试标准输出流
+        System.out.println(next);
+
+        sc.close();
+
+        // 通过System.err.print测试标准输出流
+        System.err.println("打印错误报告");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="构造方法-2"><a href="#构造方法-2" class="headerlink" title="构造方法"></a>构造方法</h3><p>构造方法私有化，无法创建对象</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/** Don't let anyone instantiate this class */
+private System() {
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="arraycopy"><a href="#arraycopy" class="headerlink" title="arraycopy()"></a>arraycopy()</h3><p>这个方法表示复制数组，从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public static native void arraycopy(Object src,  int  srcPos,
+                                        Object dest, int destPos,
+                                        int length);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>参数解释</p>
+<blockquote>
+<p>src - 源数组。<br>srcPos - 源数组中的起始位置。<br>dest - 目标数组。<br>destPos - 目标数据中的起始位置。<br>length - 要复制的数组元素的数量。</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class ArraycopyDemo {
+    public static void main(String[] args) {
+        // 创建一个长度为5的int类型数组arr
+        int[] arr = new int[5];
+
+        // 为数组arr赋值
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+
+        // 遍历数组arr
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+
+        System.out.println("------------------");
+
+        // 创建一个新的长度为5的int类型数组newArr
+        int[] newArr = new int[5];
+
+        // 调用System的arraycopy方法，分别传入对应的参数
+        System.arraycopy(arr, 0, newArr, 0, 5);
+
+        // 遍历newArr数组
+        for (int i = 0; i < newArr.length; i++) {
+            System.out.println(newArr[i]);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="currentTimeMillis"><a href="#currentTimeMillis" class="headerlink" title="currentTimeMillis()"></a>currentTimeMillis()</h3><p>返回以毫秒为单位的当前时间。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public static native long currentTimeMillis();
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>【注意】</p>
+<blockquote>
+<p>1、这个方法的返回值是long类型</p>
+<p>2、当前时间与协调世界时 1970 年 1 月 1 日午夜之间的时间差（以毫秒为单位测量）</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class CurrentTimeMillsDemo {
+    public static void main(String[] args) {
+
+        long currentTimeMillis = System.currentTimeMillis();
+
+        System.out.println("毫秒：" + currentTimeMillis);
+        System.out.println("年：" + currentTimeMillis/1000/60/60/24/365);    
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        String date = sdf.format(currentTimeMillis);
+
+        System.out.println(date); // 2020-10-06 17:53:02
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="gc"><a href="#gc" class="headerlink" title="gc()"></a>gc()</h3><p>运行垃圾回收器。在此之前会调用Object的finalize()</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public static void gc()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>System.gc()可用于垃圾回收。当使用System.gc()回收某个对象所占用的内存之前，通过要求程序调用适当的方法来清理资源。在没有明确指定资源清理的情况下，Java提高了默认机制来清理该对象的资源，就是调用Object类的finalize()方法。finalize()方法的作用是释放一个对象占用的内存空间时，会被JVM调用。而子类重写该方法，就可以清理对象占用的资源，该方法有没有链式调用，所以必须手动实现。</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Person {
+    private String name;
+    private int age;
+
+    // 构造方法，getter、setter方法、toString方法
+
+    /*
+     * 通过重写finalize方法验证调用gc会执行此方法
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("执行finalize方法回收垃圾：" + this);
+        super.finalize();
+    }
+}
+
+public class GcDemo {
+    public static void main(String[] args) {
+        System.out.println(new Person("张三", 16));
+        System.gc();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>从程序的运行结果可以发现，执行System.gc()前，系统会自动调用finalize()方法清除对象占有的资源，通过super.finalize()方式可以实现从下到上的finalize()方法的调用，即先释放自己的资源，再去释放父类的资源。</p>
+<p>但是，不要在程序中频繁的调用垃圾回收，因为每一次执行垃圾回收，jvm都会强制启动垃圾回收器运行，这会耗费更多的系统资源，会与正常的Java程序运行争抢资源，只有在执行大量的对象的释放，才调用垃圾回收最好</p>
+</blockquote>
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h3><p>终止当前正在运行的 Java 虚拟机。参数用作状态码；根据惯例，非 0 的状态码表示异常终止。 </p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public static void exit(int status)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class ExitDemo {
+    public static void main(String[] args) {
+        System.out.println("程序执行开始");
+        // 执行此方法后关闭虚拟机，程序不会再向下执行
+        System.exit(0);
+        System.out.println("程序执行结束");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-21"><a href="#总结-21" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>System类提供了一些和系统相关的类字段和方法，便于我们和底层进行交互。</p>
+<p>比较常用的就是arraycopy()和currentTimeMills()，其他不需要关注</p>
+</blockquote>
+<h3 id="Scanner-类"><a href="#Scanner-类" class="headerlink" title="Scanner 类"></a>Scanner 类</h3><p>一个可以使用正则表达式来解析基本类型和字符串的简单文本扫描器。 </p>
+<h4 id="类声明"><a href="#类声明" class="headerlink" title="类声明"></a>类声明</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public final class Scanner implements Iterator<String>, Closeable {}
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这里我们需要关注三个点：</p>
+<p>1、final修饰，不能被继承</p>
+<p>2、实现了 Iterator 接口(迭代器接口)，主要使用其中的 hasNext 方法和 next 方法</p>
+<p>3、实现了 Closeable 接口，主要使用其中的 close 方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 用来判断是否还有下一个元素录入
+public boolean hasNext()
+
+// 用来接收录入的数据
+public String next()
+
+// 用来关闭资源(输入流)
+public void close()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="构造方法-3"><a href="#构造方法-3" class="headerlink" title="构造方法"></a>构造方法</h4><p>从指定的扫描输入流构造一个 Scanner</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public Scanner(InputStream source)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    public static void main(String[] args) {
+        // java.util.Scanner.Scanner(InputStream source)
+        // 使用构造方法，传入一个标准输入流，创建一个Scanner对象
+        Scanner sc = new Scanner(System.in);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 此方法用于接收从键盘录入的字符串
+public String next()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 从键盘录入一个字符串
+        String str = sc.next();
+
+        System.out.println(str);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="nextInt"><a href="#nextInt" class="headerlink" title="nextInt()"></a>nextInt()</h3><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 此方法用于从键盘获取一个int类型的数据
+public int nextInt()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 从键盘录入一个字符串
+        int num = sc.nextInt();
+
+        System.out.println(num);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="方法的重载：nextInt-int-radix"><a href="#方法的重载：nextInt-int-radix" class="headerlink" title="方法的重载：nextInt(int radix)"></a>方法的重载：nextInt(int radix)</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 指定进制数从键盘录入一个int类型的数据
+public int nextInt(int radix)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>int radix参数表示一个进制数，如果从键盘录入的数据超过了指定的进制数就会报错，默认是10</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        /*
+         * 8表示接收8进制内的数，及0~7
+         * 
+         * 从键盘录入的数据中不能出现8及其以上的数字，如果有会报错：
+         * InputMismatchException 输入类型不匹配异常
+         */
+        int num = sc.nextInt(8);
+
+        System.out.println(num);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="相关方法：用法类似，要求触类旁通"><a href="#相关方法：用法类似，要求触类旁通" class="headerlink" title="相关方法：用法类似，要求触类旁通"></a>相关方法：用法类似，要求触类旁通</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public String nextLine()
+public byte nextByte()
+public byte nextByte(int radix)
+public short nextShort()
+public long nextLong()
+public float nextFloat()
+public double nextDouble()
+public BigInteger nextBigInteger()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="hasNextInt"><a href="#hasNextInt" class="headerlink" title="hasNextInt()"></a>hasNextInt()</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 如果此扫描器的输入中有另一个标记，则返回 true。在等待要扫描的输入时，此方法可能阻塞。扫描器将不执行任何输入。
+public boolean hasNext()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>此方法可用于合法性判断</p>
+</blockquote>
+<p>案例</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        if (sc.hasNextInt()) {
+            System.out.println(sc.nextInt());
+        } else {
+            System.out.println("输入的数据类型有误");
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其他相关方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public boolean hasNext()
+public boolean hasNextLine()
+public boolean hasNextBoolean()
+public boolean hasNextByte()
+public boolean hasNextShort()
+public boolean hasNextLong()
+public boolean hasNextFloat()
+public boolean hasNextDouble()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="扩展：回车换行问题"><a href="#扩展：回车换行问题" class="headerlink" title="扩展：回车换行问题"></a>扩展：回车换行问题</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        String str = sc.nextLine();
+
+        System.out.println("str:" + str + "，num:" + num);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>当从键盘录入第一个数字后，敲下的回车键实际是两个字符：\r\n，所以键盘实际是录入了这两个字符并且结束，显示的效果和没有录入字符串相同</p>
+<p>补充：</p>
+<p>\r：回车，回到行首</p>
+<p>\n：换行</p>
+<p>电脑上的回车键(Enter键)实际上是回车式换行，会先执行回车，后执行换行</p>
+</blockquote>
+<p>扩展：多行录入</p>
+<p>可以通过hasNext的重载方法来实现多行录入</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 如果从键盘录入指定的pattern标记，则返回true，否则返回false
+public boolean hasNext(String pattern)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        StringBuffer sb = new StringBuffer();
+
+        // 将#作为结束的标记，当遇到#时结束循环
+        while (!sc.hasNext("#")) {
+            sb.append(sc.next());
+        }
+
+        System.out.println(sb);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结-22"><a href="#总结-22" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>Scanner 通过标准输入流来从键盘输入，后期不会用到，目前常用的方法为nextXxx()和hasNextXxx()</p>
+</blockquote>
+<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><p>Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。</p>
+<h4 id="成员变量-1"><a href="#成员变量-1" class="headerlink" title="成员变量"></a>成员变量</h4><blockquote>
+<p>静态常量，全大写，通过类名调用</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 比任何其他值都更接近 e（即自然对数的底数）的 double 值
+public static final double E = 2.7182818284590452354;
+
+// 比任何其他值都更接近 pi（即圆的周长与直径之比）的 double 值
+public static final double PI = 3.14159265358979323846;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="构造方法-4"><a href="#构造方法-4" class="headerlink" title="构造方法"></a>构造方法</h4><blockquote>
+<p>构造方法私有化，不能创建对象</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">private Math() {}
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><blockquote>
+<p>所有方法全部都被 static 修饰，可以通过类名直接调用</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 获取绝对值
+public static int abs(int a)
+
+// 对数据进行向上取整
+public static double ceil(double a)
+
+// 对数据进行向下取整
+public static double floor(double a)
+
+// 获取最大值
+public static int max(int a,int b) 
+
+// 获取最小值
+public static int min(int a, int b)
+
+// 获取a的b次幂
+public static double pow(double a,double b)
+
+// 随机数，范围：[0.0, 1.0)，注意左闭右开，包含左边不包含右边，
+public static double random()
+
+// 四舍五入
+public static int round(float a)
+
+// 获取正平方根
+public static double sqrt(double a)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">package com.fc.r.math;
+
+public class MathDemo1 {
+    public static void main(String[] args) {
+        // 自然对数的底
+        System.out.println("Math.E:" + Math.E);
+        // π
+        System.out.println("Math.PI:" + Math.PI);
+
+        System.out.println("-----------------");
+
+        // 绝对值
+        System.out.println("abs:" + Math.abs(-1));
+        System.out.println("abs:" + Math.abs(1));
+
+        System.out.println("-----------------");
+
+        // 向上取整
+        System.out.println("ceil:" + Math.ceil(12.34));
+        System.out.println("ceil:" + Math.ceil(12.56));
+
+        System.out.println("-----------------");
+
+        // 向下取整
+        System.out.println("floor:" + Math.floor(12.34));
+        System.out.println("floor:" + Math.floor(12.56));
+
+        System.out.println("-----------------");
+
+        // 最大最小值
+        System.out.println("max:" + Math.max(12.34, 56.78));
+        System.out.println("max:" + Math.max(12.34, Math.max(56.78, 100)));
+        System.out.println("min:" + Math.min(12.34, 56.78));
+
+        System.out.println("-----------------");
+
+        // a的b次方
+        System.out.println("pow:" + Math.pow(2, 10));
+
+        System.out.println("-----------------");
+
+        // 随机数1~10
+        System.out.println("random:" + (int) (Math.random() * 10 + 1));
+
+        System.out.println("-----------------");
+
+        // 四舍五入
+        System.out.println("round:" + Math.round(12.34));
+        System.out.println("round:" + Math.round(12.56));
+
+        System.out.println("-----------------");
+
+        // 获取正平方根
+        System.out.println("sqrt:" + Math.sqrt(16));
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><h4 id="概述-5"><a href="#概述-5" class="headerlink" title="概述"></a>概述</h4><p>Java泛型是JavaSE1.5中引入的一个新特性，其本质是参数化类型，也就是说所操作的数据类型被指定为一个参数（type parameter）这种参数类型在定义的时候是宽泛的，而在使用的时候是确定的。可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。</p>
+<h4 id="泛型的优点"><a href="#泛型的优点" class="headerlink" title="泛型的优点"></a>泛型的优点</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、提高了程序的安全性(类型安全)
+2、提高了程序的可扩展性、可重用性
+3、将运行期遇到的问题转移到了编译期
+4、省去了类型强转的麻烦(Object类对象)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="泛型格式"><a href="#泛型格式" class="headerlink" title="泛型格式"></a>泛型格式</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">泛型标识符：<自定义无意义英文大写单字母占位符>
+    常用格式：        
+        <T> Type 
+        <E> Element
+        <K> Key
+        <V> Value
+
+泛型类：把泛型定义在类上
+    格式:class 类名<泛型类型1,…>
+        【注意】泛型类型必须是引用类型
+
+泛型方法：把泛型定义在方法上
+    格式:public <泛型类型> 返回类型 方法名(泛型类型 .)
+
+泛型接口：把泛型定义在接口上
+    格式:public  interface 接口名<泛型类型1…>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><p>案例代码1</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class GenericityMethodDemo {
+    public static void main(String[] args) {
+        System.out.println(getData(100));
+        System.out.println(getData("Java"));
+        System.out.println(getData('A'));
+        System.out.println(getData(false));
+    }
+
+    /**
+     * 泛型方法
+     * 格式：
+     *         泛型限定符 返回值类型 方法名(泛型类型 参数名) {}
+     * 
+     * @param <T> 泛型限定符
+     * @param t 任意类型的参数
+     * @return 返回任意类型参数
+     */
+    public static <T> T getData(T t) {
+        return t;
+    } 
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码2</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class GenericityMethodDemo2 {
+    public static void main(String[] args) {
+        Integer[] intArr = {1, 2, 3};
+        String[] stringArr = {"4", "5", "6"};
+
+        // 自定义学生类，其中包含name和age两个成员变量
+        Student[] students = {new Student("张三", 1), new Student("李四", 2), new Student("王五", 3)};
+
+        printArray(intArr);
+        printArray(stringArr);
+        printArray(students);
+    }
+
+    /**
+     * 遍历任意类型的数组
+     * 
+     * @param <T> 泛型限定符
+     * @param t 任意类型的数组
+     */
+    public static <T> void printArray(T[] t) {
+        for (int i = 0; i < t.length; i++) {
+            System.out.println(t[i]);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、要求形式参数列表中必须有一个参数是当前自定义泛型，因为需要通过参数来约束当前方法运行过程中泛型对应的具体数据类型是哪一个
+
+2、返回值类型可以使用自定义泛型，而且是被形式参数列表中传入的泛型对应具体的数据类型控制
+
+3、方法体内也可以使用自定义泛型，同时也是被参数当中泛型对应具体数据类型约束监控
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class GenericityClassDemo {
+    public static void main(String[] args) {
+        Number<Integer> num1 = new Number<Integer>(100);
+        Number<String> num2 = new Number<String>("100");
+        System.out.println(num1.getT());
+        System.out.println(num2.getT());
+    }
+}
+
+/**
+ * 泛型类，把泛型定义到类上，整个类内都可以使用。是对泛型方法的封装
+ * @param <T> 泛型标识符
+ */
+class Number<T> {
+    private T t;
+
+    // Constrator、setters、getters
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、类内可以直接使用对应的类名声明泛型
+2、类内使用的泛型具体数据类型是在创建当前类对象时约束
+3、在创建当前类对象时没有约束泛型对应的具体数据类型，那么所有使用到泛型的位置都是Object类型，有悖于泛型使用原则
+4、如果类声明过了泛型，那么类中所有使用此泛型的方法都同时被声明，即无法使用其他类型
+5、泛型类中定义的静态方法不能直接使用类声明的泛型，因为泛型需要在创建对象时声明，而静态方法在类加载时就加载完成，此时泛型还没有声明。如果静态方法想要使用泛型，只能自己声明自己使用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><p>案例代码1</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">interface USB {}
+
+class Mouse implements USB {}
+
+class Keyboard implements USB {}
+
+interface PC<T> {
+    // 接口中的常量不能使用泛型
+
+    T use(T t);
+}
+
+/*
+ *  实现类实现接口时不指定泛型类型,
+ *  需要在创建对象时明确
+ */
+class MyPC<T> implements PC<T> {
+    @Override
+    public T use(T t) {
+        return t;
+    }
+}
+
+/*
+ * 实现类实现接口时，接口中泛型的类型已经明确，
+ * 实现的方法也是明确的
+ */
+class YourPC implements PC<Mouse> {
+    @Override
+    public Mouse use(Mouse t) {
+        return t;
+    }
+}
+
+public class GenericityInterfaceDemo {
+    public static void main(String[] args) {
+        // 创建对象时明确泛型的类型
+        MyPC<Keyboard> myPC = new MyPC<Keyboard>();
+
+        Keyboard keyboard = myPC.use(new Keyboard());
+
+        System.out.println(keyboard);
+
+        System.out.println("-----------------");
+
+        // 声明类时已经明确泛型的类型，所以这里的类型已经是明确的
+        YourPC yourPC = new YourPC();
+
+        Mouse mouse = yourPC.use(new Mouse());
+
+        System.out.println(mouse);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码2</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 自定义一个比较器接口
+ * @param <T> 泛型
+ */
+interface Comparable<T> {
+    /**
+     * 这是一个比较方法，实现类应该实现这个方法以达到比较的目的
+     * 
+     * @param t 传入被比较的对象
+     * @return 负整数、零或正整数，根据此对象是小于、等于还是大于指定对象。
+     */
+    public abstract int compareTo(T t);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 自定义父类，实现比较器接口
+ */
+class Father implements Comparable<Father>{
+    private String name;
+    private int age;
+
+    // Constrator、setters、getters
+
+    @Override
+    public int compareTo(Father f) {
+        return this.age - f.age;
+    }
+}
+
+public class GenericityInterfaceDemo {
+    public static void main(String[] args) {
+        Father father1 = new Father("小明父亲", 30);
+        Father father2 = new Father("小红父亲", 29);
+
+        if (father1.compareTo(father2) < 0) {
+            System.out.println("小红父亲年长：" + father2.getAge());
+        } else {
+            System.out.println("小明父亲年长：" + father1.getAge());
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、接口中的成员变量不能使用泛型，因为static、final
+2、泛型接口的实现类可以指定泛型的类型，也可以不指定，如果在实现类中明确了数据类型，创建对象时就不需要再进行明确
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h4><blockquote>
+<p>在泛型中，？ 表示未知类型，被称为通配符。通配符可以在各种情况下使用：可以作为形式参数、成员变量、局部变量的类型，也可以作为返回值类型。但是，通配符不能用于泛型方法调用、泛型类实例创建对象或者父类的类型实际参数</p>
+</blockquote>
+<p>表示全部类型，类似Object。区别于T，T只是占位符，而 ？是数据类型</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java"><?>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>【使用场景】</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、当一个方法可以用Object类提供的功能来实现时，泛型通配符是使用的
+
+2、若代码使用了泛型类中的方法，而这些方法又是不依赖于参数化类型的，可以使用泛型通配符
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Grade<T> {
+    private T t;
+
+    // Constructor、setter and getter、toString
+
+    public void show() {
+        System.out.println("show" + this);
+    }
+}
+
+class School {
+    // 这里使用泛型通配符，表示可以传入任意类型
+    public void showGrade(Grade<?> grade) {
+        grade.show();
+    }
+}
+
+public class GenericityWildCardDemo {
+    public static void main(String[] args) {
+        School school = new School();
+
+        school.showGrade(new Grade<Student>(new Student()));
+        school.showGrade(new Grade<Teacher>(new Teacher()));
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="泛型上限"><a href="#泛型上限" class="headerlink" title="泛型上限"></a>泛型上限</h4><p>表示以T为父类的所有子类（包括父类）</p>
+<p><code>&lt;? extends T&gt;</code></p>
+<h4 id="泛型下限"><a href="#泛型下限" class="headerlink" title="泛型下限"></a>泛型下限</h4><p>表示以E为子类的所有父类（包括子类）</p>
+<p><code>&lt;? super E&gt;</code></p>
+<pre><code>class School {
+    public void showGrade(Grade&lt;?&gt; grade) {
+        grade.show();
+    }
+
+    // 泛型上限，Person类本身及其子类都可以使用
+    public void showExtends(Grade&lt;? extends Person&gt; grade) {
+        System.out.println(grade);
+    }
+
+    // 泛型下限，Person类本身及其父类都可以使用
+    public void showSuper(Grade&lt;? super Person&gt; grade) {
+        System.out.println(grade);
+    }
+}
+
+public class GenericityWildCardDemo {
+    public static void main(String[] args) {
+        School school = new School();
+
+        school.showGrade(new Grade&lt;Student&gt;(new Student()));
+        school.showGrade(new Grade&lt;Teacher&gt;(new Teacher()));
+
+        // 泛型上限，可以声明子类的类型
+        school.showExtends(new Grade&lt;Student&gt;());
+        // 泛型下限，可以声明父类的类型
+        school.showSuper(new Grade&lt;Object&gt;());
+    }
+}
+</code></pre><h3 id="泛型推断"><a href="#泛型推断" class="headerlink" title="泛型推断"></a>泛型推断</h3><blockquote>
+<p>JDK1.7新特性，可以省略实例化对象时尖括号内的类型</p>
+</blockquote>
+<p>案例代码</p>
+<pre><code>public class GenericityInferDemo {
+    public static void main(String[] args) {
+        // 泛型推断
+        Grade&lt;Student&gt; grade = new Grade&lt;&gt;();
+
+        // 得到对应的类型
+        Student student = grade.getT();
+    }
+}
+</code></pre><h3 id="总结-23"><a href="#总结-23" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>1、泛型就是泛化的类型，本质是参数化类型，是jdk1.5引入的新特性，用在类、接口和方法上，即泛型类，泛型接口和泛型方法</p>
+<p>2、为了解决利用继承Object来实现通用性导致的强制类型转换和可能发生的类型转换异常的问题。</p>
+<p>3、泛型的好处是确保了编译时期的类型安全，和避免了强制类型转换的麻烦</p>
+<p>4、缺陷是因为泛型使用了类型擦除机制，jvm运行之前会将泛型信息擦除掉，这样做是为了兼容jdk1.5之前的代码，但是也会导致通过反射可以跳过泛型的问题，因为运行期间并没有泛型的限制</p>
+<p>5、泛型通配符？代表任意类型，泛型上限&lt;? extends T&gt;，泛型下限&lt;? super T&gt;</p>
+<p>6、jdk1.7新特性泛型推断，声明变量时定义过泛型得话，在实例化对象时可以省略类型，但是还要加&lt;&gt;，否则还是原类型</p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">秦同学</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ialoe.top/posts/9443.html">https://ialoe.top/posts/9443.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">秦同学</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rpmGPYyUwalUmreTVvmhmkpr-gzGzoHsz',
+        appKey: '4RG94YGC3lOguTlGqSwrqbzD',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/36937.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="甫子寸诗集">
+                        
+                        <span class="card-title">甫子寸诗集</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            世间有些许荒唐，不如与我兴风作浪。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AF%97%E9%9B%86/" class="post-category">
+                                    诗集
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%AB%E5%AD%90%E5%AF%B8%E8%AF%97%E9%9B%86%E8%8A%82%E9%80%89/">
+                        <span class="chip bg-color">甫子寸诗集节选</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/57339.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="电商管理系统">
+                        
+                        <span class="card-title">电商管理系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            java项目
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    java项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">java项目</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="5283950246"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">白月光</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+				<!-- //<span id="busuanzi_container_site_uv"> //<span id="busuanzi_container_site_uv">-->
+            
+            <span>
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+             <span>
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "10";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn" target="_blank">豫ICP备2020025858号-1</a>
+            </span>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2494543852@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2494543852" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2494543852" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+		    <img style="height: 67px;cursor: pointer;" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/medias/logo2.png" alt="又拍云" onclick="location.href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'">
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/js/matery.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/isome/isome.github.io/js/fireworks.js"></script>
+	
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,150,205"
+        pointColor="2,191,25" opacity='0.8'
+        zIndex="-1" count="250"
+        src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script></body>
+	<script src="/js/snow1.js"></script>
+	
+	<script type="text/javascript">
+	var windowWidth = $(window).width(); 
+	if (windowWidth > 768) { 
+		document.write('<script type="text/javascript" src="/js/sakura.js">
+		<\/script>'); } </script>
+	<script type="text/javascript">
+		var OriginTitile=document.title,st; 
+		document.addEventListener("visibilitychange",function(){ 
+			document.hidden?(document.title="咦，你去哪了！",clearTimeout(st)):(document.title="我回来喽！",st=setTimeout(function(){document.title=OriginTitile},3e3)) 
+			})</script>
+	
+</html>
