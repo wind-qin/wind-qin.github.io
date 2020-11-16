@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-13
+                    2020-11-16
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.2k
+                    14.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    59 分
+                    60 分
                 </div>
                 
 
@@ -3211,6 +3211,57 @@ public class GenericityWildCardDemo {
 <p>5、泛型通配符？代表任意类型，泛型上限&lt;? extends T&gt;，泛型下限&lt;? super T&gt;</p>
 <p>6、jdk1.7新特性泛型推断，声明变量时定义过泛型得话，在实例化对象时可以省略类型，但是还要加&lt;&gt;，否则还是原类型</p>
 </blockquote>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="学习要求-1"><a href="#学习要求-1" class="headerlink" title="学习要求"></a>学习要求</h3><blockquote>
+<p>抄！！！！！！！！！！！！！！！</p>
+</blockquote>
+<h3 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">interface Collection<E> Java中所有集合的总接口
+--| interface List<E> List接口，数据存储可重复，有序
+----| class ArrayList<E> 
+    重点 可变长数组
+----| class LinkedList<E> 
+    重点 双向链表模式
+----| class Vector<E>
+    线程安全的可变长数组
+--| interface Set<E> Set接口，数据存储不可以重复，无序
+----| class HashSet<E> 
+    底层存储数据的结构是一个哈希表，存储效率，查询效率极高！！！
+----| class TreeSet<E> 
+    底层存储数据的结构是一个平衡二叉树结构，要求数据必须有比较方式！！！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201116155514.jpg" alt="集合框架关系图"></p>
+<h2 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h2><blockquote>
+<p>Collection 层次结构中的根接口。Collection 表示一组对象，这些对象也称为 collection 的元素。一些  collection 允许有重复的元素，而另一些则不允许。一些 collection 是有序的，而另一些则是无序的。JDK 不提供此接口的任何<em>直接</em>  实现：它提供更具体的子接口（如 <code>Set</code> 和 <code>List</code>）实现。此接口通常用来传递  collection，并在需要最大普遍性的地方操作这些 collection。 </p>
+</blockquote>
+<h3 id="增加方法"><a href="#增加方法" class="headerlink" title="增加方法"></a>增加方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">boolean add(E e);
+    添加当前集合约束的指定数据类型到当前集合中
+
+boolean addAll(Collection<? extends E> c);
+    添加另一个集合到当前集合中，要求添加集合中保存的元素必须是当前集合中保存
+    元素本身或者其子类对象 【泛型的上限】
+    class Dog extends Animal
+    class Cat extends Animal
+    class Tiger extends Animal
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        Collection<String> collection1 = new ArrayList<String>();
+        Collection<String> collection2 = new ArrayList<String>();
+
+        collection1.add("Java");
+        collection1.add("Hello");
+
+        collection2.add("Java");
+        collection2.add("Hello");
+        collection2.add("World");
+
+        System.out.println(collection1);    // [Java, Hello]
+
+        collection1.addAll(collection2);        
+        System.out.println(collection1);    // [Java, Hello, Java, Hello, World]
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
