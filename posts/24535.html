@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-16
+                    2020-11-18
                 </div>
 				<div class="info-break-policy">
 					 
@@ -515,10 +515,12 @@ String toLowerCase();
 <h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 添加当前集合约束的指定数据类型到当前集合中
 add(E e);
 
-// 添加另一个集合到当前集合中，要求添加集合中保存的元素必须是当前集合中保存元素本身或者其子类对象
+// 添加另一个集合到当前集合中，要求添加集合中保存的元素必须是当前集合中
+//保存元素本身或者其子类对象
 addAll(Collection<? extends E> e);
 
-// 删除集合中的指定元素，删除成功返回true,未找到指定元素，无法删除返回false，并且在多个元素的情况下，删除找到的第一个元素。
+// 删除集合中的指定元素，删除成功返回true,未找到指定元素，无法删除返回false，
+//并且在多个元素的情况下，删除找到的第一个元素。
 boolean remove(Object obj);
 
 // 在当前集合中删除两个集合的交集    
@@ -564,14 +566,16 @@ Iterator<K> iterator();
      *    3、没有next不能使用remove
      */
     boolean    remove();
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">// List接口继承Collection接口 add方法，使用操作和Collection一致，并且这里采用的添加方式是【尾插法】
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">// List接口继承Collection接口 add方法，使用操作和Collection一致，
+//并且这里采用的添加方式是【尾插法】
 add(E e);
 
 // List接口【特有方法】，在指定位置，添加指定元素
 add(int index, E e);
 
-// List接口继承Collection接口 addAll方法，使用操作和Collection一致，并且这里采用的添加方式是【尾插法】
+// List接口继承Collection接口 addAll方法，使用操作和Collection一致，
+//并且这里采用的添加方式是【尾插法】
 addAll(Collection<? extends E> e);
 
 // List接口【特有方法】，在指定下标位置，添加另一个集合中所有内容
@@ -621,7 +625,7 @@ int indexOf(Object obj);
 
 // List接口【特有方法】。获取指定元素在集合中最后一次出现的位置
 int lastIndexOf(Object o);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 在当前链表开始位置加元素
 boolean addFirst(E e);
 
@@ -643,7 +647,8 @@ E removeLast();
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 添加符合Map要求的键值对存入到双边队列中
 V put(K key, V value);
 
-// 添加另一个Map到当前Map中，要求K是当前Map本身对应的K，或者其子类，V是当前Map本身对应的V，或者其子类        
+// 添加另一个Map到当前Map中，要求K是当前Map本身对应的K，
+//或者其子类，V是当前Map本身对应的V，或者其子类        
 void putAll(Map<? extends K, ? extends V> map)
 
 // 删除对应Key键值对
@@ -676,8 +681,9 @@ Set<Map.Entry<K, V>> entrySet();
 /*
  * Set<Map.Entry<K, V>>
  *
- * Map.Entry<K, V> Map接口的内部接口Entry，使用的泛型 K,V对应Map创建过程中约束的K,V
-    因为返回值是Set集合，集合带有泛型 Set<Map接口中的内部接口Entry>
+ * Map.Entry<K, V> Map接口的内部接口Entry，使用的泛型 K,V对应Map
+ 创建过程中约束的K,V因为返回值是Set集合，
+ 集合带有泛型 Set<Map接口中的内部接口Entry>
  */
 
 
@@ -690,7 +696,7 @@ Entry 对应的方法
 
     // 用指定的值替换与此项对应的值，返回与此项对应的旧值 
     V setValue(V value);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>此地方有集合如何使用的具体用法    <a href="https://ialoe.top/posts/9443.html">https://ialoe.top/posts/9443.html</a></p>
 
             </div>
