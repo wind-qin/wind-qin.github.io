@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java异常, 个人博客，秦同学">
+    <meta name="keywords" content="Idea破解版的下载及安装, 个人博客，秦同学">
     <meta name="description" content="记录生活，秦同学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>Java异常 | 白月光 | 秦同学</title>
+    <title>Idea破解版的下载及安装 | 白月光 | 秦同学</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java异常</h1>
+                    <h1 class="description center-align post-title">Idea破解版的下载及安装</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/%E5%85%B6%E4%BB%96/">
+                                <span class="chip bg-color">其他</span>
                             </a>
                         
                     </div>
@@ -393,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java/" class="post-category">
-                                java
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                其他
                             </a>
                         
                     </div>
@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-16
+                    2020-11-18
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    67
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
 
@@ -437,216 +437,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="Throwable-类"><a href="#Throwable-类" class="headerlink" title="Throwable 类"></a>Throwable 类</h3><blockquote>
-<p>Throwable 类是Java语言中所有错误和异常的顶级父类，直接子类为 Error 和 Exception</p>
-</blockquote>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 无参构造：构造一个新的 throwable 对象，其详细信息为null
-public Throwable()
-
-// 有参构造：使用指定的详细信息(message)构造一个新的 throwable 对象
-public Throwable(String message)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 返回此 throwable 对象的详细信息字符串
-public String getMessage()
-
-// 返回一个简要信息描述
-public String toString()
-
-// 打印此 throwable 对象及其详细信息字符串到标准错误流(控制台)
-public void printStackTrace()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>案例代码</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
-    public static void main(String[] args) {
-        Throwable throwable1 = new Throwable();
-
-        System.out.println(throwable1.getMessage());
-        System.out.println(throwable1.toString());
-        throwable1.printStackTrace();
-
-        Throwable throwable2 = new Throwable("错误信息！！！");
-
-        System.out.println(throwable2.getMessage());
-        System.out.println(throwable2.toString());
-        throwable2.printStackTrace();
-    }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><blockquote>
-<p>Error 类是 Throwable 的子类，它指出了一个合理的应用程序不应该试图捕捉的严重问题</p>
-</blockquote>
-<p>【注意】Error 结尾的是严重问题，无法解决</p>
-<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><blockquote>
-<p>Exception 类及其子类是一种 Throwable 的子类，指示了一个合理的应用程序可能想要捕获的条件。</p>
-</blockquote>
-<p>【注意】Exception 结尾的是我们可以处理的，一般我们需要关注的是 RuntimeException</p>
-<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><blockquote>
-<p>异常处理分为两种：捕获和抛出</p>
-<p><strong>有能力处理就进行捕获，没有就抛出</strong></p>
-</blockquote>
-<h4 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
-    try {
-        // 有可能出现问题的代码，存在一定隐患的代码
-    } catch (异常类型 变量名) {
-        // 对应当前异常类型的处理方式
-    } finally {
-        // 无论是否捕获，都会执行，常用于释放资源
-    }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>案例代码</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
-    public static void main(String[] args) {
-        int num1 = 0;
-        int num2 = 20;
-
-        int ret = 0;
-
-        /*
-         * 除数不能为0
-         */
-        try {
-            ret = num2 / num1;
-        } catch (ArithmeticException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(ret);
-    }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结果</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">java.lang.ArithmeticException: / by zero
-    at code.exception.Test.main(Test.java:11)
-0
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>【注意】</p>
-<blockquote>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">1、代码中出现异常，JVM会终止代码运行，如果使用try catch捕获处理异常，JVM会认为当前代码中不存在异常，可以继续运行。
-
-2、try - catch代码块中声明的都是局部变量，需要提前声明
-
-3、try - catch捕获处理异常，可以处理多种异常情况
-
-4、代码中存在多种隐患，存在多个异常情况，try - catch捕获有且只能处理第一个出现异常的代码，因为JVM从异常代码开始直接进入异常捕获阶段
-
-5、Exception作为Java中所有异常的超类，在捕获异常处理时如果直接使用Exception进行捕获处理，无法具体到对某一个异常来处理
-
-6、Exception可以作为try - catch 最后一个，用于处理其他异常捕获之后没有对症方式遗留问题
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h4 id="抛出"><a href="#抛出" class="headerlink" title="抛出"></a>抛出</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">关键字:
-    throw
-        在方法内特定条件下抛出指定异常，后面跟异常类型的对象
-
-    throws
-        在【方法声明】位置，告知调用者，当前方法有哪些异常抛出，后面跟异常的类型
-
-    用于处理非当前方法操作问题，导致出现的异常，一般情况下是用于处理方法运行过程中因为参数传入，参数处理，运算结果导致的问题，抛出异常。
-
-    throw是一个稍微高级的参数合法性判断
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>案例代码</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestThrows {
-    public static void main(String[] args) {
-
-        try {
-            test(1, 0);
-        } catch (ArithmeticException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 测试方法，打印两个数的差
-     * 
-     * @param num1 第一个参数，被除数
-     * @param num2 第二个参数，除数
-     * @throws ArithmeticException 如果除数为0，抛出异常
-     */
-    public static void test(int num1, int num2) throws ArithmeticException {
-
-        if (0 == num2) {
-            throw new ArithmeticException("除数不能为0");
-        }
-
-        System.out.println(num1 / num2);
-    }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结果</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">java.lang.ArithmeticException: 除数不能为0
-    at code.exception.TestThrows.test(TestThrows.java:23)
-    at code.exception.TestThrows.main(TestThrows.java:7)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>【注意】</p>
-<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、throw 和 throws 必须同时出现，并且体现在注释上
-
-2、代码如果运行到throw抛出异常，之后的代码不再运行，之后的代码是成为无法抵达的代码
-
-3、代码中存在多种隐患，按照隐含的情况，分门别类处理，不能在同一个条件内抛出两个异常。并且在方法的声明位置，throws之后，不同的异常，使用逗号隔开
-
-4、当调用带有异常抛出的方法时，对于方法抛出的异常，有两种处理方式，可以捕获处理，也可以抛出处理。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h3><h4 id="运行时异常"><a href="#运行时异常" class="headerlink" title="运行时异常"></a>运行时异常</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">RuntimeException：代码运行过程中出现的异常，没有强制处理的必要性，因为JVM会处理RuntimeException异常，即报错
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="其他异常"><a href="#其他异常" class="headerlink" title="其他异常"></a>其他异常</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">强制要求处理，不管是捕获处理还是抛出处理，都需要进行操作，如果未处理就会报错
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><blockquote>
-<p>继承自 Exception 或者 RuntimeException，只需要提供无参构造和一个带参构造即可</p>
-<p>【注意】如果继承自Exception，调用抛出了此异常的方法需要手动对其捕获或者抛出</p>
-</blockquote>
-<p>自定义异常类</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class MyException extends Exception {
-    public MyException() {}
-
-    public MyException(String message) {
-        super(message);
-    }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
-    public static void main(String[] args) {
-        try {
-            buy(false);
-        } catch (MyException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 买方法，当没有女朋友的时候，抛出异常
-     * @param hasGirlFriend boolean类型，是否有女朋友
-     * @throws MyException 自定义单身狗异常
-     */
-    public static void buy(boolean hasGirlFriend) throws MyException {
-        if (false == hasGirlFriend) {
-            throw new MyException("你还没有女朋友");
-        }
-
-        System.out.println("买一送一");
-    }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结果</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">code.myexception.MyException: 你还没有女朋友
-    at code.myexception.Test.buy(Test.java:19)
-    at code.myexception.Test.main(Test.java:6)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、父类的方法有异常抛出，子类的重写方法在抛出异常的时候必须要小于等于父的异常
-
-2、父类的方法没有异常抛出，子类的重写方法不能有异常抛出
-
-3、父类的方法抛出多个异常，子类的重写方法必须比父少或者小
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>1、异常的存在是非常有必要的，可以帮助我们定位和解决问题</p>
-<p>2、异常的处理方式：捕获和抛出</p>
-<p>3、自定义异常一定要有无参构造和有参构造</p>
-<p>4、后期会遇到大量的异常，一般使用快捷键就能搞定</p>
-<p>​        Eclipse：Ctrl + 1</p>
-<p>​        Idea：Alt + Enter</p>
-</blockquote>
+                <h2 id="一、在安装之前先下载一下吧！"><a href="#一、在安装之前先下载一下吧！" class="headerlink" title="一、在安装之前先下载一下吧！"></a>一、在安装之前先下载一下吧！</h2><p>点击以下传送门去腾讯微云下载！！！</p>
+<p><a href="https://share.weiyun.com/Big4DCy8" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="二、安装方法，及破解方法，如图："><a href="#二、安装方法，及破解方法，如图：" class="headerlink" title="二、安装方法，及破解方法，如图："></a>二、安装方法，及破解方法，如图：</h2><p>请按以下方法一步一步来…………………..！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224752.png" alt="001"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224849.png" alt="002"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224906.png" alt="003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224916.png" alt="004"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224923.png" alt="005"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224939.png" alt="006"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118224954.png" alt="007"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225011.png" alt="008"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225019.png" alt="009"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225027.png" alt="010"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225036.png" alt="011"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225046.png" alt="012"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225057.png" alt="013"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225106.png" alt="014"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225117.png" alt="015"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225128.png" alt="016"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225138.png" alt="017"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225150.png" alt="018"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201118225204.png" alt="019"></p>
+<p>长路漫漫，水分多多，又水完一篇文章！！！</p>
 
             </div>
             <hr/>
@@ -672,7 +485,7 @@ public void printStackTrace()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ialoe.top/posts/48508.html">https://ialoe.top/posts/48508.html</a>
+                    <a href="https://ialoe.top/posts/4127.html">https://ialoe.top/posts/4127.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -710,8 +523,8 @@ public void printStackTrace()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/%E5%85%B6%E4%BB%96/">
+                                    <span class="chip bg-color">其他</span>
                                 </a>
                             
                         </div>
@@ -1142,9 +955,10 @@ public void printStackTrace()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/4127.html">
                     <div class="card-image">
@@ -1161,9 +975,9 @@ public void printStackTrace()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1176,6 +990,7 @@ public void printStackTrace()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1194,30 +1009,30 @@ public void printStackTrace()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/24535.html">
+                <a href="/posts/48508.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="常用String语句和集合">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Java异常">
                         
-                        <span class="card-title">常用String语句和集合</span>
+                        <span class="card-title">Java异常</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用String语句和集合，java必背
+                            java的各种异常及处理
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/String%E8%AF%AD%E5%8F%A5/" class="post-category">
-                                    String语句
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
