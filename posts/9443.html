@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-16
+                    2020-11-18
                 </div>
 				<div class="info-break-policy">
 					 
@@ -4041,7 +4041,652 @@ Student [name=Buffer, age=23, sex=男]=5
 
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试类</p>
+<h2 id="File-类"><a href="#File-类" class="headerlink" title="File 类"></a>File 类</h2><blockquote>
+<p>文件和目录路径名的抽象表示形式，提供了对文件和文件夹的增删改查的方法</p>
+</blockquote>
+<h3 id="构造方法-5"><a href="#构造方法-5" class="headerlink" title="构造方法"></a>构造方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">File(String pathName);
+    根据指定的文件路径，或者文件夹路径，创建对应的File类对象。路径可以是相对路径，可以是绝对路径
+
+File(String parent, String childName);
+    根据指定的父目录文件夹路径，和子文件或者子文件夹的名字，创建对应的File类对象
+
+File(File parent, String childName);
+    根据指定的父目录File类对象，和子文件或者子文件夹的名字，创建对应的File类对象
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】如果是文件必须要有后缀名，否则就是文件夹</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        File file1 = new File("D:/aaa");
+        File file2 = new File("D:/aaa", "1.txt");
+        File file3 = new File(file1, "1.txt");
+
+        System.out.println(file1);    // D:\aaa
+        System.out.println(file2);    // D:\aaa\1.txt
+        System.out.println(file3);    // D:\aaa\1.txt
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="创建方法"><a href="#创建方法" class="headerlink" title="创建方法"></a>创建方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">boolean createNewFile();
+    通过File类对象调用，创建File类对象中对应地址的普通文件，创建成功返回true，创建失败返回false;
+    失败原因:
+        1. 路径不合法，路径不存在，路径错误。
+        2. 对应文件夹没有写入权限。
+        3. 对应文件已存在。
+        4. 磁盘坏道，电脑蓝屏。
+
+boolean mkdir();
+    通过File类对象创建，创建File类对象中对应的文件夹，创建成功返回true，失败返回false
+    失败原因:
+        1. 路径不合法，路径不存在，路径错误。
+        2. 对应文件夹没有写入权限。
+        3. 对应文件夹已存在。
+        4. 磁盘坏道，电脑蓝屏。
+
+boolean mkdirs();
+    创建文件夹过程中可以完成中间路径
+
+boolean renameTo(File dest);
+    通过File类对象调用，转为目标dest指定File类对象，可以操作普通文件，可以操作文件夹。移动或者重命名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        File file1 = new File("C:/Users/CJF/Desktop/啥啥啥.txt");
+
+        boolean createNewFile = file1.createNewFile();
+        System.out.println(createNewFile);
+
+        File file2 = new File("C:/Users/CJF/Desktop/啥啥啥");
+        boolean mkdir = file2.mkdir();
+        System.out.println(mkdir);
+
+        File file3 = new File("C:/Users/CJF/Desktop/啥啥啥/afaf/aggr/htedfgb/er");
+        boolean mkdirs = file3.mkdirs();
+        System.out.println(mkdirs);
+
+        File file4 = new File("C:/Users/CJF/Desktop/什么鬼.txt");
+
+        boolean renameTo = file1.renameTo(file4);
+        System.out.println(renameTo);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="删除方法-3"><a href="#删除方法-3" class="headerlink" title="删除方法"></a>删除方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">boolean delete();
+    通过File类对象调用，删除File类对象对应的文件或者文件夹。
+    注意事项:
+        1. 从磁盘中直接抹掉数据，不经过回收站，慎用
+        2. 删除操作只针对于空文件夹操作，不能删除非空文件夹
+
+void deleteOnExit();
+    程序退出之后，删除调用该方法File类对象，对应的普通文件或者文件夹。
+    用于缓冲文件，缓存问题，日志文件
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        File file = new File("C:/Users/CJF/Desktop/Test.txt");
+
+        System.out.println(file.createNewFile());    // true
+
+        System.out.println(file.delete());    // true
+
+        file.deleteOnExit();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">前三个方法和文件或者文件夹是否存在无关。
+
+String getPath();
+    获取File类对象中保存的路径
+
+String getName();
+    获取File类对象操作对应的文件名或者文件夹名
+
+String getParent();
+    获取File类对象操作文件或者文件夹的上级目录
+
+String getAbsolutePath();
+    获取当前File类对象对应路径的绝对路径
+
+long length();
+    获取当前【文件】的占用磁盘空间字节数
+    根据不同的系统环境，文件夹调用length方法 0L 或者 4096L
+long lastModified();
+    获取当前文件夹上一次修改时间的【时间戳】
+    是从计算机元年1970-01-01 00:00:00 到修改时间的秒数
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        File file = new File("D:/aaa/bbb/ccc/1.txt");
+
+        System.out.println(file.getPath());    // D:\aaa\bbb\ccc\1.txt
+        System.out.println(file.getParent());    // D:\aaa\bbb\ccc
+        System.out.println(file.getName());    // 1.txt
+
+        System.out.println(file.length());    // 0
+
+        System.out.println(file.lastModified());// 0
+
+        System.out.println(new File(".").getAbsolutePath());    // D:\Qfeng\day27\.
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">boolean isFile();
+    判断当前File类对象对应的是不是普通文件。
+
+boolean isDirectory();
+    判断当前File类对象对应的是不是文件夹。
+
+boolean exists();
+    判断当前File类对象对应的内容是否存在。
+
+boolean isAbsolute();
+    判断当前File类对象保存的路径是不是绝对路径。
+
+boolean isHidden();
+    判断当前File类对象对应的文件是不是一个隐藏文件。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestFileDecide {
+    public static void main(String[] args) {
+        File file = new File("D:/Adobe");
+
+        System.out.println(file.exists());    // true
+        System.out.println(file.isFile());    // false
+        System.out.println(file.isDirectory());    // true
+        System.out.println(file.isAbsolute());    // true
+        System.out.println(file.isHidden());    // false
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="列表方法"><a href="#列表方法" class="headerlink" title="列表方法"></a>列表方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">static File[] listRoots();    
+    获取Windows操作系统下的所有盘符
+    Linux中没有什么作用。
+
+String[] list();
+    获取File类对象对应文件夹中所有子文件或者子文件夹名字，String类型数组
+
+File[]    listFiles();
+    获取File类对象对应文件夹中所有子文件或者子文件夹的File类对象数组
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        File file = new File("C:/Users/CJF/Desktop");
+
+        String[] list = file.list();
+        for (String fileName : list) {
+            System.out.println(fileName);
+        }
+
+        File[] listFiles = file.listFiles();
+        for (File file2 : listFiles) {
+            System.out.println(file2);
+        }
+
+        File[] listRoots = File.listRoots();
+        for (File file2 : listRoots) {
+            System.out.print(file2 + "\t"); // C:\ D:\ E:\
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FilenameFilter-文件名过滤器接口"><a href="#FilenameFilter-文件名过滤器接口" class="headerlink" title="FilenameFilter 文件名过滤器接口"></a>FilenameFilter 文件名过滤器接口</h3><p>实现此接口的类实例可用于过滤文件名。</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">boolean accept(File dir, String name);
+    dir是当前操作获取文件列表的文件夹File类对象
+    name是当前文件夹下的文件名或者文件夹名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        File file = new File("D:/EclipseWorkSpace/rx1901/src/com/fc/za/file");
+
+        String[] fileNameArray = file.list(new FilenameFilter() {
+
+            @Override
+            public boolean accept(File dir, String name) {
+                return new File(dir, name).isFile() && name.endsWith(".java");
+            }
+        });
+
+        for (String fileName : fileNameArray) {
+            System.out.println(fileName);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h2><h3 id="概述-12"><a href="#概述-12" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>1、IO流用来处理设备之间的数据传输<br>   上传文件和下载文件<br>2、Java对数据的操作是通过流的方式<br>3、Java用于操作流的对象都在IO包中</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">I
+   input    从硬盘读取数据到内存    read 读
+
+O
+   output    从内存写入数据到硬盘    write 写
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">按照数据流向
+    输入流    读入数据    字节输入流、字符输入流
+    输出流    写出数据    字节输出流、字符输出流
+
+按照数据类型
+    字节流                字节输入流、字符输出流
+    字符流                字符输入流、字符输出流
+
+class InputStream 字节输入流基类
+--| class FileInputStream 文件操作字节输入流
+
+class OutputStream 字节输出流基类
+--| class FileOutputStream 文件操作字节输出流
+
+class Reader 字符输入流基类
+--| class FileReader 文件操作字符输入流
+
+class Writer 字符输出流基类
+--| class FileWriter 文件操作字符输出流
+
+缓冲流:
+    BufferedInputStream    
+        字节输入缓冲流
+    BufferedOutputStream
+        字节输出缓冲流    
+    BufferedReader    
+        字符输入缓冲流
+    BufferedWriter    
+        字符输出缓冲流
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FileInputStream-文件操作字节输入流"><a href="#FileInputStream-文件操作字节输入流" class="headerlink" title="FileInputStream 文件操作字节输入流"></a>FileInputStream 文件操作字节输入流</h3><p>Constructor构造方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 根据用户指定的文件路径创建对应的FileInputStream，文件操作输入字节流，如果文件不存在，抛出异常FileNotFoundException
+FileInputStream(String filePath);
+
+// 根据用户指定对应文件的File类对象，创建对应的FileInputStream，如果文件不存在，抛出异常FileNotFoundException            
+FileInputStream(File file);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Method成员方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 从文件中读取一个字节数据返回。如果读取到底末尾，返回-1 EOF End Of File
+int read();
+
+// 从文件中读取数据到缓冲数组buf中，返回值类型是从文件中读取到的字节个数，如果读取到文件末尾，返回-1， EOF End Of File 。如果在运行过程中出现了问题，抛出异常IOException       
+int read(byte[] buf); 【重点，效率高】
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>操作流程</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">1. 明确对应文件的路径，可以选择直接给予对应的String类型路径，或者创建对应的File类对象，作为参数
+2. 创建FileInputStream文件操作字节输入流，打开文件操作管道
+3. 从FileInputStream对象中使用方法，读取数据
+4. 关闭资源！！！FileInputStream类对象 ==> 水龙头！！！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test1 {
+    public static void main(String[] args) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(new File("C:/Users/CJF/Desktop/Test.txt"));
+
+        int content = fileInputStream.read();
+
+        System.out.println((char) content);
+
+//        byte[] buf = new byte[1024 * 16];
+
+        while (-1 != (content = fileInputStream.read())) {
+            System.out.print((char)content);
+        }
+
+        fileInputStream.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码二</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test2 {
+    public static void main(String[] args) throws IOException {
+        FileInputStream fis = new FileInputStream(new File("C:/Users/CJF/Desktop/Test.txt"));
+
+        byte[] buf = new byte[1024 * 16];
+
+        int count = -1;
+
+        while (-1 != (count = fis.read(buf))) {
+            System.out.println(new String(buf, 0, count));
+        }
+
+        fis.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】一般都会使用缓冲数组，因为单个字节读取效率太低了</p>
+</blockquote>
+<h3 id="FileOutputStream-文件操作字节输出流"><a href="#FileOutputStream-文件操作字节输出流" class="headerlink" title="FileOutputStream 文件操作字节输出流"></a>FileOutputStream 文件操作字节输出流</h3><p>Constructor构造方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 根据用户指定的路径，创建对应的FileOutputStream文件操作输出流对象。如果路径不合法，抛出异常FileNotFoundException。采用写入数据到文件的方式，是【删除写】！！！文件内容清空，再写入数据
+FileOutputStream(String filePath);
+
+// 根据用户指定的File类对象，创建对应FileOutputStream文件操作输出流对象，如果路径不合法，抛出异常FileNotFoundException。采用写入数据到文件的方式，是【删除写】！！！文件内容清空，再写入数据
+FileOutputStream(File file);
+
+// 根据用户指定的路径，创建对应的FileOutputStream文件操作输出流对象。如果路径不合法，抛出异常FileNotFoundException。
+// append参数是boolean类型，如果传入参数为true，表示【追加写】，在文件末尾写入数据
+FileOutputStream(String filePath, boolean append);
+
+// 根据用户指定的File类对象，创建对应FileOutputStream文件操作输出流对象，如果路径不合法，抛出异常FileNotFoundException。
+// append参数是boolean类型，如果传入参数为true，表示【追加写】，在文件末尾写入数据
+FileOutputStream(File file, boolean append);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Method成员方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 写入一个字节数据写入到文件中
+void write(int b);
+
+// 写入一个字节数组到文件中        
+void write(byte[] buf);
+
+// 写入一个字节数组到文件中，要求从off偏移位置开始，计数count     
+void write(byte[] buf, int off, int count);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>操作流程</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">1. 明确对应文件的路径，可以选择直接给予对应的String类型路径，或者创建对应的File类对象，作为参数
+2. 创建FileOutputStream文件操作输出字节流，打开文件操作管道
+3. 使用FileOutputStream对象写入数据到文件中
+4. 关闭资源！！！
+
+【注意】
+    1. FileOutputStream拥有创建文件的能力，在路径合法，且对应目录有写入权限下可以创建文件
+    2. 区分删除写和追加写
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        FileOutputStream fos = new FileOutputStream(new File("C:/Users/CJF/Desktop/Test.txt"));
+
+        fos.write(97);
+        System.out.println();
+
+        FileOutputStream fos2 = new FileOutputStream(new File("C:/Users/CJF/Desktop/Test.txt"), true);
+
+        fos2.write("\n今天是个好天气".getBytes());
+
+        fos2.close();
+        fos.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FileReader-文件操作字符输入流"><a href="#FileReader-文件操作字符输入流" class="headerlink" title="FileReader 文件操作字符输入流"></a>FileReader 文件操作字符输入流</h3><p>Constructor构造方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 根据指定路径的文件创建对应的文件字符输入流对象，如果文件不存在，抛出异常FileNotFoundException
+FileReader(String filePath);    
+
+// 根据指定路径的File类对象创建文件字符输入流对象，如果文件不存在，抛出异常FileNotFoundException
+FileReader(File file);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Method成员方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 从文件中读取一个字符数据，返回值为int类型，int类型数据中有且只有低十六位是有效数据，如果读取到文件末尾返回-1 EOF End Of File
+int read();
+
+// 从文件中读取数据到char类型缓冲数组buf，返回值是读取到字符个数。如果读取到文件末尾返回-1 EOF End Of File
+int read(char[] buf);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>操作流程</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">1. 明确需要读取数据的文件
+2. 创建FileReader对象，打开文件操作管道
+3. 使用FileReader类对象方法，读取文件数据
+4. 关闭资源
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        FileReader fr = new FileReader(new File("C:/Users/CJF/Desktop/Test.txt"));
+
+        char[] buf = new char[1024 * 16];
+
+        int content = -1;
+
+        while (-1 != (content = fr.read(buf))) {
+            System.out.println(new String(buf, 0, content));
+        }
+
+        fr.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FileWriter-文件操作字符输出流"><a href="#FileWriter-文件操作字符输出流" class="headerlink" title="FileWriter 文件操作字符输出流"></a>FileWriter 文件操作字符输出流</h3><p>Constructor构造方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 根据用户指定的路径，创建对应的FileWriter文件操作字符输出流对象。如果路径不合法，抛出异常FileNotFoundException。采用写入数据到文件的方式，是【删除写】！！！文件内容清空，在写入数据
+FileWriter( String filePath);
+
+// 根据用户指定的File类对象，创建对应FileWriter文件操作字符输出流对象，如果路径不合法，抛出异常FileNotFoundException。采用写入数据到文件的方式，是【删除写】！！！文件内容清空，在写入数据
+FileWriter(File file);
+
+// 根据用户指定的路径，创建对应的FileWriter文件操作字符输出流对象。如果路径不合法，抛出异常FileNotFoundException。append参数是boolean类型，如果传入参数为true，表示【追加写】，在文件末尾写入数据    
+FileWriter(String filePath, boolean append);
+
+// 根据用户指定的File类对象，创建对应FileWriter文件操作字符输出流对象，如果路径不合法，抛出异常FileNotFoundException。append参数是boolean类型，如果传入参数为true，表示【追加写】，在文件末尾写入数据    
+FileWriter(File file, boolean append);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Method成员方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 写入一个字符数据写入到文件中
+void write(int ch);
+
+// 写入一个字符数组到文件中
+void write(char[] buf);
+
+// 写入一个字符数组到文件中，要求从off偏移位置开始，计数count
+void write(char[] buf, int off, int count);    
+
+// 写入一个字符串到文件中
+void write(String str);
+
+// 写入一个字符串到文件中，要求从offset偏移位置开始，计数count
+void write(String str, int offset, int count);
+
+
+【注意】
+    1. FileWriter拥有创建文件的能力，在路径合法，且对应目录有写入权限下可以创建文件
+    2. 区分删除写和追加写
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        FileWriter fw = new FileWriter(new File("C:/Users/CJF/Desktop/Test.txt"), true);
+
+        fw.write("\n今天是520情人节");
+
+        fw.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo8 {
+    public static void main(String[] args) throws IOException {
+        // 明确操作源文件
+        File src = new File("D:/EclipseWorkSpace/FC2020/src/com/fc/z/io/a.txt");
+
+        // 明确操作源文件
+        File dest = new File("D:/EclipseWorkSpace/FC2020/src/com/fc/z/io/b.txt");
+
+        // 创建读对象
+        FileInputStream fis = new FileInputStream(src);
+
+        // 创建写对象
+        FileOutputStream fos = new FileOutputStream(dest);
+
+        // 缓存
+        byte[] buf = new byte[1024 * 16];
+
+        int content = -1;
+
+        // 读取数据并写入
+        while (-1 != (content = fis.read(buf))) {
+            fos.write(buf, 0, content);
+        }
+
+        // 关闭资源
+        fos.close();
+        fis.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="总结-24"><a href="#总结-24" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、流程是一样的
+   明确文件
+   打开管道
+   操作文件
+   关闭资源
+
+2、核心方法
+   read 读取，输入
+   write 写入，输出
+
+3、输出流有创建文件的能力。
+
+4、 输出流需要注意是删除写还是追加写。
+
+5、输入流有缓冲比没有缓冲效率高很多
+
+6、一定要注意关闭资源！！！resource
+
+7、一般还是用字节流，避免文件损坏
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h2 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h2><h3 id="概述-13"><a href="#概述-13" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">1、缓冲流是Java中提供的系统缓冲，底层都是一个缓冲数组，根据处理的数据方式不同，提供的数据有字节缓冲数组和字符缓冲数组。
+
+2、字节缓冲流，默认的字节数组缓冲区是8KB 
+   byte[] buffer = new byte[1024 * 8];
+
+3、字符缓冲流，默认的字符数组缓冲区是16KB
+   char[] buffer = new char[1024 * 8];
+
+4、【重点】
+   任何一个缓冲流都没有任何操作文件的能力！！！读取文件数据，写入文件数据，都是依赖于对应的字符流或者字节流提供的！！！
+
+5、缓冲流使用的方法，也是read write 而且是对应创建当前缓冲流使用的字符流或者字节流的！！！
+
+6、缓冲流减少了CPU通过内存访问磁盘或者说文件的次数。极大的提高了开发效率。IO流操作文件内容都是在缓冲流内部的缓冲数组中，也就是内存中。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h3><blockquote>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">BufferedInputStream
+   字节缓冲输入流
+
+BufferedOutputStream
+   字节缓冲输出流
+
+BufferedReader
+   字符缓冲输入流
+
+BufferedWriter
+   字符缓冲输出流
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="BufferedInputStream-字节缓冲输入流"><a href="#BufferedInputStream-字节缓冲输入流" class="headerlink" title="BufferedInputStream 字节缓冲输入流"></a>BufferedInputStream 字节缓冲输入流</h3><p>构造方法 Constructor</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">BufferedInputStream(InputStream in);
+    这里需要的参数是字节输入流对象
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>成员方法 Method </p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">int read();
+int read(byte[] buf);
+其实就是InputStream中使用的方法
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        BufferedInputStream bis = new BufferedInputStream(
+                new FileInputStream(new File("C:/Users/CJF/Desktop/Test.txt")));
+
+        byte[] buf = new byte[1024 * 8];
+
+        int count = -1;
+
+        while (-1 != (count = bis.read(buf))) {
+            System.out.println(new String(buf, 0, count));
+        }
+
+        bis.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="BufferedOutputStream-字节缓冲输出流"><a href="#BufferedOutputStream-字节缓冲输出流" class="headerlink" title="BufferedOutputStream 字节缓冲输出流"></a>BufferedOutputStream 字节缓冲输出流</h3><p>构造方法 Constructor</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">BufferedOutputStream(OutputStream out);
+    这里需要一个字节输出流作为方法的参数
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>常用方法 Method    </p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">void write(int b);
+void write(byte[] buf);
+void write(byte[] buf, int off, int len);
+
+以上方法都是OutputStream提供的方法。
+
+所有的数据都是首先都是写入保存到BufferedOutputStream 底层操作的数组中，当数组填满以后，或者执行指定的方法，才会将数据之间写入到内存中。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        BufferedOutputStream bos = new BufferedOutputStream(
+                new FileOutputStream(new File("C:/Users/CJF/Desktop/Test.txt"), true));
+
+        bos.write("\n今天是个好天气".getBytes());
+
+        bos.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="效率总结"><a href="#效率总结" class="headerlink" title="效率总结"></a>效率总结</h3><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">1、使用缓冲时间效率是远远高于未使用缓冲情况，这里是一个非常经典的空间换时间概念
+    缓冲占用内存 16KB 非缓冲 4byte 时间效率大于250倍 空间占用4000倍
+
+2、利用代码可以发现，非缓冲IO操作时使用数组作为缓冲区和使用缓冲流操作，时间效率相似。这里还是推荐使用系统提供的缓冲流，更加安全，并且提供了一些其他方法，可以作为一定参考和使用。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="BufferedReader-字符输入缓冲流"><a href="#BufferedReader-字符输入缓冲流" class="headerlink" title="BufferedReader 字符输入缓冲流"></a>BufferedReader 字符输入缓冲流</h3><p>构造方法 Constructor</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">BufferedReader(Reader in);
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>常用方法 Method</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">int read();
+int read(byte[] buf);
+String readLine(); 【新方法】
+    从文件中读取一行数据，返回值类型是字符串，如果读取到文件默认，返回null
+    一行数据??? 结尾标记 \r\n
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(new File("C:/Users/CJF/Desktop/Test.txt")));
+
+        char[] buf = new char[1024 * 8];
+
+        int count = -1;
+        while (-1 != (count = br.read(buf))) {
+            System.out.println(new String(buf, 0, count));
+        }
+
+        String content = null;
+        while (null != (content = br.readLine())) {
+            System.out.println(content);    // 这里不会再输出，因为上面已经读到文件末尾，即 null == content
+        }
+
+        br.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="BufferedWriter-字符输出缓冲流"><a href="#BufferedWriter-字符输出缓冲流" class="headerlink" title="BufferedWriter 字符输出缓冲流"></a>BufferedWriter 字符输出缓冲流</h3><p>构造方法 Constructor</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">BufferedWriter(Writer in);
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>常用方法</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">void write(int ch);
+void write(char[] buf);    
+void write(char[] buf, int off, int len);    
+void write(String str);    
+void write(String str, int off, int len);    
+void newLine(); 
+    换行写操作
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(new File("C:/Users/CJF/Desktop/Test.txt"), true));
+
+        bw.write("\n今天又是个好天气");
+
+        bw.newLine();
+
+        bw.close();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
