@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2020-11-20
                 </div>
 				<div class="info-break-policy">
 					 
@@ -4687,7 +4687,592 @@ void newLine();
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><blockquote>
+<p>概述：</p>
+<p>​        正在运行的程序，是系统进行资源分配和调用的独立单位</p>
+<p>​        每一个进程都有它自己的内存空间和系统资源</p>
+<p>例如：</p>
+<p>​        打开任务管理器，可以看到电脑中执行的每一个程序，每一个程序就是一个进程</p>
+<p>特点：</p>
+<p>​        1、独立性</p>
+<p>​        2、动态性</p>
+<p>​        3、并发性</p>
+</blockquote>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
+<p>概述：        </p>
+<p>​        是进程中的单个顺序控制流，是一条执行路径</p>
+<p>​        一个进程如果只有一条执行路径，则称为单线程程序</p>
+<p>​        一个进程如果有多条执行路径，则称为多线程程序</p>
+<p>例如：</p>
+<p>​        电脑管家就是一个程序 =&gt; 进程</p>
+<p>​        电脑管家可以同时    病毒查杀，垃圾清理，一键加速等功能</p>
+<p>​        这些每个功能都可以看做是线程，它们是同时进行的</p>
+<p>特点：</p>
+<p>​        1、线程是CPU的最小调度单位，CPU可以很快的在多个线程间实现切换。</p>
+<p>​        2、运行时的线程，随时都可以被CPU给挂起。</p>
+<p>​        3、线程的抢占发生在任意时期</p>
+</blockquote>
+<h4 id="进程与线程的区别"><a href="#进程与线程的区别" class="headerlink" title="进程与线程的区别"></a>进程与线程的区别</h4><blockquote>
+<p>1、一个进程可以有多个线程。但是必须要有一个主线程</p>
+<p>2、进程间不能共享资源，但是线程间可以共享资源。</p>
+<p>3、Java程序中，最少要有两个线程</p>
+<p>​        1、main线程</p>
+<p>​        2、JVM 的 GC 机制，守护线程</p>
+</blockquote>
+<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><blockquote>
+<p>并发：两个或者两个以上的事务在同一个时间段发生</p>
+<p>并行：两个或者两个以上的事务在同一个时刻发生</p>
+</blockquote>
+<h3 id="线程的使用"><a href="#线程的使用" class="headerlink" title="线程的使用"></a>线程的使用</h3><h4 id="Thread类"><a href="#Thread类" class="headerlink" title="Thread类"></a>Thread类</h4><blockquote>
+<p>Java中的一个线程类，同时提供了很多线程的操作使用的方法，我们想要操作线程，必须通过Thread类对象去完成。Thread 类实现了 Runnable 接口，其中的 run 方法中就是我们要被运行的代码。可以通过重写 run 方法，并调用线程的 start 使其运行，以达到我们想要的效果</p>
+</blockquote>
+<h4 id="自定义线程三种方式"><a href="#自定义线程三种方式" class="headerlink" title="自定义线程三种方式"></a>自定义线程三种方式</h4><blockquote>
+<p>1、自定义线程类，继承自 Thread，并重写 run 方法</p>
+<p>2、自定义线程类，传入一个实现了 Runnable 接口的参数【重点】</p>
+<p>3、自定义线程类，传入一个实现了 Callable 接口的参数</p>
+</blockquote>
+<h4 id="继承-Thread-类并重写-run-方法"><a href="#继承-Thread-类并重写-run-方法" class="headerlink" title="继承 Thread 类并重写 run 方法"></a>继承 Thread 类并重写 run 方法</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    public static void main(String[] args) {
+        Thread1 thread1 = new Thread1();
 
+        thread1.start();
+
+        System.out.println("main线程");
+    }
+}
+
+class Thread1 extends Thread {
+    @Override
+    public void run() {
+        System.out.println("测试线程");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="实现-Runnable-接口"><a href="#实现-Runnable-接口" class="headerlink" title="实现 Runnable 接口"></a>实现 Runnable 接口</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    public static void main(String[] args) {
+        Thread thread = new Thread(new Thread2());
+
+        thread.start();
+
+    }
+}
+
+class Thread2 implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("测试线程");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    public static void main(String[] args) {
+        // 使用匿名内部类和匿名对象
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("测试线程");
+            }
+        }).start();    
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="实现-Callable-接口"><a href="#实现-Callable-接口" class="headerlink" title="实现 Callable 接口"></a>实现 Callable 接口</h4><blockquote>
+<p>可以有返回值</p>
+<p>可以抛出异常</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test3 {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        Callable<Integer> cal = new Callable<Integer>() {
+            int count = 0;
+
+            @Override
+            public Integer call() throws Exception {
+                count++;
+
+                System.out.println(" Test :" + count);    //  Test :1
+
+                return count;
+            }
+        };
+
+        FutureTask<Integer> future = new FutureTask<Integer>(cal);
+
+        Thread thread = new Thread(future);
+
+        thread.start();
+
+        System.out.println("返回值为：" + future.get());    // 返回值为：1
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="三种创建方式的区别"><a href="#三种创建方式的区别" class="headerlink" title="三种创建方式的区别"></a>三种创建方式的区别</h4><pre><code>继承 Thread 类：
+    编写简单、单继承，所以这种类无法再继承其他类、无法实现多个线程的资源共享、扩展性无
+
+实现 Runnable 接口：
+    编写复杂一点，接口可以多实现，可以实现多个线程的资源共享  推荐使用
+
+实现 Callable 接口：
+    编码复杂，可以实现线程执行完之后进行值的返回
+</code></pre><blockquote>
+<p>【重点】开发中，需要线程返回值，就使用 Callable，不需要返回值的就可以 Runnable ，最常用的是实现 Runnable</p>
+</blockquote>
+<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><h4 id="分时调度模型"><a href="#分时调度模型" class="headerlink" title="分时调度模型"></a>分时调度模型</h4><p>所有线程轮流使用 CPU 的使用权，平均分配每个线程占用 CPU 的时间片</p>
+<h4 id="抢占式调度模型"><a href="#抢占式调度模型" class="headerlink" title="抢占式调度模型"></a>抢占式调度模型</h4><p>优先让优先级高的线程使用 CPU，如果线程的优先级相同，那么会随机选择一个，优先级高的线程获取的 CPU 时间片相对多一些</p>
+<blockquote>
+<p>Java 采用的是抢占式调度模型</p>
+</blockquote>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><p>线程的优先级就是线程获得CPU的概率，优先级越高，获取CPU的概率越大</p>
+<blockquote>
+<p>Java中共有10种优先级，从小到大，1-10之间。10是优先级最高，默认的优先级是5</p>
+</blockquote>
+<h4 id="优先级方法"><a href="#优先级方法" class="headerlink" title="优先级方法"></a>优先级方法</h4><blockquote>
+<p>【注意】即便我们设置了优先级，也只是增加抢占的概率，线程并不一定会严格按照优先级执行</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 获取当前线程的优先级
+public final int getPriority()
+
+// 设置当前线程的优先级
+public final void setPriority(int newPriority)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo4 {
+    public static void main(String[] args) {
+        // 创建两个Runnable接口实现类
+        Runnable run1 = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("烤羊排");
+                }
+            }
+        };
+
+        Runnable run2 = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("大盘鸡");
+                }
+            }
+        };
+
+        // 创建两个线程
+        Thread thread1 = new Thread(run1);
+        Thread thread2 = new Thread(run2);
+
+        // 查看优先级
+        System.out.println(thread1.getPriority());
+        System.out.println(thread2.getPriority());
+
+        // 设置优先级
+        thread1.setPriority(10);
+        thread2.setPriority(1);
+
+        thread2.start();
+        thread1.start();
+
+        // 主线程
+        for (int i = 0; i < 10; i++) {
+            System.out.println("main线程");
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】设置优先级需要在 start 方法之前设置</p>
+<h3 id="线程状态-生命周期"><a href="#线程状态-生命周期" class="headerlink" title="线程状态(生命周期)"></a>线程状态(生命周期)</h3><h4 id="简单理解生命周期"><a href="#简单理解生命周期" class="headerlink" title="简单理解生命周期"></a>简单理解生命周期</h4><blockquote>
+<p>线程有五大状态，分别是新建、就绪、运行、阻塞、销毁</p>
+</blockquote>
+<p>新建：</p>
+<blockquote>
+<p>当我们实例化线程对象的时候，线程就是新建状态</p>
+</blockquote>
+<p>就绪：</p>
+<blockquote>
+<p>当我们调用线程的start方法之后，线程就会进入就绪状态</p>
+<p>处于该状态的线程，随时都可以获取CPU调度</p>
+</blockquote>
+<p>运行：</p>
+<blockquote>
+<p>线程获取CPU的调度之后，线程抢到了时间片，可以用来运行自己任务</p>
+</blockquote>
+<p>阻塞：</p>
+<blockquote>
+<p>当线程因为资源竞争，或主动方法调用，让线程进入到阻塞。</p>
+<p>常见：sleep、wait、join等等</p>
+</blockquote>
+<p>销毁：</p>
+<blockquote>
+<p>当线程的run方法执行结束之后，就会进入到销毁状态</p>
+</blockquote>
+<p>【注意】程序的结束就是指的内部的所有线程全部进入到了销毁状态</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201120155140.jpg" alt="线程的生命周期"></p>
+<h4 id="扩展：六种线程状态"><a href="#扩展：六种线程状态" class="headerlink" title="扩展：六种线程状态"></a>扩展：六种线程状态</h4><blockquote>
+<p>如果按照 java.lang.Thread.State 枚举方式，一共提供了6种线程状态</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:left">导致状态的发生条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">NEW(新建)</td>
+<td style="text-align:left">线程刚刚被创建，没有启动，没有调用start方法</td>
+</tr>
+<tr>
+<td style="text-align:center">RUNNABLE(可运行)</td>
+<td style="text-align:left">线程已经可以在JVM中运行，但是是否运行不确定，看当前线程是否拥有CPU执行权</td>
+</tr>
+<tr>
+<td style="text-align:center">BLOCKED(锁阻塞)</td>
+<td style="text-align:left">当前线程进入一个同步代码需要获取对应的锁对象，但是发现当前锁对象被其他线程持有，当前线程会进入一个BLOCKED。如果占用锁对象的线程打开锁对象，当前线程持有对应锁对象，进入Runnable状态</td>
+</tr>
+<tr>
+<td style="text-align:center">WAITING(无限等待)</td>
+<td style="text-align:left">通过一个wait方法线程进入一个无限等待状态，这里需要另外一个线程进行唤醒操作。进入无限等待状态的线程是无法自己回到Runnable状态，需要其他线程通过notify或者notifyAll方法进行唤醒操作</td>
+</tr>
+<tr>
+<td style="text-align:center">TIMED_WAITING(计时等待)</td>
+<td style="text-align:left">当前线程的确是等待状态，但是会在一定时间之后自动回到Runnable状态，例如 Thread.sleep() 或者是Object类内的wait(int ms);</td>
+</tr>
+<tr>
+<td style="text-align:center">TERMINATED(被终止)</td>
+<td style="text-align:left">因为Run方法运行结束正常退出线程，或者说在运行的过程中因为出现异常导致当前线程被销毁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="TIMED-WAITING-计时等待"><a href="#TIMED-WAITING-计时等待" class="headerlink" title="TIMED_WAITING(计时等待)"></a>TIMED_WAITING(计时等待)</h5><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 在对应线程代码块中，当前线程休眠指定的时间
+Thread.sleep(int ms);
+
+    sleep方法
+        1. 调用之后休眠指定时间
+        2. sleep方法必须执行在run方法内，才可以休眠线程
+        3. sleep不会打卡当前线程占用的锁对象。
+
+// 让当前线程进入一个计时等待状态        
+void wait(long timeout);
+    Object类内 
+        1. 规定的时间及时完毕，线程回到可运行状态
+        2. 在等待时间内，通过其他线程被notify或者notifyAll唤醒
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201120155233.png" alt="TIMED_WAITING状态"></p>
+<h5 id="BLOCKED-锁阻塞"><a href="#BLOCKED-锁阻塞" class="headerlink" title="BLOCKED(锁阻塞)"></a>BLOCKED(锁阻塞)</h5><pre><code>线程中有锁存在，线程需要进入带有锁操作的同步代码，如果锁对象被别人持有，只能在锁外等待
+
+锁阻塞状态的线程是否能够抢到锁对象有很多因素
+    1. 优先级问题，非决定因素
+    2. CPU执行概率问题。
+
+后期高并发一定会存在多线程操作锁对象问题，秒杀，抢购...
+    队列方式来处理
+</code></pre><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201120155311.png" alt="BLOCKED锁阻塞状态"></p>
+<h5 id="线程状态-WAITING-无限等待"><a href="#线程状态-WAITING-无限等待" class="headerlink" title="线程状态 WAITING(无限等待)"></a>线程状态 WAITING(无限等待)</h5><pre class="line-numbers language-lang-java"><code class="language-lang-java">当某一个线程被执行wait()方法，需要等待另外的一个线程进行唤醒操作。
+
+
+public void wait();
+    在哪一个线程中执行，就会让当前线程进入一个无限等待状态。
+            1. 所在线程进入无限等待状态
+            2. 开启【锁对象】
+
+public void notify();
+    唤醒和当前锁对象有关的无限等待线程中的一个，随机选择。
+            1. 唤醒一个无限等待状态线程
+            2. 开启【锁对象】
+
+public void notifyAll();
+    唤醒所有和当前锁对象有关的无限等待线程
+            1. 唤醒所有线程
+            2. 开启【锁对象】
+            3. 线程进入锁对象抢占过程，就有可能进入一个锁阻塞状态。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201120155344.png" alt="无限等待图例"></p>
+<h5 id="线程执行的所有状态分析图"><a href="#线程执行的所有状态分析图" class="headerlink" title="线程执行的所有状态分析图"></a>线程执行的所有状态分析图</h5><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201120155420.png" alt="六大线程状态"></p>
+<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><blockquote>
+<p>线程分为：用户线程和守护线程，Java中默认创建的线程就是用户线程</p>
+</blockquote>
+<h4 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h4><blockquote>
+<p>当守护的用户线程销毁的时候，守护线程也会跟着消亡。无论守护线程是否执行结束都会随着用户线程一起销毁</p>
+</blockquote>
+<h4 id="作用-5"><a href="#作用-5" class="headerlink" title="作用"></a>作用</h4><blockquote>
+<p>1、自动下载</p>
+<p>2、操作日志</p>
+<p>3、操作监控</p>
+</blockquote>
+<h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 判断该线程是否为守护线程
+boolean isDaemon();
+
+// 当传入 true 时，将当前线程设置为守护线程：
+void setDaemon(boolean on)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo5 {
+    public static void main(String[] args) {
+
+        // 创建两个线程
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("大盘鸡");
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("烤羊排" + i);
+                }
+            }
+        });
+
+        // 查看是否是守护线程
+        System.out.println(thread2.isDaemon());
+
+        // 设置守护线程
+        thread2.setDaemon(true);
+
+        thread1.start();
+        thread2.start();
+
+        // 主线程
+        for (int i = 0; i < 10; i++) {
+            System.out.println("main线程");
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】主线程和 GC（<strong>garbage collection </strong>垃圾回收机制） 线程就是一对用户线程与守护线程，GC 守护主线程</p>
+</blockquote>
+<h3 id="线程控制"><a href="#线程控制" class="headerlink" title="线程控制"></a>线程控制</h3><h4 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 线程休眠(运行-->阻塞)：
+static void sleep(long millis);
+
+// 线程加入(运行-->阻塞)：
+void join();
+
+// 线程礼让(运行-->就绪)：    
+void yield();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h4><blockquote>
+<p>在指定的毫秒数内让当前正在执行的线程休眠（暂停执行）</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo6 {
+    public static void main(String[] args) {
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("大盘鸡" + i);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        thread.start();
+
+        // 主线程
+        for (int i = 0; i < 10; i++) {
+            System.out.println("main线程");
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】使用sleep方法需要对其进行异常捕获</p>
+<h4 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h4><blockquote>
+<p>在当前线程中，执行另一个线程的join方法，然后当前线程就会阻塞，等待插入的线程执行完毕之后，才会从阻塞状态进入到就绪状态，重新参与CPU抢夺！</p>
+<p>就绪状态的线程的抢占发生在任意时期</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo7 {
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("烤羊排" + i);
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+
+                    System.out.println("大盘鸡" + i);
+                }
+            }
+        });
+
+        thread2.start();
+        // 线程加入
+        thread2.join();
+
+        thread1.start();
+
+        // 主线程
+        for (int i = 0; i < 10; i++) {
+            System.out.println("main线程");
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h4><blockquote>
+<p>可以让当前正在运行的线程暂停，并执行其他线程。但是不会让当前线程阻塞，而且让当前的线程进入到就绪状态。</p>
+<p>实际上：线程执行yield之后，只有比当前线程的优先级更高或者相同的才有机会参与抢夺CPU，而且当前线程也会参与抢夺</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo8 {
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("烤羊排" + i);
+
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("大盘鸡" + i);
+
+                    if (i == 5) {
+                        System.out.println("线程礼让");
+                        Thread.yield();
+                    }
+                }
+            }
+        });
+
+        thread1.setPriority(9);
+        thread2.setPriority(1);
+
+        thread2.start();
+
+        thread1.start();
+
+        // 主线程
+        System.out.println("main线程");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="线程相关方法"><a href="#线程相关方法" class="headerlink" title="线程相关方法"></a>线程相关方法</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">static Thread currentThread();
+    返回对当前正在执行的线程对象的引用
+
+long getId();
+    返回该线程的标识符。线程 ID 是一个正的 long 数，在创建该线程时生成。线程 ID 是唯一的，并终生不变。线程终止时，该线程 ID 可以被重新使用 
+
+String getName();
+    返回该线程的名称
+
+void setName(String name);
+    改变线程名称，使之与参数 name 相同
+
+Thread.State getState();
+    返回该线程的状态
+
+boolean isAlive();
+    测试线程是否处于活动状态
+
+boolean isInterrupted();
+    测试线程是否已经中断
+
+void interrupt();
+    中断线程
+
+static boolean interrupted();
+    判断当前线程是否已经中断。线程的中断状态由该方法清除。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo9 {
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("烤羊排" + i);
+
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("大盘鸡" + i);
+
+                    if (i == 5) {
+                        System.out.println("线程礼让");
+                        Thread.yield();
+                    }
+                }
+            }
+        });
+
+//        thread2.start();
+
+        thread1.start();
+
+        System.out.println("获取当前线程：" + Thread.currentThread());
+
+        System.out.println("获取线程1的标识：" + thread1.getId());
+        System.out.println("获取线程2的标识：" + thread2.getId());
+        System.out.println("获取当前线程的标识：" + Thread.currentThread().getId());
+
+        System.out.println("获取当前线程的名称：" + thread1.getName());
+
+        // 设置线程的名称
+        thread1.setName("线程1");
+
+        System.out.println("获取当前线程的名称：" + thread1.getName());
+
+        System.out.println("获取当前线程的状态：" + thread1.getState());
+
+        System.out.println("获取当前线程是否存活：" + thread1.isAlive());
+
+        System.out.println("获取当前线程是否中断：" + thread1.isInterrupted());
+
+        // 中断线程
+        thread1.interrupt();
+
+        System.out.println("获取当前线程是否中断：" + thread1.isInterrupted());
+
+        System.out.println("获取当前线程是否中断：" + Thread.interrupted());
+
+        // 主线程
+        System.out.println("main线程");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h3>
             </div>
             <hr/>
 
