@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-22
                 </div>
 				<div class="info-break-policy">
 					 
@@ -5272,6 +5272,594 @@ static boolean interrupted();
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><h4 id="出现的原因"><a href="#出现的原因" class="headerlink" title="出现的原因"></a>出现的原因</h4><blockquote>
+<p>线程的抢占发生在任意时期</p>
+<p>当多个线程操作同一个数据源的时候吗，并且都涉及到了修改，那么就有可能发生数据重复的问题，这种现象就成为线程安全的问题。</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo10 {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new SellTicket(), "淘票票");
+        Thread thread2 = new Thread(new SellTicket(), "猫眼");
+        Thread thread3 = new Thread(new SellTicket(), "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+    }
+}
+
+class SellTicket implements Runnable {
+    // 100张票
+    private static int ticket = 100;
+
+    @Override
+    public void run() {
+        // 循环卖票
+        while (true) {
+            // 如果当前票数不为0，就卖一张，票数-1，并睡一会儿
+            if (ticket > 0) {
+                System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // 如果当前票数为0，说明票卖完了，需要退出循环
+            } else {
+                System.out.println(Thread.currentThread().getName() + "已售罄！！");
+                break;
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="导致线程安全问题的因素"><a href="#导致线程安全问题的因素" class="headerlink" title="导致线程安全问题的因素"></a>导致线程安全问题的因素</h4><blockquote>
+<p>1、多个线程</p>
+<p>2、同时操作临界资源 共享资源</p>
+</blockquote>
+<h4 id="如何解决线程安全的问题-加锁"><a href="#如何解决线程安全的问题-加锁" class="headerlink" title="如何解决线程安全的问题(加锁)"></a>如何解决线程安全的问题(加锁)</h4><h5 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h5><h6 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h6><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    synchronized (锁对象) {
+        // 需要被同步的代码;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】同步代码块的锁对象可以是任意对象，但必须是同一个对象</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo11 {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new SellTicket1(), "淘票票");
+        Thread thread2 = new Thread(new SellTicket1(), "猫眼");
+        Thread thread3 = new Thread(new SellTicket1(), "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+    }
+}
+
+class SellTicket1 implements Runnable {
+
+    private static int ticket = 100;
+
+    private static final Object obj = new Object();
+
+    @Override
+    public void run() {
+
+        while (true) {
+            synchronized (obj) {
+                if (ticket > 0) {
+                    System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println(Thread.currentThread().getName() + "已售罄！！");
+                    break;
+                }
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h6><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    synchronized 返回值 方法名(参数列表){
+        // 需要被同步的代码;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】同步方法的锁对象是 this</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo12 {
+    public static void main(String[] args) {
+        SellTicket2 sellTicket2 = new SellTicket2();
+        Thread thread1 = new Thread(sellTicket2, "淘票票");
+        Thread thread2 = new Thread(sellTicket2, "猫眼");
+        Thread thread3 = new Thread(sellTicket2, "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+    }
+}
+
+class SellTicket2 implements Runnable {
+    private static int ticket = 100;
+
+    private synchronized boolean sell() {
+        if (ticket > 0) {
+            System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        } else {
+            System.out.println(Thread.currentThread().getName() + "已售罄！！");
+            return false;
+        }
+    }
+
+    @Override
+    public void run() {
+
+        while (true) {
+
+            if (!sell()) {
+                break;
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6 id="静态同步方法"><a href="#静态同步方法" class="headerlink" title="静态同步方法"></a>静态同步方法</h6><pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    static synchronized 返回值 方法名(参数列表){
+        // 需要被同步的代码;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】静态同步方法的锁对象是当前类的字节码文件对象，保证唯一性</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo13 {
+    public static void main(String[] args) {
+
+        Thread thread1 = new Thread(new SellTicket3(), "淘票票");
+        Thread thread2 = new Thread(new SellTicket3(), "猫眼");
+        Thread thread3 = new Thread(new SellTicket3(), "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
+
+class SellTicket3 implements Runnable {
+    private static int ticket = 100;
+
+    private static synchronized boolean sell() {
+        if (ticket > 0) {
+            System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        } else {
+            System.out.println(Thread.currentThread().getName() + "已售罄！！");
+            return false;
+        }
+    }
+
+    @Override
+    public void run() {
+
+        while (true) {
+
+            if (!sell()) {
+                break;
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>【注意】</p>
+<blockquote>
+<p>1、锁修饰的内容只能是引用类型对象，一般都是使用this，但是一定保证是同一个类对象，否则this不唯一</p>
+<p>2、锁的位置很关键，一般都是锁定是引起线程安全的部分</p>
+<p>3、锁会自动释放，内部代码执行完毕之后</p>
+<p>4、多个线程必须使用同一把锁</p>
+</blockquote>
+<h6 id="Synchronized-用法的区别"><a href="#Synchronized-用法的区别" class="headerlink" title="Synchronized 用法的区别"></a>Synchronized 用法的区别</h6><blockquote>
+<p>1、同步代码块 锁的粒度可以很小</p>
+<p>锁的粒度来讲：同步代码块 &lt;  同步方法 &lt;  同步静态方法</p>
+<p>粒度 也就是锁的范围  粒度越小越好</p>
+<p>2、同步代码块 锁的对象可以是：引用类型属性、this、字节码对象</p>
+<p>同步方法 锁的对象只能是当前类的实例 this</p>
+<p>3、同步静态方法 锁的对象是当前类的字节码对象</p>
+</blockquote>
+<h5 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h5><p>【注意】Lock 锁的性能要比 synchronized 高，但是lock要求必须手动释放锁</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">格式：
+    private final Lock lock = new ReentrantLock();
+
+    public void method() { 
+        lock.lock();  // block until condition holds
+         try {
+               // ... method body
+         } finally {
+               lock.unlock();
+         }
+       }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo14 {
+    public static void main(String[] args) {
+        SellTicket4 sellTicket4 = new SellTicket4();
+
+        Thread thread1 = new Thread(sellTicket4, "淘票票");
+        Thread thread2 = new Thread(sellTicket4, "猫眼");
+        Thread thread3 = new Thread(sellTicket4, "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+    }
+}
+
+class SellTicket4 implements Runnable {
+
+    private static int ticket = 100;
+
+    private final Lock lock = new ReentrantLock();
+
+    @Override
+    public void run() {
+
+        while (true) {
+            lock.lock();
+            try {
+                if (ticket > 0) {
+                    System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println(Thread.currentThread().getName() + "已售罄！！");
+                    break;
+                }
+            } finally {
+                lock.unlock();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码2</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo15 {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new SellTicket5(), "淘票票");
+        Thread thread2 = new Thread(new SellTicket5(), "猫眼");
+        Thread thread3 = new Thread(new SellTicket5(), "美团");
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+    }
+}
+
+class SellTicket5 implements Runnable {
+
+    private static int ticket = 100;
+
+    private static final Lock lock = new ReentrantLock();
+
+    @Override
+    public void run() {
+
+        while (true) {
+            lock.lock();
+            try {
+                if (ticket > 0) {
+                    System.out.println(Thread.currentThread().getName() + "卖出一张票，当前还剩下" + --ticket + "张票");
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println(Thread.currentThread().getName() + "已售罄！！");
+                    break;
+                }
+            } finally {
+                lock.unlock();
+            }
+
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>两个或两个以上的线程在争夺资源的过程中，发生的一种相互等待的现象</p>
+<h5 id="产生的原因"><a href="#产生的原因" class="headerlink" title="产生的原因"></a>产生的原因</h5><blockquote>
+<p>1、2个以上的线程</p>
+<p>2、2个以上的锁</p>
+<p>3、同步代码块嵌套同步代码块</p>
+</blockquote>
+<p>自定义锁对象</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class MyLock {
+    // 第一把锁
+    public static Object LOCK1 = new Object();
+    // 第二把锁
+    public static Object LOCK2 = new Object();
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>死锁类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class DeadLock implements Runnable {
+
+    boolean flag;
+
+    public DeadLock(boolean flag) {
+        this.flag = flag;
+    }
+
+    @Override
+    public void run() {
+        if (flag) {
+            synchronized (MyLock.LOCK1) {
+                System.out.println("if LOCK1");
+                synchronized (MyLock.LOCK2) {
+                    System.out.println("if LOCK2");
+                }
+            }
+        } else {
+            synchronized (MyLock.LOCK2) {
+                System.out.println("else LOCK2");
+                synchronized (MyLock.LOCK1) {
+                    System.out.println("else LOCK1");
+                }
+            }
+        }
+    };
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Test {
+    public static void main(String[] args) {
+        Thread th1 = new Thread(new DeadLock(false));
+        Thread th2 = new Thread(new DeadLock(true));
+
+        th1.start();
+        th2.start();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h3><p>线程通信：有一个缓冲区的仓库，生产者线程，不断往仓库存储内容，消费者线程不断从仓库中获取内容。为了解决生产者和消费者的动态调节的问题，可以使用线程通信机制，来保护生产者和消费中的同步</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 在其他线程调用此对象的 notify() 方法或 notifyAll() 方法前，导致当前线程等待线程状态从 运行 变更为 阻塞
+void wait();
+
+// 唤醒在此对象监视器上等待的单个线程，只能唤醒因为wait阻塞的线程。线程的状态从 阻塞 变更为 就绪
+void notify();
+
+// 唤醒在此对象监视器上等待的所有线程，只能唤醒因为wait阻塞的线程。线程的状态从 阻塞 变更为 就绪        
+void notifyAll();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>wait、notify、notifyall 都是Object的方法、都需要使用在同步方法中</strong></p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">class Restaurant {
+    int count = 0;
+
+    public synchronized void make() {
+        if (count < 10) {
+            System.out.println(Thread.currentThread().getName() + "做了一道菜，当前还有" + (count + 1) + "道菜");
+            count++;
+            notifyAll();
+        } else {
+            try {
+                System.out.println("做完了赶紧卖");
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public synchronized void sell() {
+        if (count > 0) {
+            System.out.println(Thread.currentThread().getName() + "卖了一道菜，当前还有" + (count - 1) + "道菜");
+            count--;
+            notify();
+        } else {
+            try {
+                System.out.println("卖完了赶紧做");
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+}
+
+public class TestRestaurant {
+    public static void main(String[] args) {
+        Restaurant res = new Restaurant();
+
+        Thread th1 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    res.make();
+                    Thread.yield();
+                }
+            }
+        });
+
+        Thread th2 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    res.make();
+                    Thread.yield();
+                }
+            }
+        });
+
+        Thread th3 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    res.sell();
+                    Thread.yield();
+                }
+            }
+        });
+
+        Thread th4 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    res.sell();
+                    Thread.yield();
+                }
+            }
+        });
+
+        th1.setName("做饭小伙");
+        th2.setName("做饭姑娘");
+        th3.setName("卖饭小伙");
+        th4.setName("卖饭姑娘");
+
+        th1.start();
+        th2.start();
+        th3.start();
+        th4.start();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>线程池：有效并充分利用线程，合理分配资源</p>
+<blockquote>
+<p>程序启动一个新线程成本是比较高的，因为它涉及到要与操作系统进行交互。而使用线程池可以很好的提高性能，尤其是当程序中要创建大量生存期很短的线程时，更应该考虑使用线程池</p>
+<p>线程池里的每一个线程代码结束后，并不会死亡，而是再次回到线程池中成为空闲状态，等待下一个对象来使用</p>
+</blockquote>
+<h4 id="线程池的优点"><a href="#线程池的优点" class="headerlink" title="线程池的优点"></a>线程池的优点</h4><blockquote>
+<p>1、控制线程数量</p>
+<p>2、避免了频繁的创建和销毁线程</p>
+<p>3、对线程进行统一的管理</p>
+</blockquote>
+<h4 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h4><p>Executors Java封装的创建线程池的工具类  现在已经被淘汰 因为很容易引起 OOM (Out of Memory) 异常</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 创建一个可重用的，具有固定线程数的线程池
+newFixedThreadPool(int nThreads);  
+
+// 创建一个只有单线程的线程池，相当于上个方法的参数是1 
+newSingleThreadExecutor();
+
+// 创建一个没有上限的线程池
+newCachedThreadPool();
+
+// 创建一个固定线程数量的线程池，这个线程池具备延迟、定时重复执行
+newScheduledThreadPool();
+
+// 创建一个抢占式的线程池
+newWorkStealingPool();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="ThreadPoolExecutor-类"><a href="#ThreadPoolExecutor-类" class="headerlink" title="ThreadPoolExecutor 类"></a>ThreadPoolExecutor 类</h4><p>目前推荐手动创建线程池</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 用给定的初始参数和默认的线程工厂及被拒绝的执行处理程序创建新的 ThreadPoolExecutor
+ThreadPoolExecutor(int corePoolSize,  int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue)
+
+
+参数说明：
+        corePoolSize - 设置最小线程数量。池中所保存的线程数，包括空闲线程。
+        maximumPoolSize - 池中允许的最大线程数。
+        keepAliveTime - 当线程数大于核心时，此为终止前多余的空闲线程等待新任务的最长时间。
+        unit - keepAliveTime 参数的时间单位。
+        workQueue - 执行前用于保持任务的队列。此队列仅保持由 execute 方法提交的 Runnable 任务
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行线程池</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 执行对应的线程
+void execute(Runnable command);   
+
+// 关闭线程池
+void shutdown();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class TestThreadPool {
+    public static void main(String[] args) {
+        ThreadPoolExecutor tpe = new ThreadPoolExecutor(3, 5, 1000, TimeUnit.SECONDS,
+                new ArrayBlockingQueue<Runnable>(10));
+
+        tpe.execute(new Runnable() {
+            int count = 0;
+
+            @Override
+            public void run() {
+                while (count < 5) {
+                    try {
+                        System.out.println("111");
+                        count++;
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        tpe.execute(new Runnable() {
+            int count = 0;
+
+            @Override
+            public void run() {
+                while (count < 5) {
+                    try {
+                        System.out.println("222");
+                        count++;
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        tpe.execute(new Runnable() {
+            int count = 0;
+
+            @Override
+            public void run() {
+                while (count < 5) {
+                    try {
+                        System.out.println("333");
+                        count++;
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        tpe.shutdown();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
