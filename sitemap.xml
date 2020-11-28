@@ -158,21 +158,14 @@
 
   
   <url>
-    <loc>https://ialoe.top/tags/MySQL/</loc>
-    <lastmod>2020-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ialoe.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2020-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/tags/Excel%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2020-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/tags/MySQL/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -186,7 +179,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://ialoe.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -200,7 +193,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/java%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://ialoe.top/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -208,6 +201,13 @@
   
   <url>
     <loc>https://ialoe.top/tags/java/</loc>
+    <lastmod>2020-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/tags/java%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,21 +223,14 @@
 
   
   <url>
-    <loc>https://ialoe.top/categories/MySQL/</loc>
-    <lastmod>2020-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ialoe.top/categories/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2020-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/categories/Excel%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2020-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/categories/MySQL/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -251,7 +244,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://ialoe.top/categories/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -265,7 +258,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/java%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://ialoe.top/categories/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2020-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/categories/java/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -279,14 +279,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://ialoe.top/categories/java%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/java/</loc>
+    <loc>https://ialoe.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
