@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java开发手册——嵩山版, 个人博客，秦同学">
+    <meta name="keywords" content="JDBC——java与数据库的连接, 个人博客，秦同学">
     <meta name="description" content="记录生活，秦同学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>Java开发手册——嵩山版 | 白月光 | 秦同学</title>
+    <title>JDBC——java与数据库的连接 | 白月光 | 秦同学</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/java%E5%BC%80%E5%8F%91.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java开发手册——嵩山版</h1>
+                    <h1 class="description center-align post-title">JDBC——java与数据库的连接</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -393,8 +393,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" class="post-category">
-                                开发手册
+                            <a href="/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/" class="post-category">
+                                MySQL数据库的连接
                             </a>
                         
                     </div>
@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-23
+                    2020-11-29
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    38
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
 
@@ -437,10 +437,544 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>此处为java开发手册——嵩山版。</p>
-<p>本人已上传微云，快点击下方链接下载观看吧！！！</p>
-<p><a href="https://share.weiyun.com/ZKtny9Ks" target="_blank" rel="noopener">java开发手册——嵩山版</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201123143458.png" alt="java开发手册——嵩山版"></p>
+                <h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="JDBC-概述"><a href="#JDBC-概述" class="headerlink" title="JDBC 概述"></a>JDBC 概述</h3><blockquote>
+<p><code>Java Database Connectivity</code></p>
+<p>由sun公司制定，是<a href="https://baike.baidu.com/item/Java语言" target="_blank" rel="noopener">Java语言</a>中用来规范客户端程序如何来访问数据库的<a href="">应用程序接口</a>，提供了很多直接操作数据库的增删改查方法</p>
+</blockquote>
+<p><strong>JDBC 核心包</strong></p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">java.sql.*
+javax.sql.*
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="JDBC-MySQL【重点】"><a href="#JDBC-MySQL【重点】" class="headerlink" title="JDBC - MySQL【重点】"></a>JDBC - MySQL【重点】</h3><blockquote>
+<p>用来连接和操作MySQL数据库，需要导入一个核心jar包</p>
+</blockquote>
+<p>【核心 jar 文件】</p>
+<pre><code>mysql-connector-java-5.1.47.jar
+</code></pre><blockquote>
+<p>【注意】此jar包可以直接在MySQL官网进行下载（比较慢），或者通过 Maven 仓库也能下载（这里能下载到大部分能用到的 jar 包，<strong>建议收藏</strong>）</p>
+<pre class="line-numbers language-lang-url"><code class="language-lang-url">https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.47
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h3 id="JDBC-Java-数据类型映射"><a href="#JDBC-Java-数据类型映射" class="headerlink" title="JDBC - Java 数据类型映射"></a>JDBC - Java 数据类型映射</h3><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201129114346.png" alt=""></p>
+<h3 id="通过-JDBC-连接-MySQL-数据库"><a href="#通过-JDBC-连接-MySQL-数据库" class="headerlink" title="通过 JDBC 连接 MySQL 数据库"></a>通过 JDBC 连接 MySQL 数据库</h3><p>前提条件</p>
+<pre><code>1、jar包：连接驱动包
+
+2、url：确定连接的数据库所在网络地址和对应操作哪一个数据库，由协议名+子协议名+数据源名构成，即
+        jdbc:mysql://主机地址:端口号/数据库名
+
+        【例】jdbc:mysql://localhost:3306/fc2020
+
+3、user：用户名
+
+4、password：密码
+</code></pre><p>格式</p>
+<pre><code>1、加载驱动
+2、准备必要的连接参数
+3、获取数据库连接
+4、关闭资源！！！
+</code></pre><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ * 测试数据库连接
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 声明连接数据库所需要的参数，包括但不限于IP地址、端口号、连接到哪个数据库以及相关参数、用户名、密码
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=utf8";
+            String user = "root";
+            String password = "root";
+
+            // 通过参数获取连接
+            Connection connection = DriverManager.getConnection(url, user, password);
+
+            System.out.println(connection);
+
+            // 关闭资源
+            connection.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】连接数据库可以配置一些相关的参数，数据库名与参数之间用 <a href="">?</a> 进行分隔，参数之间通过 <a href="">&amp;</a> 分隔，常用参数及格式如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>characterEncoding=utf8</td>
+<td>设置字符集为UTF8</td>
+</tr>
+<tr>
+<td>serverTimezone=Asia/Shanghai</td>
+<td>设置时区<a href="">（JDBC8.0以上必备）</a></td>
+</tr>
+<tr>
+<td>useSSL=true</td>
+<td>使用SSL<a href="">（JDBC8.0以上要改为false）</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h3 id="数据库驱动加载过程"><a href="#数据库驱动加载过程" class="headerlink" title="数据库驱动加载过程"></a>数据库驱动加载过程</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Driver extends NonRegisteringDriver implements java.sql.Driver {
+    /*
+     * Register ourselves with the DriverManager
+     * 在.class文件加载到内存时运行，并且有且只执行一次
+     * 代码初始化过程！！！
+     */ 
+    static {
+        try {
+            // DriverManager驱动管理器注册了当前com.mysql.jdbc.Driver
+            // 相对于当前Java程序拥有了连接MySQL数据库的必要的驱动条件
+            java.sql.DriverManager.registerDriver(new Driver());
+        } catch (SQLException E) {
+            throw new RuntimeException("Can't register driver!");
+        }
+    }
+
+    /**
+     * Construct a new driver and register it with DriverManager
+     * 
+     * @throws SQLException
+     *             if a database error occurs.
+     */
+    public Driver() throws SQLException {
+        // Required for Class.forName().newInstance()
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】后续会用到静态代码块去完成一些初始化的操作</p>
+</blockquote>
+<h3 id="JDBC-核心API"><a href="#JDBC-核心API" class="headerlink" title="JDBC 核心API"></a>JDBC 核心API</h3><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 驱动管理类
+class java.sql.DriverManager
+
+/*
+ * 这里是根据数据库连接URL，对应的user用户名和password密码，获取数据库连接对象
+ */
+static java.sql.Connection getConnection(String url, String user, String password);
+
+// 数据库连接接口
+interface java.sql.Connection 
+
+/*
+ * 获取数据库SQL语句搬运工对象，从Java程序搬运SQL语句到数据库中，同时Statement也是一个资源对象。
+ */
+java.sql.Statement createStatement();
+
+/*
+ * 获取数据库SQL语句【预处理】搬运工对象，Java程序的SQL语句，在创建PreparedStatement对象时，将SQL语句交给数据库预处理操作，可以解决一定的【SQL语句注入问题】，同时提高一定的效率，PreparedStatement也是一个资源对象
+ */
+java.sql.PreparedStatement prepareStatement(String sql);
+
+// 数据库SQL语句搬运工对象接口
+interface java.sql.Statement 
+
+/*
+ * 执行数据库修改数据，insert,update,delete...，返回值类型是int类型，是当前SQL语句搬运到数据库执行之后，数据库运行对于当前操作受到影响的行数
+ * 2 rows affected in 5 ms
+ */
+int executeUpdate(String sql);
+
+/*
+ * 执行数据库查询语句，select操作，执行的结果是一个java.sql.ResultSet，结果集对象，当前操作返回值never null
+ */
+java.sql.ResultSet executeQuery(String sql);
+
+// 数据库SQL语句【预处理】搬运工对象接口
+public interface java.sql.PreparedStatement extends java.sql.Statement
+
+/*
+ * 执行数据库修改操作，insert，update，delete...处理的SQL语句是在创建PreparedStatement对象过程预处理的SQL语句，并且返回值是int类型，为当前操作对于数据表中收到影响的行数
+ */
+int executeUpdate();
+
+/*
+ * 执行数据库查询语句，select操作，的SQL语句是在创建PreparedStatement对象过程预处理的SQL语句，执行的结果是一个java.sql.ResultSet，结果集对象，当前操作返回值never null
+ */
+java.sql.ResultSet executeQuery();
+
+/*
+ * PreparedStatement预处理的SQL语句是可以带有参数的，这里是对于SQL语句参数进行赋值操作，这里有指定的操作下标，和对应的数据，数据类型繁多
+ */
+setXXX(int index, XXX value)
+
+// 数据库结果集接口
+interface java.sql.ResultSet 
+
+/*
+ * 根据查询结果中，字段所处的位置下标获取对应数据，XXX是指定类型(int、String用的最多)
+ */
+XXX getXXX(int columnIndex);
+
+/*
+ * 根据查询结果中，字段所处的字段名获取对应数据，XXX是指定类型(int、String用的最多)
+ * 例int getInt(String columnLabel)
+ */
+XXX getXXX(String columnLabel);
+
+/*
+ * 判断当前查询结果集中是否还有数据可以继续遍历，如果没有。或则当前结果集中是无数据情况 Empty Set，直接返回fasle
+ */
+boolean next();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Statement-操作-SQL-语句"><a href="#Statement-操作-SQL-语句" class="headerlink" title="Statement 操作 SQL 语句"></a>Statement 操作 SQL 语句</h3><h4 id="增删改操作步骤【重点】"><a href="#增删改操作步骤【重点】" class="headerlink" title="增删改操作步骤【重点】"></a>增删改操作步骤【重点】</h4><pre><code>1、加载驱动
+2、准备连接数据库所需要的参数
+3、获取数据库连接
+4、获取Statement搬运工对象
+5、准备SQL语句
+6、执行SQL语句获取受影响的行数
+</code></pre><h4 id="Statement-插入-SQL-数据操作"><a href="#Statement-插入-SQL-数据操作" class="headerlink" title="Statement 插入 SQL 数据操作"></a>Statement 插入 SQL 数据操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    public static void main(String[] args) {
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 声明连接数据库所需要的参数，包括但不限于IP地址、端口号、连接到哪个数据库、用户名、密码
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=utf8";
+            String user = "root";
+            String password = "root";
+
+            // 通过参数获取数据库连接
+            connection = DriverManager.getConnection(url, user, password);
+
+            // 获取Statement对象
+            statement = connection.createStatement();
+
+            // 准备SQL语句
+            String sql = "insert into student() values(1, '张三', 16, '男', '真帅');";
+
+            // 执行SQL语句获取受影响的行数
+            int affectedRows = statement.executeUpdate(sql);
+
+            System.out.println("受影响的行数：" + affectedRows);
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Statement-修改-SQL-数据操作"><a href="#Statement-修改-SQL-数据操作" class="headerlink" title="Statement 修改 SQL 数据操作"></a>Statement 修改 SQL 数据操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo3 {
+    public static void main(String[] args) {
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 声明连接数据库所需要的参数，包括但不限于IP地址、端口号、连接到哪个数据库、用户名、密码
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=utf8";
+            String user = "root";
+            String password = "root";
+
+            // 通过参数获取数据库连接
+            connection = DriverManager.getConnection(url, user, password);
+
+            // 获取Statement对象
+            statement = connection.createStatement();
+
+            // 准备SQL语句
+            String sql = "update student set name = '彭于晏' where id = 1";
+
+            // 执行SQL语句获取受影响的行数
+            int affectedRows = statement.executeUpdate(sql);
+
+            System.out.println("受影响的行数：" + affectedRows);
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Statement-删除-SQL-数据操作"><a href="#Statement-删除-SQL-数据操作" class="headerlink" title="Statement 删除 SQL 数据操作"></a>Statement 删除 SQL 数据操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo4 {
+    public static void main(String[] args) {
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 声明连接数据库所需要的参数，包括但不限于IP地址、端口号、连接到哪个数据库、用户名、密码
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=utf8";
+            String user = "root";
+            String password = "root";
+
+            // 通过参数获取数据库连接
+            connection = DriverManager.getConnection(url, user, password);
+
+            // 获取Statement对象
+            statement = connection.createStatement();
+
+            // 准备SQL语句
+            String sql = "delete from student where id = 1;";
+
+            // 执行SQL语句获取受影响的行数
+            int affectedRows = statement.executeUpdate(sql);
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="查询操作步骤【重点】"><a href="#查询操作步骤【重点】" class="headerlink" title="查询操作步骤【重点】"></a>查询操作步骤【重点】</h4><pre><code>1、加载驱动
+2、准备连接数据库所需要的参数
+3、获取数据库连接
+4、获取Statement搬运工对象
+5、准备SQL语句
+6、执行SQL语句获取结果集对象
+7、判断结果集对象中是否有数据
+8、如果结果集对象中存在数据，获取每个数据库字段对应类型的数据
+</code></pre><h4 id="Statement-查询-SQL-数据操作"><a href="#Statement-查询-SQL-数据操作" class="headerlink" title="Statement 查询 SQL 数据操作"></a>Statement 查询 SQL 数据操作</h4><p>准备实体类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Student {
+    private Integer id;
+    private String name;
+    private Integer age;
+    private String gender;
+    private String info;
+
+    // Constructor、Getter and Setter、toString
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】根据阿里巴巴开发手册，实体类成员变量要用包装类！！！</p>
+</blockquote>
+<p>案例代码一：查询单行</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo5 {
+    public static void main(String[] args) {
+
+        // 声明资源
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 准备参数
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=UTF8";
+            String user = "root";
+            String password = "root";
+
+            // 获取连接
+            connection = DriverManager.getConnection(url, user, password);
+
+            // 获取搬运工对象
+            statement = connection.createStatement();
+
+            // 准备SQL语句
+            String sql = "select * from student where id = 1";
+
+            // 执行SQL语句并获取结果集
+            resultSet = statement.executeQuery(sql);
+
+            Student student = null;
+
+            // 判断结果集中是否还有下一行数据
+            while (resultSet.next()) {
+                // 从结果集中获取对应类型的数据
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                int age = resultSet.getInt(3);
+                String gender = resultSet.getString(4);
+                String info = resultSet.getString(5);
+
+                // 通过获取到的数据创建实体类对象
+                student = new Student(id, name, age, gender, info);
+            }
+
+            // 展示
+            System.out.println(student);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码二：查询多行</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo6 {
+    public static void main(String[] args) {
+
+        // 声明资源
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // 加载驱动
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 准备参数
+            String url = "jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=UTF8";
+            String user = "root";
+            String password = "root";
+
+            // 获取连接
+            connection = DriverManager.getConnection(url, user, password);
+
+            // 获取搬运工对象
+            statement = connection.createStatement();
+
+            // 准备SQL语句
+            String sql = "select * from student";
+
+            // 执行SQL语句并获取结果集
+            resultSet = statement.executeQuery(sql);
+
+            // 声明一个集合用来存储多条数据对应的实体类对象
+            ArrayList<Student> arrayList = new ArrayList<>();
+
+            // 判断结果集中是否还有下一行数据
+            while (resultSet.next()) {
+                // 从结果集中获取对应类型的数据
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                int age = resultSet.getInt(3);
+                String gender = resultSet.getString(4);
+                String info = resultSet.getString(5);
+
+                // 通过获取到的数据创建实体类对象
+                Student student = new Student(id, name, age, gender, info);
+
+                // 将实体类对象添加到集合中
+                arrayList.add(student);
+            }
+
+            // 展示
+            System.out.println(arrayList);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="常见数据库连接"><a href="#常见数据库连接" class="headerlink" title="常见数据库连接"></a>常见数据库连接</h3><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">-------------------------------oracle------------------
+驱动：oracle.jdbc.driver.OracleDriver
+URL：jdbc:oracle:thin:@machine_name:port:dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是1521
+
+-------------------------------mysql-------------------
+驱动：com.mysql.jdbc.Driver
+URL：jdbc:mysql://machine_name:port/dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认3306    
+
+------------------------------SQL Server---------------
+驱动：com.microsoft.jdbc.sqlserver.SQLServerDriver
+URL：jdbc:microsoft:sqlserver://<machine_name><:port>;DatabaseName=<dbname>
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是1433
+
+------------------------------DB2----------------------
+驱动：com.ibm.db2.jdbc.app.DB2Driver
+URL：jdbc:db2://<machine_name><:port>/dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是5000
+-------------------------------------------------------
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -466,7 +1000,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ialoe.top/posts/58907.html">https://ialoe.top/posts/58907.html</a>
+                    <a href="https://ialoe.top/posts/23591.html">https://ialoe.top/posts/23591.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -504,8 +1038,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -936,10 +1470,9 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/posts/58907.html">
                     <div class="card-image">
@@ -956,9 +1489,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -971,7 +1504,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -990,30 +1522,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/23591.html">
+                <a href="/posts/4127.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="JDBC——java与数据库的连接">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Idea破解版的下载及安装">
                         
-                        <span class="card-title">JDBC——java与数据库的连接</span>
+                        <span class="card-title">Idea破解版的下载及安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java连接mysql数据库
+                            最近老师新教了一个软件idea破解版的下载及安装，在此和大家分享一下
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/" class="post-category">
-                                    MySQL数据库的连接
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                    其他
                                 </a>
                             
                             
@@ -1023,8 +1555,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">其他</span>
                     </a>
                     
                 </div>
