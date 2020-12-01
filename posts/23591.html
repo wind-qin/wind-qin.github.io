@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-01
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    31 分
                 </div>
                 
 
@@ -951,6 +951,1038 @@ boolean next();
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="常见数据库连接"><a href="#常见数据库连接" class="headerlink" title="常见数据库连接"></a>常见数据库连接</h3><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">-------------------------------oracle------------------
+驱动：oracle.jdbc.driver.OracleDriver
+URL：jdbc:oracle:thin:@machine_name:port:dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是1521
+
+-------------------------------mysql-------------------
+驱动：com.mysql.jdbc.Driver
+URL：jdbc:mysql://machine_name:port/dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认3306    
+
+------------------------------SQL Server---------------
+驱动：com.microsoft.jdbc.sqlserver.SQLServerDriver
+URL：jdbc:microsoft:sqlserver://<machine_name><:port>;DatabaseName=<dbname>
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是1433
+
+------------------------------DB2----------------------
+驱动：com.ibm.db2.jdbc.app.DB2Driver
+URL：jdbc:db2://<machine_name><:port>/dbname
+注：machine_name：数据库所在的机器的名称；
+      port：端口号，默认是5000
+-------------------------------------------------------
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="封装工具类简化操作"><a href="#封装工具类简化操作" class="headerlink" title="封装工具类简化操作"></a>封装工具类简化操作</h3><p>核心API</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 获取一个属性对象
+Properties();
+
+// 通过字符输入流加载数据到属性对象中
+void load(Reader reader);
+
+// 获取属性文件中的键的对应值
+String getProperty(String key)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>db.properties</p>
+<pre class="line-numbers language-lang-properties"><code class="language-lang-properties">driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=UTF8
+user=root
+password=root
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>JdbcUtils</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">import java.io.FileReader;
+import java.io.IOException;
+import java.sql.*;
+import java.util.Properties;
+
+/**
+ * JDBC工具类
+ */
+public class JdbcUtils {
+    private static String url = null;
+    private static String user = null;
+    private static String password = null;
+    private static Connection connection = null;
+    private static Statement statement = null;
+    private static ResultSet resultSet = null;
+
+    // 使用静态代码块进行初始化操作：加载驱动
+    static {
+        try {
+            // 创建Properties对象用于从Properties文件中读取数据
+            Properties properties = new Properties();
+
+            // 通过字符输入流加载数据到properties中
+            properties.load(new FileReader("./src/db.properties"));
+
+            // 获取对应的数据
+            String driver = properties.getProperty("driver");
+            url = properties.getProperty("url");
+            user = properties.getProperty("user");
+            password = properties.getProperty("password");
+
+            // 加载驱动
+            Class.forName(driver);
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取连接
+     *
+     * @return 返回数据库的连接
+     */
+    public static Connection getConnection() {
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return connection;
+    }
+
+    /**
+     * 获取搬运工对象
+     *
+     * @return 返回一个搬运工对象
+     */
+    private static Statement getStatement() {
+        if (connection == null) {
+            connection = getConnection();
+        }
+
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return statement;
+    }
+
+    /**
+     * 增删改方法
+     *
+     * @param sql 传入一个SQL语句
+     * @return 返回受影响的行数
+     */
+    public static int executeUpdate(String sql) {
+        if (statement == null) {
+            statement = getStatement();
+        }
+
+        int affectedRows = 0;
+
+        try {
+            affectedRows = statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            close(statement, connection);
+        }
+
+        return affectedRows;
+    }
+
+    /**
+     * 查询方法
+     *
+     * @param sql 传入一个SQL语句
+     * @return 返回一个受影响的行数
+     */
+    public static ResultSet executeQuery(String sql) {
+        try {
+            resultSet = getStatement().executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return resultSet;
+    }
+
+    /*
+     * 重载关闭资源方法，以满足多种场景
+     */
+    public static void close(Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(Statement statement, Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet, Statement statement, Connection connection) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+
+            if (statement != null) {
+                statement.close();
+            }
+
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用单元测试简化操作</p>
+<blockquote>
+<p>【注意】需要导入一个单元测试所需要的 jar 包</p>
+<pre><code>junit-4.10.jar
+</code></pre><p>使用单元测试不需要再声明 main 方法，只需要在方法声明上加上 <a href="">@Test</a> 注解即可，各个测试方法之间相互独立不受影响</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    /**
+     * 测试修改数据
+     */
+    @Test
+    public void testUpdate() {
+        String sql = "update student set age = 20 where id = 1;";
+
+        int affectedRows = JdbcUtils.executeUpdate(sql);
+
+        System.out.println("受影响的行数为：" + affectedRows);
+    }
+
+    /**
+     * 测试删除数据
+     */
+    @Test
+    public void testDelete() {
+        String sql = "delete from student where id = 4;";
+
+        int affectedRows = JdbcUtils.executeUpdate(sql);
+
+        System.out.println("受影响的行数为：" + affectedRows);
+    }
+
+    /**
+     * 测试插入数据
+     */
+    @Test
+    public void testInsert() {
+        String sql = "insert into student(name, age, gender, info) values('张三', 18, '男', '多财多亿');";
+
+        int affectedRows = JdbcUtils.executeUpdate(sql);
+
+        System.out.println("受影响的行数为：" + affectedRows);
+    }
+
+    /**
+     * 测试查询单条数据
+     */
+    @Test
+    public void testQueryOne() {
+        String sql = "select * from student where id = 1";
+
+        ResultSet resultSet = JdbcUtils.executeQuery(sql);
+
+        try {
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt("age");
+                String gender = resultSet.getString("gender");
+                String info = resultSet.getString("info");
+
+                Student student = new Student(id, name, age, gender.charAt(0), info);
+
+                System.out.println(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(resultSet);
+        }
+    }
+
+    /**
+     * 测试查询多条数据
+     */
+    @Test
+    public void testQueryAll() {
+        ArrayList<Student> list = new ArrayList<>();
+
+        String sql = "select * from student";
+
+        ResultSet resultSet = JdbcUtils.executeQuery(sql);
+
+        try {
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt("age");
+                String gender = resultSet.getString("gender");
+                String info = resultSet.getString("info");
+
+                Student student = new Student(id, name, age, gender.charAt(0), info);
+
+                list.add(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(resultSet);
+        }
+
+        System.out.println(list);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL注入【重点】"><a href="#SQL注入【重点】" class="headerlink" title="SQL注入【重点】"></a>SQL注入【重点】</h3><blockquote>
+<p>SQL 注入是指web应用程序对用户输入数据的合法性没有判断或过滤不严，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的 SQL 语句，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息，甚至篡改数据库</p>
+</blockquote>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+
+    // 使用正确的用户名和密码登录成功
+    @Test
+    public void testLogin() {
+        String sql = "select * from account where username = '张三' and password = '123456';";
+
+        ResultSet resultSet = JdbcUtils.executeQuery(sql);
+
+        try {
+            if (resultSet.next()) {
+                System.out.println("登录成功");
+            } else {
+                System.out.println("登录失败");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(resultSet);
+        }
+    }
+
+    // 通过SQL注入使用异常的密码登录成功
+    @Test
+    public void testSqlInject() {
+        String sql = "select * from account where username = '张三' and (password = 'iglrne' or 1 = 1);";
+
+        ResultSet resultSet = JdbcUtils.executeQuery(sql);
+
+        try {
+            if (resultSet.next()) {
+                System.out.println("登录成功");
+            } else {
+                System.out.println("登录失败");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(resultSet);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】Statement 存在 SQL 注入问题，而 PreparedStatement 可以有效的避免 SQL 注入！</p>
+<p>以后只能使用 PreparedStatement ，因为操作性更强，并且安全性更高</p>
+</blockquote>
+<h3 id="通过-PreparedStatement-操作-SQL-语句"><a href="#通过-PreparedStatement-操作-SQL-语句" class="headerlink" title="通过 PreparedStatement 操作 SQL 语句"></a>通过 PreparedStatement 操作 SQL 语句</h3><p>PreparedStatement 实例包含已编译的 SQL 语句。这就是使语句“准备好”。包含于 PreparedStatement 对象中的 SQL 语句可具有一个或多个 IN 参数。IN参数的值在 SQL 语句创建时未被指定。相反的，该语句为每个 IN 参数保留一个问号（“？”）作为<a href="https://baike.baidu.com/item/占位符" target="_blank" rel="noopener">占位符</a>。每个问号的值必须在该语句执行之前，通过适当的setXXX 方法来提供。</p>
+<p>由于 PreparedStatement 对象已<a href="https://baike.baidu.com/item/预编译" target="_blank" rel="noopener">预编译</a>过，所以其执行速度要快于 Statement 对象。因此，多次执行的 SQL 语句经常创建为 PreparedStatement 对象，以提高效率。</p>
+<p>作为 Statement 的子类，PreparedStatement 继承了 Statement 的所有功能。另外它还添加了一整套方法，用于设置发送给数据库以取代 IN 参数<a href="https://baike.baidu.com/item/占位符" target="_blank" rel="noopener">占位符</a>的值。同时，三种方法 execute、 executeQuery 和 executeUpdate 已被更改以使之不再需要参数。这些方法的 Statement 形式（接受 SQL 语句参数的形式）不应该用于 PreparedStatement 对象。</p>
+<blockquote>
+<p>【注意】应该始终以PreparedStatement代替Statement，也就是说，在任何时候都不要使用Statement。</p>
+</blockquote>
+<h4 id="PreparedStatement-查询操作"><a href="#PreparedStatement-查询操作" class="headerlink" title="PreparedStatement 查询操作"></a>PreparedStatement 查询操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    @Test
+    public void testPreparedStatement() {
+        // 获取数据库连接
+        Connection connection = JdbcUtils.getConnection();
+
+        // 提取资源
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        // 准备SQL语句，? 是占位符
+        String sql = "select * from account where username = ? and password = ?;";
+
+        try {
+            // 获取预处理搬运工对象，并对SQL语句进行预处理
+            preparedStatement = connection.prepareStatement(sql);
+
+            // 设置参数
+            preparedStatement.setObject(1, "张三");
+            preparedStatement.setObject(2, "123456");
+
+            // 执行SQL语句
+            resultSet = preparedStatement.executeQuery();
+
+            // 判断是否还有数据
+            if (resultSet.next()) {
+                System.out.println("登录成功");
+            } else {
+                System.out.println("登录失败");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(resultSet, preparedStatement, connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="PreparedStatement-增加操作"><a href="#PreparedStatement-增加操作" class="headerlink" title="PreparedStatement 增加操作"></a>PreparedStatement 增加操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo3 {
+    @Test
+    public void testInsert() {
+        // 准备SQL语句
+        String sql = "insert into student(name, age, gender, info) values(?, ?, ?, ?)";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        PreparedStatement preparedStatement = null;
+
+        try {
+            // 获取预处理对象
+            preparedStatement = connection.prepareStatement(sql);
+
+            // 设置参数
+            preparedStatement.setObject(1, "赵四");
+            preparedStatement.setObject(2, 17);
+            preparedStatement.setObject(3, "男");
+            preparedStatement.setObject(4, "你愁啥");
+
+            // 执行SQL语句
+            int affectedRows = preparedStatement.executeUpdate();
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(preparedStatement, connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="PreparedStatement-修改操作"><a href="#PreparedStatement-修改操作" class="headerlink" title="PreparedStatement 修改操作"></a>PreparedStatement 修改操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo3 {
+    @Test
+    public void testUpdate() {
+        // 准备SQL语句
+        String sql = "update student set age = ? where id = ?";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        PreparedStatement preparedStatement = null;
+
+        try {
+            // 获取预处理对象
+            preparedStatement = connection.prepareStatement(sql);
+
+            // 设置参数
+            preparedStatement.setObject(1, 61);
+            preparedStatement.setObject(2, 6);
+
+            // 执行SQL语句
+            int affectedRows = preparedStatement.executeUpdate();
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(preparedStatement, connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="PreparedStatement-删除操作"><a href="#PreparedStatement-删除操作" class="headerlink" title="PreparedStatement 删除操作"></a>PreparedStatement 删除操作</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">class Demo3{
+    @Test
+    public void testDelete() {
+        // 准备SQL语句
+        String sql = "delete from student where id = ?";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        PreparedStatement preparedStatement = null;
+
+        try {
+            // 获取预处理对象
+            preparedStatement = connection.prepareStatement(sql);
+
+            // 设置参数
+            preparedStatement.setObject(1, 3);
+
+            // 执行SQL语句
+            int affectedRows = preparedStatement.executeUpdate();
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(preparedStatement, connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="JDBC-1"><a href="#JDBC-1" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="轻量级-ORM-框架-DbUtils【重点】"><a href="#轻量级-ORM-框架-DbUtils【重点】" class="headerlink" title="轻量级 ORM 框架 DbUtils【重点】"></a>轻量级 ORM 框架 DbUtils【重点】</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>Commons DbUtils 是 Apache 组织提供的一个对JDBC进行简单封装的开源工具类库，使用它能够简化JDBC应用程序的开发，同时也不会影响程序的性能。</p>
+<p>jar包</p>
+<pre><code>commons-dbutils-1.7.jar
+</code></pre><p>下载路径</p>
+<pre><code>http://commons.apache.org/proper/commons-dbutils/download_dbutils.cgi
+</code></pre></blockquote>
+<h4 id="核心-API"><a href="#核心-API" class="headerlink" title="核心 API"></a>核心 API</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// DbUtils 核心类，提供简易的对数据库进行操作的方法
+class QueryRunner {}
+
+// update 核心方法对应增删改操作 insert，update，delete
+// conn   -> 数据库连接
+// sql    -> sql语句
+// params -> 参数列表，这里使用可变长参数，底层是Object类型的数组
+int update(Connection conn, String sql, Object... params);
+
+// query 核心方法，对应查询操作
+// T 泛型
+// conn   -> 数据库连接
+// sql    -> sql语句
+// rsh    -> 结果集处理器接口，需要传入一个实现类，或者使用匿名内部类的形式并重写handler方法，推荐使用其实现类 BeanHandler 以及 BeanListHandler
+// params -> 参数列表，这里使用可变长参数，底层是Object类型的数组
+<T> T query(Connection conn, String sql, ResultSetHandler<T> rsh, Object... params)
+
+// 结果集映射器接口，核心方法为 handler()
+interface ResultSetHandler<T> {}
+
+// 处理符合JavaBean规范的类对象，传入参数是对应JavaBean规范 Class对象，返回一个对应的实体类对象
+class BeanHandler<T> implements ResultSetHandler<T> {}
+
+// 处理符合JavaBean规范的实体类，并且返回值是一个List集合包含制定的JavaBean实体类    
+class BeanListHandler<T> implements ResultSetHandler<List<T>> {}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-DbUtils-插入数据"><a href="#使用-DbUtils-插入数据" class="headerlink" title="使用 DbUtils 插入数据"></a>使用 DbUtils 插入数据</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    @Test
+    public void testInsert() {
+        // 获取 QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        // 准备SQL语句
+        String sql = "insert into student(name, age, gender, info) values(?, ?, ?, ?)";
+
+        // 准备参数
+        Object[] parameters = {"刘能", 37, "男", "人生没有如果，只有后果和结果"};
+
+        try {
+            // 执行SQL语句并获取受影响的行数
+            int affectedRows = queryRunner.update(connection, sql, parameters);
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-DbUtils-修改数据"><a href="#使用-DbUtils-修改数据" class="headerlink" title="使用 DbUtils 修改数据"></a>使用 DbUtils 修改数据</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {   
+    @Test
+    public void testUpdate() {
+        // 获取 QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        // 准备SQL语句
+        String sql = "update student set age = ? where id = ?";
+
+        // 准备参数
+        Object[] parameters = {48, 7};
+
+        try {
+            // 执行SQL语句并获取受影响的行数
+            int affectedRows = queryRunner.update(connection, sql, parameters);
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-DbUtils-删除数据"><a href="#使用-DbUtils-删除数据" class="headerlink" title="使用 DbUtils 删除数据"></a>使用 DbUtils 删除数据</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo1 {
+    @Test
+    public void testDelete() {
+        // 获取 QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        // 准备SQL语句
+        String sql = "delete from student where id = ?";
+
+        // 准备参数
+        Object[] parameters = {7};
+
+        try {
+            // 执行SQL语句并获取受影响的行数
+            int affectedRows = queryRunner.update(connection, sql, parameters);
+
+            System.out.println("受影响的行数：" + affectedRows);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-DbUtils-的-ResultSetHandler-进行查询单条数据【鸡肋】"><a href="#使用-DbUtils-的-ResultSetHandler-进行查询单条数据【鸡肋】" class="headerlink" title="使用 DbUtils 的 ResultSetHandler 进行查询单条数据【鸡肋】"></a>使用 DbUtils 的 ResultSetHandler 进行查询单条数据【鸡肋】</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo2 {
+    @Test
+    public void testQueryOne() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        // 准备SQL语句
+        String sql = "select * from student where id = ?";
+
+        // 准备参数
+        Object[] params = {1};
+        try {
+            // 通过匿名内部类实现ResultSetHandler，并重写handler方法，执行SQL语句
+            Student student = queryRunner.query(connection, sql, new ResultSetHandler<Student>() {
+                // 重写handler方法
+                @Override
+                public Student handle(ResultSet resultSet) throws SQLException {
+
+                    Student student1 = null;
+
+                    while (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        String name = resultSet.getString("name");
+                        int age = resultSet.getInt("age");
+                        String gender = resultSet.getString("gender");
+                        String info = resultSet.getString("info");
+
+                        student1 = new Student(id, name, age, gender, info);
+                    }
+
+                    return student1;
+                }
+            }, params);
+
+            System.out.println(student);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用DbUtils-的-BeanHandler-进行查询单条数据"><a href="#使用DbUtils-的-BeanHandler-进行查询单条数据" class="headerlink" title="使用DbUtils 的 BeanHandler 进行查询单条数据"></a>使用DbUtils 的 BeanHandler 进行查询单条数据</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo3 {
+    @Test
+    public void testQuery() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 准备SQL语句
+        String sql = "select * from student where id = ?";
+
+        // 准备参数
+        Object[] params = {1};
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        try {
+            // 执行SQL语句，传入BeanHandler对象
+            Student student = queryRunner.query(connection, sql, new BeanHandler<Student>(Student.class), params);
+
+            System.out.println(student);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用-DbUtils-的-BeanListHandler-进行查询多条数据"><a href="#使用-DbUtils-的-BeanListHandler-进行查询多条数据" class="headerlink" title="使用 DbUtils 的 BeanListHandler 进行查询多条数据"></a>使用 DbUtils 的 BeanListHandler 进行查询多条数据</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo4 {
+    @Test
+    public void testQueryAll() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 准备SQL语句
+        String sql = "select * from student";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        try {
+            // 执行SQL语句，传入BeanListHandler对象，获取一个包含实体类对象的集合
+            List<Student> list = queryRunner.query(connection, sql, new BeanListHandler<Student>(Student.class));
+
+            System.out.println(list);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="【补充】使用-DbUtils-的-ArrayHandler-获取包含对应一条数据的数组"><a href="#【补充】使用-DbUtils-的-ArrayHandler-获取包含对应一条数据的数组" class="headerlink" title="【补充】使用 DbUtils 的 ArrayHandler 获取包含对应一条数据的数组"></a>【补充】使用 DbUtils 的 ArrayHandler 获取包含对应一条数据的数组</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 处理符合JavaBean规范的类对象，能够将数据转为一个Object类型的数组
+class ArrayHandler implements ResultSetHandler<Object[]> {}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo5 {
+    @Test
+    public void testQueryOne() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 准备SQL语句
+        String sql = "select * from student where id = 1";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        try {
+            // 执行SQL语句，ArrayHandler，获取一个包含对应字段数据的数组
+            Object[] objects = queryRunner.query(connection, sql, new ArrayHandler());
+
+            // 将数组转为字符串并展示
+            System.out.println(Arrays.toString(objects));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="【补充】使用-DbUtils-的-ArrayListHandler-获取包含对应多条数据的数组"><a href="#【补充】使用-DbUtils-的-ArrayListHandler-获取包含对应多条数据的数组" class="headerlink" title="【补充】使用 DbUtils 的 ArrayListHandler 获取包含对应多条数据的数组"></a>【补充】使用 DbUtils 的 ArrayListHandler 获取包含对应多条数据的数组</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 处理符合JavaBean规范的类对象，能够将数据转为一个包含Object类型的数组的集合
+class ArrayListHandler extends AbstractListHandler<Object[]> {}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo5 {
+    @Test
+    public void testQueryOne() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 准备SQL语句
+        String sql = "select * from student where id = 1";
+
+        // 获取连接
+        Connection connection = JdbcUtils.getConnection();
+
+        try {
+            // 执行SQL语句，ArrayHandler，获取一个包含对应字段数据的数组
+            Object[] objects = queryRunner.query(connection, sql, new ArrayHandler());
+
+            // 将数组转为字符串并展示
+            System.out.println(Arrays.toString(objects));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtils.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。</p>
+</blockquote>
+<h4 id="常见的数据库连接池"><a href="#常见的数据库连接池" class="headerlink" title="常见的数据库连接池"></a>常见的数据库连接池</h4><blockquote>
+<p>C3P0</p>
+<p>DBCP</p>
+<p>Druid【常用】</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201142207.png" alt=""></p>
+<h4 id="C3P0连接池的使用"><a href="#C3P0连接池的使用" class="headerlink" title="C3P0连接池的使用"></a>C3P0连接池的使用</h4><p>导入jar包</p>
+<pre><code>mchange-commons-java-0.2.19.jar
+c3p0-0.9.5.2.jar
+</code></pre><p>配置文件</p>
+<pre class="line-numbers language-lang-xml"><code class="language-lang-xml"><!-- c3p0-config.xml需要存储于src目录下 -->
+<c3p0-config>
+    <!-- 使用默认的配置读取连接池对象 -->
+    <default-config>
+        <!--  连接参数 -->
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/FC2020?useSSL=true&amp;characterEncoding=UTF8</property>
+        <property name="user">root</property>
+        <property name="password">root</property>
+
+        <!-- 连接池参数 -->
+        <!--初始化申请的连接数量-->
+        <property name="initialPoolSize">5</property>
+        <!--最大的连接数量-->
+        <property name="maxPoolSize">10</property>
+        <!--超时时间-->
+        <property name="checkoutTimeout">3000</property>
+    </default-config>
+
+    <named-config name="otherc3p0">
+        <!--  连接参数 -->
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/student?useSSL=true</property>
+        <property name="user">root</property>
+        <property name="password">root</property>
+
+        <!-- 连接池参数 -->
+        <property name="initialPoolSize">5</property>
+        <property name="maxPoolSize">8</property>
+        <property name="checkoutTimeout">1000</property>
+    </named-config>
+</c3p0-config>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】此配置文件需要放在<a href="">src</a>目录下，不需要手动编写，直接复制粘贴后修改数据库名和密码即可！！！</p>
+</blockquote>
+<p>使用 C3P0 封装 JdbcUtilsOnC3P0工具类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class JdbcUtilsOnC3P0 {
+    // 声明一个c3p0连接池
+    private static ComboPooledDataSource pool = new ComboPooledDataSource();
+    private static Connection connection = null;
+    private static Statement statement = null;
+    private static ResultSet resultSet = null;
+
+    /**
+     * 获取连接
+     *
+     * @return 返回数据库的连接
+     */
+    public static Connection getConnection() {
+
+        try {
+            // 通过c3p0连接池获取连接
+            connection = pool.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return connection;
+    }
+
+    /*
+     * 重载关闭资源方法，以满足多种场景
+     */
+    public static void close(Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(Statement statement, Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet, Statement statement, Connection connection) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+
+            if (statement != null) {
+                statement.close();
+            }
+
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo {
+    @Test
+    public void testQuery() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 通过C3P0连接池获取连接
+        Connection connection = JdbcUtilsOnC3P0.getConnection();
+
+        // 准备SQL语句
+        String sql = "select * from student";
+
+        try {
+            // 使用BeanListHandler执行SQL语句获取对应数据的集合
+            List<Student> list = queryRunner.query(connection, sql, new BeanListHandler<Student>(Student.class));
+
+            // 增强for循环遍历
+            for (Student student : list) {
+                System.out.println(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtilsOnC3P0.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Druid-连接池的使用"><a href="#Druid-连接池的使用" class="headerlink" title="Druid 连接池的使用"></a>Druid 连接池的使用</h4><p>导包</p>
+<pre><code>druid-1.0.9.jar
+</code></pre><p>配置文件</p>
+<pre class="line-numbers language-lang-properties"><code class="language-lang-properties"># 文件名 druid.properties 存储在src目录下
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/FC2020?useSSL=true&characterEncoding=UTF-8
+username=root
+password=root
+
+# 初始化数据库连接池容量
+initialSize=5
+
+# 最大容量
+maxActive=20
+
+# TimeOut 等待超时时间
+maxWait=2000
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>【注意】此配置文件需要放在<a href="">src</a>目录下，不需要手动编写，直接复制粘贴后修改数据库名和密码即可！！！</p>
+</blockquote>
+<p>使用 Druid 封装JdbcUtilsOnDruid 工具类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class JdbcUtilsOnDruid {
+
+    // 数据库源
+    private static DataSource dataSource;
+    private static Connection connection = null;
+    private static Statement statement = null;
+    private static ResultSet resultSet = null;
+
+    static {
+        try {
+            // 加载Properties文件
+            Properties properties = new Properties();
+            properties.load(new FileReader("./src/druid.properties"));
+
+            // 已经完成数据库连接池操作
+            dataSource = DruidDataSourceFactory.createDataSource(properties);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 返回数据库连接对象，连接失败返回null
+     *
+     * @return java.sql.Connection 数据库连接对象
+     */
+    public static Connection getConnection() {
+        try {
+            // 通过数据源获取连接
+            connection = dataSource.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+
+    /*
+     * 重载关闭资源方法，以满足多种场景
+     */
+    public static void close(Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(Statement statement, Connection connection) {
+        close(resultSet, statement, connection);
+    }
+
+    public static void close(ResultSet resultSet, Statement statement, Connection connection) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+
+            if (statement != null) {
+                statement.close();
+            }
+
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Demo {
+    @Test
+    public void testDruid() {
+        // 获取QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner();
+
+        // 准备SQL语句
+        String sql = "select * from student";
+
+        // 从Druid连接池中获取连接
+        Connection connection = JdbcUtilsOnDruid.getConnection();
+
+        try {
+            // 使用BeanListHandler执行SQL语句并获取带有数据的集合
+            List<Student> list = queryRunner.query(connection, sql, new BeanListHandler<Student>(Student.class));
+
+            // 增强for循环遍历集合
+            for (Student student : list) {
+                System.out.println(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JdbcUtilsOnDruid.close(connection);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="【补充】常见数据库连接"><a href="#【补充】常见数据库连接" class="headerlink" title="【补充】常见数据库连接"></a>【补充】常见数据库连接</h3><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">-------------------------------oracle------------------
 驱动：oracle.jdbc.driver.OracleDriver
 URL：jdbc:oracle:thin:@machine_name:port:dbname
 注：machine_name：数据库所在的机器的名称；
