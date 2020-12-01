@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="运用cmd命令使用MySQL, 个人博客，秦同学">
+    <meta name="keywords" content="如何在idea中显示并查询MySQL的表, 个人博客，秦同学">
     <meta name="description" content="记录生活，秦同学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>运用cmd命令使用MySQL | 白月光 | 秦同学</title>
+    <title>如何在idea中显示并查询MySQL的表 | 白月光 | 秦同学</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wind-qin/wind-qin.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">运用cmd命令使用MySQL</h1>
+                    <h1 class="description center-align post-title">如何在idea中显示并查询MySQL的表</h1>
                 </div>
             </div>
         </div>
@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-01
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    142
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -437,278 +437,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本篇文章乃是如何用cmd命令行操作mysql，如想了解在mysql内进行创建数据库等操作请参考：如下这篇</p>
-<p><a href="https://ialoe.top/posts/51549.html">MySQL数据库的创建及使用 | 白月光 | 秦同学 (ialoe.top)</a></p>
-<h3 id="一、进入MySQL数据库"><a href="#一、进入MySQL数据库" class="headerlink" title="一、进入MySQL数据库"></a>一、进入MySQL数据库</h3><pre><code>mysql -h localhost -u root -p
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201129164246.png" alt="image-20201129164243548"></p>
-<p>以下内容为进入MySQL中</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130120608.png" alt="img"></p>
-<h3 id="二、查看数据库"><a href="#二、查看数据库" class="headerlink" title="二、查看数据库"></a>二、查看数据库</h3><pre><code>show databases;
-</code></pre><p>以下为我的所有数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130121135.png" alt="img"></p>
-<h3 id="三、删除其中为rx1903的数据库；"><a href="#三、删除其中为rx1903的数据库；" class="headerlink" title="三、删除其中为rx1903的数据库；"></a>三、删除其中为rx1903的数据库；</h3><p>输入命令</p>
-<pre><code>drop database rx1903;
-</code></pre><p>出现以下内容为操作成功！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130122031.png" alt="img"></p>
-<h3 id="四、创建数据库："><a href="#四、创建数据库：" class="headerlink" title="四、创建数据库："></a>四、创建数据库：</h3><p>创建一个名为rx1903的数据库；</p>
-<pre><code>create database rx1903;
-</code></pre><p>数据库创建完成后，可以使用以下命令查看数据库的定义；</p>
-<pre><code>show create database rx1903;
-</code></pre><p>定义如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130123151.png" alt="img"></p>
-<p>先进入rx1903数据库；</p>
-<pre><code>use rx1903;
-</code></pre><p>以下为已进入</p>
-<p>【注意】必须进入某个数据库中然后才能创建数据表；</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130123848.png" alt="img"></p>
-<h3 id="MySQL常用指令"><a href="#MySQL常用指令" class="headerlink" title="MySQL常用指令"></a>MySQL常用指令</h3><pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">连接：mysql -h主机地址 -u用户名 －p用户密码 （注:u与root可以不用加空格，其它也一样）
-断开：exit （回车）
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">创建授权：grant select on 数据库.* to 用户名@登录主机 identified by \"密码\"
-修改密码：mysqladmin -u用户名 -p旧密码 password 新密码
-删除授权: revoke select,insert,update,delete om *.* fromtest2@localhost;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">显示数据库：show databases;
-显示数据表：show tables;
-显示表结构：describe 表名;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">创建库：create database 库名;
-删除库：drop database 库名;
-使用库：use 库名;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">创建表：create table 表名 (字段设定列表);
-删除表：drop table 表名;
-修改表：alter table t1 rename t2
-查询表：select * from 表名;
-清空表：delete from 表名;
-备份表: mysqlbinmysqldump -h(ip) -uroot -p(password) databasenametablename > tablename.sql
-恢复表: mysqlbinmysql -h(ip) -uroot -p(password) databasenametablename < tablename.sql（操作前先把原来表删除）
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">增加列：ALTER TABLE t2 ADD c INT UNSIGNED NOT NULL AUTO_INCREMENT,ADDINDEX (c);
-修改列：ALTER TABLE t2 MODIFY a TINYINT NOT NULL, CHANGE b cCHAR(20);
-删除列：ALTER TABLE t2 DROP COLUMN c;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">备份数据库：mysql\bin\mysqldump -h(ip) -uroot -p(password) databasename> database.sql
-恢复数据库：mysql\bin\mysql -h(ip) -uroot -p(password) databasename< database.sql
-复制数据库：mysql\bin\mysqldump --all-databases >all-databases.sql
-修复数据库：mysqlcheck -A -o -uroot -p54safer
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre><code>文本数据导入：load data local infile \&quot;文件名\&quot; into table 表名;
-数据导入导出：mysql\bin\mysqlimport database tables.txt
-</code></pre><pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">select * from emp;  #注释
-#---------------------------
-#----命令行连接MySql---------
-
-#启动mysql服务器
-net start mysql
-
-#关闭 
-net stop mysql
-
-#进入
-mysql -h 主机地址 -u 用户名 －p 用户密码
-
-#退出
-exit
-
-status;
-显示当前mysql的version的各种信息。
-
-#---------------------------
-#----MySql用户管理---------
-
-#修改密码:首先在DOS 下进入mysql安装路径的bin目录下，然后键入以下命令:
-mysqladmin -uroot -p123 password 456;
-
-#增加用户
-#格式:grant 权限 on 数据库.* to 用户名@登录主机 identified by '密码'
-/*
-如，增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入mysql，然后键入以下命令：
-grant select,insert,update,delete on *.* to user1@localhost Identified by "password1";
-如果希望该用户能够在任何机器上登陆mysql，则将localhost改为"%"。
-如果你不想user1有密码，可以再打一个命令将密码去掉。
-grant select,insert,update,delete on mydb.* to user1@localhost identified by "";
-*/
-
-grant all privileges on wpj1105.* to sunxiao@localhost identified by '123';   #all privileges 所有权限
-
-#----------------------------
-#-----MySql数据库操作基础-----
-
-#显示数据库
-show databases;
-
-#判断是否存在数据库wpj1105,有的话先删除
-drop database if exists wpj1105;
-
-#创建数据库
-create database wpj1105;
-
-#删除数据库
-drop database wpj1105;
-
-#使用该数据库
-use wpj1105;
-
-#显示数据库中的表
-show tables;
-
-#先判断表是否存在,存在先删除
-drop table if exists student;
-
-#创建表
-create table student(
-id int auto_increment primary key,
-name varchar(50),
-sex varchar(20),
-date varchar(50),
-content varchar(100)
-)default charset=utf8;
-
-#删除表
-drop table student;
-
-#查看表的结构
-describe student;  #可以简写为desc student;
-
-#插入数据
-insert into student values(null,'aa','男','1988-10-2','......');
-insert into student values(null,'bb','女','1889-03-6','......');
-insert into student values(null,'cc','男','1889-08-8','......');
-insert into student values(null,'dd','女','1889-12-8','......');
-insert into student values(null,'ee','女','1889-09-6','......');
-insert into student values(null,'ff','null','1889-09-6','......');
-#查询表中的数据
-select * from student;
-select id,name from student;
-
-#修改某一条数据
-update student set sex='男' where id=4;
-
-#删除数据
-delete from student where id=5;
-
-# and 且
-select * from student where date>'1988-1-2' and date<'1988-12-1';
-
-# or 或
-select * from student where date<'1988-11-2' or date>'1988-12-1';
-
-#between
-select * from student where date between '1988-1-2' and '1988-12-1';
-
-#in 查询制定集合内的数据
-select * from student where id in (1,3,5);
-
-#排序 asc 升序  desc 降序
-select * from student order by id asc;
-
-#分组查询 #聚合函数
-select max(id),name,sex from student group by sex;
-
-select min(date) from student;
-
-select avg(id) as '求平均' from student;
-
-select count(*) from student;   #统计表中总数
-
-select count(sex) from student;   #统计表中性别总数  若有一条数据中sex为空的话,就不予以统计~
-
-select sum(id) from student;
-
-#查询第i条以后到第j条的数据(不包括第i条)
-select * from student limit 2,5;  #显示3-5条数据
-
-#巩固练习
-create table c(
- id int primary key auto_increment,
- name varchar(10) not null,
- sex varchar(50) ,  #DEFAULT '男' ,
- age int unsigned, #不能为负值(如为负值 则默认为0)
- sno int unique    #不可重复
-);
-
-drop table c;
-desc c;
-
-insert into c (id,name,sex,age,sno) values (null,'涛哥','男',68,1);
-insert into c (id,name,sex,age,sno) values (null,'aa','男',68,2);
-insert into c (id,name,sex,age,sno) values (null,'平平','男',35,3);
-...
-
-select * from c;
-
-#修改数据
-update c set age=66 where id=2;
-update c set name='花花',age=21,sex='女' where id=2
-delete from c where age=21;
-
-#常用查询语句
-select name,age ,id from c
-select * from c where age>40 and age<60;  #and
-select * from c where age<40 or age<60;  #or
-select * from c where age between 40 and 60 #between
-select * from c where age in (30,48,68,99);     #in 查询指定集合内的数据
-select * from c order by age desc;      #order by （asc升序 des降序）
-
-#分组查询
-select name,max(age) from c group by sex;  #按性别分组查年龄最大值
-#聚合函数
-select min(age) from c;
-select avg(age) as '平均年龄 ' from c;
-select count(*) from c;  #统计表中数据总数
-select sum(age) from c;
-
-#修改表的名字
-#格式:alter table tbl_name rename to new_name
-alter table c rename to a;
-
-#表结构修改
-create table test
-(
-id int not null auto_increment primary key, #设定主键
-name varchar(20) not null default 'NoName', #设定默认值
-department_id int not null,
-position_id int not null,
-unique (department_id,position_id) #设定唯一值
-);
-
-#修改表的名字
-#格式:alter table tbl_name rename to new_name
-alter table test rename to test_rename;
-
-#向表中增加一个字段(列)
-#格式:alter table tablename add columnname type;/alter table tablename add(columnname type);
-alter table test add  columnname varchar(20);
-
-#修改表中某个字段的名字
-alter table tablename change columnname newcolumnname type;  #修改一个表的字段名
-alter table test change name uname varchar(50);
-
-select * from test;
-
-#表position 增加列test
-alter table position add(test char(10));
-#表position 修改列test
-alter table position modify test char(20) not null;
-#表position 修改列test 默认值
-alter table position alter test set default 'system';
-#表position 去掉test 默认值
-alter table position alter test drop default;
-#表position 去掉列test
-alter table position drop column test;
-#表depart_pos 删除主键
-alter table depart_pos drop primary key;
-#表depart_pos 增加主键
-alter table depart_pos add primary key PK_depart_pos
-(department_id,position_id);
-
-#用文本方式将数据装入数据库表中（例如D:/mysql.txt）
-load data local infile "D:/mysql.txt" into table MYTABLE;
-
-#导入.sql文件命令（例如D:/mysql.sql）
-source d:/mysql.sql;  #或者  /. d:/mysql.sql;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h3 id="一、先下一个jar包"><a href="#一、先下一个jar包" class="headerlink" title="一、先下一个jar包"></a>一、先下一个jar包</h3><p>【注意】一定要下到自己能找到的位置，可根据自己的版本进行下载</p>
+<p><a href="https://share.weiyun.com/IBBDrqk7" target="_blank" rel="noopener">传送门</a></p>
+<p>如传送门并非自己所需jar包，请前往—&gt;下载<a href="https://mvnrepository.com/search?q=mysql" target="_blank" rel="noopener">Attention Required! | Cloudflare (mvnrepository.com)</a></p>
+<h3 id="二、寻找过程"><a href="#二、寻找过程" class="headerlink" title="二、寻找过程"></a>二、寻找过程</h3><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>在idea中找到如图所在位置的Database；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201095442.png" alt="img"></p>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>点开然后找到如图所示的“+”后点击“+”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201100837.png" alt="img"></p>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201102426.png" alt="img"></p>
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><p>找到MySQL点击，出现如下图所示：再次点击Driver:中的MySQL找到自己的jar包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112359.png" alt="20201201112319"></p>
+<p>找到自己的jar包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112150.png" alt="jar"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201110605.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112652.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201132845.png" alt="122"></p>
+<p>到此就完成了·······</p>
 <p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130221106.jpg" alt="110"></p>
 
             </div>
@@ -735,7 +479,7 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ialoe.top/posts/3561.html">https://ialoe.top/posts/3561.html</a>
+                    <a href="https://ialoe.top/posts/12605.html">https://ialoe.top/posts/12605.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1205,9 +949,10 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/12605.html">
                     <div class="card-image">
@@ -1224,9 +969,9 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1239,6 +984,7 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1257,18 +1003,18 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/23591.html">
+                <a href="/posts/3561.html">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="JDBC——java与数据库的连接">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="运用cmd命令使用MySQL">
                         
-                        <span class="card-title">JDBC——java与数据库的连接</span>
+                        <span class="card-title">运用cmd命令使用MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java连接mysql数据库
+                            如何运用cmd命令使用MySQL
                         
                     </div>
                     <div class="publish-info">
@@ -1279,8 +1025,8 @@ source d:/mysql.sql;  #或者  /. d:/mysql.sql;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/" class="post-category">
-                                    MySQL数据库的连接
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                             
                             

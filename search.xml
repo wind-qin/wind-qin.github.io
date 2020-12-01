@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何在idea中显示并查询MySQL的表</title>
+      <link href="posts/12605.html"/>
+      <url>posts/12605.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、先下一个jar包"><a href="#一、先下一个jar包" class="headerlink" title="一、先下一个jar包"></a>一、先下一个jar包</h3><p>【注意】一定要下到自己能找到的位置，可根据自己的版本进行下载</p><p><a href="https://share.weiyun.com/IBBDrqk7" target="_blank" rel="noopener">传送门</a></p><p>如传送门并非自己所需jar包，请前往—&gt;下载<a href="https://mvnrepository.com/search?q=mysql" target="_blank" rel="noopener">Attention Required! | Cloudflare (mvnrepository.com)</a></p><h3 id="二、寻找过程"><a href="#二、寻找过程" class="headerlink" title="二、寻找过程"></a>二、寻找过程</h3><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>在idea中找到如图所在位置的Database；</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201095442.png" alt="img"></p><h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>点开然后找到如图所示的“+”后点击“+”</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201100837.png" alt="img"></p><h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201102426.png" alt="img"></p><h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><p>找到MySQL点击，出现如下图所示：再次点击Driver:中的MySQL找到自己的jar包</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112359.png" alt="20201201112319"></p><p>找到自己的jar包</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112150.png" alt="jar"></p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201110605.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201112652.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201201132845.png" alt="122"></p><p>到此就完成了·······</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201130221106.jpg" alt="110"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>运用cmd命令使用MySQL</title>
       <link href="posts/3561.html"/>
       <url>posts/3561.html</url>
