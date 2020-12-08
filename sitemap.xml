@@ -221,13 +221,6 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/tags/JavaScript/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
@@ -256,6 +249,13 @@
   </url>
   
   <url>
+    <loc>https://ialoe.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ialoe.top/tags/Tomcat/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
@@ -270,7 +270,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/XML/</loc>
+    <loc>https://ialoe.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,14 +284,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://ialoe.top/tags/Java/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/Java/</loc>
+    <loc>https://ialoe.top/tags/XML/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,13 +328,6 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/categories/JSON/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
@@ -363,6 +356,13 @@
   </url>
   
   <url>
+    <loc>https://ialoe.top/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ialoe.top/categories/Tomcat/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
@@ -377,7 +377,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/XML/</loc>
+    <loc>https://ialoe.top/categories/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,14 +391,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/github%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://ialoe.top/categories/Java/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/Java/</loc>
+    <loc>https://ialoe.top/categories/XML/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
