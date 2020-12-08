@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-03
+                    2020-12-08
                 </div>
 				<div class="info-break-policy">
 					 
@@ -420,14 +420,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    761
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    15 分
                 </div>
                 
 
@@ -676,6 +676,484 @@ for (var i = 0; i < persons.length; i++) {
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="JSON数据验证"><a href="#JSON数据验证" class="headerlink" title="JSON数据验证"></a>JSON数据验证</h3><p><a href="www.bejson.com">JSON格式验证</a></p>
+<h3 id="JSON解析【重点】"><a href="#JSON解析【重点】" class="headerlink" title="JSON解析【重点】"></a>JSON解析【重点】</h3><h4 id="核心操作"><a href="#核心操作" class="headerlink" title="核心操作"></a>核心操作</h4><blockquote>
+<p>JSON对象转Java对象</p>
+<p>Java对象转JSON对象</p>
+</blockquote>
+<h4 id="常见解析器"><a href="#常见解析器" class="headerlink" title="常见解析器"></a>常见解析器</h4><blockquote>
+<p>Gson</p>
+<p>Jackson【常用】</p>
+<p>Fastjson【常用】</p>
+</blockquote>
+<h3 id="Jackson解析"><a href="#Jackson解析" class="headerlink" title="Jackson解析"></a>Jackson解析</h3><blockquote>
+<p>1、导包</p>
+<pre><code>jackson-core-2.2.3.jar
+jackson-annotations-2.2.3.jar
+jackson-databind-2.2.3.jar
+</code></pre><p>2、创建Jackson核心类对象 ObjectMapper</p>
+<p>3、调用相关转换方法实现解析</p>
+</blockquote>
+<p>实体类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Person {
+    private String name;
+    private int age;
+    private boolean gender;
+
+    // Constructor、Getters and Setters、toString
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Java对象转JSON字符串"><a href="#Java对象转JSON字符串" class="headerlink" title="Java对象转JSON字符串"></a>Java对象转JSON字符串</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class JacksonTest {
+    @Test
+    public void test1() {
+        // 准备Java对象
+        Person person = new Person("玉田", 27, true);
+
+        // 获取核心类对象ObjectMapper
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            // 将Java对象转为Json字符串
+            String jsonString = mapper.writeValueAsString(person);
+
+            System.out.println(jsonString);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="集合转JSON字符串"><a href="#集合转JSON字符串" class="headerlink" title="集合转JSON字符串"></a>集合转JSON字符串</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test2() {
+    // 准备Java对象
+    Person person1 = new Person("玉田", 51, true, new Date());
+    Person person2 = new Person("永强", 34, true, new Date());
+    Person person3 = new Person("大脚", 29, false, new Date());
+
+    // 声明一个集合并将数据添加到集合中
+    List<Person> list = new ArrayList<>();
+    list.add(person1);
+    list.add(person2);
+    list.add(person3);
+
+    // 获取核心类对象ObjectMapper
+    ObjectMapper mapper = new ObjectMapper();
+
+    try {
+        // 将集合转为Json字符串
+        String jsonString = mapper.writeValueAsString(list); // [{"name":"玉田","age":51,"gender":true,"birthday":"2020-12-01 15:46:46"},{"name":"永强","age":34,"gender":true,"birthday":"2020-12-01 15:46:46"},{"name":"大脚","age":29,"gender":false,"birthday":"2020-12-01 15:46:46"}]
+
+        System.out.println(jsonString);
+    } catch (JsonProcessingException e) {
+        e.printStackTrace();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Map转JSON字符串"><a href="#Map转JSON字符串" class="headerlink" title="Map转JSON字符串"></a>Map转JSON字符串</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test4() {
+    // 准备Java对象
+    Person person1 = new Person("玉田", 51, true, new Date());
+    Person person2 = new Person("永强", 34, true, new Date());
+    Person person3 = new Person("大脚", 29, false, new Date());
+
+    // 声明一个集合并将数据添加到集合中
+    Map<String, Person> map = new HashMap<>();
+    map.put("person1", person1);
+    map.put("person2", person2);
+    map.put("person3", person3);
+
+    // 获取核心类对象ObjectMapper
+    ObjectMapper mapper = new ObjectMapper();
+
+    try {
+        // 将Map转为Json字符串
+        String jsonString = mapper.writeValueAsString(map); // {"person3":{"name":"大脚","age":29,"gender":false,"birthday":"2020-12-01 15:51:02"},"person2":{"name":"永强","age":34,"gender":true,"birthday":"2020-12-01 15:51:02"},"person1":{"name":"玉田","age":51,"gender":true,"birthday":"2020-12-01 15:51:02"}}
+
+        System.out.println(jsonString);
+    } catch (JsonProcessingException e) {
+        e.printStackTrace();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="JSON字符串转Java对象【用的不多】"><a href="#JSON字符串转Java对象【用的不多】" class="headerlink" title="JSON字符串转Java对象【用的不多】"></a>JSON字符串转Java对象【用的不多】</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test6() {
+    String jsonString = "{\"name\":\"玉田\", \"age\":21, \"gender\":true}";
+
+    ObjectMapper mapper = new ObjectMapper();
+
+    try {
+        Person person = mapper.readValue(jsonString, Person.class);
+
+        System.out.println(person); // Person{name='玉田', age=21, gender=true, birthday=null}
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="补充：两个注解的使用"><a href="#补充：两个注解的使用" class="headerlink" title="补充：两个注解的使用"></a>补充：两个注解的使用</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 被此注解修饰的变量不会进行Json格式的转换
+@JsonIgnore
+
+// 被此注解修饰的变量会被格式化
+@JsonFormat
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码一：@JsonIgnore</p>
+<p>实体类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Person {
+    private String name;
+    private int age;
+    private boolean gender;
+    @JsonIgnore
+    private Date birthday;
+
+    // Constructor、Getters and Setters、toString
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test3() {
+    // 准备Java对象
+    Person person = new Person("玉田", 27, true);
+    person.setBirthday(new Date());
+
+    // 获取核心类对象ObjectMapper
+    ObjectMapper mapper = new ObjectMapper();
+
+    try {
+        // 将Java对象转为Json字符串
+        String jsonString = mapper.writeValueAsString(person);
+
+        System.out.println(jsonString); // {"name":"玉田","age":27,"gender":true}
+    } catch (JsonProcessingException e) {
+        e.printStackTrace();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码二：@JsonFormat</p>
+<p>实体类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Person {
+    private String name;
+    private int age;
+    private boolean gender;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date birthday;
+
+    // Constructor、Getters and Setters、toString
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试类</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test3() {
+    // 准备Java对象
+    Person person = new Person("玉田", 27, true);
+    person.setBirthday(new Date());
+
+    // 获取核心类对象ObjectMapper
+    ObjectMapper mapper = new ObjectMapper();
+
+    try {
+        // 将Java对象转为Json字符串
+        String jsonString = mapper.writeValueAsString(person);
+
+        System.out.println(jsonString); // {"name":"玉田","age":27,"gender":true,"birthday":"2020-12-01 15:37:31"}
+    } catch (JsonProcessingException e) {
+        e.printStackTrace();
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="FastJson-解析"><a href="#FastJson-解析" class="headerlink" title="FastJson 解析"></a>FastJson 解析</h3><blockquote>
+<p>1、导包</p>
+<pre><code>fastjson-1.2.47.jar
+</code></pre><p>2、通过JSON核心类调用解析和转换方法</p>
+</blockquote>
+<h4 id="Java对象转为Json字符串"><a href="#Java对象转为Json字符串" class="headerlink" title="Java对象转为Json字符串"></a>Java对象转为Json字符串</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test1() {
+    // 准备实体类对象
+    Person person = new Person("玉田", 21, true, new Date());
+
+    // Java对象转为Json字符串
+    String jsonString = JSON.toJSONString(person);
+
+    System.out.println(jsonString); // {"age":21,"birthday":1606839584000,"gender":true,"name":"玉田"}
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="集合转为Json字符串"><a href="#集合转为Json字符串" class="headerlink" title="集合转为Json字符串"></a>集合转为Json字符串</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test2() {
+    // 准备Java对象
+    Person person1 = new Person("玉田", 51, true, new Date());
+    Person person2 = new Person("永强", 34, true, new Date());
+    Person person3 = new Person("大脚", 29, false, new Date());
+
+    // 声明一个集合并将数据添加到集合中
+    List<Person> list = new ArrayList<>();
+    list.add(person1);
+    list.add(person2);
+    list.add(person3);
+    // Java对象转为Json字符串
+    String jsonString = JSON.toJSONString(list);
+
+    System.out.println(jsonString); // [{"age":51,"birthday":1606840178091,"gender":true,"name":"玉田"},{"age":34,"birthday":1606840178091,"gender":true,"name":"永强"},{"age":29,"birthday":1606840178091,"gender":false,"name":"大脚"}]
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Json字符串转Java对象"><a href="#Json字符串转Java对象" class="headerlink" title="Json字符串转Java对象"></a>Json字符串转Java对象</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test3() {
+    // 准备Json字符串
+    String jsonString = "{\"age\":21,\"birthday\":1606839584000,\"gender\":true,\"name\":\"玉田\"}";
+
+    // 将Json字符串解析成实体类对象
+    Person person = JSON.parseObject(jsonString, Person.class);
+
+    System.out.println(person);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Json字符串转Json对象"><a href="#Json字符串转Json对象" class="headerlink" title="Json字符串转Json对象"></a>Json字符串转Json对象</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test4() {
+    // 准备Json字符串
+    String jsonString = "{\"age\":21,\"birthday\":1606839584000,\"gender\":true,\"name\":\"玉田\"}";
+
+    // 将Json字符串转为Json对象
+    JSONObject jsonObject = JSON.parseObject(jsonString);
+
+    System.out.println(jsonObject);
+
+    // 根据键获取对应的值
+    String name = jsonObject.getString("name");
+    System.out.println(name);
+    System.out.println(jsonObject.getInteger("age"));
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Json字符串转Json数组"><a href="#Json字符串转Json数组" class="headerlink" title="Json字符串转Json数组"></a>Json字符串转Json数组</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test5() {
+    // 准备Json字符串
+    String jsonString = "[{\"age\":51,\"birthday\":1606840178091,\"gender\":true,\"name\":\"玉田\"},{\"age\":34," +
+            "\"birthday\":1606840178091,\"gender\":true,\"name\":\"永强\"},{\"age\":29,\"birthday\":1606840178091," +
+            "\"gender\":false,\"name\":\"大脚\"}]";
+
+    // Json字符串转Json数组
+    JSONArray objects = JSON.parseArray(jsonString);
+    System.out.println(objects);
+
+    // 增强for循环获取所有的Json对象
+    for (Object object : objects) {
+        // 强制类型转换
+        JSONObject jsonObject1 = (JSONObject) object;
+
+        // 根据键获取对应的值
+        System.out.println(jsonObject1.getString("name"));
+        System.out.println(jsonObject1.getInteger("age"));
+    }
+
+    // 获取Json数组中指定下标位置的java对象
+    Person person = objects.getObject(2, Person.class);
+    System.out.println(person);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Json数组转集合"><a href="#Json数组转集合" class="headerlink" title="Json数组转集合"></a>Json数组转集合</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">@Test
+public void test6() {
+    // 准备Json字符串
+    String jsonString = "[{\"age\":51,\"birthday\":1606840178091,\"gender\":true,\"name\":\"玉田\"},{\"age\":34," +
+            "\"birthday\":1606840178091,\"gender\":true,\"name\":\"永强\"},{\"age\":29,\"birthday\":1606840178091," +
+            "\"gender\":false,\"name\":\"大脚\"}]";
+
+    // Json字符串转Json数组
+    JSONArray objects = JSON.parseArray(jsonString);
+
+    // 讲Json数组转为集合
+    List<Person> list = objects.toJavaList(Person.class);
+
+    // 增强for循环拿到所有的对象
+    for (Person person : list) {
+        System.out.println(person);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Web相关概念"><a href="#Web相关概念" class="headerlink" title="Web相关概念"></a>Web相关概念</h2><h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><h4 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h4><blockquote>
+<p>C/S架构的全称为Client Server，即客户机/服务器模式</p>
+</blockquote>
+<h5 id="C-S架构的优点"><a href="#C-S架构的优点" class="headerlink" title="C/S架构的优点"></a>C/S架构的优点</h5><ol>
+<li>C/S架构的界面和操作可以很丰富。（客户端操作界面可以随意排列，满足客户的需要）</li>
+<li>安全性能可以很容易保证。（因为只有两层的传输，而不是中间有很多层。</li>
+<li>由于只有一层交互，因此响应速度较快。（直接相连，中间没有什么阻隔或岔路，比如QQ，每天那么多人在线，也不觉得慢）</li>
+</ol>
+<h5 id="C-S架构的缺点"><a href="#C-S架构的缺点" class="headerlink" title="C/S架构的缺点"></a>C/S架构的缺点</h5><ol>
+<li>适用面窄，通常用于局域网中。</li>
+<li>用户群固定。由于程序需要安装才可使用，因此不适合面向一些不可知的用户。</li>
+<li>维护成本高，发生一次升级，则所有客户端的程序都需要改变。</li>
+</ol>
+<h4 id="B-S"><a href="#B-S" class="headerlink" title="B/S"></a>B/S</h4><blockquote>
+<p>B/S架构的全称为Browser/Server，即浏览器/服务器结构。</p>
+</blockquote>
+<h5 id="B-S架构的优点"><a href="#B-S架构的优点" class="headerlink" title="B/S架构的优点"></a>B/S架构的优点</h5><ol>
+<li>客户端无需安装，有Web浏览器即可。 </li>
+<li>BS架构可以直接放在广域网上，通过一定的权限控制实现多客户访问的目的，交互性较强。 </li>
+<li>BS架构无需升级多个客户端，升级服务器即可。可以随时更新版本，而无需用户重新下载。</li>
+</ol>
+<h5 id="B-S架构的缺点"><a href="#B-S架构的缺点" class="headerlink" title="B/S架构的缺点"></a>B/S架构的缺点</h5><ol>
+<li>在跨浏览器上，BS架构不尽如人意。 </li>
+<li>表现要达到CS程序的程度需要花费不少精力。 </li>
+<li>在速度和安全性上需要花费巨大的设计成本，这是BS架构的最大问题。 </li>
+<li>客户端服务器端的交互是请求-响应模式，通常需要刷新页面，这并不是客户乐意看到的。（在Ajax流行后此问题得到了一定程度的缓解）</li>
+</ol>
+<h3 id="资源分类"><a href="#资源分类" class="headerlink" title="资源分类"></a>资源分类</h3><h4 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h4><blockquote>
+<p>可以理解为前端的固定页面，所有人访问看到的效果是相同的，这里面包含HTML、CSS、JS、图片等等，不需要查数据库也不需要程序处理，直接就能够显示的页面，如果想修改内容则必须修改页面，但是访问效率相当高。</p>
+</blockquote>
+<h4 id="动态资源"><a href="#动态资源" class="headerlink" title="动态资源"></a>动态资源</h4><blockquote>
+<p>需要程序处理或者从数据库中读数据，能够根据不同的条件在页面显示不同的数据，即每个用户访问相同资源后，得到的结果可能不一样。动态资源被访问后，需要先转换为静态资源，再返回给浏览器，所以内容更新不需要修改页面但是访问速度不及静态页面。</p>
+</blockquote>
+<p><img src="D:/java上课案例/12月4日/Pictures/资源分类.bmp" alt=""></p>
+<h3 id="网络通信三要素"><a href="#网络通信三要素" class="headerlink" title="网络通信三要素"></a>网络通信三要素</h3><h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p>通信设备在网络上的唯一标示，可以通过IP地址找到通信所在的设备</p>
+<h4 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h4><p>应用程序在计算机中的唯一标识。</p>
+<blockquote>
+<p>范围是  0~65535</p>
+</blockquote>
+<h4 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h4><p>规定了数据传输的规则</p>
+<h3 id="Web服务器软件"><a href="#Web服务器软件" class="headerlink" title="Web服务器软件"></a>Web服务器软件</h3><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>服务器：安装了服务器软件的计算机</p>
+<p>服务器软件：接收用户的请求，处理请求，做出响应</p>
+<p>Web服务器软件：通过浏览器接收用户的请求，处理请求，做出响应</p>
+<p>​    【重点】在 Web 服务器软件中，可以部署 Web 项目，让用户通过浏览器来访问这些项目</p>
+</blockquote>
+<h3 id="常见-Java-相关的-Web-服务器软件"><a href="#常见-Java-相关的-Web-服务器软件" class="headerlink" title="常见 Java 相关的 Web 服务器软件"></a>常见 Java 相关的 Web 服务器软件</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Web服务器软件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>webLogic</td>
+<td>oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的</td>
+</tr>
+<tr>
+<td>webSphere</td>
+<td>IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的</td>
+</tr>
+<tr>
+<td>JBOSS</td>
+<td>JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的</td>
+</tr>
+<tr>
+<td>Tomcat</td>
+<td>Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范。开源，免费</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>【注意】Apache不等于Tomcat，打个比方：apache是一辆卡车，上面可以装一些东西如html等。但是不能装水，要装水必须要有容器（桶），tomcat就是一个桶（装像JAVA这样的水），而这个桶也可以不放在卡车上。</p>
+<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。</p>
+<p>官网</p>
+<pre class="line-numbers language-lang-http"><code class="language-lang-http">https://tomcat.apache.org/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>apache-tomcat-8.5.37-windows-x64.zip
+</code></pre><blockquote>
+<p>解压即安装</p>
+</blockquote>
+<p>【注意】</p>
+<ul>
+<li>安装路径不要有中文！！！</li>
+<li>配置 JAVA_HOME 环境变量（tomcat运行依赖于JVM，需要指定JDK）</li>
+</ul>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bin</td>
+<td>可执行文件，包含启动和停止的命令</td>
+</tr>
+<tr>
+<td>conf</td>
+<td>配置文件目录，存放Tomcat的配置文件</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>依赖和类库jar包</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>日志目录</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>临时文件目录</td>
+</tr>
+<tr>
+<td>webapps</td>
+<td>非常重要的目录，存放项目的目录</td>
+</tr>
+<tr>
+<td>work</td>
+<td>工作目录，将来JSP文件编译成Servlet存放的目录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="启动停止"><a href="#启动停止" class="headerlink" title="启动停止"></a>启动停止</h3><pre><code># 启动命令  
+bin/startup.bat  
+
+# 停止命令
+bin/shutdown.bat
+</code></pre><blockquote>
+<p>【注意】</p>
+<ol>
+<li>不要重复启动，启动之前先关闭已经启动的【可以通过netstat -ano查看被占用的进程PID】</li>
+<li>如果出现闪退：可能是没有配置JAVA_HOME 环境变量</li>
+</ol>
+</blockquote>
+<pre><code>Neither the JAVA_HOME nor the JRE_HOME environment variable is defined
+At least one of these environment variable is needed to run this program
+</code></pre><h3 id="测试访问"><a href="#测试访问" class="headerlink" title="测试访问"></a>测试访问</h3><ul>
+<li>先启动</li>
+<li>打开浏览器访问</li>
+</ul>
+<pre><code>http://localhost:8080
+</code></pre><blockquote>
+<p>localhost 本机地址，等于127.0.0.1</p>
+<p>8080 默认端口</p>
+</blockquote>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><ul>
+<li>端口配置  conf/server.xml</li>
+</ul>
+<pre class="line-numbers language-lang-xml"><code class="language-lang-xml"><Connector port="8888" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>默认端口8080  可以改成其他如：8888</p>
+<p>【注意】一般不建议修改，除非改成80端口，因为80端口是HTTP协议的默认端口号</p>
+</blockquote>
+<ul>
+<li>启动日志乱码 conf/logging.properties</li>
+</ul>
+<pre class="line-numbers language-lang-properties"><code class="language-lang-properties">java.util.logging.ConsoleHandler.level = FINE
+java.util.logging.ConsoleHandler.formatter = org.apache.juli.OneLineFormatter
+java.util.logging.ConsoleHandler.encoding = gbk
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>windows 窗口默认编码为GBK,如果输出内容为UTF-8乱码。</p>
+</blockquote>
+<h3 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h3><p>1、直接将项目放到webapps目录下</p>
+<p>2、将项目压缩成war包放到webapps目录下</p>
+<h3 id="idea-整合Tomcat"><a href="#idea-整合Tomcat" class="headerlink" title="idea 整合Tomcat"></a>idea 整合Tomcat</h3><pre><code>1. Settings -&gt; Run Configuration Templates for New Porject
+
+2. TomcatServer -&gt; Local
+
+3. Application Server  点击  Configuration 找到tomcat安装位置
+
+4. OK确认
+</code></pre><blockquote>
+<p>【一定先把Tomcat整合好】后面创建项目就可以直接选了，如果没有整合，那么需要再创建项目时整合。</p>
+</blockquote>
 
             </div>
             <hr/>
