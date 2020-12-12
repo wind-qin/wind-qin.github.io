@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-09
+                    2020-12-12
                 </div>
 				<div class="info-break-policy">
 					 
@@ -502,7 +502,7 @@ public class HelloServlet extends HttpServlet {
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>html页面</p>
-<pre class="line-numbers language-lang-html"><code class="language-lang-html"><!DOCTYPE html>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -888,7 +888,7 @@ public class UseOnAnnotation extends HttpServlet {
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="通过-web-xml-文件"><a href="#通过-web-xml-文件" class="headerlink" title="通过 web.xml 文件"></a>通过 web.xml 文件</h4><p>核心内容</p>
-<pre class="line-numbers language-lang-xml"><code class="language-lang-xml"><!--Servlet核心配置，必须告知Servlet程序对应的名字和Servlet程序对应的class（Java类）-->
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell"><!--Servlet核心配置，必须告知Servlet程序对应的名字和Servlet程序对应的class（Java类）-->
 <servlet>
     <!-- ServletName -->
     <servlet-name>UseWebXML</servlet-name>
@@ -1043,10 +1043,12 @@ public class GetParameter extends HttpServlet {
 <p>2、要求前端提交数据的 name 属性和后台获取 getParameter 参数名一致</p>
 </blockquote>
 <h3 id="连接数据库【重点】"><a href="#连接数据库【重点】" class="headerlink" title="连接数据库【重点】"></a>连接数据库【重点】</h3><p>sql</p>
-<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">create table user(id int primary key auto_increment, username varchar(20) unique not null, password varchar(16) not null);
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-mysql"><code class="language-lang-mysql">create table user(id int primary key auto_increment, 
+             username varchar(20) unique not null, 
+            password varchar(16) not null);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>html</p>
-<pre class="line-numbers language-lang-html"><code class="language-lang-html"><!DOCTYPE html>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1073,7 +1075,7 @@ public class GetParameter extends HttpServlet {
 </html>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>案例代码</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">/**
  * 测试Servlet连接数据库
  */
 @WebServlet("/Register")
