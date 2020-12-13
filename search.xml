@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何解决Idea运行中文乱码</title>
+      <link href="posts/50158.html"/>
+      <url>posts/50158.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="idea运行中文乱码"><a href="#idea运行中文乱码" class="headerlink" title="idea运行中文乱码"></a>idea运行中文乱码</h3><p>其实只要<code>+</code>上          <code>-Dfile.encoding=UTF-8</code>          就好了</p><p>上图：</p><p>刚开始是</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/image-20201213211902036.png" alt="image-20201213211902036"></p><h4 id="1、如图点击"><a href="#1、如图点击" class="headerlink" title="1、如图点击"></a>1、如图点击</h4><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/image-20201213211552082.png" alt="image-20201213211552082"></p><h4 id="2、找到VM-options-修改其内容"><a href="#2、找到VM-options-修改其内容" class="headerlink" title="2、找到VM options:修改其内容"></a>2、找到<code>VM options:</code>修改其内容</h4><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/image-20201213211819956.png" alt="image-20201213211819956"></p><h4 id="3、加上-Dfile-encoding-UTF-8"><a href="#3、加上-Dfile-encoding-UTF-8" class="headerlink" title="3、加上-Dfile.encoding=UTF-8"></a>3、加上<code>-Dfile.encoding=UTF-8</code></h4><p>修改后再运行如图：  解决！！！</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/image-20201213212039458.png" alt="image-20201213212039458"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> idea </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JSP</title>
       <link href="posts/6685.html"/>
       <url>posts/6685.html</url>
