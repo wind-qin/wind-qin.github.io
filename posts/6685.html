@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-12
+                    2020-12-14
                 </div>
 				<div class="info-break-policy">
 					 
@@ -1071,7 +1071,7 @@ public class GetParameter extends HttpServlet {
         </tr>
     </table>
 </form>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script></body>
+</body>
 </html>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>案例代码</p>
@@ -1132,6 +1132,309 @@ public class RegisterServlet extends HttpServlet {
 <blockquote>
 <p>【注意】这里使用了C3P3连接池，需要导入相关的 jar 包以及配置文件，如果使用 Druid 连接池需要修改 Druid.properties 文件的位置并修改代码， 不推荐！</p>
 </blockquote>
+<h2 id="Servlet-1"><a href="#Servlet-1" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="重定向【重点】"><a href="#重定向【重点】" class="headerlink" title="重定向【重点】"></a>重定向【重点】</h3><blockquote>
+<p>浏览器发送HTTP请求 =&gt; 服务器<br>服务器接收到请求之后 发送302状态码 新的location =&gt; 浏览器<br>浏览器收到302状态码 + location 按照新的location发送新的请求 =&gt; 服务器</p>
+</blockquote>
+<p>特点</p>
+<blockquote>
+<ul>
+<li>该操作是浏览器行为</li>
+<li>重定向最少存在两次的浏览器请求</li>
+<li>重定向情况下，浏览器的地址栏中的URL会发生改变</li>
+<li>重定向操作存在两个或者两个以上的请求，每一次新的请求，都会丢失之前的请求数据，也就是request对象【requeset作用域范围】</li>
+<li>重定向可以访问任何资源，不管是当前WEB服务器资源，还是网络端的资源都是可以访问</li>
+</ul>
+</blockquote>
+<p>起始页</p>
+<pre class="line-numbers language-lang-html"><code class="language-lang-html"><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重定向起始页</title>
+</head>
+<body>
+<form action="TestRedirectServlet" method="post">
+    <table>
+        <tr>
+            <td>账号</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>跳转页</p>
+<pre class="line-numbers language-lang-html"><code class="language-lang-html"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重定向跳转过来的页面</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><img src="真香.jpg"></td>
+    </tr>
+</table>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":34,"vOffset":-76},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.8},"name":{"canvas":"live2dcanvas","div":"live2d-widget"},"dev":{"border":false},"dialog":{"enable":true,"hitokoto":true}});</script></body>
+</html>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试重定向
+ */
+@WebServlet("/TestRedirectServlet")
+public class TestReDirectServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        request.setCharacterEncoding("utf-8");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        System.out.println(username + ":" + password);
+
+        if ("Andy".equals(username) && "123456".equals(password)) {
+            // 调用重定向方法
+            response.sendRedirect("Demo2.html");
+        } else {
+            response.getWriter().append("账号密码错误！！！");
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doPost(request, response);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="转发【重点】"><a href="#转发【重点】" class="headerlink" title="转发【重点】"></a>转发【重点】</h3><blockquote>
+<p>浏览器发送HTTP请求 =&gt; 服务器<br>服务器接收到请求之后内部资源处理跳转 =&gt; 服务器其他资源<br>服务器其他资源处理完毕之后，才通过原始的请求和响应返回数据 =&gt; 客户端</p>
+<p>特征：</p>
+<ul>
+<li>​    转发是服务器行为</li>
+<li>​    转发情况下浏览器有且只发送了一次请求</li>
+<li>​    转发情况下浏览器的地址栏没有发生任何改变</li>
+<li>​    转发情况下，浏览器的请求数据是被保存的，是通过 request 进行传递的</li>
+<li>​    转发情况下有且只能转发 WEB Application 整个项目的内容资源</li>
+</ul>
+</blockquote>
+<p>起始页</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试转发起始页
+ */
+@WebServlet("/TestForwardServletFrom")
+public class TestForwardServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        // 设置自定义请求参数，保存到 request 中
+        request.setAttribute("Forward", "转发成功");
+
+        // 获取请求调度并器将 request 和 response 转发给 TestForWardServlet2
+        request.getRequestDispatcher("TestForwardServletTo").forward(request, response);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>目的页</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试转发目的页
+ */
+@WebServlet("/TestForwardServletTo")
+public class TestForwardServlet2 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        // 获取请求参数
+        Object context = request.getAttribute("Forward");
+
+        System.out.println(context);
+
+        response.setContentType("text/html; charset=utf-8");
+
+        response.getWriter().append("我是目的页，这是从起始页传来的数据：" + context);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="URL-匹配原则"><a href="#URL-匹配原则" class="headerlink" title="URL 匹配原则"></a>URL 匹配原则</h3><pre><code>url-pattern匹配原则：
+    1、精确匹配
+        /具体名字
+
+    2、后缀名匹配
+        *.do *.action 
+        *.xxx  
+        主要是按照规定结尾的url-pattern都可以触发对应的Servlet程序
+
+    3、通配符匹配
+        /* 匹配所有请求，服务器端所有资源都可以匹配
+</code></pre><h4 id="精准匹配"><a href="#精准匹配" class="headerlink" title="精准匹配"></a>精准匹配</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 精准查询
+ */
+@WebServlet("/PreciseServlet")
+public class PreciseServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        response.setContentType("text/html; charset=utf-8");
+        response.getWriter().append("测试URL的精准查询：通过完整的协议+域名+端口+资源+参数");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="后缀名匹配"><a href="#后缀名匹配" class="headerlink" title="后缀名匹配"></a>后缀名匹配</h4><p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 后缀名匹配
+ */
+@WebServlet("*.do")
+public class SuffixServlet  extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        response.setContentType("text/html; charset=utf-8");
+        response.getWriter().append("测试URL的后缀名匹配，通过指定的后缀名即可");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="通配符匹配"><a href="#通配符匹配" class="headerlink" title="通配符匹配"></a>通配符匹配</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 通配符匹配
+ */
+@WebServlet("/*")
+public class WildcardServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=utf-8");
+        response.getWriter().append("通过通配符*的方式，所有路径都可以访问到");
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>ServletContext 指的是 Servlet 上下文。服务器会为每一个项目创建一个对象，这个对象就是 ServletContext 对象。这个对象全局唯一，而且项目内部的所有 Servlet 都共享这个对象，都能够使用其内部存储的数据。所以也叫全局应用程序共享对象</p>
+<blockquote>
+<p>ServletContext 接口定义了 Servlet 用于与其他 Servlet 容器通信的一组方法，例如，用于获取文件的MIME类型、分派请求或写入日志文件</p>
+</blockquote>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><blockquote>
+<p>1、是一个域对象（域对象是服务器在内存上创建的存储空间，用于在不同动态资源（Servlet）之间传递与共享数据）</p>
+<p>2、可以读取全局配置参数</p>
+<p>3、可以搜索当前项目目录下面的资源文件</p>
+</blockquote>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><pre class="line-numbers language-lang-java"><code class="language-lang-java">// 获取 ServletContext 对象【重点】
+ServletContext getServletContext();
+
+// 通过ServletConfig对象获取对应的ServletContext对象
+getServletConfig().getServletContext();
+
+// 通过Request请求对象获取对应都是ServletContext对象
+req.getServletContext();
+
+// 通过HttpSession对象获取ServletContext对象
+req.getSession().getServletContext();
+
+// 作为数据传递的容器，设置属性及其属性值
+void setAttribute(String var1, Object var2);
+
+// 获取具有给定名称的 servlet 容器属性，如果没有该名称的属性，则返回 null
+public Object getAttribute(String name);
+
+// 获取一个枚举，其中包含此 servlet 上下文中可用的属性名称。使用带有属性名称的 getAttribute 方法来获取属性的值。
+public Enumeration getAttributeNames();
+
+// 删除指定的属性以及对应的属性值
+void removeAttribute(String var1);
+
+// 获取包含给定虚拟路径的真实路径的字符串    
+public String getRealPath(String path);
+
+//     获取Tomcat服务器板版本信息
+public String getServerInfo();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码一</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试 ServletContext
+ */
+@WebServlet("/TestServletContext")
+public class TestServletContext1 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        // 获取上下文对象
+        ServletContext servletContext = request.getServletContext();
+
+        // 获取当前的项目的实际目录
+        String realPath = servletContext.getRealPath("/");
+        System.out.println("realPath：" + realPath);
+
+        // 获取运行 servlet 的 servlet 容器的名称和版本
+        String serverInfo = servletContext.getServerInfo();
+        System.out.println("serverInfo：" + serverInfo);
+
+        // 获取当前项目的根目录和jsp页面中用于和html页面联系的路由
+        String contextPath = servletContext.getContextPath();
+        System.out.println("contextPath：" + contextPath);
+
+        // 设置请求参数
+        servletContext.setAttribute("ServletContext", "上下文对象");
+        servletContext.setAttribute("Person", new Person("易烊千玺", 20));
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码二</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试 ServletContext2
+ */
+@WebServlet("/TestServletContext2")
+public class TestServletContext2 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        // 获取上下文对象
+        ServletContext servletContext = request.getServletContext();
+
+        // 返回具有给定名称的servlet容器属性，如果没有该名称的属性，则返回null
+        Object context = servletContext.getAttribute("ServletContext");
+        Person person = (Person) servletContext.getAttribute("Person");
+
+        System.out.println("ServletContext对应的值：" + context);
+        System.out.println("Person对应的值：" + person);
+
+        // 删除对应的属性和属性值
+        servletContext.removeAttribute("Person");
+        Person person1 = (Person) servletContext.getAttribute("Person");
+        System.out.println("删除后的Person对象：" + person1);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
