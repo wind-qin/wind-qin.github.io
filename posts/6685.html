@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2020-12-15
                 </div>
 				<div class="info-break-policy">
 					 
@@ -1132,7 +1132,7 @@ public class RegisterServlet extends HttpServlet {
 <blockquote>
 <p>【注意】这里使用了C3P3连接池，需要导入相关的 jar 包以及配置文件，如果使用 Druid 连接池需要修改 Druid.properties 文件的位置并修改代码， 不推荐！</p>
 </blockquote>
-<h2 id="Servlet-1"><a href="#Servlet-1" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="重定向【重点】"><a href="#重定向【重点】" class="headerlink" title="重定向【重点】"></a>重定向【重点】</h3><blockquote>
+<h3 id="重定向【重点】"><a href="#重定向【重点】" class="headerlink" title="重定向【重点】"></a>重定向【重点】</h3><blockquote>
 <p>浏览器发送HTTP请求 =&gt; 服务器<br>服务器接收到请求之后 发送302状态码 新的location =&gt; 浏览器<br>浏览器收到302状态码 + location 按照新的location发送新的请求 =&gt; 服务器</p>
 </blockquote>
 <p>特点</p>
@@ -1435,7 +1435,177 @@ public class TestServletContext2 extends HttpServlet {
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="HttpServletRequest"><a href="#HttpServletRequest" class="headerlink" title="HttpServletRequest"></a>HttpServletRequest</h3><p>通过定义一个 ServletRequest 对象来向 Servlet 提供客户端请求信息</p>
+<blockquote>
+<ul>
+<li>Servlet 容器创建一个 ServletRequest 对象，并将其作为参数传递给 Servlet 的 service 方法</li>
+<li>ServletRequest 对象提供数据，包括参数名和值、属性和输入流。扩展ServletRequest 的接口可以提供附加协议特定的数据(例如，HttpServletRequest 提供HTTP数据)</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 获取请求参数的类型，get或者post等
+String getMethod();
 
+// 【重点】获取不包含参数的URL，返回值类型是StringBuffer，便于对其进行操作
+StringBuffer getRequestURL();
+
+// 获取请求URL中的路径部分
+String getRequestURI();
+
+// 获取完整的请求参数对应的字符串
+String getQueryString();
+
+// 【重点】获取请求参数对应的map集合
+Map getParameterMap();
+
+// 获取访问用户的主机
+String getRemoteHost();
+
+// 如果访问用户通过了认证，则返回用户名，否则返回null
+String getRemoteUser();
+
+// 获取访问用户的最后一个代理IP地址
+String getRemoteAddr();
+
+// 获取访问用户的访问源端口号
+int getRemotePort();
+
+// 获取请求参数的参数名的枚举类型表示
+Enumeration<String> getParameterNames();
+
+// 通过参数名获取字符串数组类型的参数值
+String[] getParameterValues(String var1);
+
+// 获取对应请求头的值
+String getHeader(String var1);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试请求对象
+ */
+@WebServlet("/request")
+public class TestRequestServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 获取请求参数的类型
+        String method = req.getMethod();
+        System.out.println(method);
+
+        // 获取请求URL
+        StringBuffer requestURL = req.getRequestURL();
+        System.out.println(requestURL);
+
+        // 获取请求URL中的路径部分
+        String requestURI = req.getRequestURI();
+        System.out.println(requestURI);
+
+        // 获取请求路径中的资源名
+        System.out.println(requestURI.substring(requestURI.lastIndexOf('/')));
+
+        // 获取完整的请求参数对应的字符串
+        String queryString = req.getQueryString();
+        System.out.println(queryString);
+
+        // 获取请求参数对应的map集合
+        Map<String, String[]> map = req.getParameterMap();
+
+        // 遍历map中的数据
+        Set<Map.Entry<String, String[]>> entries = map.entrySet();
+        for (Map.Entry<String, String[]> entry: entries) {
+            System.out.println(entry.getKey() + ":" + Arrays.toString(entry.getValue()));
+        }
+
+        // 获取访问用户的主机
+        String remoteHost = req.getRemoteHost();
+        System.out.println(remoteHost);
+
+        // 如果访问用户通过了认证，则返回用户名，否则返回null
+        String remoteUser = req.getRemoteUser();
+        System.out.println(remoteUser);
+
+        // 获取访问用户的最后一个代理IP地址
+        String remoteAddr = req.getRemoteAddr();
+        System.out.println(remoteAddr);
+
+        // 获取访问用户的访问源端口号
+        int remotePort = req.getRemotePort();
+        System.out.println(remotePort);
+
+        // 获取请求参数的枚举类型表示
+        Enumeration<String> names = req.getParameterNames();
+
+        // 枚举类型的遍历
+        while (names.hasMoreElements()) {
+            // 获取每一个参数名
+            String name = names.nextElement();
+            System.out.println(name);
+
+            // 获取参数名对应的值
+            String value = req.getParameter(name);
+            System.out.println(value);
+
+            // 获取字符串数组形式的参数名对应的值
+            String[] values = req.getParameterValues(name);
+
+            // 参数值遍历
+            for (String paramValue: values) {
+                System.out.println(paramValue);
+            }
+        }
+
+        // 获取对应请求头的值
+        String header = req.getHeader("Accept-Language");
+        System.out.println(header);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a>HttpServletResponse</h3><p>用户发送请求到服务器，服务器会对应当前用户的请求针对性地提供响应，对应的就是HttpServletResponse 对象</p>
+<blockquote>
+<p>服务器可以通过 response 对象发送响应告知浏览器，浏览器可以根据服务器响应数据进行解析操作。</p>
+</blockquote>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">// 设置响应内容编码集
+void setCharacterEncoding(String charset);
+
+// 获取字符输出流对象
+PrintWriter getWriter();
+
+// 设置具有给定名称和值的响应头。如果响应头已经设置，则新值将覆盖前一个值。
+void setHeader(String var1, String var2);
+
+// 设置响应状态码
+void setStatus(int var1);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>案例代码</p>
+<pre class="line-numbers language-lang-java"><code class="language-lang-java">/**
+ * 测试响应对象中的方法
+ */
+@WebServlet("/response")
+public class TestResponseServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 设置响应内容编码集为UTF-8
+        resp.setContentType("text/html; charset=UTF-8");
+
+        // 设置具有给定名称和值的响应头。如果响应头已经设置，则新值将覆盖前一个值。
+        resp.setHeader("stuId", "123456");
+
+        // 设置响应状态码
+        resp.setStatus(404);
+
+        resp.getWriter().append("<h1>国家有力量，人民有希望</h1>");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
             </div>
             <hr/>
 
