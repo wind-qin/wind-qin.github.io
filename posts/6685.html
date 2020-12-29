@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2020-12-28
                 </div>
 				<div class="info-break-policy">
 					 
@@ -1241,7 +1241,7 @@ public class TestForwardServlet extends HttpServlet {
         // 设置自定义请求参数，保存到 request 中
         request.setAttribute("Forward", "转发成功");
 
-        // 获取请求调度并器将 request 和 response 转发给 TestForWardServlet2
+        // 获取请求调度并器将 request 和 response 转发给 TestForWardServleTo
         request.getRequestDispatcher("TestForwardServletTo").forward(request, response);
     }
 }
