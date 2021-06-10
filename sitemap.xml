@@ -249,14 +249,14 @@
 
   
   <url>
-    <loc>https://ialoe.top/tags/servlet/</loc>
+    <loc>https://ialoe.top/tags/Excel%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/Excel%E5%87%BD%E6%95%B0/</loc>
+    <loc>https://ialoe.top/tags/servlet/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -270,14 +270,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/MySQL/</loc>
+    <loc>https://ialoe.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://ialoe.top/tags/MySQL/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -349,14 +349,14 @@
 
   
   <url>
-    <loc>https://ialoe.top/categories/Cookie-Session/</loc>
+    <loc>https://ialoe.top/categories/Excel%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/Excel%E5%87%BD%E6%95%B0/</loc>
+    <loc>https://ialoe.top/categories/Cookie-Session/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -370,21 +370,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/MySQL/</loc>
-    <lastmod>2021-06-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/categories/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5/</loc>
-    <lastmod>2021-06-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ialoe.top/categories/node-js/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -398,6 +384,20 @@
   </url>
   
   <url>
+    <loc>https://ialoe.top/categories/MySQL/</loc>
+    <lastmod>2021-06-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/categories/node-js/</loc>
+    <lastmod>2021-06-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ialoe.top/categories/Tomcat/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
@@ -405,14 +405,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/Servlet/</loc>
+    <loc>https://ialoe.top/categories/Typora/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/Typora/</loc>
+    <loc>https://ialoe.top/categories/Servlet/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -489,14 +489,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://ialoe.top/categories/%E8%AF%97%E9%9B%86/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E8%AF%97%E9%9B%86/</loc>
+    <loc>https://ialoe.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
