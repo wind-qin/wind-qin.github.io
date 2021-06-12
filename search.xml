@@ -523,23 +523,23 @@
     
     
     <entry>
-      <title>Github图床搭建</title>
+      <title>图床搭建</title>
       <link href="posts/53653.html"/>
       <url>posts/53653.html</url>
       
-        <content type="html"><![CDATA[<p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p><h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a href="https://share.weiyun.com/mSUFa7MN" target="_blank" rel="noopener">传送门</a></p><h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a>2 安装软件，打开软件，图床设置</h3><pre class="line-numbers language-lang-json"><code class="language-lang-json">{  "repo": "", // 仓库名，格式是username/reponame  "token": "", // github token  "path": "", // 自定义存储路径，比如img/  "customUrl": "", // 自定义域名，注意要加http://或者https://  "branch": "" // 分支名，默认是master}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="1-首先你得有一个GitHub账号。注册GitHub就不用我多言。"><a href="#1-首先你得有一个GitHub账号。注册GitHub就不用我多言。" class="headerlink" title="1. 首先你得有一个GitHub账号。注册GitHub就不用我多言。"></a><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。</h4><h4 id="2-新建一个仓库"><a href="#2-新建一个仓库" class="headerlink" title="2. 新建一个仓库"></a><strong>2.</strong> 新建一个仓库</h4><p>记下你取的仓库名。</p><p>如我的：</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201031123905.png" alt="1"></p><h4 id="3-生成一个token用于PicGo操作你的仓库："><a href="#3-生成一个token用于PicGo操作你的仓库：" class="headerlink" title="3. 生成一个token用于PicGo操作你的仓库："></a><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</h4><p>访问：<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a></p><p>然后点击<code>Generate new token</code>。</p><p>把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token。</p><h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h4><p>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p><h4 id="4-配置PicGo"><a href="#4-配置PicGo" class="headerlink" title="4. 配置PicGo"></a><strong>4.</strong> 配置PicGo</h4><p><strong>注意：</strong>仓库名的格式是<code>用户名/仓库</code>  中间不能出现空格，比如我创建了一个叫做Picture的仓库，在PicGo里我要设定的仓库名就是<code>wind-qin/Picture</code>。一般我们选择<code>master</code>分支即可。然后记得点击确定以生效，然后可以点击<code>设为默认图床</code>来确保上传的图床是GitHub。</p><p>如图：</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201031124250.png" alt="图床1"></p><h4 id="5-配置Typora"><a href="#5-配置Typora" class="headerlink" title="5. 配置Typora"></a><strong>5.</strong> 配置Typora</h4><p>然后点击Typora左上角文件     偏好设置 点击图像</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201106120628.png" alt="image-20201106120619756"></p><p>点击验证图片上传选项为true则配置正确</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201106120714.png" alt="image-20201106120711559"></p><p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p><p>如想了解其他图床的安装请前往：</p><p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></p>]]></content>
+        <content type="html"><![CDATA[<p>由于平时在写markdown文档时会引用很多的图片，但是图片是不可以直接粘贴上去的，所以我一般都要把图片放在一个文件夹里面，再导入图片。这样做比较繁琐，而且还存在如果我修改了路径，图片就不显示的问题。<br> 于是就发现了这个神器——<strong>PicGo</strong></p><h3 id="1、先下载个PicGo，如下"><a href="#1、先下载个PicGo，如下" class="headerlink" title="1、先下载个PicGo，如下"></a>1、先下载个PicGo，如下</h3><p><a href="https://share.weiyun.com/mSUFa7MN" target="_blank" rel="noopener">传送门</a></p><h3 id="2-安装软件，打开软件，图床设置"><a href="#2-安装软件，打开软件，图床设置" class="headerlink" title="2 安装软件，打开软件，图床设置"></a>2 安装软件，打开软件，图床设置</h3><pre class="line-numbers language-lang-json"><code class="language-lang-json">{  "repo": "", // 仓库名，格式是username/reponame  "token": "", // github token  "path": "", // 自定义存储路径，比如img/  "customUrl": "", // 自定义域名，注意要加http://或者https://  "branch": "" // 分支名，默认是master}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="1-首先你得有一个GitHub账号。注册GitHub就不用我多言。"><a href="#1-首先你得有一个GitHub账号。注册GitHub就不用我多言。" class="headerlink" title="1. 首先你得有一个GitHub账号。注册GitHub就不用我多言。"></a><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。</h4><h4 id="2-新建一个仓库"><a href="#2-新建一个仓库" class="headerlink" title="2. 新建一个仓库"></a><strong>2.</strong> 新建一个仓库</h4><p>记下你取的仓库名。</p><p>如我的：</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201031123905.png" alt="1"></p><h4 id="3-生成一个token用于PicGo操作你的仓库："><a href="#3-生成一个token用于PicGo操作你的仓库：" class="headerlink" title="3. 生成一个token用于PicGo操作你的仓库："></a><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</h4><p>访问：<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a></p><p>然后点击<code>Generate new token</code>。</p><p>把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token。</p><h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h4><p>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p><h4 id="4-配置PicGo"><a href="#4-配置PicGo" class="headerlink" title="4. 配置PicGo"></a><strong>4.</strong> 配置PicGo</h4><p><strong>注意：</strong>仓库名的格式是<code>用户名/仓库</code>  中间不能出现空格，比如我创建了一个叫做Picture的仓库，在PicGo里我要设定的仓库名就是<code>wind-qin/Picture</code>。一般我们选择<code>master</code>分支即可。然后记得点击确定以生效，然后可以点击<code>设为默认图床</code>来确保上传的图床是GitHub。</p><blockquote><p>自定义域名加上CDN加速 <code>https://cdn.jsdelivr.net/gh</code>，加快上传速度</p></blockquote><p>如图：</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201031124250.png" alt="图床1"></p><h4 id="5-配置Typora"><a href="#5-配置Typora" class="headerlink" title="5. 配置Typora"></a><strong>5.</strong> 配置Typora</h4><p>然后点击Typora左上角文件     偏好设置 点击图像</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201106120628.png" alt="image-20201106120619756"></p><p>点击验证图片上传选项为true则配置正确</p><p><img src="https://cdn.jsdelivr.net/gh/wind-qin/Picture@master/20201106120714.png" alt="image-20201106120711559"></p><p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p><h3 id="gitee上传"><a href="#gitee上传" class="headerlink" title="gitee上传"></a>gitee上传</h3><blockquote><p>下载插件</p></blockquote><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061201.png" alt="2021061201"></p><h3 id="生成私人令牌"><a href="#生成私人令牌" class="headerlink" title="生成私人令牌"></a>生成私人令牌</h3><ol><li>登录Gitee后，把鼠标移动到右上角头像，点设置进入，找到左边的<code>私人令牌</code>。</li></ol><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061202.png" alt="2021061202"></p><p>2.点击<code>生成新令牌</code>，在弹出的页面中按下图填写和选择，点击<code>提交</code>，<code>复制并保存</code>生产的令牌，一定要保存，后面会用到。</p><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061203.png" alt="2021061203"></p><h4 id="配置PicGo中Gitee上传插件"><a href="#配置PicGo中Gitee上传插件" class="headerlink" title="配置PicGo中Gitee上传插件"></a>配置PicGo中Gitee上传插件</h4><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061204.png" alt="2021061204"></p><blockquote><p>repo  用户名+仓库名</p><p>branch  默认</p><p>token：令牌</p></blockquote><p>如想了解其他图床的安装请前往：</p><p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></p>]]></content>
       
       
       <categories>
           
-          <category> github图床搭建 </category>
+          <category> 图床搭建 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> 写博客工具 </tag>
             
         </tags>
       
@@ -673,31 +673,6 @@
     
     
     <entry>
-      <title>博客</title>
-      <link href="posts/56568.html"/>
-      <url>posts/56568.html</url>
-      
-        <content type="html"><![CDATA[<p>此人比较懒惰。未填写内容</p><p>如想详细创建博客请移步另博客，链接如下：</p><p><a href="https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242" target="_blank" rel="noopener">https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242</a></p><p>如想优化博客：</p><p><a href="https://www.islu.cn/posts/9443.html" target="_blank" rel="noopener">https://www.islu.cn/posts/9443.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 博客 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 博客 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Java基础</title>
       <link href="posts/38943.html"/>
       <url>posts/38943.html</url>
@@ -715,6 +690,31 @@
         <tags>
             
             <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客</title>
+      <link href="posts/56568.html"/>
+      <url>posts/56568.html</url>
+      
+        <content type="html"><![CDATA[<p>此人比较懒惰。未填写内容</p><p>如想详细创建博客请移步另博客，链接如下：</p><p><a href="https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242" target="_blank" rel="noopener">https://blog.csdn.net/sunhwee/article/details/100109805?utm_medium=distribute.pc_relevant.none-task-blog-title-2&amp;spm=1001.2101.3001.4242</a></p><p>如想优化博客：</p><p><a href="https://www.islu.cn/posts/9443.html" target="_blank" rel="noopener">https://www.islu.cn/posts/9443.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
             
         </tags>
       
