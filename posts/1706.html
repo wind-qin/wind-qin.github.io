@@ -420,7 +420,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    994
+                    1k
                 </div>
                 
 
@@ -440,16 +440,16 @@
                 <h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="一-：下载"><a href="#一-：下载" class="headerlink" title="一 ：下载"></a>一 ：下载</h2><p>nginx下载地址：</p>
 <p> <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">传送门</a> </p>
 <p>【注意：解压文件路径不要使用中文~~容易报错】</p>
-<p>![1]<img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106111.png" alt="">)</p>
-<h2 id="二：解压打开对应界面"><a href="#二：解压打开对应界面" class="headerlink" title="二：解压打开对应界面"></a>二：解压打开对应界面</h2><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2.png" alt="2"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106111.png" alt="1"></p>
+<h2 id="二：解压打开对应界面"><a href="#二：解压打开对应界面" class="headerlink" title="二：解压打开对应界面"></a>二：解压打开对应界面</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106112.png" alt="2"></p>
 <h2 id="三：开启服务"><a href="#三：开启服务" class="headerlink" title="三：开启服务"></a>三：开启服务</h2><p>【注意：nginx打开没有输出日志】</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106113.png" alt="202106113"></p>
-<h2 id="四：查看端口"><a href="#四：查看端口" class="headerlink" title="四：查看端口"></a>四：查看端口</h2><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106114.png" alt="202106114"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106115.png" alt="202106115"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106116.png" alt="202106116"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106113.png" alt="3"></p>
+<h2 id="四：查看端口"><a href="#四：查看端口" class="headerlink" title="四：查看端口"></a>四：查看端口</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106114.png" alt="4"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106115.png" alt="5"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106116.png" alt="6"></p>
 <h2 id="五：检测"><a href="#五：检测" class="headerlink" title="五：检测"></a>五：检测</h2><p>在浏览器端打开 <a href="http://localhost:80" target="_blank" rel="noopener">http://localhost:80</a> </p>
 <p>如图打开成功</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106117.png" alt="202106117"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106117.png" alt="7"></p>
 <h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><pre><code> 安装nginx前，我们首先要确保系统安装了g++、gcc、openssl-devel、pcre-devel和zlib-devel软件
 </code></pre><p>安装命令：</p>
 <h5 id="gcc安装"><a href="#gcc安装" class="headerlink" title="gcc安装"></a>gcc安装</h5><p>​    GCC编译器是Linux下最常用的C/C++编译器,它以gcc命令的形式呈现</p>
@@ -477,36 +477,72 @@
 <p> <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">传送门</a> </p>
 <p>解压</p>
 <pre><code>tar -zxvf  [压缩包]
-</code></pre><pre><code>cd [解压包]#执行配置文件./configuremakemake install
-</code></pre><h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><pre><code>#查看nginx路径[root@mapper nginx-1.20.0]# whereis nginxnginx: /usr/local/nginx[root@mapper nginx-1.20.0]# cd  /usr/local/nginx[root@mapper nginx]# lsconf  html  logs  sbin[root@mapper nginx]# cd sbin/[root@mapper sbin]# lsnginx[root@mapper sbin]# ./nginx #两种停止方式#停止        强制停止[root@mapper sbin]# ./nginx  -s stop#安全退出 一项一项的退出[root@mapper sbin]# ./nginx  -s quit#查看nginx进程ps anx|grep nginx
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106118.png" alt="202106118"></p>
-<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><pre><code>[root@mapper nginx]# lsclient_body_temp  conf  fastcgi_temp  html  logs  proxy_temp  sbin  scgi_temp  uwsgi_temp[root@mapper nginx]# cd conf[root@mapper conf]# lsfastcgi.conf          fastcgi_params.default  mime.types          nginx.conf.default   uwsgi_paramsfastcgi.conf.default  koi-utf                 mime.types.default  scgi_params          uwsgi_params.defaultfastcgi_params        koi-win                 nginx.conf          scgi_params.default  win-utf[root@mapper conf]# cat nginx.conf
-</code></pre><pre><code>vim nginx.conf#重新加载配置文件./nginx -s reload
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106119.png" alt="202106119"></p>
+</code></pre><pre><code>cd [解压包]
+#执行配置文件
+./configure
+make
+make install
+</code></pre><h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><pre><code>#查看nginx路径
+[root@mapper nginx-1.20.0]# whereis nginx
+nginx: /usr/local/nginx
+[root@mapper nginx-1.20.0]# cd  /usr/local/nginx
+[root@mapper nginx]# ls
+conf  html  logs  sbin
+[root@mapper nginx]# cd sbin/
+[root@mapper sbin]# ls
+nginx
+[root@mapper sbin]# ./nginx 
+
+#两种停止方式
+#停止        强制停止
+[root@mapper sbin]# ./nginx  -s stop
+#安全退出 一项一项的退出
+[root@mapper sbin]# ./nginx  -s quit
+#查看nginx进程
+ps anx|grep nginx
+</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106118.png" alt="8"></p>
+<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><pre><code>[root@mapper nginx]# ls
+client_body_temp  conf  fastcgi_temp  html  logs  proxy_temp  sbin  scgi_temp  uwsgi_temp
+[root@mapper nginx]# cd conf
+[root@mapper conf]# ls
+fastcgi.conf          fastcgi_params.default  mime.types          nginx.conf.default   uwsgi_params
+fastcgi.conf.default  koi-utf                 mime.types.default  scgi_params          uwsgi_params.default
+fastcgi_params        koi-win                 nginx.conf          scgi_params.default  win-utf
+[root@mapper conf]# cat nginx.conf
+</code></pre><pre><code>vim nginx.conf
+#重新加载配置文件
+./nginx -s reload
+</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106119.png" alt="9"></p>
 <p>默认端口80</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061110.png" alt="2021061110"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061110.png" alt="10"></p>
 <pre><code>http://ip地址/80
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/202106117.png" alt="202106117"></p>
+</code></pre><p><img src="C:\Users\HP\Desktop\nginx\img\202106117.png" alt="7"></p>
 <p>打开成功！！！</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>正向代理 ：主动</p>
 <p>反向代理 ：被动</p>
-<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061111.png" alt="2021061111"></p>
-<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061114.png" alt="2021061114"></p>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061111.png" alt="11"></p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061114.png" alt="14"></p>
 <h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>打开nginx-1.20.0\nginx-1.20.0\conf</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061115.png" alt="2021061115"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061115.png" alt="15"></p>
 <p>如图进行根据添加：</p>
 <p>【注意：使用;号结尾 不然会报错】</p>
-<pre><code>    #负载均衡    upstream mapper {   #upstream为固定语句 mapper可以随意起名    #服务器资源 使用;号结尾 不然会报错        server 127.0.0.1:8080 weight=1; #权重 负载均衡 数字表示一轮进入的次数        server 127.0.0.1:8081 weight=1; #权重 负载均衡    }
-</code></pre><pre><code>#反向代理proxy_pass http://mapper;  #mapper为上方所起名;上下名一致
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061116.png" alt="2021061116"></p>
+<pre><code>    #负载均衡
+    upstream mapper {   #upstream为固定语句 mapper可以随意起名
+    #服务器资源 使用;号结尾 不然会报错
+        server 127.0.0.1:8080 weight=1; #权重 负载均衡 数字表示一轮进入的次数
+        server 127.0.0.1:8081 weight=1; #权重 负载均衡
+    }
+</code></pre><pre><code>#反向代理
+proxy_pass http://mapper;  #mapper为上方所起名;上下名一致
+</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061116.png" alt="16"></p>
 <p>修改过配置文件，重新加载一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2.png" alt="2"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106112.png" alt=""></p>
 <p>输入命令重新加载</p>
 <pre><code>nginx -s reload
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061112.png" alt="2021061112"></p>
+</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061112.png" alt="12"></p>
 <p>然后输如<code>nginx.exe</code>重新启动打开浏览器使用</p>
 <p>打开如下或者自己的项目 ；如不是再次打开一个<code>cmd</code> 输入<code>nginx -s reload</code>重新加载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/EayonLee/IMG-Cloud@master/2021061113.png" alt="2021061113"></p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061113.png" alt="13"></p>
 
             </div>
             <hr/>
