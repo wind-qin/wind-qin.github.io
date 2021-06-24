@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-11
+                    2021-06-24
                 </div>
 				<div class="info-break-policy">
 					 <i class="fa fa-pencil">
@@ -420,7 +420,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -437,7 +437,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="一-：下载"><a href="#一-：下载" class="headerlink" title="一 ：下载"></a>一 ：下载</h2><p>nginx下载地址：</p>
+                <h1 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h1><h2 id="一-：下载"><a href="#一-：下载" class="headerlink" title="一 ：下载"></a>一 ：下载</h2><p>nginx下载地址：</p>
 <p> <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">传送门</a> </p>
 <p>【注意：解压文件路径不要使用中文~~容易报错】</p>
 <p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106111.png" alt="1"></p>
@@ -450,7 +450,7 @@
 <h2 id="五：检测"><a href="#五：检测" class="headerlink" title="五：检测"></a>五：检测</h2><p>在浏览器端打开 <a href="http://localhost:80" target="_blank" rel="noopener">http://localhost:80</a> </p>
 <p>如图打开成功</p>
 <p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106117.png" alt="7"></p>
-<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><pre><code> 安装nginx前，我们首先要确保系统安装了g++、gcc、openssl-devel、pcre-devel和zlib-devel软件
+<h1 id="linux安装"><a href="#linux安装" class="headerlink" title="linux安装"></a>linux安装</h1><pre><code> 安装nginx前，我们首先要确保系统安装了g++、gcc、openssl-devel、pcre-devel和zlib-devel软件
 </code></pre><p>安装命令：</p>
 <h5 id="gcc安装"><a href="#gcc安装" class="headerlink" title="gcc安装"></a>gcc安装</h5><p>​    GCC编译器是Linux下最常用的C/C++编译器,它以gcc命令的形式呈现</p>
 <p>检查是否安装</p>
@@ -516,14 +516,14 @@ fastcgi_params        koi-win                 nginx.conf          scgi_params.de
 <p>默认端口80</p>
 <p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061110.png" alt="10"></p>
 <pre><code>http://ip地址/80
-</code></pre><p><img src="C:\Users\HP\Desktop\nginx\img\202106117.png" alt="7"></p>
+</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106117.png" alt="7"></p>
 <p>打开成功！！！</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>正向代理 ：主动</p>
 <p>反向代理 ：被动</p>
 <h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061111.png" alt="11"></p>
 <h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061114.png" alt="14"></p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>打开nginx-1.20.0\nginx-1.20.0\conf</p>
-<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061115.png" alt="15"></p>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061117.jpg" alt="2021061117"></p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h5 id="打开nginx-1-20-0-nginx-1-20-0-conf"><a href="#打开nginx-1-20-0-nginx-1-20-0-conf" class="headerlink" title="打开nginx-1.20.0\nginx-1.20.0\conf"></a>打开nginx-1.20.0\nginx-1.20.0\conf</h5><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061115.png" alt="15"></p>
 <p>如图进行根据添加：</p>
 <p>【注意：使用;号结尾 不然会报错】</p>
 <pre><code>    #负载均衡
@@ -534,7 +534,28 @@ fastcgi_params        koi-win                 nginx.conf          scgi_params.de
     }
 </code></pre><pre><code>#反向代理
 proxy_pass http://mapper;  #mapper为上方所起名;上下名一致
-</code></pre><p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061116.png" alt="16"></p>
+</code></pre><p>　　动静分离的原理很简单，通过location对请求url进行匹配即可，在<strong>/Users/Hao/Desktop/Test</strong>（任意目录）下创建 <strong>/static/imgs</strong> 配置如下：</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">###静态资源访问
+server {
+  listen       80;
+  server_name  static.haoworld.com;
+  location /static/imgs {
+       root /Users/Hao/Desktop/Test;
+       index  index.html index.htm;
+   }
+}
+###动态资源访问
+ server {
+  listen       80;
+  server_name  www.haoworld.com;
+
+  location / {
+    proxy_pass http://127.0.0.1:8080;
+     index  index.html index.htm;
+   }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/2021061116.png" alt="16"></p>
 <p>修改过配置文件，重新加载一下</p>
 <p><img src="https://gitee.com/qinjunxiang/p1/raw/master/202106112.png" alt=""></p>
 <p>输入命令重新加载</p>
