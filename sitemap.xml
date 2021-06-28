@@ -277,13 +277,6 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/MySQL/</loc>
-    <lastmod>2021-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/tags/JSP/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
@@ -292,6 +285,13 @@
   
   <url>
     <loc>https://ialoe.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2021-06-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/tags/MySQL/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -333,13 +333,6 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/Java/</loc>
-    <lastmod>2021-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
@@ -354,7 +347,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/tags/java%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://ialoe.top/tags/Java/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -362,6 +355,13 @@
   
   <url>
     <loc>https://ialoe.top/tags/java/</loc>
+    <lastmod>2021-06-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/tags/java%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -398,14 +398,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/MySQL/</loc>
-    <lastmod>2021-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ialoe.top/categories/JSP/</loc>
+    <loc>https://ialoe.top/categories/JSON/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -419,7 +412,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/JSON/</loc>
+    <loc>https://ialoe.top/categories/JSP/</loc>
+    <lastmod>2021-06-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/categories/MySQL/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -447,14 +447,14 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/Typora/</loc>
+    <loc>https://ialoe.top/categories/Servlet/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://ialoe.top/categories/Typora/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -468,6 +468,13 @@
   </url>
   
   <url>
+    <loc>https://ialoe.top/categories/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2021-06-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ialoe.top/categories/idea/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
@@ -475,21 +482,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2021-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ialoe.top/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ialoe.top/categories/Servlet/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -510,7 +503,7 @@
   </url>
   
   <url>
-    <loc>https://ialoe.top/categories/java%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://ialoe.top/categories/%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -518,6 +511,13 @@
   
   <url>
     <loc>https://ialoe.top/categories/java/</loc>
+    <lastmod>2021-06-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ialoe.top/categories/java%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2021-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

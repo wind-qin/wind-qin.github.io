@@ -420,7 +420,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    736
+                    740
                 </div>
                 
 
@@ -608,6 +608,18 @@ hello-world   latest    d1165f221234   3 months ago   13.3kB
 <p>完整启动流程</p>
 <pre class="line-numbers language-lang-shell"><code class="language-lang-shell">docker    cp 容器id：容器内路径  目的的的主机路径[root@Linux02 home]# systemctl restart docker #启动服务[root@Linux02 home]# docker run -it centos /bin/bash[root@7d4f759c759a /]# cd /home[root@7d4f759c759a home]# ls[root@7d4f759c759a home]# touch mapper.java[root@7d4f759c759a home]# lsmapper.java[root@7d4f759c759a home]# [root@Linux02 home]# [root@Linux02 home]# docker psCONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES7d4f759c759a   centos    "/bin/bash"   42 seconds ago   Up 41 seconds             strange_neumann[root@Linux02 home]# docker cp 7d4f759c759a:/home/mapper.java /home[root@Linux02 home]# lsmapper  mapper01  mapper.java  mysql  test  test.java
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h3 id="什么是容器数据卷"><a href="#什么是容器数据卷" class="headerlink" title="什么是容器数据卷"></a>什么是容器数据卷</h3><h6 id="docker的理念回顾"><a href="#docker的理念回顾" class="headerlink" title="docker的理念回顾"></a>docker的理念回顾</h6><p>将应用和环境打包成一个镜像！</p>
+<p>数据?如果数据都在容器中,那么我们容器删除,数据就会丢失!需求:数据可以持久化MySQL,容器删了,删库跑路!需求: MySQL数据可以存储在本地!</p>
+<p>容器之间可以有一个数据共享的技术! Docker容器中产生的数据,同步到本地! </p>
+<p>这就是卷技术!目录的挂载,将我们容器内的目录,挂载到Linux上面!</p>
+<p><img src="https://gitee.com/qinjunxiang/p1/raw/master/image-20210628234655350.png" alt="image-20210628234655350"></p>
+<h6 id="总结一句话：容器的持久化和同步操作！"><a href="#总结一句话：容器的持久化和同步操作！" class="headerlink" title="总结一句话：容器的持久化和同步操作！"></a>总结一句话：容器的持久化和同步操作！</h6><h3 id="使用数据卷"><a href="#使用数据卷" class="headerlink" title="使用数据卷"></a>使用数据卷</h3><blockquote>
+<p>方式一：直接使用命令挂载 -v</p>
+</blockquote>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">docker run -it -v 主目录：容器内目录  centos /bin/bash
+
+docker run -it -v /home/ceshi:/home`  centos /bin/bash
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="Nginx的安装"><a href="#Nginx的安装" class="headerlink" title="Nginx的安装"></a>Nginx的安装</h2><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">[root@Linux02 ~]# docker pull nginx:latest        #安装最新版latest: Pulling from library/nginxb4d181a07f80: Pull complete edb81c9bc1f5: Pull complete b21fed559b9f: Pull complete 03e6a2452751: Pull complete b82f7f888feb: Pull complete 5430e98eba64: Pull complete Digest: sha256:47ae43cdfc7064d28800bc42e79a429540c7c80168e8c8952778c0d5af1c09dbStatus: Downloaded newer image for nginx:latestdocker.io/library/nginx:latest
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>nginx端口暴露</p>
@@ -644,6 +656,7 @@ hello-world   latest    d1165f221234   3 months ago   13.3kB
 <p>测试</p>
 <pre class="line-numbers language-lang-shell"><code class="language-lang-shell">[root@Linux02 DockerFile]# cat cmd-centos FROM centosCMD ["ls","-a"]#构建镜像[root@Linux02 DockerFile]# docker build -f cmd-centos  -t cmd:1.0 .Sending build context to Docker daemon  54.27kBStep 1/2 : FROM centos ---> 300e315adb2fStep 2/2 : CMD ["ls","-a"] ---> Running in a31debfa8f0dRemoving intermediate container a31debfa8f0d ---> 4331d0d25c4fSuccessfully built 4331d0d25c4fSuccessfully tagged cmd:1.0#run运行，发现我们的ls -a 命令生效[root@Linux02 DockerFile]# docker run 4331d0d25c4f....dockerenvbindevetchomeliblib64lost+foundmediamnt[root@Linux02 DockerFile]# docker run 4331d0d25c4f -ldocker: Error response from daemon: OCI runtime create failed: container_linux.go:380: starting container process caused: exec: "-l": executable file not found in $PATH: unknown.#cmd 的情况下 -l 替换了CMD["ls","-a"]命令，-l 不是命令所以报错！[root@Linux02 DockerFile]# docker run 4331d0d25c4f ls -altotal 0drwxr-xr-x.   1 root root   6 Jun 28 15:04 .drwxr-xr-x.   1 root root   6 Jun 28 15:04 ..-rwxr-xr-x.   1 root root   0 Jun 28 15:04 .dockerenvlrwxrwxrwx.   1 root root   7 Nov  3  2020 bin -> usr/bindrwxr-xr-x.   5 root root 340 Jun 28 15:04 devdrwxr-xr-x.   1 root root  66 Jun 28 15:04 etcdrwxr-xr-x.   2 root root   6 Nov  3  2020 home
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>未完待续….</p>
 
             </div>
             <hr/>
